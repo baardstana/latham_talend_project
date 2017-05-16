@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<talendfile:ProcessType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" defaultContext="Default" jobType="Standard">
+  <context confirmationNeeded="false" name="Default">
+    <contextParameter comment="" name="environment" prompt="environment?" promptNeeded="false" repositoryContextId="_8iMKUDDGEee86NR65JQFlA" type="id_String" value="dev"/>
+    <contextParameter comment="" name="LDW_DWH_AdditionalParams" prompt="LDW_DWH_AdditionalParams?" promptNeeded="false" repositoryContextId="_x1RkkC5pEeeaXuPQxSDjCQ" type="id_String" value="allowMultiQueries=true"/>
+    <contextParameter comment="" name="LDW_DWH_Database" prompt="LDW_DWH_Database?" promptNeeded="false" repositoryContextId="_x1RkkC5pEeeaXuPQxSDjCQ" type="id_String" value="LDW_dev"/>
+    <contextParameter comment="" name="LDW_DWH_Login" prompt="LDW_DWH_Login?" promptNeeded="false" repositoryContextId="_x1RkkC5pEeeaXuPQxSDjCQ" type="id_String" value="lathamdw"/>
+    <contextParameter comment="" name="LDW_DWH_Password" prompt="LDW_DWH_Password?" promptNeeded="false" repositoryContextId="_x1RkkC5pEeeaXuPQxSDjCQ" type="id_Password" value="BQEu6ZHxH+23TQMgNOYhoButKOtQz8N9"/>
+    <contextParameter comment="" name="LDW_DWH_Port" prompt="LDW_DWH_Port?" promptNeeded="false" repositoryContextId="_x1RkkC5pEeeaXuPQxSDjCQ" type="id_String" value="3306"/>
+    <contextParameter comment="" name="LDW_DWH_Server" prompt="LDW_DWH_Server?" promptNeeded="false" repositoryContextId="_x1RkkC5pEeeaXuPQxSDjCQ" type="id_String" value="172.24.80.56"/>
+    <contextParameter comment="" name="LDW_Staging_AdditionalParams" prompt="LDW_Staging_AdditionalParams?" promptNeeded="false" repositoryContextId="_mmqXEC5pEeeaXuPQxSDjCQ" type="id_String" value="allowMultiQueries=true"/>
+    <contextParameter comment="" name="LDW_Staging_Port" prompt="LDW_Staging_Port?" promptNeeded="false" repositoryContextId="_mmqXEC5pEeeaXuPQxSDjCQ" type="id_String" value="3306"/>
+    <contextParameter comment="" name="LDW_Staging_Password" prompt="LDW_Staging_Password?" promptNeeded="false" repositoryContextId="_mmqXEC5pEeeaXuPQxSDjCQ" type="id_Password" value="BQEu6ZHxH+23TQMgNOYhoButKOtQz8N9"/>
+    <contextParameter comment="" name="LDW_Staging_Database" prompt="LDW_Staging_Database?" promptNeeded="false" repositoryContextId="_mmqXEC5pEeeaXuPQxSDjCQ" type="id_String" value="LDW_Staging_dev"/>
+    <contextParameter comment="" name="LDW_Staging_Server" prompt="LDW_Staging_Server?" promptNeeded="false" repositoryContextId="_mmqXEC5pEeeaXuPQxSDjCQ" type="id_String" value="RAC-LIFERAYDBPROD02"/>
+    <contextParameter comment="" name="LDW_Staging_Login" prompt="LDW_Staging_Login?" promptNeeded="false" repositoryContextId="_mmqXEC5pEeeaXuPQxSDjCQ" type="id_String" value="lathamdw"/>
+  </context>
+  <parameters>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_X" value="0" show="false"/>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" value="0" show="false"/>
+    <elementParameter field="TEXT" name="REPOSITORY_CONNECTION_ID" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_PROPERTY_TYPENAME" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_HADOOP_DISTRIBUTION" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_HADOOP_VERSION" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_ENABLE_KERBEROS" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_NAME_NODE_PRINCIPAL" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_USERNAME" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_GROUP" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_USE_KEYTAB" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_KT_PRINCIPAL" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_KEY_TAB" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_ENABLE_OO_KERBEROS" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_NAME_NODE_END_POINT" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_JOB_TRACKER_ENDPOINT" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_END_POINT" value="" show="false"/>
+    <elementParameter field="CHECK" name="IMPLICITCONTEXT_USE_PROJECT_SETTINGS" value="true" show="false"/>
+    <elementParameter field="CHECK" name="STATANDLOG_USE_PROJECT_SETTINGS" value="true" show="false"/>
+    <elementParameter field="CHECK" name="MULTI_THREAD_EXECATION" value="false"/>
+    <elementParameter field="TEXT" name="PARALLELIZE_UNIT_SIZE" value="25000"/>
+    <elementParameter field="CHECK" name="IMPLICIT_TCONTEXTLOAD" value="false"/>
+    <elementParameter field="RADIO" name="FROM_FILE_FLAG_IMPLICIT_CONTEXT" value="false" show="false"/>
+    <elementParameter field="RADIO" name="FROM_DATABASE_FLAG_IMPLICIT_CONTEXT" value="false" show="false"/>
+    <elementParameter field="FILE" name="IMPLICIT_TCONTEXTLOAD_FILE" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="FIELDSEPARATOR" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY_TYPE_IMPLICIT_CONTEXT:PROPERTY_TYPE" value="" show="false"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY_TYPE_IMPLICIT_CONTEXT:REPOSITORY_PROPERTY_TYPE" value="" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_TYPE_IMPLICIT_CONTEXT" value="" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION_IMPLICIT_CONTEXT" value="" show="false"/>
+    <elementParameter field="TEXT" name="URL_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TABLE" name="DRIVER_JAR_IMPLICIT_CONTEXT" show="false"/>
+    <elementParameter field="TEXT" name="DRIVER_CLASS_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="HOST_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PORT_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="DBNAME_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="LOCAL_SERVICE_NAME_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="USER_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="0RMsyjmybrE=" show="false"/>
+    <elementParameter field="FILE" name="DBFILE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="LOAD_NEW_VARIABLE" value="Warning" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="NOT_LOAD_OLD_VARIABLE" value="Warning" show="false"/>
+    <elementParameter field="CHECK" name="PRINT_OPERATIONS" value="false" show="false"/>
+    <elementParameter field="CHECK" name="DISABLE_ERROR" value="false" show="false"/>
+    <elementParameter field="CHECK" name="DISABLE_WARNINGS" value="false" show="false"/>
+    <elementParameter field="CHECK" name="DISABLE_INFO" value="false" show="false"/>
+    <elementParameter field="CHECK" name="ON_STATCATCHER_FLAG" value="false"/>
+    <elementParameter field="CHECK" name="ON_LOGCATCHER_FLAG" value="false"/>
+    <elementParameter field="CHECK" name="ON_METERCATCHER_FLAG" value="false"/>
+    <elementParameter field="CHECK" name="ON_CONSOLE_FLAG" value="false" show="false"/>
+    <elementParameter field="CHECK" name="ON_FILES_FLAG" value="false" show="false"/>
+    <elementParameter field="DIRECTORY" name="FILE_PATH" value="&quot;C:/TalendWorkspace/.metadata&quot;" show="false"/>
+    <elementParameter field="TEXT" name="FILENAME_STATS" value="&quot;stats_file.txt&quot;" show="false"/>
+    <elementParameter field="TEXT" name="FILENAME_LOGS" value="&quot;logs_file.txt&quot;" show="false"/>
+    <elementParameter field="TEXT" name="FILENAME_METTER" value="&quot;meter_file.txt&quot;" show="false"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="ISO-8859-15" show="false"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15" show="false"/>
+    <elementParameter field="CHECK" name="ON_DATABASE_FLAG" value="false" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_TYPE" value="tJDBCOutput" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="ORACLE_11" show="false"/>
+    <elementParameter field="TEXT" name="URL" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TABLE" name="DRIVER_JAR" show="false"/>
+    <elementParameter field="TEXT" name="DRIVER_CLASS" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="HOST" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PORT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="DATASOURCE" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="DBNAME" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="LOCAL_SERVICE_NAME" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
+    <elementParameter field="FILE" name="DBFILE" value="&quot;&quot;" show="false"/>
+    <elementParameter field="DBTABLE" name="TABLE_STATS" value="&quot;&quot;" show="false"/>
+    <elementParameter field="DBTABLE" name="TABLE_LOGS" value="&quot;&quot;" show="false"/>
+    <elementParameter field="DBTABLE" name="TABLE_METER" value="&quot;&quot;" show="false"/>
+    <elementParameter field="CHECK" name="CATCH_RUNTIME_ERRORS" value="true" show="false"/>
+    <elementParameter field="CHECK" name="CATCH_USER_ERRORS" value="true" show="false"/>
+    <elementParameter field="CHECK" name="CATCH_USER_WARNING" value="true" show="false"/>
+    <elementParameter field="CHECK" name="CATCH_REALTIME_STATS" value="false" show="false"/>
+    <elementParameter field="TEXT" name="HEADERFOOTER_HEADERID" value="" show="false"/>
+    <elementParameter field="CHECK" name="HEADER_ENABLED" value="false" show="false"/>
+    <elementParameter field="TEXT" name="HEADER_LIBRARY" value="" show="false"/>
+    <elementParameter field="TEXT" name="HEADER_CODE" value="" show="false"/>
+    <elementParameter field="TEXT" name="HEADER_IMPORT" value="" show="false"/>
+    <elementParameter field="TEXT" name="HEADERFOOTER_FOOTERID" value="" show="false"/>
+    <elementParameter field="CHECK" name="FOOTER_ENABLED" value="false" show="false"/>
+    <elementParameter field="TEXT" name="FOOTER_LIBRARY" value="" show="false"/>
+    <elementParameter field="TEXT" name="FOOTER_CODE" value="" show="false"/>
+    <elementParameter field="TEXT" name="FOOTER_IMPORT" value="" show="false"/>
+    <routinesParameter id="_VWjT8CXTEeeTKeXwA7rjrQ" name="DQTechnical"/>
+    <routinesParameter id="_VWHPECXTEeeTKeXwA7rjrQ" name="DataMasking"/>
+    <routinesParameter id="_VVWaEiXTEeeTKeXwA7rjrQ" name="DataOperation"/>
+    <routinesParameter id="_VWVRgCXTEeeTKeXwA7rjrQ" name="DataQualityDependencies"/>
+    <routinesParameter id="_VWPx8CXTEeeTKeXwA7rjrQ" name="DataQuality"/>
+    <routinesParameter id="_VWb_MCXTEeeTKeXwA7rjrQ" name="DqStringHandling"/>
+    <routinesParameter id="_VVbSkCXTEeeTKeXwA7rjrQ" name="Mathematical"/>
+    <routinesParameter id="_VVinUCXTEeeTKeXwA7rjrQ" name="Numeric"/>
+    <routinesParameter id="_VVoG4CXTEeeTKeXwA7rjrQ" name="Relational"/>
+    <routinesParameter id="_VWr20CXTEeeTKeXwA7rjrQ" name="SQLike"/>
+    <routinesParameter id="_VVtmcCXTEeeTKeXwA7rjrQ" name="StringHandling"/>
+    <routinesParameter id="_VVztECXTEeeTKeXwA7rjrQ" name="TalendDataGenerator"/>
+    <routinesParameter id="_VV5zsCXTEeeTKeXwA7rjrQ" name="TalendDate"/>
+    <routinesParameter id="_VWBIcCXTEeeTKeXwA7rjrQ" name="TalendString"/>
+  </parameters>
+  <node componentName="tMysqlRow" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="96" posY="192">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlRow_1" show="false"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY" show="false"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" value="_nZ81MC5pEeeaXuPQxSDjCQ" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
+    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_1"/>
+    <elementParameter field="TEXT" name="HOST" value="context.LDW_DWH_Server" show="false"/>
+    <elementParameter field="TEXT" name="PORT" value="context.LDW_DWH_Port" show="false"/>
+    <elementParameter field="TEXT" name="DBNAME" value="context.LDW_DWH_Database" show="false"/>
+    <elementParameter field="TEXT" name="TYPE" value="MYSQL" show="false"/>
+    <elementParameter field="TEXT" name="USER" value="context.LDW_DWH_Login" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="8pW6Nmy2kueUFVDAabVeAZQ7i/3Y1noz0i+pu7W8daM=" show="false"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;&quot;"/>
+    <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SET foreign_key_checks = 0;&#xD;&#xA;&#xD;&#xA;DROP TABLE IF EXISTS Dim_Currency;&#xD;&#xA;&#xD;&#xA;CREATE TABLE Dim_Currency (&#xD;&#xA;  SK_Currency int NOT NULL AUTO_INCREMENT,&#xD;&#xA;  BK_Currency_CURN83_S21 varchar(3) DEFAULT NULL,&#xD;&#xA;  CurrencyCode varchar(7) DEFAULT 'Unknown',  &#xD;&#xA;  CurrencyName varchar(35) DEFAULT 'Unknown',&#xD;&#xA;  ValidFrom datetime NOT NULL DEFAULT '1900-01-01 00:00:00',&#xD;&#xA;  ValidTo datetime NOT NULL DEFAULT '9999-01-01 00:00:00',&#xD;&#xA;  DimensionVersion int DEFAULT 1,&#xD;&#xA;  IsCurrent bit(1) DEFAULT b'1',&#xD;&#xA;  SK_SourceSystem int NOT NULL,&#xD;&#xA;  PRIMARY KEY (SK_Currency),&#xD;&#xA;  FOREIGN KEY (SK_SourceSystem) REFERENCES Meta_SourceSystemDimension(SK_SourceSystem)&#xD;&#xA;);&#xD;&#xA;&#xD;&#xA;DROP TABLE IF EXISTS Dim_Company;&#xD;&#xA;&#xD;&#xA;CREATE TABLE Dim_Company (&#xD;&#xA;  SK_Company int NOT NULL AUTO_INCREMENT,&#xD;&#xA;  BK_Company_CONO_S21 varchar(2) DEFAULT NULL,&#xD;&#xA;  CompanyCode varchar(7) DEFAULT 'Unknown',  &#xD;&#xA;  CompanyName varchar(30) DEFAULT 'Unknown',&#xD;&#xA;  SK_Currency int DEFAULT -1,&#xD;&#xA;  ParentCompanyName varchar(30) DEFAULT 'Unknown',&#xD;&#xA;  ConsolidatingCompanyName varchar(30) DEFAULT 'Unknown',&#xD;&#xA;  ValidFrom datetime NOT NULL DEFAULT '1900-01-01 00:00:00',&#xD;&#xA;  ValidTo datetime NOT NULL DEFAULT '9999-01-01 00:00:00',&#xD;&#xA;  DimensionVersion int DEFAULT 1,&#xD;&#xA;  IsCurrent bit(1) DEFAULT b'1',&#xD;&#xA;  SK_SourceSystem int NOT NULL,  &#xD;&#xA;  PRIMARY KEY (SK_Company),&#xD;&#xA;  FOREIGN KEY (SK_Currency) REFERENCES Dim_Currency(SK_Currency),&#xD;&#xA;  FOREIGN KEY (SK_SourceSystem) REFERENCES Meta_SourceSystemDimension(SK_SourceSystem)  &#xD;&#xA;);&#xD;&#xA;&#xD;&#xA;DROP TABLE IF EXISTS Dim_Stockroom;&#xD;&#xA;&#xD;&#xA;CREATE TABLE Dim_Stockroom (&#xD;&#xA;  SK_Stockroom int NOT NULL AUTO_INCREMENT,&#xD;&#xA;  BK_Stockroom_CONO20_S21 varchar(2) DEFAULT NULL,&#xD;&#xA;  BK_Stockroom_STRC20_S21 varchar(2) DEFAULT NULL,&#xD;&#xA;  System21StockroomCompanyCode varchar(7) DEFAULT 'Unknown',  &#xD;&#xA;  System21StockroomCode varchar(7) DEFAULT 'Unknown',&#xD;&#xA;  StockroomName varchar(25) DEFAULT 'Unknown',&#xD;&#xA;  ShippingSiteCode varchar(10) DEFAULT 'Unknown',&#xD;&#xA;  ShippingSiteName varchar(35) DEFAULT 'Unknown',&#xD;&#xA;  LocationControlFlag varchar(25) DEFAULT 'Unknown',&#xD;&#xA;  DefaultBinLocation varchar(12) DEFAULT 'Unknown',&#xD;&#xA;  DepotName varchar(35) DEFAULT 'Unknown',&#xD;&#xA;  DepotAddress varchar(255) DEFAULT 'Unknown',&#xD;&#xA;  DepotZipOrPostalCode varchar(10) DEFAULT 'Unknown',&#xD;&#xA;  DepotZip5 varchar(7) DEFAULT 'Unknown',&#xD;&#xA;  DepotCity varchar(35) DEFAULT 'Unknown',&#xD;&#xA;  DepotStateOrProvince varchar(35) DEFAULT 'Unknown',&#xD;&#xA;  DepotCountry varchar(30) DEFAULT 'Unknown',&#xD;&#xA;  DepotPhoneNumber varchar(20) DEFAULT 'Unknown',&#xD;&#xA;  FacilityCode varchar(7) DEFAULT 'Unknown',&#xD;&#xA;  FacilityName varchar(30) DEFAULT 'Unknown',&#xD;&#xA;  ManufacturingFacilityRouteCode varchar(7) DEFAULT 'Unknown',&#xD;&#xA;  ManufacturingFacilityRouteName varchar(30) DEFAULT 'Unknown',&#xD;&#xA;  ValidFrom datetime NOT NULL DEFAULT '1900-01-01 00:00:00',&#xD;&#xA;  ValidTo datetime NOT NULL DEFAULT '9999-01-01 00:00:00',&#xD;&#xA;  DimensionVersion int DEFAULT 1,  &#xD;&#xA;  IsCurrent bit(1) DEFAULT b'1',&#xD;&#xA;  SK_SourceSystem int NOT NULL,  &#xD;&#xA;  PRIMARY KEY (SK_Stockroom),&#xD;&#xA;  FOREIGN KEY (SK_SourceSystem) REFERENCES Meta_SourceSystemDimension(SK_SourceSystem)    &#xD;&#xA;);&#xD;&#xA;&#xD;&#xA;DROP TABLE IF EXISTS Dim_Geography;&#xD;&#xA;&#xD;&#xA;CREATE TABLE Dim_Geography (&#xD;&#xA;  SK_Geography int NOT NULL AUTO_INCREMENT,&#xD;&#xA;  BK_Geography_CountryCode_FlatFiles varchar(2) DEFAULT NULL,&#xD;&#xA;  BK_Geography_PostalCode_FlatFiles varchar(5) DEFAULT NULL,&#xD;&#xA;  BK_Geography_CompanyCode_FlatFiles varchar(2) DEFAULT NULL,  &#xD;&#xA;  PostalCode varchar(7) DEFAULT 'Unknown',  &#xD;&#xA;  PostalCodeType varchar(30) DEFAULT 'Unknown',  &#xD;&#xA;  CountryCode varchar(7) DEFAULT 'Unknown',  &#xD;&#xA;  GeographyCompanyCode varchar(7) DEFAULT 'Unknown',  &#xD;&#xA;  CountryName varchar(30) DEFAULT 'Unknown',  &#xD;&#xA;  StateOrProvinceCode varchar(7) DEFAULT 'Unknown',  &#xD;&#xA;  CountyCode varchar(7) DEFAULT 'Unknown',  &#xD;&#xA;  StateOrProvinceName varchar(25) DEFAULT 'Unknown',  &#xD;&#xA;  CountyName varchar(100) DEFAULT 'Unknown',  &#xD;&#xA;  City varchar(255) DEFAULT 'Unknown',  &#xD;&#xA;  CurrentTerritorySalesManager varchar(100) DEFAULT 'Unknown',  &#xD;&#xA;  TransactionTerritorySalesManager varchar(100) DEFAULT 'Unknown',  &#xD;&#xA;  CurrentTerritorySalesManagerCode varchar(30) DEFAULT 'Unknown',  &#xD;&#xA;  TransactionTerritorySalesManagerCode varchar(30) DEFAULT 'Unknown',  &#xD;&#xA;  CurrentRegionalSalesDirector varchar(100) DEFAULT 'Unknown',  &#xD;&#xA;  TransactionRegionalSalesDirector varchar(100) DEFAULT 'Unknown',  &#xD;&#xA;  CurrentRegion varchar(30) DEFAULT 'Unknown',  &#xD;&#xA;  TransactionRegion varchar(30) DEFAULT 'Unknown',  &#xD;&#xA;  CustomerServiceTeamManager varchar(100) DEFAULT 'Unknown',  &#xD;&#xA;  CustomerServiceTeam varchar(100) DEFAULT 'Unknown',  &#xD;&#xA;  CurrentBusinessDevelopmentManager varchar(100) DEFAULT 'Unknown',  &#xD;&#xA;  TransactionBusinessDevelopmentManager varchar(100) DEFAULT 'Unknown',  &#xD;&#xA;  CurrentAutodesignCustomerServiceManager varchar(100) DEFAULT 'Unknown',  &#xD;&#xA;  TransactionAutodesignCustomerServiceManager varchar(100) DEFAULT 'Unknown',  &#xD;&#xA;  ValidFrom datetime DEFAULT '1900-01-01 00:00:00',&#xD;&#xA;  ValidTo datetime DEFAULT '9999-01-01 00:00:00',&#xD;&#xA;  DimensionVersion int DEFAULT 1,  &#xD;&#xA;  IsCurrent bit(1) DEFAULT b'1',&#xD;&#xA;  SK_SourceSystem int NOT NULL,  &#xD;&#xA;  PRIMARY KEY (SK_Geography),&#xD;&#xA;  FOREIGN KEY (SK_SourceSystem) REFERENCES Meta_SourceSystemDimension(SK_SourceSystem)   &#xD;&#xA;);&#xD;&#xA;&#xD;&#xA;DROP TABLE IF EXISTS Dim_Customer;&#xD;&#xA;&#xD;&#xA;CREATE TABLE Dim_Customer (&#xD;&#xA;  SK_Customer int NOT NULL AUTO_INCREMENT,&#xD;&#xA;  BK_Customer_CONO05_S21 varchar(2) DEFAULT NULL,&#xD;&#xA;  BK_Customer_CUSN05_S21 varchar(8) DEFAULT NULL,&#xD;&#xA;  BK_Customer_DSEQ05_S21 varchar(3) DEFAULT NULL,&#xD;&#xA;  BK_Customer_dealerID_Thor int(10) DEFAULT NULL,&#xD;&#xA;  BK_Customer_dealerOfficeID_Thor int(10) DEFAULT NULL,  &#xD;&#xA;  System21CustomerCompanyCode varchar(7) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  System21CustomerNumber varchar(8) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  System21BranchNumber varchar(7) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  ThorDealerOfficeCode varchar(50) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  ThorDealerCode varchar(50) NOT NULL DEFAULT 'Unknown',  &#xD;&#xA;  ViperCustomerCode varchar(50) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  CustomerBranchName varchar(250) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  CustomerShipToAddress varchar(255) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  CustomerShipToPostalCode varchar(11) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  CustomerShipToPostalCode5 varchar(7) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  CustomerShipToCity varchar(25) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  CustomerShipToStateOrProvince varchar(25) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  CustomerShipToCountry varchar(30) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  CurrentCustomerRegion varchar(30) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  TransactionCustomerRegion varchar(30) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  CurrentTerritorySalesManager varchar(100) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  TransactionTerritorySalesManager varchar(100) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  CustomerMarket varchar(255) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  CustomerPriceListCode varchar(7) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  CustomerPriceListName varchar(30) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  CustomerClassCode varchar(7) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  CustomerClassName varchar(30) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  CustomerSegment varchar(30) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  CustomerAffiliation varchar(30) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  CustomerType varchar(30) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  CustomerDiscountListCode varchar(7) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  CustomerDiscountListName varchar(30) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  CurrentCustomerTerritory varchar(30) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  TransactionCustomerTerritory varchar(30) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  CustomerTaxable varchar(30) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  CustomerName varchar(250) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  CustomerCorporationName varchar(250) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  CustomerBillToAddress varchar(255) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  CustomerBillToPostalCode varchar(11) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  CustomerBillToPostalCode5 varchar(7) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  CustomerBillToCity varchar(25) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  CustomerBillToStateOrProvince varchar(25) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  CustomerBillToCountry varchar(30) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  CustomerPricingLevel varchar(50) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  SK_Geography int(11) NOT NULL,&#xD;&#xA;  SK_SourceSystem int(11) NOT NULL,&#xD;&#xA;  ValidFrom datetime NOT NULL DEFAULT '1900-01-01 00:00:00',&#xD;&#xA;  ValidTo datetime NOT NULL DEFAULT '9999-01-01 00:00:00',&#xD;&#xA;  DimensionVersion int DEFAULT 1,&#xD;&#xA;  IsCurrent bit(1) DEFAULT b'1',&#xD;&#xA;  PRIMARY KEY (SK_Customer),&#xD;&#xA;  FOREIGN KEY (SK_SourceSystem) REFERENCES Meta_SourceSystemDimension(SK_SourceSystem),&#xD;&#xA;  FOREIGN KEY (SK_Geography) REFERENCES Dim_Geography(SK_Geography)&#xD;&#xA;);&#xD;&#xA;&#xD;&#xA;DROP TABLE IF EXISTS Dim_Product;&#xD;&#xA;&#xD;&#xA;CREATE TABLE Dim_Product (&#xD;&#xA;  SK_Product int NOT NULL AUTO_INCREMENT,&#xD;&#xA;  BK_Product_CONO35_S21 varchar(2) DEFAULT NULL,&#xD;&#xA;  BK_Product_PNUM35_S21 varchar(20) DEFAULT NULL,&#xD;&#xA;  BK_Product_productId_Thor int(11) DEFAULT NULL,&#xD;&#xA;  System21ProductCompanyCode varchar(7) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  System21ProductNumber varchar(20) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  ThorProductId int(11) DEFAULT NULL,&#xD;&#xA;  SKU varchar(20) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  SKUDescription varchar(250) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  ProductClassCode varchar(7) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  ProductClassName varchar(30) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  ProductMajorCode varchar(7) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  ProductMajorName varchar(30) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  UnitOfMeasure varchar(30) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  SalesUnit float(11,4) DEFAULT NULL,&#xD;&#xA;  UnitOverrideFlag varchar(25) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  DiscountGroupCode varchar(7) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  DiscountGroupName varchar(30) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  ProductStatusCode varchar(7) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  ProductStatusName varchar(30) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  CostingMethodCode varchar(7) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  CostingMethodName varchar(25) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  SerializedFlag varchar(25) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  PurchasingOfficer varchar(25) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  ProductCatalogFlag varchar(30) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  ProductDivisionCode varchar(7) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  ProductDivisionName varchar(30) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  ProductSubdivisionCode varchar(7) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  ProductSubdivisionName varchar(30) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  ItemTypeCode varchar(7) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  ItemTypeName varchar(30) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  ProductSize varchar(50) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  SK_Stockroom_Primary int NOT NULL,&#xD;&#xA;  OrderPolicyCode varchar(7) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  OrderPolicyName varchar(30) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  NumberDaysSupply float(5,0) DEFAULT NULL,&#xD;&#xA;  FixedOrderQuantity float(11,3) DEFAULT NULL,&#xD;&#xA;  MultipleOrderQuantity float(11,3) DEFAULT NULL,&#xD;&#xA;  MaximumOrderQuantity float(11,3) DEFAULT NULL,&#xD;&#xA;  MinimumOrderQuantity float(11,3) DEFAULT NULL,&#xD;&#xA;  PlannerCode varchar(7) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  PlannerName varchar(30) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  PlanningType varchar(50) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  DemandPolicyCode varchar(7) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  DemandPolicyName varchar(30) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  MaterialPolicyFlag varchar(25) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  TurboflushFlag varchar(25) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  CostingRouteCode varchar(7) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  CostingRouteName varchar(30) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  PlanningRouteCode varchar(7) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  PlanningRouteName varchar(30) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  ControlPolicy varchar(30) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  SafetyStockQuantity float(13,3) DEFAULT NULL,&#xD;&#xA;  ManufacturingLeadtimeDays float(8,2) DEFAULT NULL,&#xD;&#xA;  ManufacturingCumulativeLeadtimeDays float(8,2) DEFAULT NULL,&#xD;&#xA;  ProductionItemTypeCode varchar(7) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  ProductionItemTypeName varchar(30) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  PurchasingLeadtimeDays float(5,2) DEFAULT NULL,&#xD;&#xA;  PrimaryVendorCode varchar(8) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  PrimaryVendorName varchar(35) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  MultipleLocations varchar(25) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  WeightUnitOfMeasure varchar(7) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  ItemWeight float(11,4) DEFAULT NULL,&#xD;&#xA;  PiecesPerCarton float(7,2) DEFAULT NULL,&#xD;&#xA;  CartonsPerSkid float(7,2) DEFAULT NULL,&#xD;&#xA;  SkidWeight float(11,4) DEFAULT NULL,&#xD;&#xA;  NationalMotorFreightClassificationCode varchar(10) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  KittingNationalMotorFreightClassificationCode varchar(10) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  SK_Currency_Functional int NOT NULL,&#xD;&#xA;  CurrentListPriceFunctionalCurrency float(15,5) DEFAULT NULL,&#xD;&#xA;  CurrentStandardReliefCostFunctionalCurrency float(15,5) DEFAULT NULL,&#xD;&#xA;  CurrentStandardMaterialCostFunctionalCurrency float(15,5) DEFAULT NULL,&#xD;&#xA;  CurrentStandardElement3CostFunctionalCurrency float(15,5) DEFAULT NULL,&#xD;&#xA;  CurrentStandardElement4CostFunctionalCurrency float(15,5) DEFAULT NULL,&#xD;&#xA;  CurrentStandardLaborCostFunctionalCurrency float(15,5) DEFAULT NULL,&#xD;&#xA;  CurrentStandardSetupCostFunctionalCurrency float(15,5) DEFAULT NULL,&#xD;&#xA;  CurrentStandardMachineCostFunctionalCurrency float(15,5) DEFAULT NULL,&#xD;&#xA;  CurrentStandardSubcontractCostFunctionalCurrency float(15,5) DEFAULT NULL,&#xD;&#xA;  CurrentStandardFringeCostFunctionalCurrency float(15,5) DEFAULT NULL,&#xD;&#xA;  CurrentStandardOverhead2CostFunctionalCurrency float(15,5) DEFAULT NULL,&#xD;&#xA;  CurrentStandardUtilitiesCostFunctionalCurrency float(15,5) DEFAULT NULL,&#xD;&#xA;  CurrentStandardElement12CostFunctionalCurrency float(15,5) DEFAULT NULL,&#xD;&#xA;  CurrentStandardElement13CostFunctionalCurrency float(15,5) DEFAULT NULL,&#xD;&#xA;  CurrentStandardElement14CostFunctionalCurrency float(15,5) DEFAULT NULL,&#xD;&#xA;  CurrentStandardElement15CostFunctionalCurrency float(15,5) DEFAULT NULL,&#xD;&#xA;  CurrentStandardTotalCostFunctionalCurrency float(15,5) DEFAULT NULL,&#xD;&#xA;  CurrentStandardTotalMaterialCostFunctionalCurrency float(15,5) DEFAULT NULL,&#xD;&#xA;  CurrentStandardTotalLaborCostFunctionalCurrency float(15,5) DEFAULT NULL,&#xD;&#xA;  CurrentStandardTotalOverheadCostFunctionalCurrency float(15,5) DEFAULT NULL,&#xD;&#xA;  LDWGeneratedFlag varchar(25) NOT NULL DEFAULT 'Unknown',&#xD;&#xA;  ValidFrom datetime NOT NULL DEFAULT '1900-01-01 00:00:00',&#xD;&#xA;  ValidTo datetime NOT NULL DEFAULT '9999-01-01 00:00:00',&#xD;&#xA;  DimensionVersion int DEFAULT 1,&#xD;&#xA;  IsCurrent bit(1) DEFAULT b'1',&#xD;&#xA;  SK_SourceSystem int NOT NULL,&#xD;&#xA;  PRIMARY KEY (SK_Product),&#xD;&#xA;  FOREIGN KEY (SK_Stockroom_Primary) REFERENCES Dim_Stockroom(SK_Stockroom),&#xD;&#xA;  FOREIGN KEY (SK_Currency_Functional) REFERENCES Dim_Currency(SK_Currency),&#xD;&#xA;  KEY Index_Dim_Product_Thor (BK_Product_productId_Thor),&#xD;&#xA;  KEY Index_Dim_Product_S21 (BK_Product_CONO35_S21, BK_Product_PNUM35_S21)&#xD;&#xA;) ;&#xD;&#xA;&#xD;&#xA;SET foreign_key_checks = 1;&#xD;&#xA;&quot;"/>
+    <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
+    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
+    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true"/>
+    <elementParameter field="TEXT" name="PROPERTIES" value="context.LDW_DWH_AdditionalParams" show="false"/>
+    <elementParameter field="CHECK" name="PROPAGATE_RECORD_SET" value="false"/>
+    <elementParameter field="COLUMN_LIST" name="RECORD_SET_COLUMN" value="" show="false"/>
+    <elementParameter field="CHECK" name="USE_PREPAREDSTATEMENT" value="false"/>
+    <elementParameter field="TABLE" name="SET_PREPAREDSTATEMENT_PARAMETERS" show="false"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter field="TEXT" name="COMMIT_EVERY" value="10000" show="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="CreateDimensionTables"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tMysqlRow_1"/>
+    <metadata connector="REJECT" name="REJECT">
+      <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tMysqlRow" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="96" posY="448">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlRow_4" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
+    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_1"/>
+    <elementParameter field="TEXT" name="HOST" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PORT" value="&quot;3306&quot;" show="false"/>
+    <elementParameter field="TEXT" name="DBNAME" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="TYPE" value="MySQL" show="false"/>
+    <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Dim_Currency&quot;"/>
+    <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;INSERT INTO Dim_Currency(SK_Currency, SK_SourceSystem)&#xD;&#xA;VALUES(-1, -1);&#xD;&#xA;&#xD;&#xA;INSERT INTO Dim_Currency(SK_Currency, CurrencyCode, CurrencyName, SK_SourceSystem)&#xD;&#xA;VALUES(-2, 'N/A', 'N/A', -2);&#xD;&#xA;&#xD;&#xA;INSERT INTO Dim_Company(SK_Company, SK_SourceSystem)&#xD;&#xA;VALUES(-1, -1);&#xD;&#xA;&#xD;&#xA;INSERT INTO Dim_Company(SK_Company, CompanyCode, CompanyName, SK_Currency, ParentCompanyName, ConsolidatingCompanyName, SK_SourceSystem)&#xD;&#xA;VALUES(-2,'N/A','N/A', -2,'N/A','N/A', -2);&#xD;&#xA;&#xD;&#xA;INSERT INTO Dim_Stockroom(SK_Stockroom, SK_SourceSystem)&#xD;&#xA;VALUES(-1, -1);&#xD;&#xA;&#xD;&#xA;INSERT INTO Dim_Stockroom(SK_Stockroom, System21StockroomCompanyCode, System21StockroomCode, StockroomName, ShippingSiteCode, ShippingSiteName, LocationControlFlag, DefaultBinLocation, DepotName, DepotAddress, DepotZipOrPostalCode, DepotZip5, DepotCity, DepotStateOrProvince, DepotCountry, DepotPhoneNumber, FacilityCode, FacilityName, ManufacturingFacilityRouteCode, ManufacturingFacilityRouteName, SK_SourceSystem)&#xD;&#xA;VALUES(-2,'N/A','N/A','N/A','N/A','N/A','N/A','N/A','N/A','N/A','N/A','N/A','N/A','N/A','N/A','N/A','N/A','N/A','N/A','N/A', -2);&#xD;&#xA;&#xD;&#xA;INSERT INTO Dim_Geography(SK_Geography, SK_SourceSystem)&#xD;&#xA;VALUES(-1, -1);&#xD;&#xA;&#xD;&#xA;INSERT INTO Dim_Geography(SK_Geography, PostalCode, PostalCodeType, CountryCode, GeographyCompanyCode, CountryName, StateOrProvinceCode, CountyCode, StateOrProvinceName, CountyName, City, CurrentTerritorySalesManager, TransactionTerritorySalesManager, CurrentTerritorySalesManagerCode, TransactionTerritorySalesManagerCode, CurrentRegionalSalesDirector, TransactionRegionalSalesDirector, CurrentRegion, TransactionRegion, CustomerServiceTeamManager, CustomerServiceTeam, CurrentBusinessDevelopmentManager, TransactionBusinessDevelopmentManager, CurrentAutodesignCustomerServiceManager, TransactionAutodesignCustomerServiceManager, SK_SourceSystem)&#xD;&#xA;VALUES(-2,'N/A','N/A','N/A','N/A','N/A','N/A','N/A','N/A','N/A','N/A','N/A','N/A','N/A','N/A','N/A','N/A','N/A','N/A','N/A','N/A','N/A','N/A','N/A','N/A', -2);&#xD;&#xA;&#xD;&#xA;INSERT INTO Dim_Customer (SK_Customer, SK_Geography, SK_SourceSystem) &#xD;&#xA;VALUES (-1, -1, -1);&#xD;&#xA;&#xD;&#xA;INSERT INTO Dim_Customer (SK_Customer, System21CustomerCompanyCode, System21CustomerNumber, System21BranchNumber, ThorDealerOfficeCode, ThorDealerCode, ViperCustomerCode, CustomerBranchName, CustomerShipToAddress, CustomerShipToPostalCode, CustomerShipToPostalCode5, CustomerShipToCity, CustomerShipToStateOrProvince, CustomerShipToCountry, CurrentCustomerRegion, TransactionCustomerRegion, CurrentTerritorySalesManager, TransactionTerritorySalesManager, CustomerMarket, CustomerPriceListCode, CustomerPriceListName, CustomerClassCode, CustomerClassName, CustomerSegment, CustomerAffiliation, CustomerType, CustomerDiscountListCode, CustomerDiscountListName, CurrentCustomerTerritory, TransactionCustomerTerritory, CustomerTaxable, CustomerName, CustomerCorporationName, CustomerBillToAddress, CustomerBillToPostalCode, CustomerBillToPostalCode5, CustomerBillToCity, CustomerBillToStateOrProvince, CustomerBillToCountry, CustomerPricingLevel, SK_Geography, SK_SourceSystem)&#xD;&#xA;VALUES (-2, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', -2, -2);&#xD;&#xA;&#xD;&#xA;INSERT  INTO Dim_Product (SK_Product, SK_Stockroom_Primary, SK_Currency_Functional, SK_SourceSystem) &#xD;&#xA;VALUES(-1, -1, -1, -1),(-2, -2, -2, -2);&#xD;&#xA;&quot;"/>
+    <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
+    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
+    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true"/>
+    <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
+    <elementParameter field="CHECK" name="PROPAGATE_RECORD_SET" value="false"/>
+    <elementParameter field="COLUMN_LIST" name="RECORD_SET_COLUMN" value="" show="false"/>
+    <elementParameter field="CHECK" name="USE_PREPAREDSTATEMENT" value="false"/>
+    <elementParameter field="TABLE" name="SET_PREPAREDSTATEMENT_PARAMETERS" show="false"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter field="TEXT" name="COMMIT_EVERY" value="10000" show="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="AddDefaultValues"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tMysqlRow_4"/>
+    <metadata connector="REJECT" name="REJECT">
+      <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tMysqlCommit" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="96" posY="576">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlCommit_3" show="false"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_1"/>
+    <elementParameter field="CHECK" name="CLOSE" value="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="CommitInserts"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tMysqlCommit_3"/>
+  </node>
+  <node componentName="tMysqlCommit" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="96" posY="320">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlCommit_1" show="false"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_1"/>
+    <elementParameter field="CHECK" name="CLOSE" value="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="CommitDimensionTableCreations"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tMysqlCommit_1"/>
+  </node>
+  <node componentName="tMysqlConnection" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="96" posY="64">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlConnection_1" show="false"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" value="_nZ81MC5pEeeaXuPQxSDjCQ" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5"/>
+    <elementParameter field="TEXT" name="HOST" value="context.LDW_DWH_Server"/>
+    <elementParameter field="TEXT" name="TYPE" value="MYSQL" show="false"/>
+    <elementParameter field="TEXT" name="PORT" value="context.LDW_DWH_Port"/>
+    <elementParameter field="TEXT" name="DBNAME" value="context.LDW_DWH_Database"/>
+    <elementParameter field="TEXT" name="PROPERTIES" value="context.LDW_DWH_AdditionalParams"/>
+    <elementParameter field="TEXT" name="USER" value="context.LDW_DWH_Login"/>
+    <elementParameter field="PASSWORD" name="PASS" value="8pW6Nmy2kueUFVDAabVeAZQ7i/3Y1noz0i+pu7W8daM="/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter field="CHECK" name="USE_SHARED_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="SHARED_CONNECTION_NAME" value="" show="false"/>
+    <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime"/>
+    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false"/>
+    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
+    <elementParameter field="CHECK" name="AUTO_COMMIT" value="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="OpenConnectionLDW"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+  </node>
+  <node componentName="tMysqlRow" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="96" posY="704">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlRow_2" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
+    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_1"/>
+    <elementParameter field="TEXT" name="HOST" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PORT" value="&quot;3306&quot;" show="false"/>
+    <elementParameter field="TEXT" name="DBNAME" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="TYPE" value="MySQL" show="false"/>
+    <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;&quot;"/>
+    <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;DROP TABLE IF EXISTS Fact_CurrencyConversion;&#xD;&#xA;&#xD;&#xA;CREATE TABLE Fact_CurrencyConversion (&#xD;&#xA;  Scenario varchar(25) NOT NULL,&#xD;&#xA;  ExchangeRateType varchar(25) NOT NULL,&#xD;&#xA;  SK_Currency_From int(11) NOT NULL,&#xD;&#xA;  SK_Currency_To int(11) NOT NULL,&#xD;&#xA;  SK_Date int(11) NOT NULL,&#xD;&#xA;  ExchangeRate float(20,15) DEFAULT NULL,&#xD;&#xA;  PRIMARY KEY (Scenario,ExchangeRateType,SK_Currency_From,SK_Currency_To,SK_Date),&#xD;&#xA;  FOREIGN KEY (SK_Currency_From) REFERENCES Dim_Currency(SK_Currency),&#xD;&#xA;  FOREIGN KEY (SK_Currency_To) REFERENCES Dim_Currency(SK_Currency),&#xD;&#xA;  FOREIGN KEY (SK_Date) REFERENCES Dim_Date(SK_Date)&#xD;&#xA;) ;&#xD;&#xA;&quot;"/>
+    <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
+    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
+    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true"/>
+    <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
+    <elementParameter field="CHECK" name="PROPAGATE_RECORD_SET" value="false"/>
+    <elementParameter field="COLUMN_LIST" name="RECORD_SET_COLUMN" value="" show="false"/>
+    <elementParameter field="CHECK" name="USE_PREPAREDSTATEMENT" value="false"/>
+    <elementParameter field="TABLE" name="SET_PREPAREDSTATEMENT_PARAMETERS" show="false"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter field="TEXT" name="COMMIT_EVERY" value="10000" show="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="CreateFactTables"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tMysqlRow_2"/>
+    <metadata connector="REJECT" name="REJECT">
+      <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tMysqlCommit" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="96" posY="832">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlCommit_2" show="false"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_1"/>
+    <elementParameter field="CHECK" name="CLOSE" value="true"/>
+    <elementParameter field="TEXT" name="LABEL" value="CommitInserts"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tMysqlCommit_2"/>
+  </node>
+  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlRow_1" offsetLabelX="0" offsetLabelY="0" source="tMysqlRow_1" target="tMysqlCommit_1">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk3" show="false"/>
+  </connection>
+  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlRow_4" offsetLabelX="0" offsetLabelY="0" source="tMysqlRow_4" target="tMysqlCommit_3">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk8" show="false"/>
+  </connection>
+  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlCommit_3" offsetLabelX="0" offsetLabelY="0" source="tMysqlCommit_3" target="tMysqlRow_2">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk6" show="false"/>
+  </connection>
+  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlCommit_1" offsetLabelX="0" offsetLabelY="0" source="tMysqlCommit_1" target="tMysqlRow_4">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk2" show="false"/>
+  </connection>
+  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlConnection_1" offsetLabelX="0" offsetLabelY="0" source="tMysqlConnection_1" target="tMysqlRow_1">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk1" show="false"/>
+  </connection>
+  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlRow_2" offsetLabelX="0" offsetLabelY="0" source="tMysqlRow_2" target="tMysqlCommit_2">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk7" show="false"/>
+  </connection>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlRow_1" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlRow_4" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlCommit_3" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlCommit_1" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlConnection_1" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlRow_2" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlCommit_2" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+</talendfile:ProcessType>
