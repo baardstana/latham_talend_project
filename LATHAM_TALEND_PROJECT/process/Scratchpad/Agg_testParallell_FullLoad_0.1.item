@@ -24,11 +24,11 @@
     <contextParameter comment="" name="System21_AULT1F2_Login" prompt="System21_AULT1F2_Login?" promptNeeded="false" repositoryContextId="_-6sqEC5mEeeaXuPQxSDjCQ" type="id_String" value="BIRSTDBUSR"/>
     <contextParameter comment="" name="System21_AULT1F2_Password" prompt="System21_AULT1F2_Password?" promptNeeded="false" repositoryContextId="_-6sqEC5mEeeaXuPQxSDjCQ" type="id_Password" value="wbAb/OnhD+3FN/JNND3q+A=="/>
     <contextParameter comment="" name="System21_AULT1F2_Server" prompt="System21_AULT1F2_Server?" promptNeeded="false" repositoryContextId="_-6sqEC5mEeeaXuPQxSDjCQ" type="id_String" value="192.168.5.15"/>
-    <contextParameter comment="" name="System21_AULT2F2_AdditionalParams" prompt="System21_AULT2F2_AdditionalParams?" promptNeeded="false" repositoryContextId="_W87UAC5nEeeaXuPQxSDjCQ" type="id_String" value="prompt=false"/>
-    <contextParameter comment="" name="System21_AULT2F2_Database" prompt="System21_AULT2F2_Database?" promptNeeded="false" repositoryContextId="_W87UAC5nEeeaXuPQxSDjCQ" type="id_String" value="AULT2F2"/>
-    <contextParameter comment="" name="System21_AULT2F2_Login" prompt="System21_AULT2F2_Login?" promptNeeded="false" repositoryContextId="_W87UAC5nEeeaXuPQxSDjCQ" type="id_String" value="BIRSTDBUSR"/>
-    <contextParameter comment="" name="System21_AULT2F2_Password" prompt="System21_AULT2F2_Password?" promptNeeded="false" repositoryContextId="_W87UAC5nEeeaXuPQxSDjCQ" type="id_Password" value="wbAb/OnhD+3FN/JNND3q+A=="/>
-    <contextParameter comment="" name="System21_AULT2F2_Server" prompt="System21_AULT2F2_Server?" promptNeeded="false" repositoryContextId="_W87UAC5nEeeaXuPQxSDjCQ" type="id_String" value="192.168.5.15"/>
+    <contextParameter comment="" name="parameter_System21_AULT2F2_AdditionalParams" prompt="parameter_System21_AULT2F2_AdditionalParams?" promptNeeded="false" repositoryContextId="_W87UAC5nEeeaXuPQxSDjCQ" type="id_String" value="prompt=false"/>
+    <contextParameter comment="" name="parameter_System21_AULT2F2_Database" prompt="parameter_System21_AULT2F2_Database?" promptNeeded="false" repositoryContextId="_W87UAC5nEeeaXuPQxSDjCQ" type="id_String" value="AULT2F2"/>
+    <contextParameter comment="" name="parameter_System21_AULT2F2_Login" prompt="parameter_System21_AULT2F2_Login?" promptNeeded="false" repositoryContextId="_W87UAC5nEeeaXuPQxSDjCQ" type="id_String" value="BIRSTDBUSR"/>
+    <contextParameter comment="" name="parameter_System21_AULT2F2_Password" prompt="parameter_System21_AULT2F2_Password?" promptNeeded="false" repositoryContextId="_W87UAC5nEeeaXuPQxSDjCQ" type="id_Password" value="wbAb/OnhD+3FN/JNND3q+A=="/>
+    <contextParameter comment="" name="parameter_System21_AULT2F2_Server" prompt="parameter_System21_AULT2F2_Server?" promptNeeded="false" repositoryContextId="_W87UAC5nEeeaXuPQxSDjCQ" type="id_String" value="192.168.5.15"/>
     <contextParameter comment="" name="System21_AULT3F2_AdditionalParams" prompt="System21_AULT3F2_AdditionalParams?" promptNeeded="false" repositoryContextId="_fwW4gC5nEeeaXuPQxSDjCQ" type="id_String" value="prompt=false"/>
     <contextParameter comment="" name="System21_AULT3F2_Database" prompt="System21_AULT3F2_Database?" promptNeeded="false" repositoryContextId="_fwW4gC5nEeeaXuPQxSDjCQ" type="id_String" value="AULT3F2"/>
     <contextParameter comment="" name="System21_AULT3F2_Login" prompt="System21_AULT3F2_Login?" promptNeeded="false" repositoryContextId="_fwW4gC5nEeeaXuPQxSDjCQ" type="id_String" value="BIRSTDBUSR"/>
@@ -361,15 +361,15 @@
     <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="BatchId" show="false"/>
   </connection>
-  <connection connectorName="RUN_IF" label="JobNotAlreadyRunning" lineStyle="6" metaname="tJavaRow_1" offsetLabelX="0" offsetLabelY="0" outputId="1" source="tJavaRow_1" target="tParallelize_1">
-    <elementParameter field="MEMO_JAVA" name="CONDITION" value="(Integer) globalMap.get(&quot;SK_Batch&quot;) > 0"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="JobNotAlreadyRunning" show="false"/>
-  </connection>
-  <connection connectorName="RUN_IF" label="JobAlreadyRunning" lineStyle="6" metaname="tJavaRow_1" offsetLabelX="0" offsetLabelY="0" outputId="2" source="tJavaRow_1" target="tDie_1">
+  <connection connectorName="RUN_IF" label="JobAlreadyRunning" lineStyle="6" metaname="tJavaRow_1" offsetLabelX="0" offsetLabelY="0" outputId="1" source="tJavaRow_1" target="tDie_1">
     <elementParameter field="MEMO_JAVA" name="CONDITION" value="(Integer) globalMap.get(&quot;SK_Batch&quot;) &lt; 1"/>
     <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="JobAlreadyRunning" show="false"/>
+  </connection>
+  <connection connectorName="RUN_IF" label="JobNotAlreadyRunning" lineStyle="6" metaname="tJavaRow_1" offsetLabelX="0" offsetLabelY="0" outputId="2" source="tJavaRow_1" target="tParallelize_1">
+    <elementParameter field="MEMO_JAVA" name="CONDITION" value="(Integer) globalMap.get(&quot;SK_Batch&quot;) > 0"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="JobNotAlreadyRunning" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="Outcome" lineStyle="0" metaname="tRunJob_2" offsetLabelX="0" offsetLabelY="0" source="tRunJob_2" target="tJavaRow_2">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
