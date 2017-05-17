@@ -1581,7 +1581,7 @@
       <column comment="" key="false" length="2" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="60" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="12" name="DD_QuoteNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="12" usefulColumn="true"/>
-      <column comment="" key="false" length="40" name="DD_CustomerTagName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="40" name="DD_CustomerTagName_TORDERS" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
@@ -1592,7 +1592,7 @@
         <mapperTableEntries name="CustomProductHoldCode" expression="LIP05U.HDCD05 " type="id_String"/>
         <mapperTableEntries name="CustomProductHoldDescription" expression="LIP05U.HDR105 " type="id_String"/>
         <mapperTableEntries name="DD_QuoteNumber" expression="&quot;Unknown&quot;.equals(CustomStringHandling.replaceNullAndBlank(LIP05U.QUON05)) ? &#xD;&#xA;CustomStringHandling.replaceNullAndBlank(TORDERS.QUOTENUMBER) :&#xD;&#xA;CustomStringHandling.replaceNullAndBlank(LIP05U.QUON05) " type="id_String"/>
-        <mapperTableEntries name="DD_CustomerTagName" expression="CustomStringHandling.replaceNullAndBlank(TORDERS.TAGNAME) " type="id_String"/>
+        <mapperTableEntries name="DD_CustomerTagName_TORDERS" expression="CustomStringHandling.replaceNullAndBlank(TORDERS.TAGNAME) " type="id_String"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="LIP05U" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="CONO40" type="id_String"/>
@@ -1862,7 +1862,7 @@
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="DD_CustomerTagName"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="DD_CustomerTagName_TORDERS"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
@@ -1882,7 +1882,7 @@
       <column comment="" key="false" length="2" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="60" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="12" name="DD_QuoteNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="12" usefulColumn="true"/>
-      <column comment="" key="false" length="40" name="DD_CustomerTagName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="40" name="DD_CustomerTagName_TORDERS" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <metadata connector="REJECT" name="REJECT">
       <column comment="" key="true" length="2" name="CONO40" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
@@ -1890,7 +1890,7 @@
       <column comment="" key="false" length="2" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="60" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="12" name="DD_QuoteNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="12" usefulColumn="true"/>
-      <column comment="" key="false" length="40" name="DD_CustomerTagName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="40" name="DD_CustomerTagName_TORDERS" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
@@ -1987,9 +1987,9 @@
       <column comment="" key="true" length="7" name="ORDN55" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="3" name="ORDL55" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="-1" name="SK_Date_ScheduledBuild" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="40" name="DD_CustomerTagName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="40" usefulColumn="true"/>
+      <column comment="" key="false" length="40" name="DD_CustomerTagName_LIP11U" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="40" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="7" name="OrderLineExtendedDiscountValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SERN04" nullable="true" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="DD_SerialNumber" nullable="true" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
@@ -1999,9 +1999,9 @@
         <mapperTableEntries name="ORDN55" expression="LIP11U.ORDN55 " type="id_String"/>
         <mapperTableEntries name="ORDL55" expression="LIP11U.ORDL55 " type="id_Float"/>
         <mapperTableEntries name="SK_Date_ScheduledBuild" expression="CustomStringHandling.transformS21dateToKey(LIP11U.BLDD11) " type="id_Integer"/>
-        <mapperTableEntries name="DD_CustomerTagName" expression="CustomStringHandling.replaceNullAndBlank(LIP11U.MKB111) " type="id_String"/>
+        <mapperTableEntries name="DD_CustomerTagName_LIP11U" expression="CustomStringHandling.replaceNullAndBlank(LIP11U.MKB111) " type="id_String"/>
         <mapperTableEntries name="OrderLineExtendedDiscountValueTransactionCurrency" expression="LIP11U.DISA11 " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="SERN04" expression="DD_SerialNumber" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="DD_SerialNumber" expression="LIP11U.SERN04" type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="LIP11U" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="CONO55" type="id_String"/>
@@ -2065,7 +2065,7 @@
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="DD_CustomerTagName"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="DD_CustomerTagName_LIP11U"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
@@ -2075,7 +2075,7 @@
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SERN04"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="DD_SerialNumber"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
@@ -2094,18 +2094,18 @@
       <column comment="" key="true" length="7" name="ORDN55" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="3" name="ORDL55" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="-1" name="SK_Date_ScheduledBuild" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="40" name="DD_CustomerTagName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="40" usefulColumn="true"/>
+      <column comment="" key="false" length="40" name="DD_CustomerTagName_LIP11U" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="40" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="7" name="OrderLineExtendedDiscountValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SERN04" nullable="true" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="DD_SerialNumber" nullable="true" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <metadata connector="REJECT" name="REJECT">
       <column comment="" key="true" length="2" name="CONO55" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="true" length="7" name="ORDN55" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="3" name="ORDL55" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="-1" name="SK_Date_ScheduledBuild" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="40" name="DD_CustomerTagName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="40" usefulColumn="true"/>
+      <column comment="" key="false" length="40" name="DD_CustomerTagName_LIP11U" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="40" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="7" name="OrderLineExtendedDiscountValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SERN04" nullable="true" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="DD_SerialNumber" nullable="true" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
@@ -2281,6 +2281,11 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobError4" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="RenamedLIP11U" lineStyle="0" metaname="RenamedLIP11U" offsetLabelX="0" offsetLabelY="0" source="tMap_6" target="tMysqlOutput_3">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="DD_CustomerTagName_LIP11U"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="RenamedLIP11U" show="false"/>
   </connection>
