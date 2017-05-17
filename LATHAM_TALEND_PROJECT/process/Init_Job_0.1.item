@@ -294,13 +294,14 @@
       <column comment="" defaultValue="" key="false" length="-1" name="SK_Table" nullable="false" pattern="" precision="-1" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tJavaRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="576" posY="416">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJavaRow_1" show="false"/>
-    <elementParameter field="MEMO_JAVA" name="CODE" value="globalMap.put(&quot;SK_Table&quot;, input_row.SK_Table);&#xA;"/>
-    <elementParameter field="MEMO_IMPORT" name="IMPORT" value="//import java.util.List;"/>
-    <elementParameter field="TEXT" name="LABEL" value="AddTableIdToVariables"/>
+  <node componentName="tSetGlobalVar" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="576" posY="416">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tSetGlobalVar_2" show="false"/>
+    <elementParameter field="TABLE" name="VARIABLES">
+      <elementValue elementRef="KEY" value="&quot;SK_Table&quot;"/>
+      <elementValue elementRef="VALUE" value="input_row.SK_Table"/>
+    </elementParameter>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tJavaRow_1">
+    <metadata connector="FLOW" name="tSetGlobalVar_2">
       <column comment="" defaultValue="" key="false" length="-1" name="SK_Table" nullable="false" pattern="" precision="-1" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
@@ -580,7 +581,7 @@
   <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlCommit_2" offsetLabelX="0" offsetLabelY="0" source="tMysqlCommit_2" target="tMysqlInput_2">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk8" show="false"/>
   </connection>
-  <connection connectorName="FLOW" label="SK_Table" lineStyle="0" metaname="tMysqlInput_2" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_2" target="tJavaRow_1">
+  <connection connectorName="FLOW" label="SK_Table" lineStyle="0" metaname="tMysqlInput_2" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_2" target="tSetGlobalVar_2">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="SK_Table" show="false"/>
   </connection>
