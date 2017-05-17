@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <talendfile:ProcessType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.talend.org/mapper" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" defaultContext="Default" jobType="Standard">
   <context confirmationNeeded="false" name="Default">
-    <contextParameter comment="" name="LDW_DWH_AdditionalParams" prompt="LDW_DWH_AdditionalParams?" promptNeeded="false" repositoryContextId="_x1RkkC5pEeeaXuPQxSDjCQ" type="id_String" value="allowMultiQueries=true"/>
+    <contextParameter comment="" name="parameter_LDW_DWH_AdditionalParams" prompt="parameter_LDW_DWH_AdditionalParams?" promptNeeded="false" repositoryContextId="_x1RkkC5pEeeaXuPQxSDjCQ" type="id_String" value="allowMultiQueries=true"/>
     <contextParameter comment="" name="startDate" prompt="startDate?" promptNeeded="false" type="id_Date" value="2010-01-01 00:00:00"/>
-    <contextParameter comment="" name="LDW_DWH_Database" prompt="LDW_DWH_Database?" promptNeeded="false" repositoryContextId="_x1RkkC5pEeeaXuPQxSDjCQ" type="id_String" value="LDW_dev"/>
-    <contextParameter comment="" name="LDW_DWH_Login" prompt="LDW_DWH_Login?" promptNeeded="false" repositoryContextId="_x1RkkC5pEeeaXuPQxSDjCQ" type="id_String" value="lathamdw"/>
-    <contextParameter comment="" name="LDW_DWH_Password" prompt="LDW_DWH_Password?" promptNeeded="false" repositoryContextId="_x1RkkC5pEeeaXuPQxSDjCQ" type="id_Password" value="BQEu6ZHxH+23TQMgNOYhoButKOtQz8N9"/>
-    <contextParameter comment="" name="LDW_DWH_Port" prompt="LDW_DWH_Port?" promptNeeded="false" repositoryContextId="_x1RkkC5pEeeaXuPQxSDjCQ" type="id_String" value="3306"/>
-    <contextParameter comment="" name="LDW_DWH_Server" prompt="LDW_DWH_Server?" promptNeeded="false" repositoryContextId="_x1RkkC5pEeeaXuPQxSDjCQ" type="id_String" value="172.24.80.56"/>
+    <contextParameter comment="" name="parameter_LDW_DWH_Database" prompt="parameter_LDW_DWH_Database?" promptNeeded="false" repositoryContextId="_x1RkkC5pEeeaXuPQxSDjCQ" type="id_String" value="LDW_dev"/>
+    <contextParameter comment="" name="parameter_LDW_DWH_Login" prompt="parameter_LDW_DWH_Login?" promptNeeded="false" repositoryContextId="_x1RkkC5pEeeaXuPQxSDjCQ" type="id_String" value="lathamdw"/>
+    <contextParameter comment="" name="parameter_LDW_DWH_Password" prompt="parameter_LDW_DWH_Password?" promptNeeded="false" repositoryContextId="_x1RkkC5pEeeaXuPQxSDjCQ" type="id_Password" value="BQEu6ZHxH+23TQMgNOYhoButKOtQz8N9"/>
+    <contextParameter comment="" name="parameter_LDW_DWH_Port" prompt="parameter_LDW_DWH_Port?" promptNeeded="false" repositoryContextId="_x1RkkC5pEeeaXuPQxSDjCQ" type="id_String" value="3306"/>
+    <contextParameter comment="" name="parameter_LDW_DWH_Server" prompt="parameter_LDW_DWH_Server?" promptNeeded="false" repositoryContextId="_x1RkkC5pEeeaXuPQxSDjCQ" type="id_String" value="172.24.80.56"/>
     <contextParameter comment="" name="SK_Batch_Parent" prompt="SK_Batch_Parent?" promptNeeded="false" type="id_Integer" value="-1"/>
   </context>
   <parameters>
@@ -180,7 +180,7 @@
       <column comment="" key="false" length="3" name="DaysInYear" nullable="true" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="3" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var">
         <mapperTableEntries name="DayOfWeek" expression="TalendDate.formatDate(&quot;EEEE&quot;,Dates.Date).equals(&quot;Sunday&quot;) ? 1 :&#xD;&#xA;TalendDate.formatDate(&quot;EEEE&quot;,Dates.Date).equals(&quot;Monday&quot;) ? 2 :&#xD;&#xA;TalendDate.formatDate(&quot;EEEE&quot;,Dates.Date).equals(&quot;Tuesday&quot;) ? 3 :&#xD;&#xA;TalendDate.formatDate(&quot;EEEE&quot;,Dates.Date).equals(&quot;Wednesday&quot;) ? 4 :&#xD;&#xA;TalendDate.formatDate(&quot;EEEE&quot;,Dates.Date).equals(&quot;Thursday&quot;) ? 5 :&#xD;&#xA;TalendDate.formatDate(&quot;EEEE&quot;,Dates.Date).equals(&quot;Friday&quot;) ? 6 : 7 " type="id_Integer"/>
         <mapperTableEntries name="DayOfYear" expression="Integer.parseInt(TalendDate.formatDate(&quot;D&quot;,Dates.Date))" type="id_Integer"/>
@@ -231,11 +231,11 @@
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="false"/>
     <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_1" show="false"/>
     <elementParameter field="TEXT" name="TYPE" value="MYSQL" show="false"/>
-    <elementParameter field="TEXT" name="HOST" value="context.LDW_DWH_Server"/>
-    <elementParameter field="TEXT" name="PORT" value="context.LDW_DWH_Port"/>
-    <elementParameter field="TEXT" name="DBNAME" value="context.LDW_DWH_Database"/>
-    <elementParameter field="TEXT" name="USER" value="context.LDW_DWH_Login"/>
-    <elementParameter field="PASSWORD" name="PASS" value="8pW6Nmy2kueUFVDAabVeAZQ7i/3Y1noz0i+pu7W8daM="/>
+    <elementParameter field="TEXT" name="HOST" value="context.parameter_LDW_DWH_Server"/>
+    <elementParameter field="TEXT" name="PORT" value="context.parameter_LDW_DWH_Port"/>
+    <elementParameter field="TEXT" name="DBNAME" value="context.parameter_LDW_DWH_Database"/>
+    <elementParameter field="TEXT" name="USER" value="context.parameter_LDW_DWH_Login"/>
+    <elementParameter field="PASSWORD" name="PASS" value="8pW6Nmy2kuf2zP4MbD5/0os7knIXEVZEbQQasHH/NUPKchYuj/ytpg=="/>
     <elementParameter field="DBTABLE" name="TABLE" value="&quot;Meta_Time&quot;"/>
     <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="DROP_IF_EXISTS_AND_CREATE"/>
     <elementParameter field="CLOSED_LIST" name="DATA_ACTION" value="INSERT"/>
@@ -244,7 +244,7 @@
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="false"/>
     <elementParameter field="MAPPING_TYPE" name="MAPPING" value="mysql_id" show="false"/>
-    <elementParameter field="TEXT" name="PROPERTIES" value="context.LDW_DWH_AdditionalParams"/>
+    <elementParameter field="TEXT" name="PROPERTIES" value="context.parameter_LDW_DWH_AdditionalParams"/>
     <elementParameter field="CHECK" name="EXTENDINSERT" value="true"/>
     <elementParameter field="LABEL" name="NOTE" value="(Not compatible with reject links)"/>
     <elementParameter field="TEXT" name="NB_ROWS_PER_INSERT" value="100"/>

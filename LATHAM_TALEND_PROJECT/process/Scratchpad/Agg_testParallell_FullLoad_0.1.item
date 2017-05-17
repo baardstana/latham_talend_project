@@ -2,12 +2,12 @@
 <talendfile:ProcessType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" defaultContext="Default" jobType="Standard">
   <context confirmationNeeded="false" name="Default">
     <contextParameter comment="" name="SK_Batch_Parent" prompt="SK_Batch_Parent?" promptNeeded="false" type="id_Integer" value="-1"/>
-    <contextParameter comment="" name="LDW_DWH_AdditionalParams" prompt="LDW_DWH_AdditionalParams?" promptNeeded="false" repositoryContextId="_x1RkkC5pEeeaXuPQxSDjCQ" type="id_String" value="allowMultiQueries=true"/>
-    <contextParameter comment="" name="LDW_DWH_Database" prompt="LDW_DWH_Database?" promptNeeded="false" repositoryContextId="_x1RkkC5pEeeaXuPQxSDjCQ" type="id_String" value="LDW_dev"/>
-    <contextParameter comment="" name="LDW_DWH_Login" prompt="LDW_DWH_Login?" promptNeeded="false" repositoryContextId="_x1RkkC5pEeeaXuPQxSDjCQ" type="id_String" value="lathamdw"/>
-    <contextParameter comment="" name="LDW_DWH_Password" prompt="LDW_DWH_Password?" promptNeeded="false" repositoryContextId="_x1RkkC5pEeeaXuPQxSDjCQ" type="id_Password" value="BQEu6ZHxH+23TQMgNOYhoButKOtQz8N9"/>
-    <contextParameter comment="" name="LDW_DWH_Port" prompt="LDW_DWH_Port?" promptNeeded="false" repositoryContextId="_x1RkkC5pEeeaXuPQxSDjCQ" type="id_String" value="3306"/>
-    <contextParameter comment="" name="LDW_DWH_Server" prompt="LDW_DWH_Server?" promptNeeded="false" repositoryContextId="_x1RkkC5pEeeaXuPQxSDjCQ" type="id_String" value="172.24.80.56"/>
+    <contextParameter comment="" name="parameter_LDW_DWH_AdditionalParams" prompt="parameter_LDW_DWH_AdditionalParams?" promptNeeded="false" repositoryContextId="_x1RkkC5pEeeaXuPQxSDjCQ" type="id_String" value="allowMultiQueries=true"/>
+    <contextParameter comment="" name="parameter_LDW_DWH_Database" prompt="parameter_LDW_DWH_Database?" promptNeeded="false" repositoryContextId="_x1RkkC5pEeeaXuPQxSDjCQ" type="id_String" value="LDW_dev"/>
+    <contextParameter comment="" name="parameter_LDW_DWH_Login" prompt="parameter_LDW_DWH_Login?" promptNeeded="false" repositoryContextId="_x1RkkC5pEeeaXuPQxSDjCQ" type="id_String" value="lathamdw"/>
+    <contextParameter comment="" name="parameter_LDW_DWH_Password" prompt="parameter_LDW_DWH_Password?" promptNeeded="false" repositoryContextId="_x1RkkC5pEeeaXuPQxSDjCQ" type="id_Password" value="BQEu6ZHxH+23TQMgNOYhoButKOtQz8N9"/>
+    <contextParameter comment="" name="parameter_LDW_DWH_Port" prompt="parameter_LDW_DWH_Port?" promptNeeded="false" repositoryContextId="_x1RkkC5pEeeaXuPQxSDjCQ" type="id_String" value="3306"/>
+    <contextParameter comment="" name="parameter_LDW_DWH_Server" prompt="parameter_LDW_DWH_Server?" promptNeeded="false" repositoryContextId="_x1RkkC5pEeeaXuPQxSDjCQ" type="id_String" value="172.24.80.56"/>
     <contextParameter comment="" name="parameter_LDW_Staging_AdditionalParams" prompt="parameter_LDW_Staging_AdditionalParams?" promptNeeded="false" repositoryContextId="_mmqXEC5pEeeaXuPQxSDjCQ" type="id_String" value="allowMultiQueries=true"/>
     <contextParameter comment="" name="parameter_LDW_Staging_Database" prompt="parameter_LDW_Staging_Database?" promptNeeded="false" repositoryContextId="_mmqXEC5pEeeaXuPQxSDjCQ" type="id_String" value="LDW_Staging_dev"/>
     <contextParameter comment="" name="parameter_LDW_Staging_Login" prompt="parameter_LDW_Staging_Login?" promptNeeded="false" repositoryContextId="_mmqXEC5pEeeaXuPQxSDjCQ" type="id_String" value="lathamdw"/>
@@ -361,15 +361,15 @@
     <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="BatchId" show="false"/>
   </connection>
-  <connection connectorName="RUN_IF" label="JobNotAlreadyRunning" lineStyle="6" metaname="tJavaRow_1" offsetLabelX="0" offsetLabelY="0" outputId="1" source="tJavaRow_1" target="tParallelize_1">
-    <elementParameter field="MEMO_JAVA" name="CONDITION" value="(Integer) globalMap.get(&quot;SK_Batch&quot;) > 0"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="JobNotAlreadyRunning" show="false"/>
-  </connection>
-  <connection connectorName="RUN_IF" label="JobAlreadyRunning" lineStyle="6" metaname="tJavaRow_1" offsetLabelX="0" offsetLabelY="0" outputId="2" source="tJavaRow_1" target="tDie_1">
+  <connection connectorName="RUN_IF" label="JobAlreadyRunning" lineStyle="6" metaname="tJavaRow_1" offsetLabelX="0" offsetLabelY="0" outputId="1" source="tJavaRow_1" target="tDie_1">
     <elementParameter field="MEMO_JAVA" name="CONDITION" value="(Integer) globalMap.get(&quot;SK_Batch&quot;) &lt; 1"/>
     <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="JobAlreadyRunning" show="false"/>
+  </connection>
+  <connection connectorName="RUN_IF" label="JobNotAlreadyRunning" lineStyle="6" metaname="tJavaRow_1" offsetLabelX="0" offsetLabelY="0" outputId="2" source="tJavaRow_1" target="tParallelize_1">
+    <elementParameter field="MEMO_JAVA" name="CONDITION" value="(Integer) globalMap.get(&quot;SK_Batch&quot;) > 0"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="JobNotAlreadyRunning" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="Outcome" lineStyle="0" metaname="tRunJob_2" offsetLabelX="0" offsetLabelY="0" source="tRunJob_2" target="tJavaRow_2">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
