@@ -270,7 +270,7 @@
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tJava_1"/>
   </node>
-  <node componentName="tRunJob" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="544" posY="960">
+  <node componentName="tRunJob" componentVersion="0.101" offsetLabelX="-3" offsetLabelY="-5" posX="544" posY="1056">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRunJob_3" show="false"/>
     <elementParameter field="CHECK" name="USE_DYNAMIC_JOB" value="false"/>
     <elementParameter field="TEXT" name="CONTEXT_JOB" value="" show="false"/>
@@ -301,7 +301,7 @@
       </column>
     </metadata>
   </node>
-  <node componentName="tJavaRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="800" posY="960">
+  <node componentName="tJavaRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="800" posY="1056">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJavaRow_2" show="false"/>
     <elementParameter field="MEMO_JAVA" name="CODE" value="globalMap.put(&quot;outcomeId&quot;,input_row.OutcomeId);&#xA;&#xA;"/>
     <elementParameter field="MEMO_IMPORT" name="IMPORT" value="//import java.util.List;"/>
@@ -309,7 +309,7 @@
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tJavaRow_2"/>
   </node>
-  <node componentName="tDie" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1056" posY="960">
+  <node componentName="tDie" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1056" posY="1056">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tDie_2" show="false"/>
     <elementParameter field="TEXT" name="MESSAGE" value="&quot;Cannot end job &quot; + jobName + &quot;, job is not running&quot;"/>
     <elementParameter field="TEXT" name="CODE" value="4"/>
@@ -385,9 +385,9 @@
   </node>
   <node componentName="tJava" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="224" posY="800">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_4" show="false"/>
-    <elementParameter field="MEMO_JAVA" name="CODE" value="System.out.println(&quot;T1 updates complete, starting Inserts&quot;);"/>
+    <elementParameter field="MEMO_JAVA" name="CODE" value="System.out.println(&quot;T2 updates complete, starting T2 Inserts&quot;);"/>
     <elementParameter field="MEMO_IMPORT" name="IMPORT" value="//import java.util.List;"/>
-    <elementParameter field="TEXT" name="LABEL" value="PrntNewInsert"/>
+    <elementParameter field="TEXT" name="LABEL" value="PrntT2Insert"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tJava_4"/>
   </node>
@@ -406,7 +406,7 @@
     <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SET foreign_key_checks = 0;&#xD;&#xA;&#xD;&#xA;/* New Inserts */&#xD;&#xA;INSERT INTO LDW_&quot; + context.environment + &quot;.Dim_Product(&#xD;&#xA;&#x9;BK_Product_CONO35_S21&#xD;&#xA;&#x9;, BK_Product_PNUM35_S21&#xD;&#xA;&#x9;, BK_Product_productId_Thor&#xD;&#xA;&#x9;, System21ProductCompanyCode&#xD;&#xA;&#x9;, System21ProductNumber&#xD;&#xA;&#x9;, ThorProductId&#xD;&#xA;&#x9;, SKU&#xD;&#xA;&#x9;, SKUDescription&#xD;&#xA;&#x9;, ProductClassCode&#xD;&#xA;&#x9;, ProductClassName&#xD;&#xA;&#x9;, ProductMajorCode&#xD;&#xA;&#x9;, ProductMajorName&#xD;&#xA;&#x9;, UnitOfMeasure&#xD;&#xA;&#x9;, SalesUnit&#xD;&#xA;&#x9;, UnitOverrideFlag&#xD;&#xA;&#x9;, DiscountGroupCode&#xD;&#xA;&#x9;, DiscountGroupName&#xD;&#xA;&#x9;, ProductStatusCode&#xD;&#xA;&#x9;, ProductStatusName&#xD;&#xA;&#x9;, CostingMethodCode&#xD;&#xA;&#x9;, CostingMethodName&#xD;&#xA;&#x9;, SerializedFlag&#xD;&#xA;&#x9;, PurchasingOfficer&#xD;&#xA;&#x9;, ProductCatalogFlag&#xD;&#xA;&#x9;, ProductDivisionCode&#xD;&#xA;&#x9;, ProductDivisionName&#xD;&#xA;&#x9;, ProductSubdivisionCode&#xD;&#xA;&#x9;, ProductSubdivisionName&#xD;&#xA;&#x9;, ItemTypeCode&#xD;&#xA;&#x9;, ItemTypeName&#xD;&#xA;&#x9;, ProductSize&#xD;&#xA;&#x9;, SK_Stockroom_Primary&#xD;&#xA;&#x9;, OrderPolicyCode&#xD;&#xA;&#x9;, OrderPolicyName&#xD;&#xA;&#x9;, NumberDaysSupply&#xD;&#xA;&#x9;, FixedOrderQuantity&#xD;&#xA;&#x9;, MultipleOrderQuantity&#xD;&#xA;&#x9;, MaximumOrderQuantity&#xD;&#xA;&#x9;, MinimumOrderQuantity&#xD;&#xA;&#x9;, PlannerCode&#xD;&#xA;&#x9;, PlannerName&#xD;&#xA;&#x9;, PlanningType&#xD;&#xA;&#x9;, DemandPolicyCode&#xD;&#xA;&#x9;, DemandPolicyName&#xD;&#xA;&#x9;, MaterialPolicyFlag&#xD;&#xA;&#x9;, TurboflushFlag&#xD;&#xA;&#x9;, CostingRouteCode&#xD;&#xA;&#x9;, CostingRouteName&#xD;&#xA;&#x9;, PlanningRouteCode&#xD;&#xA;&#x9;, PlanningRouteName&#xD;&#xA;&#x9;, ControlPolicy&#xD;&#xA;&#x9;, SafetyStockQuantity&#xD;&#xA;&#x9;, ManufacturingLeadtimeDays&#xD;&#xA;&#x9;, ManufacturingCumulativeLeadtimeDays&#xD;&#xA;&#x9;, ProductionItemTypeCode&#xD;&#xA;&#x9;, ProductionItemTypeName&#xD;&#xA;&#x9;, PurchasingLeadtimeDays&#xD;&#xA;&#x9;, PrimaryVendorCode&#xD;&#xA;&#x9;, PrimaryVendorName&#xD;&#xA;&#x9;, MultipleLocations&#xD;&#xA;&#x9;, WeightUnitOfMeasure&#xD;&#xA;&#x9;, ItemWeight&#xD;&#xA;&#x9;, PiecesPerCarton&#xD;&#xA;&#x9;, CartonsPerSkid&#xD;&#xA;&#x9;, SkidWeight&#xD;&#xA;&#x9;, NationalMotorFreightClassificationCode&#xD;&#xA;&#x9;, KittingNationalMotorFreightClassificationCode&#xD;&#xA;&#x9;, SK_Currency_Functional&#xD;&#xA;&#x9;, CurrentListPriceFunctionalCurrency&#xD;&#xA;&#x9;, CurrentStandardReliefCostFunctionalCurrency&#xD;&#xA;&#x9;, CurrentStandardMaterialCostFunctionalCurrency&#xD;&#xA;&#x9;, CurrentStandardElement3CostFunctionalCurrency&#xD;&#xA;&#x9;, CurrentStandardElement4CostFunctionalCurrency&#xD;&#xA;&#x9;, CurrentStandardLaborCostFunctionalCurrency&#xD;&#xA;&#x9;, CurrentStandardSetupCostFunctionalCurrency&#xD;&#xA;&#x9;, CurrentStandardMachineCostFunctionalCurrency&#xD;&#xA;&#x9;, CurrentStandardSubcontractCostFunctionalCurrency&#xD;&#xA;&#x9;, CurrentStandardFringeCostFunctionalCurrency&#xD;&#xA;&#x9;, CurrentStandardOverhead2CostFunctionalCurrency&#xD;&#xA;&#x9;, CurrentStandardUtilitiesCostFunctionalCurrency&#xD;&#xA;&#x9;, CurrentStandardElement12CostFunctionalCurrency&#xD;&#xA;&#x9;, CurrentStandardElement13CostFunctionalCurrency&#xD;&#xA;&#x9;, CurrentStandardElement14CostFunctionalCurrency&#xD;&#xA;&#x9;, CurrentStandardElement15CostFunctionalCurrency&#xD;&#xA;&#x9;, CurrentStandardTotalCostFunctionalCurrency&#xD;&#xA;&#x9;, CurrentStandardTotalMaterialCostFunctionalCurrency&#xD;&#xA;&#x9;, CurrentStandardTotalLaborCostFunctionalCurrency&#xD;&#xA;&#x9;, CurrentStandardTotalOverheadCostFunctionalCurrency&#xD;&#xA;&#x9;, LDWGeneratedFlag&#xD;&#xA;&#x9;, SK_SourceSystem&#xD;&#xA;&#x9;, ValidFrom, ValidTo, IsCurrent, DimensionVersion) &#xD;&#xA;SELECT t.BK_Product_CONO35_S21&#xD;&#xA;&#x9;, t.BK_Product_PNUM35_S21&#xD;&#xA;&#x9;, t.BK_Product_productId_Thor&#xD;&#xA;&#x9;, t.System21ProductCompanyCode&#xD;&#xA;&#x9;, t.System21ProductNumber&#xD;&#xA;&#x9;, t.ThorProductId&#xD;&#xA;&#x9;, t.SKU&#xD;&#xA;&#x9;, t.SKUDescription&#xD;&#xA;&#x9;, t.ProductClassCode&#xD;&#xA;&#x9;, t.ProductClassName&#xD;&#xA;&#x9;, t.ProductMajorCode&#xD;&#xA;&#x9;, t.ProductMajorName&#xD;&#xA;&#x9;, t.UnitOfMeasure&#xD;&#xA;&#x9;, t.SalesUnit&#xD;&#xA;&#x9;, t.UnitOverrideFlag&#xD;&#xA;&#x9;, t.DiscountGroupCode&#xD;&#xA;&#x9;, t.DiscountGroupName&#xD;&#xA;&#x9;, t.ProductStatusCode&#xD;&#xA;&#x9;, t.ProductStatusName&#xD;&#xA;&#x9;, t.CostingMethodCode&#xD;&#xA;&#x9;, t.CostingMethodName&#xD;&#xA;&#x9;, t.SerializedFlag&#xD;&#xA;&#x9;, t.PurchasingOfficer&#xD;&#xA;&#x9;, t.ProductCatalogFlag&#xD;&#xA;&#x9;, t.ProductDivisionCode&#xD;&#xA;&#x9;, t.ProductDivisionName&#xD;&#xA;&#x9;, t.ProductSubdivisionCode&#xD;&#xA;&#x9;, t.ProductSubdivisionName&#xD;&#xA;&#x9;, t.ItemTypeCode&#xD;&#xA;&#x9;, t.ItemTypeName&#xD;&#xA;&#x9;, t.ProductSize&#xD;&#xA;&#x9;, t.SK_Stockroom_Primary&#xD;&#xA;&#x9;, t.OrderPolicyCode&#xD;&#xA;&#x9;, t.OrderPolicyName&#xD;&#xA;&#x9;, t.NumberDaysSupply&#xD;&#xA;&#x9;, t.FixedOrderQuantity&#xD;&#xA;&#x9;, t.MultipleOrderQuantity&#xD;&#xA;&#x9;, t.MaximumOrderQuantity&#xD;&#xA;&#x9;, t.MinimumOrderQuantity&#xD;&#xA;&#x9;, t.PlannerCode&#xD;&#xA;&#x9;, t.PlannerName&#xD;&#xA;&#x9;, t.PlanningType&#xD;&#xA;&#x9;, t.DemandPolicyCode&#xD;&#xA;&#x9;, t.DemandPolicyName&#xD;&#xA;&#x9;, t.MaterialPolicyFlag&#xD;&#xA;&#x9;, t.TurboflushFlag&#xD;&#xA;&#x9;, t.CostingRouteCode&#xD;&#xA;&#x9;, t.CostingRouteName&#xD;&#xA;&#x9;, t.PlanningRouteCode&#xD;&#xA;&#x9;, t.PlanningRouteName&#xD;&#xA;&#x9;, t.ControlPolicy&#xD;&#xA;&#x9;, t.SafetyStockQuantity&#xD;&#xA;&#x9;, t.ManufacturingLeadtimeDays&#xD;&#xA;&#x9;, t.ManufacturingCumulativeLeadtimeDays&#xD;&#xA;&#x9;, t.ProductionItemTypeCode&#xD;&#xA;&#x9;, t.ProductionItemTypeName&#xD;&#xA;&#x9;, t.PurchasingLeadtimeDays&#xD;&#xA;&#x9;, t.PrimaryVendorCode&#xD;&#xA;&#x9;, t.PrimaryVendorName&#xD;&#xA;&#x9;, t.MultipleLocations&#xD;&#xA;&#x9;, t.WeightUnitOfMeasure&#xD;&#xA;&#x9;, t.ItemWeight&#xD;&#xA;&#x9;, t.PiecesPerCarton&#xD;&#xA;&#x9;, t.CartonsPerSkid&#xD;&#xA;&#x9;, t.SkidWeight&#xD;&#xA;&#x9;, t.NationalMotorFreightClassificationCode&#xD;&#xA;&#x9;, t.KittingNationalMotorFreightClassificationCode&#xD;&#xA;&#x9;, t.SK_Currency_Functional&#xD;&#xA;&#x9;, t.CurrentListPriceFunctionalCurrency&#xD;&#xA;&#x9;, t.CurrentStandardReliefCostFunctionalCurrency&#xD;&#xA;&#x9;, t.CurrentStandardMaterialCostFunctionalCurrency&#xD;&#xA;&#x9;, t.CurrentStandardElement3CostFunctionalCurrency&#xD;&#xA;&#x9;, t.CurrentStandardElement4CostFunctionalCurrency&#xD;&#xA;&#x9;, t.CurrentStandardLaborCostFunctionalCurrency&#xD;&#xA;&#x9;, t.CurrentStandardSetupCostFunctionalCurrency&#xD;&#xA;&#x9;, t.CurrentStandardMachineCostFunctionalCurrency&#xD;&#xA;&#x9;, t.CurrentStandardSubcontractCostFunctionalCurrency&#xD;&#xA;&#x9;, t.CurrentStandardFringeCostFunctionalCurrency&#xD;&#xA;&#x9;, t.CurrentStandardOverhead2CostFunctionalCurrency&#xD;&#xA;&#x9;, t.CurrentStandardUtilitiesCostFunctionalCurrency&#xD;&#xA;&#x9;, t.CurrentStandardElement12CostFunctionalCurrency&#xD;&#xA;&#x9;, t.CurrentStandardElement13CostFunctionalCurrency&#xD;&#xA;&#x9;, t.CurrentStandardElement14CostFunctionalCurrency&#xD;&#xA;&#x9;, t.CurrentStandardElement15CostFunctionalCurrency&#xD;&#xA;&#x9;, t.CurrentStandardTotalCostFunctionalCurrency&#xD;&#xA;&#x9;, t.CurrentStandardTotalMaterialCostFunctionalCurrency&#xD;&#xA;&#x9;, t.CurrentStandardTotalLaborCostFunctionalCurrency&#xD;&#xA;&#x9;, t.CurrentStandardTotalOverheadCostFunctionalCurrency&#xD;&#xA;&#x9;, t.LDWGeneratedFlag&#xD;&#xA;&#x9;, t.SK_SourceSystem&#xD;&#xA;&#x9;, n.StartOfTime, n.EndOfTime, 1, 1 &#xD;&#xA;FROM Staging_Dim_Product_Thor t &#xD;&#xA;LEFT JOIN LDW_&quot; + context.environment + &quot;.Dim_Product d &#xD;&#xA;&#x9;ON d.BK_Product_productId_Thor = t.BK_Product_productId_Thor &#xD;&#xA;    AND d.BK_Product_productId_Thor IS NOT NULL&#xD;&#xA;LEFT JOIN LDW_&quot; + context.environment + &quot;.Meta_Now n &#xD;&#xA;&#x9;ON 1=1&#xD;&#xA;WHERE d.BK_Product_productId_Thor IS NULL;&#xD;&#xA;&#xD;&#xA;SET foreign_key_checks = 1;&#xD;&#xA;&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SET foreign_key_checks = 0;&#xD;&#xA;&#xD;&#xA;/* T2 Inserts */&#xD;&#xA;INSERT INTO LDW_&quot; + context.environment + &quot;.Dim_Geography ( &#xD;&#xA;&#x9;BK_Geography_CountryCode_FlatFiles&#xD;&#xA;&#x9;,BK_Geography_PostalCode_FlatFiles&#xD;&#xA;&#x9;,BK_Geography_CompanyCode_FlatFiles&#xD;&#xA;&#x9;,PostalCode&#xD;&#xA;&#x9;,PostalCodeType&#xD;&#xA;&#x9;,CountryCode&#xD;&#xA;&#x9;,GeographyCompanyCode&#xD;&#xA;&#x9;,CountryName&#xD;&#xA;&#x9;,StateOrProvinceCode&#xD;&#xA;&#x9;,CountyCode&#xD;&#xA;&#x9;,StateOrProvinceName&#xD;&#xA;&#x9;,CountyName&#xD;&#xA;&#x9;,City&#xD;&#xA;&#x9;,CurrentTerritorySalesManager&#xD;&#xA;&#x9;,CurrentTerritorySalesManagerCode&#xD;&#xA;&#x9;,CurrentRegionalSalesDirector&#xD;&#xA;&#x9;,CurrentRegion&#xD;&#xA;&#x9;,CustomerServiceTeamManager&#xD;&#xA;&#x9;,CustomerServiceTeam&#xD;&#xA;&#x9;,CurrentBusinessDevelopmentManager&#xD;&#xA;&#x9;,CurrentAutodesignCustomerServiceManager&#xD;&#xA;&#x9;,TransactionTerritorySalesManager&#xD;&#xA;&#x9;,TransactionTerritorySalesManagerCode&#xD;&#xA;&#x9;,TransactionRegionalSalesDirector&#xD;&#xA;&#x9;,TransactionRegion&#xD;&#xA;&#x9;,TransactionBusinessDevelopmentManager&#xD;&#xA;&#x9;,TransactionAutodesignCustomerServiceManager&#xD;&#xA;&#x9;,SK_SourceSystem&#xD;&#xA;&#x9;,ValidFrom, ValidTo, IsCurrent, DimensionVersion) &#xD;&#xA;SELECT t.BK_Geography_CountryCode_FlatFiles&#xD;&#xA;&#x9;,t.BK_Geography_PostalCode_FlatFiles&#xD;&#xA;&#x9;,t.BK_Geography_CompanyCode_FlatFiles&#xD;&#xA;&#x9;,t.PostalCode&#xD;&#xA;&#x9;,t.PostalCodeType&#xD;&#xA;&#x9;,t.CountryCode&#xD;&#xA;&#x9;,t.GeographyCompanyCode&#xD;&#xA;&#x9;,t.CountryName&#xD;&#xA;&#x9;,t.StateOrProvinceCode&#xD;&#xA;&#x9;,t.CountyCode&#xD;&#xA;&#x9;,t.StateOrProvinceName&#xD;&#xA;&#x9;,t.CountyName&#xD;&#xA;&#x9;,t.City&#xD;&#xA;&#x9;,t.CurrentTerritorySalesManager&#xD;&#xA;&#x9;,t.CurrentTerritorySalesManagerCode&#xD;&#xA;&#x9;,t.CurrentRegionalSalesDirector&#xD;&#xA;&#x9;,t.CurrentRegion&#xD;&#xA;&#x9;,t.CustomerServiceTeamManager&#xD;&#xA;&#x9;,t.CustomerServiceTeam&#xD;&#xA;&#x9;,t.CurrentBusinessDevelopmentManager&#xD;&#xA;&#x9;,t.CurrentAutodesignCustomerServiceManager&#xD;&#xA;&#x9;,t.TransactionTerritorySalesManager&#xD;&#xA;&#x9;,t.TransactionTerritorySalesManagerCode&#xD;&#xA;&#x9;,t.TransactionRegionalSalesDirector&#xD;&#xA;&#x9;,t.TransactionRegion&#xD;&#xA;&#x9;,t.TransactionBusinessDevelopmentManager&#xD;&#xA;&#x9;,t.TransactionAutodesignCustomerServiceManager&#xD;&#xA;&#x9;,t.SK_SourceSystem&#xD;&#xA;&#x9;,n.Now, n.EndOfTime, 1, d.DimensionVersion + 1 &#xD;&#xA;FROM Staging_Dim_Geography t, LDW_&quot; + context.environment + &quot;.Dim_Geography d, LDW_&quot; + context.environment + &quot;.Meta_Now n &#xD;&#xA;WHERE (d.BK_Geography_CountryCode_FlatFiles = t.BK_Geography_CountryCode_FlatFiles&#x9;AND d.BK_Geography_PostalCode_FlatFiles = t.BK_Geography_PostalCode_FlatFiles AND d.BK_Geography_CompanyCode_FlatFiles = t.BK_Geography_CompanyCode_FlatFiles)&#xD;&#xA;&#x9;AND (d.TransactionTerritorySalesManager &lt;> t.TransactionTerritorySalesManager&#xD;&#xA;&#x9;OR d.TransactionTerritorySalesManagerCode &lt;> t.TransactionTerritorySalesManagerCode&#xD;&#xA;&#x9;OR d.TransactionRegionalSalesDirector &lt;> t.TransactionRegionalSalesDirector&#xD;&#xA;&#x9;OR d.TransactionRegion &lt;> t.TransactionRegion&#xD;&#xA;&#x9;OR d.TransactionBusinessDevelopmentManager &lt;> t.TransactionBusinessDevelopmentManager&#xD;&#xA;&#x9;OR d.TransactionAutodesignCustomerServiceManager &lt;> t.TransactionAutodesignCustomerServiceManager&#xD;&#xA;&#x9;)&#xD;&#xA;&#x9;AND d.ValidTo = n.Now;&#xD;&#xA;&#x9;&#xD;&#xA;SET foreign_key_checks = 1;&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -419,7 +419,7 @@
     <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
     <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
     <elementParameter field="TEXT" name="COMMIT_EVERY" value="10000" show="false"/>
-    <elementParameter field="TEXT" name="LABEL" value="NewInsert"/>
+    <elementParameter field="TEXT" name="LABEL" value="T2Insert"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tMysqlRow_2"/>
     <metadata connector="REJECT" name="REJECT">
@@ -447,7 +447,7 @@
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tJava_5"/>
   </node>
-  <node componentName="tMysqlCommit" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="224" posY="928">
+  <node componentName="tMysqlCommit" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="224" posY="1056">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlCommit_1" show="false"/>
     <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_1"/>
     <elementParameter field="CHECK" name="CLOSE" value="false"/>
@@ -519,6 +519,70 @@
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tJava_7"/>
   </node>
+  <node componentName="tJava" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="224" posY="928">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_8" show="false"/>
+    <elementParameter field="MEMO_JAVA" name="CODE" value="System.out.println(&quot;T2 Inserts complete, starting new Inserts&quot;);"/>
+    <elementParameter field="MEMO_IMPORT" name="IMPORT" value="//import java.util.List;"/>
+    <elementParameter field="TEXT" name="LABEL" value="PrntNewInsert"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tJava_8"/>
+  </node>
+  <node componentName="tMysqlRow" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="384" posY="928">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlRow_4" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
+    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_2"/>
+    <elementParameter field="TEXT" name="HOST" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PORT" value="&quot;3306&quot;" show="false"/>
+    <elementParameter field="TEXT" name="DBNAME" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="TYPE" value="MySQL" show="false"/>
+    <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;&quot;"/>
+    <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SET foreign_key_checks = 0;&#xD;&#xA;&#xD;&#xA;/* New Inserts */&#xD;&#xA;INSERT INTO LDW_&quot; + context.environment + &quot;.Dim_Geography ( &#xD;&#xA;&#x9;BK_Geography_CountryCode_FlatFiles&#xD;&#xA;&#x9;,BK_Geography_PostalCode_FlatFiles&#xD;&#xA;&#x9;,BK_Geography_CompanyCode_FlatFiles&#xD;&#xA;&#x9;,PostalCode&#xD;&#xA;&#x9;,PostalCodeType&#xD;&#xA;&#x9;,CountryCode&#xD;&#xA;&#x9;,GeographyCompanyCode&#xD;&#xA;&#x9;,CountryName&#xD;&#xA;&#x9;,StateOrProvinceCode&#xD;&#xA;&#x9;,CountyCode&#xD;&#xA;&#x9;,StateOrProvinceName&#xD;&#xA;&#x9;,CountyName&#xD;&#xA;&#x9;,City&#xD;&#xA;&#x9;,CurrentTerritorySalesManager&#xD;&#xA;&#x9;,CurrentTerritorySalesManagerCode&#xD;&#xA;&#x9;,CurrentRegionalSalesDirector&#xD;&#xA;&#x9;,CurrentRegion&#xD;&#xA;&#x9;,CustomerServiceTeamManager&#xD;&#xA;&#x9;,CustomerServiceTeam&#xD;&#xA;&#x9;,CurrentBusinessDevelopmentManager&#xD;&#xA;&#x9;,CurrentAutodesignCustomerServiceManager&#xD;&#xA;&#x9;,TransactionTerritorySalesManager&#xD;&#xA;&#x9;,TransactionTerritorySalesManagerCode&#xD;&#xA;&#x9;,TransactionRegionalSalesDirector&#xD;&#xA;&#x9;,TransactionRegion&#xD;&#xA;&#x9;,TransactionBusinessDevelopmentManager&#xD;&#xA;&#x9;,TransactionAutodesignCustomerServiceManager&#xD;&#xA;&#x9;,SK_SourceSystem&#xD;&#xA;&#x9;,ValidFrom, ValidTo, IsCurrent, DimensionVersion) &#xD;&#xA;SELECT t.BK_Geography_CountryCode_FlatFiles&#xD;&#xA;&#x9;,t.BK_Geography_PostalCode_FlatFiles&#xD;&#xA;&#x9;,t.BK_Geography_CompanyCode_FlatFiles&#xD;&#xA;&#x9;,t.PostalCode&#xD;&#xA;&#x9;,t.PostalCodeType&#xD;&#xA;&#x9;,t.CountryCode&#xD;&#xA;&#x9;,t.GeographyCompanyCode&#xD;&#xA;&#x9;,t.CountryName&#xD;&#xA;&#x9;,t.StateOrProvinceCode&#xD;&#xA;&#x9;,t.CountyCode&#xD;&#xA;&#x9;,t.StateOrProvinceName&#xD;&#xA;&#x9;,t.CountyName&#xD;&#xA;&#x9;,t.City&#xD;&#xA;&#x9;,t.CurrentTerritorySalesManager&#xD;&#xA;&#x9;,t.CurrentTerritorySalesManagerCode&#xD;&#xA;&#x9;,t.CurrentRegionalSalesDirector&#xD;&#xA;&#x9;,t.CurrentRegion&#xD;&#xA;&#x9;,t.CustomerServiceTeamManager&#xD;&#xA;&#x9;,t.CustomerServiceTeam&#xD;&#xA;&#x9;,t.CurrentBusinessDevelopmentManager&#xD;&#xA;&#x9;,t.CurrentAutodesignCustomerServiceManager&#xD;&#xA;&#x9;,t.TransactionTerritorySalesManager&#xD;&#xA;&#x9;,t.TransactionTerritorySalesManagerCode&#xD;&#xA;&#x9;,t.TransactionRegionalSalesDirector&#xD;&#xA;&#x9;,t.TransactionRegion&#xD;&#xA;&#x9;,t.TransactionBusinessDevelopmentManager&#xD;&#xA;&#x9;,t.TransactionAutodesignCustomerServiceManager&#xD;&#xA;&#x9;,t.SK_SourceSystem&#xD;&#xA;&#x9;,n.StartOfTime, n.EndOfTime, 1, 1 &#xD;&#xA;FROM Staging_Dim_Geography t&#xD;&#xA;LEFT JOIN LDW_&quot; + context.environment + &quot;.Dim_Geography d&#xD;&#xA;&#x9;ON d.BK_Geography_CountryCode_FlatFiles = t.BK_Geography_CountryCode_FlatFiles&#x9;&#xD;&#xA;&#x9;AND d.BK_Geography_PostalCode_FlatFiles = t.BK_Geography_PostalCode_FlatFiles &#xD;&#xA;&#x9;AND d.BK_Geography_CompanyCode_FlatFiles = t.BK_Geography_CompanyCode_FlatFiles&#xD;&#xA;LEFT JOIN LDW_&quot; + context.environment + &quot;.Meta_Now n &#xD;&#xA;&#x9;ON 1=1&#xD;&#xA;WHERE d.BK_Geography_CountryCode_FlatFiles IS NULL&#xD;&#xA;&#x9;AND d.BK_Geography_PostalCode_FlatFiles IS NULL &#xD;&#xA;&#x9;AND d.BK_Geography_CompanyCode_FlatFilesIS NULL;&#xD;&#xA;&#x9;&#xD;&#xA;SET foreign_key_checks = 1;&#xD;&#xA;&quot;"/>
+    <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
+    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
+    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="false"/>
+    <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
+    <elementParameter field="CHECK" name="PROPAGATE_RECORD_SET" value="false"/>
+    <elementParameter field="COLUMN_LIST" name="RECORD_SET_COLUMN" value="" show="false"/>
+    <elementParameter field="CHECK" name="USE_PREPAREDSTATEMENT" value="false"/>
+    <elementParameter field="TABLE" name="SET_PREPAREDSTATEMENT_PARAMETERS" show="false"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter field="TEXT" name="COMMIT_EVERY" value="10000" show="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="NewInsert"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tMysqlRow_4"/>
+    <metadata connector="REJECT" name="REJECT">
+      <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tMysqlClose" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="544" posY="928">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlClose_7" show="false"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_1"/>
+    <elementParameter field="TEXT" name="LABEL" value="CloseConnectionLDW"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+  </node>
+  <node componentName="tMysqlClose" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="768" posY="928">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlClose_8" show="false"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_2"/>
+    <elementParameter field="TEXT" name="LABEL" value="CloseConnectionStaging"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+  </node>
+  <node componentName="tJava" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="960" posY="928">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_9" show="false"/>
+    <elementParameter field="MEMO_JAVA" name="CODE" value="globalMap.put(&quot;loadOutcome&quot;, &quot;Failed&quot;);&#xA;globalMap.put(&quot;rowsProcessed&quot;,globalMap.get(&quot;tMysqlInput_1_NB_LINE&quot;) );"/>
+    <elementParameter field="MEMO_IMPORT" name="IMPORT" value="//import java.util.List;"/>
+    <elementParameter field="TEXT" name="LABEL" value="JobFailed"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tJava_9"/>
+  </node>
   <connection connectorName="FLOW" label="BatchId" lineStyle="0" metaname="tRunJob_1" offsetLabelX="0" offsetLabelY="0" source="tRunJob_1" target="tJavaRow_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="BatchId" show="false"/>
@@ -572,8 +636,8 @@
   <connection connectorName="SUBJOB_ERROR" label="OnSubjobError" lineStyle="4" metaname="tMysqlRow_2" offsetLabelX="0" offsetLabelY="0" source="tMysqlRow_2" target="tMysqlClose_3">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobError3" show="false"/>
   </connection>
-  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlRow_2" offsetLabelX="0" offsetLabelY="0" source="tMysqlRow_2" target="tMysqlCommit_1">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk10" show="false"/>
+  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlRow_2" offsetLabelX="0" offsetLabelY="0" source="tMysqlRow_2" target="tJava_8">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk20" show="false"/>
   </connection>
   <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlClose_3" offsetLabelX="0" offsetLabelY="0" source="tMysqlClose_3" target="tMysqlClose_4">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk11" show="false"/>
@@ -587,11 +651,29 @@
   <connection connectorName="SUBJOB_ERROR" label="OnSubjobError" lineStyle="4" metaname="tMysqlRow_3" offsetLabelX="0" offsetLabelY="0" source="tMysqlRow_3" target="tMysqlClose_5">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobError4" show="false"/>
   </connection>
+  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlRow_3" offsetLabelX="0" offsetLabelY="0" source="tMysqlRow_3" target="tJava_4">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk17" show="false"/>
+  </connection>
   <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlClose_5" offsetLabelX="0" offsetLabelY="0" source="tMysqlClose_5" target="tMysqlClose_6">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk15" show="false"/>
   </connection>
   <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlClose_6" offsetLabelX="0" offsetLabelY="0" source="tMysqlClose_6" target="tJava_7">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk16" show="false"/>
+  </connection>
+  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tJava_8" offsetLabelX="0" offsetLabelY="0" source="tJava_8" target="tMysqlRow_4">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk10" show="false"/>
+  </connection>
+  <connection connectorName="SUBJOB_ERROR" label="OnSubjobError" lineStyle="4" metaname="tMysqlRow_4" offsetLabelX="0" offsetLabelY="0" source="tMysqlRow_4" target="tMysqlClose_7">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobError5" show="false"/>
+  </connection>
+  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlRow_4" offsetLabelX="0" offsetLabelY="0" source="tMysqlRow_4" target="tMysqlCommit_1">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk21" show="false"/>
+  </connection>
+  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlClose_7" offsetLabelX="0" offsetLabelY="0" source="tMysqlClose_7" target="tMysqlClose_8">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk18" show="false"/>
+  </connection>
+  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlClose_8" offsetLabelX="0" offsetLabelY="0" source="tMysqlClose_8" target="tJava_9">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk19" show="false"/>
   </connection>
   <subjob>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRunJob_1" show="false"/>
@@ -715,6 +797,31 @@
   </subjob>
   <subjob>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_7" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_8" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlRow_4" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlClose_7" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlClose_8" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_9" show="false"/>
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
