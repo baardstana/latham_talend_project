@@ -157,7 +157,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT DISTINCT INP35.CONO35&#xD;&#xA;&#x9;,INP35.PNUM35&#xD;&#xA;    ,INP35.PDES35&#xD;&#xA;    ,INP35.PCLS35&#xD;&#xA;    ,INP35.PGMJ35&#xD;&#xA;    ,INP35.IUNT35&#xD;&#xA;    ,INP35.SPC235&#xD;&#xA;    ,INP35.PPUN35&#xD;&#xA;    ,INP35.DISG35&#xD;&#xA;    ,INP35.STRM35&#xD;&#xA;    ,INP35.CSTM35&#xD;&#xA;    ,INP35.BATC35&#xD;&#xA;    ,INP35.PLAN35&#xD;&#xA;    ,INP35.STKS35&#xD;&#xA;    ,INP35.DIVN35&#xD;&#xA;    ,INP35.SDIV35&#xD;&#xA;    ,INP35.PTYP35&#xD;&#xA;FROM Extract_INP35_S21 AS INP35&#xD;&#xA;WHERE CONO35 IN ('LO','TI')&#xD;&#xA;ORDER BY INP35.CONO35,INP35.PNUM35;&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT INP35.CONO35&#xD;&#xA;&#x9;,INP35.PNUM35&#xD;&#xA;    ,INP35.PDES35&#xD;&#xA;    ,INP35.PCLS35&#xD;&#xA;    ,INP35.PGMJ35&#xD;&#xA;    ,INP35.IUNT35&#xD;&#xA;    ,INP35.SPC235&#xD;&#xA;    ,INP35.PPUN35&#xD;&#xA;    ,INP35.DISG35&#xD;&#xA;    ,INP35.STRM35&#xD;&#xA;    ,INP35.CSTM35&#xD;&#xA;    ,INP35.BATC35&#xD;&#xA;    ,INP35.PLAN35&#xD;&#xA;    ,INP35.STKS35&#xD;&#xA;    ,INP35.DIVN35&#xD;&#xA;    ,INP35.SDIV35&#xD;&#xA;    ,INP35.PTYP35&#xD;&#xA;FROM Extract_INP35_S21 AS INP35&#xD;&#xA;WHERE CONO35 IN ('LO','TI');&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -10368,6 +10368,7 @@
   </node>
   <node componentName="tJava" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="64" posY="0">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_1" show="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="MEMO_JAVA" name="CODE" value="System.out.println( new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(TalendDate.getCurrentDate()) + &quot; - &quot; + jobName + &quot; - Starting to read from INP35&quot;);"/>
     <elementParameter field="MEMO_IMPORT" name="IMPORT" value="//import java.util.List;"/>
     <elementParameter field="TEXT" name="LABEL" value="Printupdate"/>
@@ -11905,6 +11906,7 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnComponentOk4" show="false"/>
   </connection>
   <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tJava_1" offsetLabelX="-1" offsetLabelY="-1" source="tJava_1" target="tMysqlInput_1">
+    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk6" show="false"/>
   </connection>
   <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tJava_2" offsetLabelX="1" offsetLabelY="1" source="tJava_2" target="tMysqlInput_27">
