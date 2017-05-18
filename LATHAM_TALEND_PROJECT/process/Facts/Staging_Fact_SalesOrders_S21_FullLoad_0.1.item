@@ -25,7 +25,7 @@
     <contextParameter comment="" name="parameter_LDW_DWH_Server" prompt="parameter_LDW_DWH_Server?" promptNeeded="false" repositoryContextId="_x1RkkC5pEeeaXuPQxSDjCQ" type="id_String" value="172.24.80.56"/>
     <contextParameter comment="" name="parameter_LDW_Staging_Login" prompt="parameter_LDW_Staging_Login?" promptNeeded="false" repositoryContextId="_mmqXEC5pEeeaXuPQxSDjCQ" type="id_String" value="lathamdw"/>
     <contextParameter comment="" name="parameter_LDW_Staging_Server" prompt="parameter_LDW_Staging_Server?" promptNeeded="false" repositoryContextId="_mmqXEC5pEeeaXuPQxSDjCQ" type="id_String" value="RAC-LIFERAYDBPROD02"/>
-    <contextParameter comment="" name="parameter_LDW_Staging_Database" prompt="parameter_LDW_Staging_Database?" promptNeeded="false" repositoryContextId="_mmqXEC5pEeeaXuPQxSDjCQ" type="id_String" value="LDW_Staging_prod"/>
+    <contextParameter comment="" name="parameter_LDW_Staging_Database" prompt="parameter_LDW_Staging_Database?" promptNeeded="false" repositoryContextId="_mmqXEC5pEeeaXuPQxSDjCQ" type="id_String" value="LDW_Staging_dev"/>
     <contextParameter comment="" name="parameter_LDW_Staging_Port" prompt="parameter_LDW_Staging_Port?" promptNeeded="false" repositoryContextId="_mmqXEC5pEeeaXuPQxSDjCQ" type="id_String" value="3306"/>
     <contextParameter comment="" name="parameter_LDW_Staging_AdditionalParams" prompt="parameter_LDW_Staging_AdditionalParams?" promptNeeded="false" repositoryContextId="_mmqXEC5pEeeaXuPQxSDjCQ" type="id_String" value="allowMultiQueries=true"/>
     <contextParameter comment="" name="parameter_LDW_Staging_Password" prompt="parameter_LDW_Staging_Password?" promptNeeded="false" repositoryContextId="_mmqXEC5pEeeaXuPQxSDjCQ" type="id_Password" value="BQEu6ZHxH+23TQMgNOYhoButKOtQz8N9"/>
@@ -274,7 +274,7 @@
       <column comment="" key="true" length="7" name="ORDN40" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="RenamedOEP40">
         <mapperTableEntries name="MapCustomerCONO05" expression="OEP40.CONO40 " type="id_String"/>
@@ -890,7 +890,7 @@
       <column comment="" key="false" length="40" name="DD_CustomerTagName_TORDERS" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="QuoteNumber">
         <mapperTableEntries name="CONO40" expression="LIP05U.CONO40 " type="id_String"/>
@@ -1682,18 +1682,18 @@
     <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk6" show="false"/>
   </connection>
-  <connection connectorName="FLOW" label="OEP40" lineStyle="0" metaname="tMysqlInput_2" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_2" target="tMap_3">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+  <connection connectorName="SUBJOB_ERROR" label="OnSubjobError" lineStyle="4" metaname="tMysqlInput_2" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_2" target="tMysqlRollback_1">
     <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OEP40" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobError1" show="false"/>
   </connection>
   <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlInput_2" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_2" target="tMysqlCommit_1">
     <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk5" show="false"/>
   </connection>
-  <connection connectorName="SUBJOB_ERROR" label="OnSubjobError" lineStyle="4" metaname="tMysqlInput_2" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_2" target="tMysqlRollback_1">
+  <connection connectorName="FLOW" label="OEP40" lineStyle="0" metaname="tMysqlInput_2" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_2" target="tMap_3">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobError1" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OEP40" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="RenamedOEP40" lineStyle="0" metaname="RenamedOEP40" offsetLabelX="0" offsetLabelY="0" source="tMap_3" target="tMysqlOutput_1">
     <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
@@ -1712,18 +1712,18 @@
     <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk14" show="false"/>
   </connection>
-  <connection connectorName="FLOW" label="OEP55" lineStyle="0" metaname="tMysqlInput_6" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_6" target="tMap_4">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+  <connection connectorName="SUBJOB_ERROR" label="OnSubjobError" lineStyle="4" metaname="tMysqlInput_6" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_6" target="tMysqlRollback_2">
     <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OEP55" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobError2" show="false"/>
   </connection>
   <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlInput_6" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_6" target="tMysqlCommit_2">
     <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk10" show="false"/>
   </connection>
-  <connection connectorName="SUBJOB_ERROR" label="OnSubjobError" lineStyle="4" metaname="tMysqlInput_6" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_6" target="tMysqlRollback_2">
+  <connection connectorName="FLOW" label="OEP55" lineStyle="0" metaname="tMysqlInput_6" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_6" target="tMap_4">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobError2" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OEP55" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="RenamedOEP55" lineStyle="0" metaname="RenamedOEP55" offsetLabelX="0" offsetLabelY="0" source="tMap_4" target="tMysqlOutput_2">
     <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
@@ -1763,18 +1763,18 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="UniqueLIP05U" show="false"/>
   </connection>
-  <connection connectorName="FLOW" label="LIP11U" lineStyle="0" metaname="tMysqlInput_8" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_8" target="tMap_6">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+  <connection connectorName="SUBJOB_ERROR" label="OnSubjobError" lineStyle="4" metaname="tMysqlInput_8" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_8" target="tMysqlRollback_3">
     <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="LIP11U" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobError4" show="false"/>
   </connection>
   <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlInput_8" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_8" target="tMysqlCommit_4">
     <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk18" show="false"/>
   </connection>
-  <connection connectorName="SUBJOB_ERROR" label="OnSubjobError" lineStyle="4" metaname="tMysqlInput_8" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_8" target="tMysqlRollback_3">
+  <connection connectorName="FLOW" label="LIP11U" lineStyle="0" metaname="tMysqlInput_8" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_8" target="tMap_6">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobError4" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="LIP11U" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="RenamedLIP11U" lineStyle="0" metaname="RenamedLIP11U" offsetLabelX="0" offsetLabelY="0" source="tMap_6" target="tMysqlOutput_3">
     <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
@@ -1857,7 +1857,7 @@
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
   <subjob>
-    <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" value="true" show="false"/>
+    <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" value="true"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPostjob_1" show="false"/>
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="230;100;0"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="255;220;180"/>
@@ -1918,7 +1918,7 @@
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
   <subjob>
-    <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" value="true" show="false"/>
+    <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" value="true"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPrejob_1" show="false"/>
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="230;100;0"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="255;220;180"/>
