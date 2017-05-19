@@ -2079,7 +2079,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT OEP40.CONO40&#xD;&#xA;&#x9;,OEP40.ORDN40&#xD;&#xA;&#x9;,INP56.DSDT56&#xD;&#xA;FROM Extract_OEP40_S21 AS OEP40&#xD;&#xA;INNER JOIN Extract_INP56_S21 AS INP56&#xD;&#xA;&#x9;ON OEP40.CONO40 = INP56.CONO56&#xD;&#xA;&#x9;AND OEP40.ORDN40 = INP56.ORDN56&#xD;&#xA;&#x9;AND INP56.PRIN56 = '3'&#xD;&#xA;WHERE STAT40 = 'C'&#xD;&#xA;&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT OEP40.CONO40&#xD;&#xA;&#x9;,OEP40.ORDN40&#xD;&#xA;&#x9;,INP56.DSDT56&#xD;&#xA;FROM Extract_OEP40_S21 AS OEP40&#xD;&#xA;INNER JOIN Extract_INP56_S21 AS INP56&#xD;&#xA;&#x9;ON OEP40.CONO40 = INP56.CONO56&#xD;&#xA;&#x9;AND OEP40.ORDN40 = INP56.ORDN56&#xD;&#xA;&#x9;AND INP56.PRIN56 = '3'&#xD;&#xA;WHERE STAT40 = 'C'&#xD;&#xA;ORDER BY OEP40.CONO40&#xD;&#xA;&#x9;,OEP40.ORDN40&#xD;&#xA;&#x9;,INP56.DSDT56 DESC&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -2094,9 +2094,7 @@
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="ORDN40"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SH_TO_ZIP"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SH_TO_CAD5"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="DSDT56"/>
       <elementValue elementRef="TRIM" value="false"/>
     </elementParameter>
     <elementParameter field="TEXT" name="LABEL" value="INP56"/>
@@ -2104,8 +2102,7 @@
     <metadata connector="FLOW" name="tMysqlInput_9">
       <column comment="" key="true" length="2" name="CONO40" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="true" length="7" name="ORDN40" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="12" name="SH_TO_ZIP" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="25" name="SH_TO_CAD5" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="7" name="DSDT56" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
   <connection connectorName="FLOW" label="OEP40" lineStyle="0" metaname="tMysqlInput_2" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_2" target="tMap_3">
