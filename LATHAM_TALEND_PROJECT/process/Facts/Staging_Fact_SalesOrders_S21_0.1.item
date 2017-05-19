@@ -241,7 +241,7 @@
       <column comment="" key="true" length="7" name="ORDN40" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="RenamedOEP40">
         <mapperTableEntries name="MapCustomerCONO05" expression="OEP40.CONO40 " type="id_String"/>
@@ -1225,7 +1225,7 @@
       <column comment="" key="false" length="50" name="DD_SerialNumber" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_String" originalLength="50" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="RenamedLIP11U">
         <mapperTableEntries name="CONO55" expression="LIP11U.CONO55 " type="id_String"/>
@@ -1408,7 +1408,7 @@
       <column comment="" key="false" length="25" name="MapGeographyPostalCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="5" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="MapGeography">
         <mapperTableEntries name="CONO40" expression="OEP40V02.CONO40 " type="id_String"/>
@@ -1872,7 +1872,7 @@
     <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="false"/>
     <elementParameter field="TEXT" name="LABEL" value="GetCompany"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata name="Company">
+    <metadata connector="FLOW" name="Company">
       <column comment="" key="false" length="2" name="MapCustomerCONO05" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="8" name="MapCustomerCUSN05" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="3" name="MapCustomerDSEQ05" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
@@ -1915,7 +1915,7 @@
       <column comment="" key="false" length="50" name="DD_SerialNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="Company">
         <mapperTableEntries name="MapCustomerCONO05" expression="JoinedTables.MapCustomerCONO05 " type="id_String"/>
@@ -2079,7 +2079,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT OEP40.CONO40&#xD;&#xA;&#x9;,OEP40.ORDN40&#xD;&#xA;&#x9;,MAX(DSDT56) AS DSDT56&#xD;&#xA;FROM Extract_OEP40_S21 AS OEP40&#xD;&#xA;LEFT JOIN Extract_INP56_S21 AS INP56&#xD;&#xA;&#x9;ON OEP40.CONO40 = INP56.CONO56&#xD;&#xA;&#x9;AND OEP40.ORDN40 = INP56.ORDN56&#xD;&#xA;&#x9;AND INP56.PRIN56 = '3'&#xD;&#xA;&#x9;AND STAT40 = 'C'&#xD;&#xA;GROUP BY OEP40.CONO40&#xD;&#xA;&#x9;,OEP40.ORDN40&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT OEP40.CONO40&#xD;&#xA;&#x9;,OEP40.ORDN40&#xD;&#xA;&#x9;,INP56.DSDT56&#xD;&#xA;FROM Extract_OEP40_S21 AS OEP40&#xD;&#xA;INNER JOIN Extract_INP56_S21 AS INP56&#xD;&#xA;&#x9;ON OEP40.CONO40 = INP56.CONO56&#xD;&#xA;&#x9;AND OEP40.ORDN40 = INP56.ORDN56&#xD;&#xA;&#x9;AND INP56.PRIN56 = '3'&#xD;&#xA;WHERE STAT40 = 'C'&#xD;&#xA;&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
