@@ -375,15 +375,15 @@
       <column comment="" defaultValue="" key="false" length="10" name="MapCustomerDealerId" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="10" name="MapCustomerDealerOfficeId" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="4" name="MapStockroomPlantCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="50" name="orderStatus" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="19" name="orderDate" nullable="true" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;" precision="0" sourceType="DATETIME" type="id_Date" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="19" name="createdOn" nullable="false" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;" precision="0" sourceType="DATETIME" type="id_Date" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="19" name="vikingShipDate" nullable="true" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;" precision="0" sourceType="DATETIME" type="id_Date" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="19" name="estProductionDate" nullable="true" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;" precision="0" sourceType="DATETIME" type="id_Date" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="19" name="dateShipped" nullable="true" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;" precision="0" sourceType="DATETIME" type="id_Date" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="50" name="orderNumber" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="50" name="purchaseOrder" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="50" name="serialNumber" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="1" name="OrderStatusCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="SK_Date_CustomerOrdered" nullable="false" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;" precision="0" sourceType="DATETIME" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="SK_Date_SystemEntered" nullable="false" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;" precision="0" sourceType="DATETIME" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="SK_Date_CurrentPromisedShip" nullable="false" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;" precision="0" sourceType="DATETIME" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="SK_Date_ScheduledBuild" nullable="false" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;" precision="0" sourceType="DATETIME" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="SK_Date_OrderCompletion" nullable="false" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;" precision="0" sourceType="DATETIME" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="50" name="DD_OrderNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="50" name="DD_CustomerPurchaseOrderNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="50" name="DD_SerialNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
@@ -393,15 +393,15 @@
         <mapperTableEntries name="MapCustomerDealerId" expression="Extract_productorder_Thor.dealerID " type="id_Integer" nullable="true"/>
         <mapperTableEntries name="MapCustomerDealerOfficeId" expression="Extract_productorder_Thor.dealerOfficeID " type="id_Integer" nullable="true"/>
         <mapperTableEntries name="MapStockroomPlantCode" expression="Extract_productorder_Thor.plantCode " type="id_String"/>
-        <mapperTableEntries name="orderStatus" expression="Extract_productorder_Thor.orderStatus " type="id_String"/>
-        <mapperTableEntries name="orderDate" expression="Extract_productorder_Thor.orderDate " type="id_Date" nullable="true"/>
-        <mapperTableEntries name="createdOn" expression="Extract_productorder_Thor.createdOn " type="id_Date"/>
-        <mapperTableEntries name="vikingShipDate" expression="Extract_productorder_Thor.vikingShipDate " type="id_Date" nullable="true"/>
-        <mapperTableEntries name="estProductionDate" expression="Extract_productorder_Thor.estProductionDate " type="id_Date" nullable="true"/>
-        <mapperTableEntries name="dateShipped" expression="Extract_productorder_Thor.dateShipped " type="id_Date" nullable="true"/>
-        <mapperTableEntries name="orderNumber" expression="Extract_productorder_Thor.orderNumber " type="id_String" nullable="true"/>
-        <mapperTableEntries name="purchaseOrder" expression="Extract_productorder_Thor.purchaseOrder " type="id_String" nullable="true"/>
-        <mapperTableEntries name="serialNumber" expression="Extract_shell_Thor.serialNumber " type="id_String" nullable="true"/>
+        <mapperTableEntries name="OrderStatusCode" expression="Extract_productorder_Thor.orderStatus " type="id_String"/>
+        <mapperTableEntries name="SK_Date_CustomerOrdered" expression="Extract_productorder_Thor.orderDate " type="id_Integer"/>
+        <mapperTableEntries name="SK_Date_SystemEntered" expression="Extract_productorder_Thor.createdOn " type="id_Integer"/>
+        <mapperTableEntries name="SK_Date_CurrentPromisedShip" expression="Extract_productorder_Thor.vikingShipDate " type="id_Integer"/>
+        <mapperTableEntries name="SK_Date_ScheduledBuild" expression="Extract_productorder_Thor.estProductionDate " type="id_Integer"/>
+        <mapperTableEntries name="SK_Date_OrderCompletion" expression="Extract_productorder_Thor.dateShipped " type="id_Integer"/>
+        <mapperTableEntries name="DD_OrderNumber" expression="Extract_productorder_Thor.orderNumber " type="id_String"/>
+        <mapperTableEntries name="DD_CustomerPurchaseOrderNumber" expression="Extract_productorder_Thor.purchaseOrder " type="id_String"/>
+        <mapperTableEntries name="DD_SerialNumber" expression="Extract_shell_Thor.serialNumber " type="id_String"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="Extract_productorder_Thor" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="productOrderID" type="id_Integer"/>
