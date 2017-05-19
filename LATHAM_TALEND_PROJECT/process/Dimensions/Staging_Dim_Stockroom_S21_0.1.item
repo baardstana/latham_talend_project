@@ -253,8 +253,10 @@
     <metadata connector="FLOW" label="Staging_Dim_Stockroom" name="StaginDimStockroom">
       <column comment="" key="true" length="2" name="BK_Stockroom_CONO20_S21" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
       <column comment="" key="true" length="2" name="BK_Stockroom_STRC20_S21" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="BK_Stockroom_plantID_Thor" nullable="true" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="'Unknown'" key="false" length="7" name="System21StockroomCompanyCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
       <column comment="" defaultValue="'Unknown'" key="false" length="7" name="System21StockroomCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="7" name="ThorPlantCode" nullable="false" pattern="" precision="-1" sourceType="" type="id_String" originalLength="20" usefulColumn="true"/>
       <column comment="" defaultValue="'Unknown'" key="false" length="25" name="StockroomName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
       <column comment="" defaultValue="'Unknown'" key="false" length="10" name="ShippingSiteCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
       <column comment="" defaultValue="'Unknown'" key="false" length="35" name="ShippingSiteName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
@@ -278,13 +280,15 @@
       <additionalProperties key="Comment" value=""/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="StaginDimStockroom">
         <mapperTableEntries name="BK_Stockroom_CONO20_S21" expression="InputDimStockroom.CONO20 " type="id_String"/>
         <mapperTableEntries name="BK_Stockroom_STRC20_S21" expression="InputDimStockroom.STRC20 " type="id_String"/>
+        <mapperTableEntries name="BK_Stockroom_plantID_Thor" expression="null" type="id_Integer" nullable="true"/>
         <mapperTableEntries name="System21StockroomCompanyCode" expression="InputDimStockroom.CONO20 " type="id_String"/>
         <mapperTableEntries name="System21StockroomCode" expression="InputDimStockroom.STRC20 " type="id_String"/>
+        <mapperTableEntries name="ThorPlantCode" expression="&quot;N/A&quot;" type="id_String"/>
         <mapperTableEntries name="StockroomName" expression="CustomStringHandling.replaceNullAndBlank(InputDimStockroom.STRN20 ) " type="id_String"/>
         <mapperTableEntries name="ShippingSiteCode" expression="CustomStringHandling.replaceNullAndBlank(InputDimStockroom.DOCG20) " type="id_String"/>
         <mapperTableEntries name="ShippingSiteName" expression="CustomStringHandling.replaceNullAndBlank(InputDimStockroom.GRPN13 ) " type="id_String"/>
@@ -458,12 +462,22 @@
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="BK_Stockroom_plantID_Thor"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="System21StockroomCompanyCode"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="System21StockroomCode"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ThorPlantCode"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
@@ -580,8 +594,10 @@
     <metadata connector="FLOW" label="Staging_Dim_Stockroom" name="tMysqlOutput_1">
       <column comment="" key="true" length="2" name="BK_Stockroom_CONO20_S21" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
       <column comment="" key="true" length="2" name="BK_Stockroom_STRC20_S21" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="BK_Stockroom_plantID_Thor" nullable="true" pattern="" precision="-1" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="'Unknown'" key="false" length="7" name="System21StockroomCompanyCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
       <column comment="" defaultValue="'Unknown'" key="false" length="7" name="System21StockroomCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="7" name="ThorPlantCode" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="20" usefulColumn="true"/>
       <column comment="" defaultValue="'Unknown'" key="false" length="25" name="StockroomName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
       <column comment="" defaultValue="'Unknown'" key="false" length="10" name="ShippingSiteCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
       <column comment="" defaultValue="'Unknown'" key="false" length="35" name="ShippingSiteName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
@@ -607,8 +623,10 @@
     <metadata connector="REJECT" label="Staging_Dim_Stockroom" name="REJECT">
       <column comment="" key="true" length="2" name="BK_Stockroom_CONO20_S21" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
       <column comment="" key="true" length="2" name="BK_Stockroom_STRC20_S21" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="BK_Stockroom_plantID_Thor" nullable="true" pattern="" precision="-1" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="'Unknown'" key="false" length="7" name="System21StockroomCompanyCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
       <column comment="" defaultValue="'Unknown'" key="false" length="7" name="System21StockroomCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="7" name="ThorPlantCode" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="20" usefulColumn="true"/>
       <column comment="" defaultValue="'Unknown'" key="false" length="25" name="StockroomName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
       <column comment="" defaultValue="'Unknown'" key="false" length="10" name="ShippingSiteCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
       <column comment="" defaultValue="'Unknown'" key="false" length="35" name="ShippingSiteName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
@@ -788,6 +806,12 @@
   <connection connectorName="FLOW" label="StaginDimStockroom" lineStyle="0" metaname="StaginDimStockroom" offsetLabelX="0" offsetLabelY="0" source="tMap_1" target="tMysqlOutput_1">
     <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
       <elementValue elementRef="TRACE_COLUMN" value="FacilityType"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="BK_Stockroom_plantID_Thor"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="ThorPlantCode"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
