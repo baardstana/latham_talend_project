@@ -1948,7 +1948,6 @@
       <column comment="" defaultValue="" key="false" length="10" name="MapCustomerDealerId" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="10" name="MapCustomerDealerOfficeId" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="4" name="MapStockroomPlantCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="3" name="MapCurrencyTransactionCURN83" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="20" name="MapGeographyPostalCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="7" name="MapGeographyCompanyCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="3" name="OrderSourceCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
@@ -1993,7 +1992,6 @@
         <mapperTableEntries name="MapCustomerDealerId" expression="WithCompany.MapCustomerDealerId " type="id_Integer" nullable="true"/>
         <mapperTableEntries name="MapCustomerDealerOfficeId" expression="WithCompany.MapCustomerDealerOfficeId " type="id_Integer" nullable="true"/>
         <mapperTableEntries name="MapStockroomPlantCode" expression="WithCompany.MapStockroomPlantCode " type="id_String"/>
-        <mapperTableEntries name="MapCurrencyTransactionCURN83" expression="WithCompany.MapCurrencyTransactionCURN83 " type="id_String"/>
         <mapperTableEntries name="MapGeographyPostalCode" expression="WithCompany.MapGeographyPostalCode " type="id_String"/>
         <mapperTableEntries name="MapGeographyCompanyCode" expression="WithCompany.MapGeographyCompanyCode " type="id_String"/>
         <mapperTableEntries name="OrderSourceCode" expression="WithCompany.OrderSourceCode " type="id_String"/>
@@ -2126,13 +2124,12 @@
     <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="false"/>
     <elementParameter field="TEXT" name="LABEL" value="GetCustomer"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata name="WithCustomer">
+    <metadata connector="FLOW" name="WithCustomer">
       <column comment="" defaultValue="" key="false" length="11" name="SK_Company" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_Currency" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="10" name="MapProductProductId" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="4" name="MapStockroomPlantCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="3" name="MapCurrencyTransactionCURN83" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="20" name="MapGeographyPostalCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="7" name="MapGeographyCompanyCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="3" name="OrderSourceCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
@@ -2176,7 +2173,6 @@
         <mapperTableEntries name="SK_Customer" expression="Relational.ISNULL(Customer.SK_Customer) ? -1 : Customer.SK_Customer " type="id_Integer"/>
         <mapperTableEntries name="MapProductProductId" expression="WithCurrency.MapProductProductId " type="id_Integer"/>
         <mapperTableEntries name="MapStockroomPlantCode" expression="WithCurrency.MapStockroomPlantCode " type="id_String"/>
-        <mapperTableEntries name="MapCurrencyTransactionCURN83" expression="WithCurrency.MapCurrencyTransactionCURN83 " type="id_String"/>
         <mapperTableEntries name="MapGeographyPostalCode" expression="WithCurrency.MapGeographyPostalCode " type="id_String"/>
         <mapperTableEntries name="MapGeographyCompanyCode" expression="WithCurrency.MapGeographyCompanyCode " type="id_String"/>
         <mapperTableEntries name="OrderSourceCode" expression="WithCurrency.OrderSourceCode " type="id_String"/>
@@ -2218,7 +2214,6 @@
         <mapperTableEntries name="MapCustomerDealerId" type="id_Integer" nullable="true"/>
         <mapperTableEntries name="MapCustomerDealerOfficeId" type="id_Integer" nullable="true"/>
         <mapperTableEntries name="MapStockroomPlantCode" type="id_String"/>
-        <mapperTableEntries name="MapCurrencyTransactionCURN83" type="id_String"/>
         <mapperTableEntries name="MapGeographyPostalCode" type="id_String"/>
         <mapperTableEntries name="MapGeographyCompanyCode" type="id_String"/>
         <mapperTableEntries name="OrderSourceCode" type="id_String"/>
@@ -2302,6 +2297,147 @@
       <column comment="" defaultValue="" key="false" length="10" name="BK_Customer_dealerOfficeID_Thor" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
+  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="864" posY="1120">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMap_8" show="false"/>
+    <elementParameter field="EXTERNAL" name="MAP" value=""/>
+    <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
+    <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_dalQMDyaEeenoNkTH-ywGw-tMap_8-PREVIEW.bmp"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
+    <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
+    <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
+    <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
+    <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="GetGeography"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata name="WithGeography">
+      <column comment="" defaultValue="" key="false" length="11" name="SK_Company" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="SK_Currency" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="SK_Geography" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="10" name="MapProductProductId" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="4" name="MapStockroomPlantCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="3" name="OrderSourceCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="3" name="OrderLineTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="1" name="OrderStatusCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="3" name="OrderCancellationReasonCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="3" name="OrderTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="3" name="OrderSuspenseCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="3" name="CustomproductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="3" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="SK_Date_CustomerOrdered" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="SK_Date_SystemEntered" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="SK_Date_CurrentPromisedShip" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="SK_Date_ScheduledBuild" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="SK_Date_OrderCompletion" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="true" length="50" name="DD_OrderNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="10" name="DD_OrderLineNumber" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="3" name="DD_QuoteNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="50" name="DD_CustomerPurchaseOrderNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="3" name="DD_CustomerTagName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="50" name="DD_SerialNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="true" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="true" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="true" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="18" name="OrderLineExtendedValueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="18" name="OrderLineExtendedValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="18" name="OrderLineExtendedValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="18" name="OrderLineNetUnitPriceUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="18" name="OrderLineNetUnitPriceFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="18" name="OrderLineNetUnitPriceTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="18" name="OrderLineExtendedDiscountValueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="18" name="OrderLineExtendedDiscountValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="18" name="OrderLineExtendedDiscountValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+    <nodeData xsi:type="MapperData">
+      <uiProperties shellMaximized="true"/>
+      <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
+      <outputTables sizeState="INTERMEDIATE" name="WithGeography">
+        <mapperTableEntries name="SK_Company" expression="WithCustomer.SK_Company " type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency" expression="WithCustomer.SK_Currency " type="id_Integer"/>
+        <mapperTableEntries name="SK_Customer" expression="WithCustomer.SK_Customer " type="id_Integer"/>
+        <mapperTableEntries name="SK_Geography" expression="Relational.ISNULL(Geography.SK_Geography) ? -1 : Geography.SK_Geography " type="id_Integer"/>
+        <mapperTableEntries name="MapProductProductId" expression="WithCustomer.MapProductProductId " type="id_Integer"/>
+        <mapperTableEntries name="MapStockroomPlantCode" expression="WithCustomer.MapStockroomPlantCode " type="id_String"/>
+        <mapperTableEntries name="OrderSourceCode" expression="WithCustomer.OrderSourceCode " type="id_String"/>
+        <mapperTableEntries name="OrderLineTypeCode" expression="WithCustomer.OrderLineTypeCode " type="id_String"/>
+        <mapperTableEntries name="OrderStatusCode" expression="WithCustomer.OrderStatusCode " type="id_String"/>
+        <mapperTableEntries name="OrderCancellationReasonCode" expression="WithCustomer.OrderCancellationReasonCode " type="id_String"/>
+        <mapperTableEntries name="OrderTypeCode" expression="WithCustomer.OrderTypeCode " type="id_String"/>
+        <mapperTableEntries name="OrderSuspenseCode" expression="WithCustomer.OrderSuspenseCode " type="id_String"/>
+        <mapperTableEntries name="CustomproductHoldCode" expression="WithCustomer.CustomproductHoldCode " type="id_String"/>
+        <mapperTableEntries name="CustomProductHoldDescription" expression="WithCustomer.CustomProductHoldDescription " type="id_String"/>
+        <mapperTableEntries name="SK_Date_CustomerOrdered" expression="WithCustomer.SK_Date_CustomerOrdered " type="id_Integer"/>
+        <mapperTableEntries name="SK_Date_SystemEntered" expression="WithCustomer.SK_Date_SystemEntered " type="id_Integer"/>
+        <mapperTableEntries name="SK_Date_CurrentPromisedShip" expression="WithCustomer.SK_Date_CurrentPromisedShip " type="id_Integer"/>
+        <mapperTableEntries name="SK_Date_ScheduledBuild" expression="WithCustomer.SK_Date_ScheduledBuild " type="id_Integer"/>
+        <mapperTableEntries name="SK_Date_OrderCompletion" expression="WithCustomer.SK_Date_OrderCompletion " type="id_Integer"/>
+        <mapperTableEntries name="DD_OrderNumber" expression="WithCustomer.DD_OrderNumber " type="id_String"/>
+        <mapperTableEntries name="DD_OrderLineNumber" expression="WithCustomer.DD_OrderLineNumber " type="id_Integer"/>
+        <mapperTableEntries name="DD_QuoteNumber" expression="WithCustomer.DD_QuoteNumber " type="id_String"/>
+        <mapperTableEntries name="DD_CustomerPurchaseOrderNumber" expression="WithCustomer.DD_CustomerPurchaseOrderNumber " type="id_String"/>
+        <mapperTableEntries name="DD_CustomerTagName" expression="WithCustomer.DD_CustomerTagName " type="id_String"/>
+        <mapperTableEntries name="DD_SerialNumber" expression="WithCustomer.DD_SerialNumber " type="id_String"/>
+        <mapperTableEntries name="OrderLineQuantityOrdered" expression="WithCustomer.OrderLineQuantityOrdered " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityOutstanding" expression="WithCustomer.OrderLineQuantityOutstanding " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityShipped" expression="WithCustomer.OrderLineQuantityShipped " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineExtendedValueUSD" expression="WithCustomer.OrderLineExtendedValueUSD " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineExtendedValueFunctionalCurrency" expression="WithCustomer.OrderLineExtendedValueFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineExtendedValueTransactionCurrency" expression="WithCustomer.OrderLineExtendedValueTransactionCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineNetUnitPriceUSD" expression="WithCustomer.OrderLineNetUnitPriceUSD " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineNetUnitPriceFunctionalCurrency" expression="WithCustomer.OrderLineNetUnitPriceFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineNetUnitPriceTransactionCurrency" expression="WithCustomer.OrderLineNetUnitPriceTransactionCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineExtendedDiscountValueUSD" expression="WithCustomer.OrderLineExtendedDiscountValueUSD " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineExtendedDiscountValueFunctionalCurrency" expression="WithCustomer.OrderLineExtendedDiscountValueFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineExtendedDiscountValueTransactionCurrency" expression="WithCustomer.OrderLineExtendedDiscountValueTransactionCurrency " type="id_Float" nullable="true"/>
+      </outputTables>
+      <inputTables sizeState="INTERMEDIATE" name="WithCustomer" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
+        <mapperTableEntries name="SK_Company" type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency" type="id_Integer"/>
+        <mapperTableEntries name="SK_Customer" type="id_Integer"/>
+        <mapperTableEntries name="MapProductProductId" type="id_Integer"/>
+        <mapperTableEntries name="MapStockroomPlantCode" type="id_String"/>
+        <mapperTableEntries name="MapGeographyPostalCode" type="id_String"/>
+        <mapperTableEntries name="MapGeographyCompanyCode" type="id_String"/>
+        <mapperTableEntries name="OrderSourceCode" type="id_String"/>
+        <mapperTableEntries name="OrderLineTypeCode" type="id_String"/>
+        <mapperTableEntries name="OrderStatusCode" type="id_String"/>
+        <mapperTableEntries name="OrderCancellationReasonCode" type="id_String"/>
+        <mapperTableEntries name="OrderTypeCode" type="id_String"/>
+        <mapperTableEntries name="OrderSuspenseCode" type="id_String"/>
+        <mapperTableEntries name="CustomproductHoldCode" type="id_String"/>
+        <mapperTableEntries name="CustomProductHoldDescription" type="id_String"/>
+        <mapperTableEntries name="SK_Date_CustomerOrdered" type="id_Integer"/>
+        <mapperTableEntries name="SK_Date_SystemEntered" type="id_Integer"/>
+        <mapperTableEntries name="SK_Date_CurrentPromisedShip" type="id_Integer"/>
+        <mapperTableEntries name="SK_Date_ScheduledBuild" type="id_Integer"/>
+        <mapperTableEntries name="SK_Date_OrderCompletion" type="id_Integer"/>
+        <mapperTableEntries name="DD_OrderNumber" type="id_String"/>
+        <mapperTableEntries name="DD_OrderLineNumber" type="id_Integer"/>
+        <mapperTableEntries name="DD_QuoteNumber" type="id_String"/>
+        <mapperTableEntries name="DD_CustomerPurchaseOrderNumber" type="id_String"/>
+        <mapperTableEntries name="DD_CustomerTagName" type="id_String"/>
+        <mapperTableEntries name="DD_SerialNumber" type="id_String"/>
+        <mapperTableEntries name="OrderLineQuantityOrdered" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityOutstanding" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityShipped" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineExtendedValueUSD" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineExtendedValueFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineExtendedValueTransactionCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineNetUnitPriceUSD" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineNetUnitPriceFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineNetUnitPriceTransactionCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineExtendedDiscountValueUSD" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineExtendedDiscountValueFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineExtendedDiscountValueTransactionCurrency" type="id_Float" nullable="true"/>
+      </inputTables>
+      <inputTables sizeState="INTERMEDIATE" name="Geography" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
+        <mapperTableEntries name="SK_Geography" type="id_Integer"/>
+        <mapperTableEntries name="BK_Geography_CompanyCode_FlatFiles" expression="WithCustomer.MapGeographyCompanyCode " type="id_String" operator="="/>
+        <mapperTableEntries name="BK_Geography_PostalCode_FlatFiles" expression="WithCustomer.MapGeographyPostalCode " type="id_String" operator="="/>
+      </inputTables>
+    </nodeData>
+  </node>
   <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="864" posY="992">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_12" show="false"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
@@ -2329,19 +2465,19 @@
     <elementParameter field="CHECK" name="ENABLE_STREAM" value="false"/>
     <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="true"/>
     <elementParameter field="TABLE" name="TRIM_COLUMN" show="false">
-      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Customer"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Geography"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="BK_Customer_dealerID_Thor"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="BK_Geography_CompanyCode_FlatFiles"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="BK_Customer_dealerOfficeID_Thor"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="BK_Geography_PostalCode_FlatFiles"/>
       <elementValue elementRef="TRIM" value="false"/>
     </elementParameter>
     <elementParameter field="TEXT" name="LABEL" value="DimGeography"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tMysqlInput_12">
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="10" name="BK_Customer_dealerID_Thor" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="10" name="BK_Customer_dealerOfficeID_Thor" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="SK_Geography" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="2" name="BK_Geography_CompanyCode_FlatFiles" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="5" name="BK_Geography_PostalCode_FlatFiles" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
   <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tPrejob_1" offsetLabelX="0" offsetLabelY="0" source="tPrejob_1" target="tRunJob_1">
@@ -2450,9 +2586,17 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="Currency" show="false"/>
   </connection>
+  <connection connectorName="FLOW" label="WithCustomer" lineStyle="0" metaname="WithCustomer" offsetLabelX="0" offsetLabelY="0" source="tMap_7" target="tMap_8">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="WithCustomer" show="false"/>
+  </connection>
   <connection connectorName="FLOW" label="Customer" lineStyle="8" metaname="tMysqlInput_11" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_11" target="tMap_7">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="Customer" show="false"/>
+  </connection>
+  <connection connectorName="FLOW" label="Geography" lineStyle="8" metaname="tMysqlInput_12" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_12" target="tMap_8">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="Geography" show="false"/>
   </connection>
   <subjob>
     <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" value="true" show="false"/>
@@ -2508,11 +2652,6 @@
   </subjob>
   <subjob>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_8" show="false"/>
-    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>
-    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
-  </subjob>
-  <subjob>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_12" show="false"/>
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
