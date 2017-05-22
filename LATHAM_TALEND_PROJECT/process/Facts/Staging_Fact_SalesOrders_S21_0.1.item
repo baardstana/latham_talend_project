@@ -2686,7 +2686,7 @@
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var">
-        <mapperTableEntries name="ExchangeRate" expression="ConversionRateFunctional.ExchangeRate " type="id_Float"/>
+        <mapperTableEntries name="ExchangeRate" expression="ConversionRateFunctional.ExchangeRate " type="id_Float" nullable="true"/>
       </varTables>
       <outputTables sizeState="INTERMEDIATE" name="ConvertFunctional">
         <mapperTableEntries name="MapCustomerCONO05" expression="Stockroom.MapCustomerCONO05 " type="id_String"/>
@@ -2725,9 +2725,9 @@
         <mapperTableEntries name="OrderLineQuantityShipped" expression="Stockroom.OrderLineQuantityShipped " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedValueFunctionalCurrency" expression="Stockroom.OrderLineExtendedValueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedValueTransactionCurrency" expression="Stockroom.OrderLineExtendedValueTransactionCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OrderLineNetUnitPriceFunctionalCurrency" expression="Relational.ISNULL(Stockroom.OrderLineNetUnitPriceTransactionCurrency) ? null :  &#xD;&#xA;Var.ExchangeRate * Stockroom.OrderLineNetUnitPriceTransactionCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineNetUnitPriceFunctionalCurrency" expression="Relational.ISNULL(Stockroom.OrderLineNetUnitPriceTransactionCurrency) || Relational.ISNULL(Var.ExchangeRate) ? null :  &#xD;&#xA;Var.ExchangeRate * Stockroom.OrderLineNetUnitPriceTransactionCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineNetUnitPriceTransactionCurrency" expression="Stockroom.OrderLineNetUnitPriceTransactionCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OrderLineExtendedDiscountValueFunctionalCurrency" expression="Relational.ISNULL(Stockroom.OrderLineExtendedDiscountValueFunctionalCurrency) ?  &#xD;&#xA;&#x9;Relational.ISNULL(Stockroom.OrderLineExtendedDiscountValueTransactionCurrency) ? null : &#xD;&#xA;&#x9;Var.ExchangeRate * Stockroom.OrderLineExtendedDiscountValueTransactionCurrency :&#xD;&#xA;Stockroom.OrderLineExtendedDiscountValueFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineExtendedDiscountValueFunctionalCurrency" expression="Relational.ISNULL(Stockroom.OrderLineExtendedDiscountValueFunctionalCurrency) || Relational.ISNULL(Var.ExchangeRate) ?  &#xD;&#xA;&#x9;Relational.ISNULL(Stockroom.OrderLineExtendedDiscountValueTransactionCurrency) ? null : &#xD;&#xA;&#x9;Var.ExchangeRate * Stockroom.OrderLineExtendedDiscountValueTransactionCurrency :&#xD;&#xA;Stockroom.OrderLineExtendedDiscountValueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedDiscountValueTransactionCurrency" expression="Stockroom.OrderLineExtendedDiscountValueTransactionCurrency " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="Stockroom" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
@@ -2893,7 +2893,7 @@
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var">
-        <mapperTableEntries name="ExchangeRate" expression="ConversionRateUSD.ExchangeRate " type="id_Float"/>
+        <mapperTableEntries name="ExchangeRate" expression="ConversionRateUSD.ExchangeRate " type="id_Float" nullable="true"/>
       </varTables>
       <outputTables sizeState="INTERMEDIATE" name="ConvertUSD">
         <mapperTableEntries name="MapCustomerCONO05" expression="ConvertFunctional.MapCustomerCONO05 " type="id_String"/>
@@ -2930,13 +2930,13 @@
         <mapperTableEntries name="OrderLineQuantityOrdered" expression="ConvertFunctional.OrderLineQuantityOrdered " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineQuantityOutstanding" expression="ConvertFunctional.OrderLineQuantityOutstanding " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineQuantityShipped" expression="ConvertFunctional.OrderLineQuantityShipped " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OrderLineExtendedValueUSD" expression="Relational.ISNULL(ConvertFunctional.OrderLineExtendedValueFunctionalCurrency) ? null : Var.ExchangeRate * ConvertFunctional.OrderLineExtendedValueFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineExtendedValueUSD" expression="Relational.ISNULL(ConvertFunctional.OrderLineExtendedValueFunctionalCurrency) || Relational.ISNULL(Var.ExchangeRate) ? null : Var.ExchangeRate * ConvertFunctional.OrderLineExtendedValueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedValueFunctionalCurrency" expression="ConvertFunctional.OrderLineExtendedValueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedValueTransactionCurrency" expression="ConvertFunctional.OrderLineExtendedValueTransactionCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OrderLineNetUnitPriceUSD" expression="Relational.ISNULL(ConvertFunctional.OrderLineNetUnitPriceFunctionalCurrency ) ? null : Var.ExchangeRate * ConvertFunctional.OrderLineNetUnitPriceFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineNetUnitPriceUSD" expression="Relational.ISNULL(ConvertFunctional.OrderLineNetUnitPriceFunctionalCurrency ) || Relational.ISNULL(Var.ExchangeRate) ? null : Var.ExchangeRate * ConvertFunctional.OrderLineNetUnitPriceFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineNetUnitPriceFunctionalCurrency" expression="ConvertFunctional.OrderLineNetUnitPriceFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineNetUnitPriceTransactionCurrency" expression="ConvertFunctional.OrderLineNetUnitPriceTransactionCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OrderLineExtendedDiscountValueUSD" expression="Relational.ISNULL(ConvertFunctional.OrderLineExtendedDiscountValueFunctionalCurrency ) ? null : Var.ExchangeRate * ConvertFunctional.OrderLineExtendedDiscountValueFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineExtendedDiscountValueUSD" expression="Relational.ISNULL(ConvertFunctional.OrderLineExtendedDiscountValueFunctionalCurrency ) || Relational.ISNULL(Var.ExchangeRate) ? null : Var.ExchangeRate * ConvertFunctional.OrderLineExtendedDiscountValueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedDiscountValueFunctionalCurrency" expression="ConvertFunctional.OrderLineExtendedDiscountValueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedDiscountValueTransactionCurrency" expression="ConvertFunctional.OrderLineExtendedDiscountValueTransactionCurrency " type="id_Float" nullable="true"/>
       </outputTables>
