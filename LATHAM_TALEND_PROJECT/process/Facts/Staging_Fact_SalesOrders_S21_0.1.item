@@ -3699,6 +3699,7 @@
         <mapperTableEntries name="OrderSuspenseCode" expression="SalesOrderJunk.OrderSuspenseCode " type="id_String" operator="="/>
         <mapperTableEntries name="CustomProductHoldCode" expression="SalesOrderJunk.CustomProductHoldCode " type="id_String" operator="="/>
         <mapperTableEntries name="CustomProductHoldDescription" expression="SalesOrderJunk.CustomProductHoldDescription " type="id_String" operator="="/>
+        <mapperTableEntries name="CONO" type="id_String"/>
       </inputTables>
     </nodeData>
   </node>
@@ -3747,6 +3748,8 @@
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="CustomProductHoldDescription"/>
       <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CONO"/>
+      <elementValue elementRef="TRIM" value="false"/>
     </elementParameter>
     <elementParameter field="TEXT" name="LABEL" value="Dim_SalesOrderDetail"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
@@ -3760,6 +3763,7 @@
       <column comment="" key="false" length="-1" name="OrderSuspenseCode" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="CustomProductHoldCode" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="CustomProductHoldDescription" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="CONO" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="736" posY="1376">
@@ -5379,6 +5383,11 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="NotExists" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="SalesOrderDetail" lineStyle="8" metaname="tMysqlInput_16" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_16" target="tMap_13">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="CONO"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="SalesOrderDetail" show="false"/>
   </connection>
