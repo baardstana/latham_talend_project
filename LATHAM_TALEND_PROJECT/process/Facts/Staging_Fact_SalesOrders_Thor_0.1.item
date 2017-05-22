@@ -1968,6 +1968,7 @@
       <column comment="" defaultValue="" key="false" length="18" name="OrderLineExtendedDiscountValueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="18" name="OrderLineExtendedDiscountValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="18" name="OrderLineExtendedDiscountValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="SK_Currency_Transaction" nullable="false" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="11" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
@@ -2013,6 +2014,7 @@
         <mapperTableEntries name="OrderLineExtendedDiscountValueUSD" expression="WithCompany.OrderLineExtendedDiscountValueUSD " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedDiscountValueFunctionalCurrency" expression="WithCompany.OrderLineExtendedDiscountValueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedDiscountValueTransactionCurrency" expression="WithCompany.OrderLineExtendedDiscountValueTransactionCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="SK_Currency_Transaction" expression="Relational.ISNULL(Currency.SK_Currency) ? -1 : Currency.SK_Currency " type="id_Integer"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="WithCompany" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Company" type="id_Integer"/>
@@ -2152,6 +2154,7 @@
       <column comment="" defaultValue="" key="false" length="18" name="OrderLineExtendedDiscountValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_USD" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="11" name="SK_Currency_Functional" nullable="false" pattern="" precision="0" sourceType="" type="id_Integer" originalLength="11" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="SK_Currency_Transaction" nullable="false" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="11" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
@@ -2196,6 +2199,7 @@
         <mapperTableEntries name="OrderLineExtendedDiscountValueTransactionCurrency" expression="WithCurrency.OrderLineExtendedDiscountValueTransactionCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="SK_Currency_USD" expression="WithCurrency.SK_Currency_USD " type="id_Integer"/>
         <mapperTableEntries name="SK_Currency_Functional" expression="WithCurrency.SK_Currency_Functional " type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_Transaction" expression="WithCurrency.SK_Currency_Transaction " type="id_Integer"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="WithCurrency" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Company" type="id_Integer"/>
@@ -2238,6 +2242,7 @@
         <mapperTableEntries name="OrderLineExtendedDiscountValueUSD" type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedDiscountValueFunctionalCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedDiscountValueTransactionCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="SK_Currency_Transaction" type="id_Integer"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="Customer" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Customer" type="id_Integer"/>
@@ -2340,6 +2345,7 @@
       <column comment="" defaultValue="" key="false" length="18" name="OrderLineExtendedDiscountValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_USD" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="11" name="SK_Currency_Functional" nullable="false" pattern="" precision="0" sourceType="" type="id_Integer" originalLength="11" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="SK_Currency_Transaction" nullable="false" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="11" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
@@ -2383,6 +2389,7 @@
         <mapperTableEntries name="OrderLineExtendedDiscountValueTransactionCurrency" expression="WithCustomer.OrderLineExtendedDiscountValueTransactionCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="SK_Currency_USD" expression="WithCustomer.SK_Currency_USD " type="id_Integer"/>
         <mapperTableEntries name="SK_Currency_Functional" expression="WithCustomer.SK_Currency_Functional " type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_Transaction" expression="WithCustomer.SK_Currency_Transaction " type="id_Integer"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="WithCustomer" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Company" type="id_Integer"/>
@@ -2424,6 +2431,7 @@
         <mapperTableEntries name="OrderLineExtendedDiscountValueTransactionCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="SK_Currency_USD" type="id_Integer"/>
         <mapperTableEntries name="SK_Currency_Functional" type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_Transaction" type="id_Integer"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="Geography" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Geography" type="id_Integer"/>
@@ -2527,6 +2535,7 @@
       <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_USD" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="11" name="SK_Currency_Functional" nullable="false" pattern="" precision="0" sourceType="" type="id_Integer" originalLength="11" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="SK_Currency_Transaction" nullable="false" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="11" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
@@ -2571,6 +2580,7 @@
         <mapperTableEntries name="SalesUnit" expression="Product.SalesUnit " type="id_Float" nullable="true"/>
         <mapperTableEntries name="SK_Currency_USD" expression="WithGeography.SK_Currency_USD " type="id_Integer"/>
         <mapperTableEntries name="SK_Currency_Functional" expression="WithGeography.SK_Currency_Functional " type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_Transaction" expression="WithGeography.SK_Currency_Transaction " type="id_Integer"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="WithGeography" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Company" type="id_Integer"/>
@@ -2611,6 +2621,7 @@
         <mapperTableEntries name="OrderLineExtendedDiscountValueTransactionCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="SK_Currency_USD" type="id_Integer"/>
         <mapperTableEntries name="SK_Currency_Functional" type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_Transaction" type="id_Integer"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="Product" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Product" type="id_Integer"/>
@@ -2716,6 +2727,7 @@
       <column comment="" defaultValue="" key="false" length="18" name="OrderLineExtendedDiscountValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_USD" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="11" name="SK_Currency_Functional" nullable="false" pattern="" precision="0" sourceType="" type="id_Integer" originalLength="11" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="SK_Currency_Transaction" nullable="false" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="11" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
@@ -2762,6 +2774,7 @@
         <mapperTableEntries name="OrderLineExtendedDiscountValueTransactionCurrency" expression="WithProduct.OrderLineExtendedDiscountValueTransactionCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="SK_Currency_USD" expression="WithProduct.SK_Currency_USD " type="id_Integer"/>
         <mapperTableEntries name="SK_Currency_Functional" expression="WithProduct.SK_Currency_Functional " type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_Transaction" expression="WithProduct.SK_Currency_Transaction " type="id_Integer"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="WithProduct" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Company" type="id_Integer"/>
@@ -2803,6 +2816,7 @@
         <mapperTableEntries name="SalesUnit" type="id_Float" nullable="true"/>
         <mapperTableEntries name="SK_Currency_USD" type="id_Integer"/>
         <mapperTableEntries name="SK_Currency_Functional" type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_Transaction" type="id_Integer"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="Stockroom" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Stockroom" type="id_Integer"/>
@@ -2897,6 +2911,7 @@
       <column comment="" defaultValue="" key="false" length="18" name="OrderLineExtendedDiscountValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_USD" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="11" name="SK_Currency_Functional" nullable="false" pattern="" precision="0" sourceType="" type="id_Integer" originalLength="11" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="SK_Currency_Transaction" nullable="false" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="11" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
@@ -2936,6 +2951,7 @@
         <mapperTableEntries name="OrderLineExtendedDiscountValueTransactionCurrency" expression="WithStockroom.OrderLineExtendedDiscountValueTransactionCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="SK_Currency_USD" expression="WithStockroom.SK_Currency_USD " type="id_Integer"/>
         <mapperTableEntries name="SK_Currency_Functional" expression="WithStockroom.SK_Currency_Functional " type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_Transaction" expression="WithStockroom.SK_Currency_Transaction " type="id_Integer"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="WithStockroom" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Company" type="id_Integer"/>
@@ -2979,6 +2995,7 @@
         <mapperTableEntries name="OrderLineExtendedDiscountValueTransactionCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="SK_Currency_USD" type="id_Integer"/>
         <mapperTableEntries name="SK_Currency_Functional" type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_Transaction" type="id_Integer"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="DimSalesOrderDetail" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_SalesOrderDetail" type="id_Integer"/>
@@ -3102,6 +3119,7 @@
       <column comment="" defaultValue="" key="false" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_USD" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="11" name="SK_Currency_Functional" nullable="false" pattern="" precision="0" sourceType="" type="id_Integer" originalLength="11" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="SK_Currency_Transaction" nullable="false" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="11" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
@@ -3142,6 +3160,7 @@
         <mapperTableEntries name="SK_SourceSystem" expression="SourceSystem.SK_SourceSystem " type="id_Integer"/>
         <mapperTableEntries name="SK_Currency_USD" expression="WithSalesOrderDetail.SK_Currency_USD " type="id_Integer"/>
         <mapperTableEntries name="SK_Currency_Functional" expression="WithSalesOrderDetail.SK_Currency_Functional " type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_Transaction" expression="WithSalesOrderDetail.SK_Currency_Transaction " type="id_Integer"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="WithSalesOrderDetail" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Company" type="id_Integer"/>
@@ -3178,6 +3197,7 @@
         <mapperTableEntries name="OrderLineExtendedDiscountValueTransactionCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="SK_Currency_USD" type="id_Integer"/>
         <mapperTableEntries name="SK_Currency_Functional" type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_Transaction" type="id_Integer"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="SourceSystem" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_SourceSystem" type="id_Integer"/>
@@ -3434,6 +3454,11 @@
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Currency_Transaction"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
     </elementParameter>
     <elementParameter field="CHECK" name="USE_HINT_OPTIONS" value="false"/>
     <elementParameter field="TABLE" name="HINT_OPTIONS" show="false"/>
@@ -3479,6 +3504,7 @@
       <column comment="" defaultValue="" key="false" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_USD" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="11" name="SK_Currency_Functional" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="SK_Currency_Transaction" nullable="false" pattern="" precision="-1" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
     </metadata>
     <metadata connector="REJECT" name="REJECT">
       <column comment="" defaultValue="" key="false" length="11" name="SK_Company" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
@@ -3516,6 +3542,7 @@
       <column comment="" defaultValue="" key="false" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_USD" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="11" name="SK_Currency_Functional" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="SK_Currency_Transaction" nullable="false" pattern="" precision="-1" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
@@ -3612,6 +3639,9 @@
       <elementValue elementRef="TRACE_COLUMN" value="SK_Currency_USD"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="SK_Currency_Transaction"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="WithCurrency" show="false"/>
@@ -3628,6 +3658,9 @@
       <elementValue elementRef="TRACE_COLUMN" value="SK_Currency_USD"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="SK_Currency_Transaction"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="WithCustomer" show="false"/>
@@ -3642,6 +3675,9 @@
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
       <elementValue elementRef="TRACE_COLUMN" value="SK_Currency_USD"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="SK_Currency_Transaction"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
@@ -3663,6 +3699,9 @@
       <elementValue elementRef="TRACE_COLUMN" value="SK_Currency_USD"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="SK_Currency_Transaction"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="WithProduct" show="false"/>
@@ -3677,6 +3716,9 @@
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
       <elementValue elementRef="TRACE_COLUMN" value="SK_Currency_USD"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="SK_Currency_Transaction"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
@@ -3695,6 +3737,9 @@
       <elementValue elementRef="TRACE_COLUMN" value="SK_Currency_USD"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="SK_Currency_Transaction"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="WithSalesOrderDetail" show="false"/>
@@ -3709,6 +3754,9 @@
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
       <elementValue elementRef="TRACE_COLUMN" value="SK_Currency_USD"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="SK_Currency_Transaction"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
