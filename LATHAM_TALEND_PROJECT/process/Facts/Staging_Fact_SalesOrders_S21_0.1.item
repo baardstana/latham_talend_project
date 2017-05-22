@@ -2020,9 +2020,9 @@
         <mapperTableEntries name="MapGeographyPostalCode" type="id_String"/>
         <mapperTableEntries name="SK_Date_OrderCompletion" type="id_Integer"/>
       </inputTables>
-      <inputTables sizeState="INTERMEDIATE" name="DimCompany" matchingMode="ALL_ROWS" lookupMode="LOAD_ONCE">
+      <inputTables sizeState="INTERMEDIATE" name="DimCompany" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Company" type="id_Integer"/>
-        <mapperTableEntries name="BK_Company_CONO_S21" type="id_String"/>
+        <mapperTableEntries name="BK_Company_CONO_S21" expression="JoinedTables.MapCompanyCONO " type="id_String" operator="="/>
         <mapperTableEntries name="SK_Currency" type="id_Integer"/>
       </inputTables>
     </nodeData>
