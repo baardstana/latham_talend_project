@@ -3596,7 +3596,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT DISTINCT OrderSourceCode&#xD;&#xA;&#x9;, OrderLineTypeCode&#xD;&#xA;&#x9;, OrderStatusCode&#xD;&#xA;&#x9;, OrderCancellationReasonCode&#xD;&#xA;&#x9;, OrderTypeCode&#xD;&#xA;&#x9;, OrderSuspenseCode&#xD;&#xA;&#x9;, CustomProductHoldCode&#xD;&#xA;&#x9;, CustomProductHoldDescription&#xD;&#xA;FROM Staging_Fact_SalesOrders_Joined&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT DISTINCT OrderSourceCode&#xD;&#xA;&#x9;, OrderLineTypeCode&#xD;&#xA;&#x9;, OrderStatusCode&#xD;&#xA;&#x9;, OrderCancellationReasonCode&#xD;&#xA;&#x9;, OrderTypeCode&#xD;&#xA;&#x9;, OrderSuspenseCode&#xD;&#xA;&#x9;, CustomProductHoldCode&#xD;&#xA;&#x9;, CustomProductHoldDescription&#xD;&#xA;&#x9;, MapProductCONO35&#xD;&#xA;FROM Staging_Fact_SalesOrders_Joined&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -3623,6 +3623,8 @@
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="CustomProductHoldDescription"/>
       <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="MapProductCONO35"/>
+      <elementValue elementRef="TRIM" value="false"/>
     </elementParameter>
     <elementParameter field="TEXT" name="LABEL" value="SalesOrderJunk"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
@@ -3635,6 +3637,7 @@
       <column comment="" key="false" length="2" name="OrderSuspenseCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="7" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="60" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="2" name="MapProductCONO35" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="2" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="480" posY="1376">
@@ -3659,9 +3662,10 @@
       <column comment="" key="false" length="7" name="OrderSuspenseCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
       <column comment="" key="false" length="7" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="60" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="2" name="CONO" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="2" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="NotExists" activateCondensedTool="true" rejectInnerJoin="true">
         <mapperTableEntries name="OrderSourceCode" expression="SalesOrderJunk.OrderSourceCode " type="id_String"/>
@@ -3672,6 +3676,7 @@
         <mapperTableEntries name="OrderSuspenseCode" expression="SalesOrderJunk.OrderSuspenseCode " type="id_String"/>
         <mapperTableEntries name="CustomProductHoldCode" expression="SalesOrderJunk.CustomProductHoldCode " type="id_String"/>
         <mapperTableEntries name="CustomProductHoldDescription" expression="SalesOrderJunk.CustomProductHoldDescription " type="id_String"/>
+        <mapperTableEntries name="CONO" expression="SalesOrderJunk.MapProductCONO35 " type="id_String"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="SalesOrderJunk" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="OrderSourceCode" type="id_String"/>
@@ -3682,6 +3687,7 @@
         <mapperTableEntries name="OrderSuspenseCode" type="id_String"/>
         <mapperTableEntries name="CustomProductHoldCode" type="id_String"/>
         <mapperTableEntries name="CustomProductHoldDescription" type="id_String"/>
+        <mapperTableEntries name="MapProductCONO35" type="id_String"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="SalesOrderDetail" activateCondensedTool="true" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE" innerJoin="true">
         <mapperTableEntries name="SK_SalesOrderDetail" type="id_Integer"/>
@@ -3827,6 +3833,11 @@
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CONO"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
     </elementParameter>
     <elementParameter field="CHECK" name="USE_HINT_OPTIONS" value="false"/>
     <elementParameter field="TABLE" name="HINT_OPTIONS" show="false"/>
@@ -3845,6 +3856,7 @@
       <column comment="" key="false" length="7" name="OrderSuspenseCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
       <column comment="" key="false" length="7" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="60" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="2" name="CONO" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="2" usefulColumn="true"/>
     </metadata>
     <metadata connector="REJECT" name="REJECT">
       <column comment="" key="false" length="7" name="OrderSourceCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
@@ -3855,6 +3867,7 @@
       <column comment="" key="false" length="7" name="OrderSuspenseCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
       <column comment="" key="false" length="7" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="60" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="2" name="CONO" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="2" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
@@ -5345,6 +5358,11 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk19" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="SalesOrderJunk" lineStyle="0" metaname="tMysqlInput_15" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_15" target="tMap_13">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="MapProductCONO35"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="SalesOrderJunk" show="false"/>
   </connection>
@@ -5352,6 +5370,11 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk17" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="NotExists" lineStyle="0" metaname="NotExists" offsetLabelX="0" offsetLabelY="0" source="tMap_13" target="tMysqlOutput_8">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="CONO"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="NotExists" show="false"/>
   </connection>
