@@ -1091,9 +1091,9 @@
         <mapperTableEntries name="MapProductProductId" expression="Extract_product_Thor.productID " type="id_Integer"/>
         <mapperTableEntries name="orderNumber" expression="Extract_orderitem_Thor.orderNumber " type="id_String"/>
         <mapperTableEntries name="DD_OrderLineNumber" expression="Extract_orderitem_Thor.orderItemID " type="id_Integer"/>
-        <mapperTableEntries name="OrderLineQuantityOrdered" expression="Extract_orderitem_Thor.qty " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OrderLineQuantityOutstanding" expression="&quot;CANCELLED&quot;.equals(Extract_orderitem_Thor.orderStatus) || &quot;INVOICED&quot;.equals(Extract_orderitem_Thor.orderStatus) ? null : Extract_orderitem_Thor.qty " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OrderLineQuantityShipped" expression="&quot;INVOICED&quot;.equals(Extract_orderitem_Thor.orderStatus) ? Extract_orderitem_Thor.qty : null " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityOrdered" expression="Extract_orderitem_Thor.qty.floatValue() " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityOutstanding" expression="&quot;CANCELLED&quot;.equals(Extract_orderitem_Thor.orderStatus) || &quot;INVOICED&quot;.equals(Extract_orderitem_Thor.orderStatus) ? null : Extract_orderitem_Thor.qty.floatValue() " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityShipped" expression="&quot;INVOICED&quot;.equals(Extract_orderitem_Thor.orderStatus) ? Extract_orderitem_Thor.qty.floatValue() : null " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedValueUSD" expression="Extract_orderitem_Thor.itemSubTotal " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedValueFunctionalCurrency" expression="Extract_orderitem_Thor.itemSubTotal " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedValueTransactionCurrency" expression="Extract_orderitem_Thor.itemSubTotal " type="id_Float" nullable="true"/>
