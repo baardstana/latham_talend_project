@@ -173,7 +173,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT * FROM dealer&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT \&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.dealerID,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.dealerNumber,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.dealerName,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.cellPhone,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.phone,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.fax,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.email,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.web,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.dealerLevel,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.taxExemptNumber,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.federalID,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.POTerms,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.displayPool,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.dealerNum,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.isHidden,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.contact,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.dealerNotes,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.brandID,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.createdBy,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.createdOn,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.modifiedBy,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.modifiedOn,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.parentID,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.dealerStatus,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.creditLimit,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.creditAmount,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.dateApproved,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.dateTerminated,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.dealerCode,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.regionCode,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.salesRep,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.salesRepID,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.resaleCertificate,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.resaleCertNotes,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.latham_customerNumber,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.latham_class,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.latham_channel,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.latham_affiliation,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.aquatech,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer.peachtreeCustomerID&quot;&#xA;+&quot;&#xA;FROM&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.dealer&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -585,7 +585,7 @@
       <column comment="" key="false" length="100" name="salesRep" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="10" name="salesRepID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="50" name="resaleCertificate" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="resaleCertNotes" nullable="true" pattern="" precision="0" sourceType="TEXT" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="2147483647" name="resaleCertNotes" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="10" name="latham_customerNumber" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="5" name="latham_class" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="25" name="latham_channel" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
@@ -627,7 +627,7 @@
       <column comment="" key="false" length="100" name="salesRep" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="10" name="salesRepID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="50" name="resaleCertificate" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="resaleCertNotes" nullable="true" pattern="" precision="0" sourceType="TEXT" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="2147483647" name="resaleCertNotes" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="10" name="latham_customerNumber" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="5" name="latham_class" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="25" name="latham_channel" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
@@ -785,13 +785,13 @@
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
   <subjob>
-    <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" value="true"/>
+    <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" value="true" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPrejob_1" show="false"/>
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="230;100;0"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="255;220;180"/>
   </subjob>
   <subjob>
-    <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" value="true"/>
+    <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" value="true" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPostjob_1" show="false"/>
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="230;100;0"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="255;220;180"/>
