@@ -34,7 +34,7 @@
   </context>
   <parameters>
     <elementParameter field="TEXT" name="SCREEN_OFFSET_X" value="0" show="false"/>
-    <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" value="256" show="false"/>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" value="128" show="false"/>
     <elementParameter field="TEXT" name="REPOSITORY_CONNECTION_ID" value="" show="false"/>
     <elementParameter field="TEXT" name="OOZIE_PROPERTY_TYPENAME" value="" show="false"/>
     <elementParameter field="TEXT" name="OOZIE_HADOOP_DISTRIBUTION" value="" show="false"/>
@@ -297,7 +297,7 @@
   </node>
   <node componentName="tJava" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="64" posY="1664">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_11" show="false"/>
-    <elementParameter field="MEMO_JAVA" name="CODE" value="System.out.println( new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(TalendDate.getCurrentDate()) + &quot; - &quot; + jobName + &quot; - Finished handling junk dimension for sales orders, starting to handle junk dimension for sales invoices&quot;);"/>
+    <elementParameter field="MEMO_JAVA" name="CODE" value="System.out.println( new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(TalendDate.getCurrentDate()) + &quot; - &quot; + jobName + &quot; - Starting to handle junk dimension for sales invoices&quot;);"/>
     <elementParameter field="MEMO_IMPORT" name="IMPORT" value="//import java.util.List;"/>
     <elementParameter field="TEXT" name="LABEL" value="Printupdate"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
@@ -2586,9 +2586,6 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="SalesOrderDetail" show="false"/>
   </connection>
-  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlInput_14" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_14" target="tJava_13">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk21" show="false"/>
-  </connection>
   <connection connectorName="FLOW" label="SalesInvoicingJunk" lineStyle="0" metaname="tMysqlInput_14" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_14" target="tMap_11">
     <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
       <elementValue elementRef="TRACE_COLUMN" value="MapProductCONO35"/>
@@ -2597,6 +2594,9 @@
     </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="SalesInvoicingJunk" show="false"/>
+  </connection>
+  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlInput_14" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_14" target="tJava_13">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk21" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="SaleSInvoicingDetail" lineStyle="8" metaname="tMysqlInput_15" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_15" target="tMap_11">
     <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
