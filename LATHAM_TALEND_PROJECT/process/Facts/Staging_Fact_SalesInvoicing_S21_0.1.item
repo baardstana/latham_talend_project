@@ -3120,11 +3120,11 @@
       <column comment="" key="false" length="12" name="MapGeographyPostalCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="2" name="MapCompanyCONO" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="3" name="MapCurrencyCURN83_Transaction" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="OrderSourceCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="OrderLineTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="3" name="OrderSourceCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="3" usefulColumn="true"/>
+      <column comment="" key="false" length="3" name="OrderLineTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="3" usefulColumn="true"/>
       <column comment="" key="false" length="3" name="OrderStatusCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="3" name="OrderCancellationReasonCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="OrderTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="3" name="OrderCancellationReasonCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="3" name="OrderTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="3" usefulColumn="true"/>
       <column comment="" key="false" length="3" name="OrderSuspenseCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="3" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="3" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
@@ -3148,12 +3148,12 @@
         <mapperTableEntries name="OrderSourceCode" expression="Product.OrderSourceCode " type="id_String"/>
         <mapperTableEntries name="OrderLineTypeCode" expression="Product.OrderLineTypeCode " type="id_String"/>
         <mapperTableEntries name="OrderStatusCode" expression="Product.OrderStatusCode " type="id_String"/>
-        <mapperTableEntries name="OrderCancellationReasonCode" expression="Product.OrderCancellationReasonCode " type="id_String" nullable="true"/>
+        <mapperTableEntries name="OrderCancellationReasonCode" expression="Relational.ISNULL(Product.OrderCancellationReasonCode) ? &quot;N/A&quot; : Product.OrderCancellationReasonCode " type="id_String"/>
         <mapperTableEntries name="OrderTypeCode" expression="Product.OrderTypeCode " type="id_String"/>
         <mapperTableEntries name="OrderSuspenseCode" expression="Product.OrderSuspenseCode " type="id_String"/>
         <mapperTableEntries name="CustomProductHoldCode" expression="Product.CustomProductHoldCode " type="id_String"/>
         <mapperTableEntries name="CustomProductHoldDescription" expression="Product.CustomProductHoldDescription " type="id_String"/>
-        <mapperTableEntries name="SalesUnit" expression="Product.SalesUnit  Product.UnitOverrideFlag " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="SalesUnit" expression="&quot;Unit Override&quot;.equals(Product.UnitOverrideFlag) ? 1: Product.SalesUnit " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="Product" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="CONO70" type="id_String"/>
