@@ -2677,7 +2677,6 @@
   </node>
   <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="224" posY="1920">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_14" show="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
     <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_1"/>
@@ -2687,12 +2686,12 @@
     <elementParameter field="TEXT" name="TYPE" value="MySQL" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
     <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;&quot;"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Staging_Fact_SalesInvoicing_OEP65&quot;"/>
     <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT DISTINCT OrderSourceCode&#xD;&#xA;&#x9;, OrderLineTypeCode&#xD;&#xA;&#x9;, OrderStatusCode&#xD;&#xA;&#x9;, OrderCancellationReasonCode&#xD;&#xA;&#x9;, OrderTypeCode&#xD;&#xA;&#x9;, OrderSuspenseCode&#xD;&#xA;&#x9;, CustomProductHoldCode&#xD;&#xA;&#x9;, CustomProductHoldDescription&#xD;&#xA;&#x9;, MapProductCONO35&#xD;&#xA;FROM Staging_Fact_SalesOrders_Joined&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT &#xA;  `Staging_Fact_SalesInvoicing_OEP65`.`OrderSourceCode`, &#xA;  `Staging_Fact_SalesInvoicing_OEP65`.`OrderLineTypeCode`, &#xA;  `Staging_Fact_SalesInvoicing_OEP65`.`OrderStatusCode`, &#xA;  `Staging_Fact_SalesInvoicing_OEP65`.`OrderCancellationReasonCode`, &#xA;  `Staging_Fact_SalesInvoicing_OEP65`.`OrderTypeCode`, &#xA;  `Staging_Fact_SalesInvoicing_OEP65`.`OrderSuspenseCode`, &#xA;  `Staging_Fact_SalesInvoicing_OEP65`.`CustomProductHoldCode`, &#xA;  `Staging_Fact_SalesInvoicing_OEP65`.`CustomProductHoldDescription`, &#xA;  `Staging_Fact_SalesInvoicing_OEP65`.`MapProductCONO35`&#xA;FROM `Staging_Fact_SalesInvoicing_OEP65`&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -2738,7 +2737,6 @@
   </node>
   <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="480" posY="1760">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_15" show="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
     <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_2"/>
@@ -2753,7 +2751,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT SK_SalesOrderDetail&#xD;&#xA;&#x9;, OrderSourceCode&#xD;&#xA;&#x9;, OrderLineTypeCode&#xD;&#xA;&#x9;, OrderStatusCode&#xD;&#xA;&#x9;, OrderCancellationReasonCode&#xD;&#xA;&#x9;, OrderTypeCode&#xD;&#xA;&#x9;, OrderSuspenseCode&#xD;&#xA;&#x9;, CustomProductHoldCode&#xD;&#xA;&#x9;, CustomProductHoldDescription&#xD;&#xA;&#x9;, CONO&#xD;&#xA;FROM Dim_SalesOrderDetail&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT SK_SalesInvoicingDetail&#xD;&#xA;&#x9;, InvoiceReasonCode&#xD;&#xA;&#x9;, InvoiceTransactionTypeCode&#xD;&#xA;&#x9;, CONO&#xD;&#xA;FROM Dim_SalesInvoicingDetail&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -2764,23 +2762,11 @@
     <elementParameter field="CHECK" name="ENABLE_STREAM" value="false"/>
     <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="true"/>
     <elementParameter field="TABLE" name="TRIM_COLUMN" show="false">
-      <elementValue elementRef="SCHEMA_COLUMN" value="SK_SalesOrderDetail"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SK_SalesInvoicingDetail"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="OrderSourceCode"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceReasonCode"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="OrderLineTypeCode"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="OrderStatusCode"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="OrderCancellationReasonCode"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="OrderTypeCode"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="OrderSuspenseCode"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="CustomProductHoldCode"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="CustomProductHoldDescription"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceTransactionTypeCode"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="CONO"/>
       <elementValue elementRef="TRIM" value="false"/>
@@ -2788,21 +2774,14 @@
     <elementParameter field="TEXT" name="LABEL" value="Dim_SalesInvoicingDetail"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tMysqlInput_15">
-      <column comment="" defaultValue="" key="false" length="-1" name="SK_SalesOrderDetail" nullable="false" pattern="" precision="-1" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="OrderSourceCode" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="OrderLineTypeCode" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="OrderStatusCode" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="OrderCancellationReasonCode" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="OrderTypeCode" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="OrderSuspenseCode" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="CustomProductHoldCode" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="CustomProductHoldDescription" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="-1" name="SK_SalesInvoicingDetail" nullable="false" pattern="" precision="-1" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="InvoiceReasonCode" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="InvoiceTransactionTypeCode" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="CONO" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="480" posY="1920">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMap_11" show="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
@@ -2851,22 +2830,15 @@
         <mapperTableEntries name="MapProductCONO35" type="id_String"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="SaleSInvoicingDetail" activateCondensedTool="true" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE" innerJoin="true">
-        <mapperTableEntries name="SK_SalesOrderDetail" type="id_Integer"/>
-        <mapperTableEntries name="OrderSourceCode" expression="SalesInvoicingJunk.OrderSourceCode " type="id_String" operator="="/>
-        <mapperTableEntries name="OrderLineTypeCode" expression="SalesInvoicingJunk.OrderLineTypeCode " type="id_String" operator="="/>
-        <mapperTableEntries name="OrderStatusCode" expression="SalesInvoicingJunk.OrderStatusCode " type="id_String" operator="="/>
-        <mapperTableEntries name="OrderCancellationReasonCode" expression="SalesInvoicingJunk.OrderCancellationReasonCode " type="id_String" operator="="/>
-        <mapperTableEntries name="OrderTypeCode" expression="SalesInvoicingJunk.OrderTypeCode " type="id_String" operator="="/>
-        <mapperTableEntries name="OrderSuspenseCode" expression="SalesInvoicingJunk.OrderSuspenseCode " type="id_String" operator="="/>
-        <mapperTableEntries name="CustomProductHoldCode" expression="SalesInvoicingJunk.CustomProductHoldCode " type="id_String" operator="="/>
-        <mapperTableEntries name="CustomProductHoldDescription" expression="SalesInvoicingJunk.CustomProductHoldDescription " type="id_String" operator="="/>
+        <mapperTableEntries name="SK_SalesInvoicingDetail" type="id_Integer"/>
+        <mapperTableEntries name="InvoiceReasonCode" type="id_String"/>
+        <mapperTableEntries name="InvoiceTransactionTypeCode" type="id_String"/>
         <mapperTableEntries name="CONO" expression="SalesInvoicingJunk.MapProductCONO35 " type="id_String" operator="="/>
       </inputTables>
     </nodeData>
   </node>
   <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="736" posY="1920">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlOutput_11" show="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
     <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_2"/>
@@ -3880,7 +3852,6 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk21" show="false"/>
   </connection>
   <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tJava_11" offsetLabelX="0" offsetLabelY="0" outputId="2" source="tJava_11" target="tMysqlInput_14">
-    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk23" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="SalesOrderJunk" lineStyle="0" metaname="tMysqlInput_12" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_12" target="tMap_10">
@@ -3924,7 +3895,6 @@
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="SalesInvoicingJunk" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="SaleSInvoicingDetail" lineStyle="8" metaname="tMysqlInput_15" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_15" target="tMap_11">
@@ -3934,7 +3904,6 @@
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="SaleSInvoicingDetail" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="copyOfNotExists" lineStyle="0" metaname="copyOfNotExists" offsetLabelX="0" offsetLabelY="0" source="tMap_11" target="tMysqlOutput_11">
@@ -3944,7 +3913,6 @@
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="copyOfNotExists" show="false"/>
   </connection>
   <subjob>
