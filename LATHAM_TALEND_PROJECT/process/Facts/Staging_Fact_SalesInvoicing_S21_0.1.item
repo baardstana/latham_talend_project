@@ -2451,7 +2451,7 @@
     <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="false"/>
     <elementParameter field="TEXT" name="LABEL" value="RemoveNulls"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" label="nullsRemoved" name="nullsRemoved">
+    <metadata connector="FLOW" label="nullsRemoved" name="NullsRemoved">
       <column comment="" key="false" length="3" name="OrderSourceCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="3" usefulColumn="true"/>
       <column comment="" key="false" length="3" name="OrderLineTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="3" usefulColumn="true"/>
       <column comment="" key="false" length="3" name="OrderStatusCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
@@ -2465,7 +2465,7 @@
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
-      <outputTables sizeState="INTERMEDIATE" name="nullsRemoved">
+      <outputTables sizeState="INTERMEDIATE" name="NullsRemoved">
         <mapperTableEntries name="OrderSourceCode" expression="SalesOrderJunk.OrderSourceCode " type="id_String"/>
         <mapperTableEntries name="OrderLineTypeCode" expression="Relational.ISNULL(SalesOrderJunk.OrderLineTypeCode) ? &quot;N/A&quot; : SalesOrderJunk.OrderLineTypeCode " type="id_String"/>
         <mapperTableEntries name="OrderStatusCode" expression="SalesOrderJunk.OrderStatusCode " type="id_String"/>
@@ -2517,17 +2517,17 @@
       <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="NotExists" activateCondensedTool="true" rejectInnerJoin="true">
-        <mapperTableEntries name="OrderSourceCode" expression="SalesOrderJunk.OrderSourceCode " type="id_String"/>
-        <mapperTableEntries name="OrderLineTypeCode" expression="SalesOrderJunk.OrderLineTypeCode " type="id_String"/>
-        <mapperTableEntries name="OrderStatusCode" expression="SalesOrderJunk.OrderStatusCode " type="id_String"/>
-        <mapperTableEntries name="OrderCancellationReasonCode" expression="SalesOrderJunk.OrderCancellationReasonCode " type="id_String"/>
-        <mapperTableEntries name="OrderTypeCode" expression="SalesOrderJunk.OrderTypeCode " type="id_String"/>
-        <mapperTableEntries name="OrderSuspenseCode" expression="SalesOrderJunk.OrderSuspenseCode " type="id_String"/>
-        <mapperTableEntries name="CustomProductHoldCode" expression="SalesOrderJunk.CustomProductHoldCode " type="id_String"/>
-        <mapperTableEntries name="CustomProductHoldDescription" expression="SalesOrderJunk.CustomProductHoldDescription " type="id_String"/>
-        <mapperTableEntries name="CONO" expression="SalesOrderJunk.MapProductCONO35 " type="id_String"/>
+        <mapperTableEntries name="OrderSourceCode" expression="NullsRemoved.OrderSourceCode " type="id_String"/>
+        <mapperTableEntries name="OrderLineTypeCode" expression="NullsRemoved.OrderLineTypeCode " type="id_String"/>
+        <mapperTableEntries name="OrderStatusCode" expression="NullsRemoved.OrderStatusCode " type="id_String"/>
+        <mapperTableEntries name="OrderCancellationReasonCode" expression="NullsRemoved.OrderCancellationReasonCode " type="id_String"/>
+        <mapperTableEntries name="OrderTypeCode" expression="NullsRemoved.OrderTypeCode " type="id_String"/>
+        <mapperTableEntries name="OrderSuspenseCode" expression="NullsRemoved.OrderSuspenseCode " type="id_String"/>
+        <mapperTableEntries name="CustomProductHoldCode" expression="NullsRemoved.CustomProductHoldCode " type="id_String"/>
+        <mapperTableEntries name="CustomProductHoldDescription" expression="NullsRemoved.CustomProductHoldDescription " type="id_String"/>
+        <mapperTableEntries name="CONO" expression="NullsRemoved.CONO65 " type="id_String"/>
       </outputTables>
-      <inputTables sizeState="INTERMEDIATE" name="nullsRemoved" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
+      <inputTables sizeState="INTERMEDIATE" name="NullsRemoved" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="OrderSourceCode" type="id_String"/>
         <mapperTableEntries name="OrderLineTypeCode" type="id_String"/>
         <mapperTableEntries name="OrderStatusCode" type="id_String"/>
@@ -2540,15 +2540,15 @@
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="SalesOrderDetail" activateCondensedTool="true" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE" innerJoin="true">
         <mapperTableEntries name="SK_SalesOrderDetail" type="id_Integer"/>
-        <mapperTableEntries name="OrderSourceCode" expression="SalesOrderJunk.OrderSourceCode " type="id_String" operator="="/>
-        <mapperTableEntries name="OrderLineTypeCode" expression="SalesOrderJunk.OrderLineTypeCode " type="id_String" operator="="/>
-        <mapperTableEntries name="OrderStatusCode" expression="SalesOrderJunk.OrderStatusCode " type="id_String" operator="="/>
-        <mapperTableEntries name="OrderCancellationReasonCode" expression="SalesOrderJunk.OrderCancellationReasonCode " type="id_String" operator="="/>
-        <mapperTableEntries name="OrderTypeCode" expression="SalesOrderJunk.OrderTypeCode " type="id_String" operator="="/>
-        <mapperTableEntries name="OrderSuspenseCode" expression="SalesOrderJunk.OrderSuspenseCode " type="id_String" operator="="/>
-        <mapperTableEntries name="CustomProductHoldCode" expression="SalesOrderJunk.CustomProductHoldCode " type="id_String" operator="="/>
-        <mapperTableEntries name="CustomProductHoldDescription" expression="SalesOrderJunk.CustomProductHoldDescription " type="id_String" operator="="/>
-        <mapperTableEntries name="CONO" expression="SalesOrderJunk.MapProductCONO35 " type="id_String" operator="="/>
+        <mapperTableEntries name="OrderSourceCode" expression="NullsRemoved.OrderSourceCode " type="id_String" operator="="/>
+        <mapperTableEntries name="OrderLineTypeCode" expression="NullsRemoved.OrderLineTypeCode " type="id_String" operator="="/>
+        <mapperTableEntries name="OrderStatusCode" expression="NullsRemoved.OrderStatusCode " type="id_String" operator="="/>
+        <mapperTableEntries name="OrderCancellationReasonCode" expression="NullsRemoved.OrderCancellationReasonCode " type="id_String" operator="="/>
+        <mapperTableEntries name="OrderTypeCode" expression="NullsRemoved.OrderTypeCode " type="id_String" operator="="/>
+        <mapperTableEntries name="OrderSuspenseCode" expression="NullsRemoved.OrderSuspenseCode " type="id_String" operator="="/>
+        <mapperTableEntries name="CustomProductHoldCode" expression="NullsRemoved.CustomProductHoldCode " type="id_String" operator="="/>
+        <mapperTableEntries name="CustomProductHoldDescription" expression="NullsRemoved.CustomProductHoldDescription " type="id_String" operator="="/>
+        <mapperTableEntries name="CONO" expression="NullsRemoved.CONO65 " type="id_String" operator="="/>
       </inputTables>
     </nodeData>
   </node>
@@ -3841,9 +3841,9 @@
   <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlInput_12" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_12" target="tJava_11">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk22" show="false"/>
   </connection>
-  <connection connectorName="FLOW" label="nullsRemoved" lineStyle="0" metaname="nullsRemoved" offsetLabelX="0" offsetLabelY="0" source="tMap_12" target="tMap_10">
+  <connection connectorName="FLOW" label="NullsRemoved" lineStyle="0" metaname="NullsRemoved" offsetLabelX="0" offsetLabelY="0" source="tMap_12" target="tMap_10">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="nullsRemoved" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="NullsRemoved" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="NotExists" lineStyle="0" metaname="NotExists" offsetLabelX="0" offsetLabelY="0" source="tMap_10" target="tMysqlOutput_10">
     <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
