@@ -3009,7 +3009,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT OEP70.CONO70&#xD;&#xA;&#x9;, OEP70.INVN70&#xD;&#xA;&#x9;, OEP70.ORDL70&#xD;&#xA;&#x9;, DimProduct.SK_Product&#xD;&#xA;&#x9;, OEP65.MapCustomerCONO05&#xD;&#xA;    , OEP65.MapCustomerCUSN05&#xD;&#xA;    , OEP65.MapCustomerDSEQ05&#xD;&#xA;    , LIP14U.MapStockroomCONO20&#xD;&#xA;    , LIP14U.MapStockroomSTRC20&#xD;&#xA;    , OEP65V01.MapGeographyCompanyCode&#xD;&#xA;    , OEP65V01.MapGeographyPostalCode&#xD;&#xA;    , OEP65.MapCompanyCONO&#xD;&#xA;    , OEP65.MapCurrencyCURN83_Transaction&#xD;&#xA;    , OEP65.OrderSourceCode&#xD;&#xA;    , OEP70.OrderLineTypeCode&#xD;&#xA;    , OEP40.OrderStatusCode&#xD;&#xA;    , OEP55.OrderCancellationReasonCode&#xD;&#xA;    , OEP65.OrderTypeCode&#xD;&#xA;    , OEP40.OrderSuspenseCode&#xD;&#xA;    , OEP65.CustomProductHoldCode&#xD;&#xA;    , OEP65.CustomProductHoldDescription&#xD;&#xA;FROM Staging_Fact_SalesInvoicing_OEP65 AS OEP65&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_OEP70 AS OEP70&#xD;&#xA;&#x9;ON OEP65.CONO65 = OEP70.CONO70&#xD;&#xA;    AND OEP65.INVN65 = OEP70.INVN70&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicing_LIP04U_LIP14U AS LIP14U&#xD;&#xA;&#x9;ON OEP70.CONO70 = LIP14U.CONO70&#xD;&#xA;    AND OEP70.INVN70 = LIP14U.INVN70&#xD;&#xA;    AND OEP70.ORDL70 = LIP14U.ORDL70&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_OEP65V01 AS OEP65V01&#xD;&#xA;&#x9;ON OEP65.CONO65 = OEP65V01.CONO65&#xD;&#xA;    AND OEP65.INVN65 = OEP65V01.INVN65&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_OEP40 AS OEP40&#xD;&#xA;&#x9;ON OEP65.CONO65 = OEP40.CONO65&#xD;&#xA;    AND OEP65.INVN65 = OEP40.INVN65&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicing_OEP55 AS OEP55&#xD;&#xA;&#x9;ON OEP70.CONO70 = OEP55.CONO70&#xD;&#xA;    AND OEP70.INVN70 = OEP55.INVN70&#xD;&#xA;    AND OEP70.ORDL70 = OEP55.ORDL70&#xD;&#xA;LEFT JOIN LDW_dev.Dim_Product AS DimProduct&#xD;&#xA;&#x9;ON OEP70.MapProductCONO35 = DimProduct.BK_Product_CONO35_S21&#xD;&#xA;&#x9;AND OEP70.MapProductPNUM35 = DimProduct.BK_Product_PNUM35_S21&#xD;&#xA;    AND DimProduct.IsCurrent = 1&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT OEP70.CONO70&#xD;&#xA;&#x9;, OEP70.INVN70&#xD;&#xA;&#x9;, OEP70.ORDL70&#xD;&#xA;&#x9;, DimProduct.SK_Product&#xD;&#xA;&#x9;, OEP65.MapCustomerCONO05&#xD;&#xA;    , OEP65.MapCustomerCUSN05&#xD;&#xA;    , OEP65.MapCustomerDSEQ05&#xD;&#xA;    , LIP14U.MapStockroomCONO20&#xD;&#xA;    , LIP14U.MapStockroomSTRC20&#xD;&#xA;    , OEP65V01.MapGeographyCompanyCode&#xD;&#xA;    , OEP65V01.MapGeographyPostalCode&#xD;&#xA;    , OEP65.MapCompanyCONO&#xD;&#xA;    , OEP65.MapCurrencyCURN83_Transaction&#xD;&#xA;    , OEP65.OrderSourceCode&#xD;&#xA;    , OEP70.OrderLineTypeCode&#xD;&#xA;    , OEP40.OrderStatusCode&#xD;&#xA;    , OEP55.OrderCancellationReasonCode&#xD;&#xA;    , OEP65.OrderTypeCode&#xD;&#xA;    , OEP40.OrderSuspenseCode&#xD;&#xA;    , OEP65.CustomProductHoldCode&#xD;&#xA;    , OEP65.CustomProductHoldDescription&#xD;&#xA;    , DimProduct.SalesUnit&#xD;&#xA;&#x9;, DimProduct.UnitOverrideFlag&#xD;&#xA;FROM Staging_Fact_SalesInvoicing_OEP65 AS OEP65&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_OEP70 AS OEP70&#xD;&#xA;&#x9;ON OEP65.CONO65 = OEP70.CONO70&#xD;&#xA;    AND OEP65.INVN65 = OEP70.INVN70&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicing_LIP04U_LIP14U AS LIP14U&#xD;&#xA;&#x9;ON OEP70.CONO70 = LIP14U.CONO70&#xD;&#xA;    AND OEP70.INVN70 = LIP14U.INVN70&#xD;&#xA;    AND OEP70.ORDL70 = LIP14U.ORDL70&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_OEP65V01 AS OEP65V01&#xD;&#xA;&#x9;ON OEP65.CONO65 = OEP65V01.CONO65&#xD;&#xA;    AND OEP65.INVN65 = OEP65V01.INVN65&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_OEP40 AS OEP40&#xD;&#xA;&#x9;ON OEP65.CONO65 = OEP40.CONO65&#xD;&#xA;    AND OEP65.INVN65 = OEP40.INVN65&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicing_OEP55 AS OEP55&#xD;&#xA;&#x9;ON OEP70.CONO70 = OEP55.CONO70&#xD;&#xA;    AND OEP70.INVN70 = OEP55.INVN70&#xD;&#xA;    AND OEP70.ORDL70 = OEP55.ORDL70&#xD;&#xA;LEFT JOIN LDW_dev.Dim_Product AS DimProduct&#xD;&#xA;&#x9;ON OEP70.MapProductCONO35 = DimProduct.BK_Product_CONO35_S21&#xD;&#xA;&#x9;AND OEP70.MapProductPNUM35 = DimProduct.BK_Product_PNUM35_S21&#xD;&#xA;    AND DimProduct.IsCurrent = 1&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -3020,19 +3020,73 @@
     <elementParameter field="CHECK" name="ENABLE_STREAM" value="false"/>
     <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="true"/>
     <elementParameter field="TABLE" name="TRIM_COLUMN" show="false">
-      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceReasonCode"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CONO70"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceTransactionTypeCode"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="INVN70"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="CONO65"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ORDL70"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Product"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="MapCustomerCONO05"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="MapCustomerCUSN05"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="MapCustomerDSEQ05"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="MapStockroomCONO20"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="MapStockroomSTRC20"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="MapGeographyCompanyCode"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="MapGeographyPostalCode"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="MapCompanyCONO"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="MapCurrencyCURN83_Transaction"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="OrderSourceCode"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="OrderLineTypeCode"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="OrderStatusCode"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="OrderCancellationReasonCode"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="OrderTypeCode"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="OrderSuspenseCode"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CustomProductHoldCode"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CustomProductHoldDescription"/>
       <elementValue elementRef="TRIM" value="false"/>
     </elementParameter>
     <elementParameter field="TEXT" name="LABEL" value="MapColumns"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tMysqlInput_16">
-      <column comment="" key="false" length="1" name="InvoiceReasonCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="InvoiceTransactionTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="CONO65" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="true" length="2" name="CONO70" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="true" length="7" name="INVN70" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="4" name="ORDL70" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="SK_Product" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="2" name="MapCustomerCONO05" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="8" name="MapCustomerCUSN05" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="3" name="MapCustomerDSEQ05" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="2" name="MapStockroomCONO20" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="2" name="MapStockroomSTRC20" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="2" name="MapGeographyCompanyCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="12" name="MapGeographyPostalCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="2" name="MapCompanyCONO" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="3" name="MapCurrencyCURN83_Transaction" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="1" name="OrderSourceCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="1" name="OrderLineTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="3" name="OrderStatusCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="3" name="OrderCancellationReasonCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="1" name="OrderTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="3" name="OrderSuspenseCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="3" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="3" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="480" posY="2048">
@@ -3051,7 +3105,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT SK_SalesInvoicingDetail&#xD;&#xA;&#x9;, InvoiceReasonCode&#xD;&#xA;&#x9;, InvoiceTransactionTypeCode&#xD;&#xA;&#x9;, CONO&#xD;&#xA;FROM Dim_SalesInvoicingDetail&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT SK_SalesInvoicingDetail&#xD;&#xA;&#x9;, InvoiceReasonCode&#xD;&#xA;&#x9;, InvoiceTransactionTypeCode&#xD;&#xA;&#x9;, CONO&#xD;&#xA;FROM Dim_Customer&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -3071,7 +3125,7 @@
       <elementValue elementRef="SCHEMA_COLUMN" value="CONO"/>
       <elementValue elementRef="TRIM" value="false"/>
     </elementParameter>
-    <elementParameter field="TEXT" name="LABEL" value="Dim_SalesInvoicingDetail"/>
+    <elementParameter field="TEXT" name="LABEL" value="Dim_Customer"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tMysqlInput_17">
       <column comment="" defaultValue="" key="false" length="-1" name="SK_SalesInvoicingDetail" nullable="false" pattern="" precision="-1" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
@@ -3146,6 +3200,52 @@
       <column comment="" key="false" length="7" name="CONO" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1056" posY="2016">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_18" show="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
+    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_2"/>
+    <elementParameter field="TEXT" name="HOST" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PORT" value="&quot;3306&quot;" show="false"/>
+    <elementParameter field="TEXT" name="DBNAME" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="TYPE" value="MySQL" show="false"/>
+    <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Dim_SalesInvoicingDetail&quot;"/>
+    <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
+    <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT SK_SalesInvoicingDetail&#xD;&#xA;&#x9;, InvoiceReasonCode&#xD;&#xA;&#x9;, InvoiceTransactionTypeCode&#xD;&#xA;&#x9;, CONO&#xD;&#xA;FROM Dim_SalesInvoicingDetail&#xD;&#xA;&quot;"/>
+    <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
+    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
+    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
+    <elementParameter field="MAPPING_TYPE" name="MAPPING" value="mysql_id" show="false"/>
+    <elementParameter field="TEXT" name="PROPERTIES" value="&quot;noDatetimeStringSync=true&quot;" show="false"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter field="CHECK" name="ENABLE_STREAM" value="false"/>
+    <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="true"/>
+    <elementParameter field="TABLE" name="TRIM_COLUMN" show="false">
+      <elementValue elementRef="SCHEMA_COLUMN" value="SK_SalesInvoicingDetail"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceReasonCode"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceTransactionTypeCode"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CONO"/>
+      <elementValue elementRef="TRIM" value="false"/>
+    </elementParameter>
+    <elementParameter field="TEXT" name="LABEL" value="Dim_SalesInvoicingDetail"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tMysqlInput_18">
+      <column comment="" defaultValue="" key="false" length="-1" name="SK_SalesInvoicingDetail" nullable="false" pattern="" precision="-1" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="InvoiceReasonCode" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="InvoiceTransactionTypeCode" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="CONO" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
   <connection connectorName="FLOW" label="OEP65" lineStyle="0" metaname="tMysqlInput_2" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_2" target="tMap_3">
@@ -4337,6 +4437,11 @@
   </subjob>
   <subjob>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlOutput_12" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_18" show="false"/>
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
