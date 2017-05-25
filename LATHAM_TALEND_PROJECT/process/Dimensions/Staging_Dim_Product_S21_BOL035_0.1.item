@@ -32,7 +32,7 @@
   </context>
   <parameters>
     <elementParameter field="TEXT" name="SCREEN_OFFSET_X" value="0" show="false"/>
-    <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" value="299" show="false"/>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" value="224" show="false"/>
     <elementParameter field="TEXT" name="REPOSITORY_CONNECTION_ID" value="" show="false"/>
     <elementParameter field="TEXT" name="OOZIE_PROPERTY_TYPENAME" value="" show="false"/>
     <elementParameter field="TEXT" name="OOZIE_HADOOP_DISTRIBUTION" value="" show="false"/>
@@ -1644,7 +1644,7 @@
       <column comment="" key="false" length="1" name="CSTR04" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="FunctionalCurrency">
         <mapperTableEntries name="BK_Product_CONO35_S21" expression="MapCurrency.BK_Product_CONO35_S21 " type="id_String"/>
@@ -1660,7 +1660,7 @@
         <mapperTableEntries name="SkidWeight" expression="MapCurrency.SkidWeight " type="id_Float" nullable="true"/>
         <mapperTableEntries name="NationalMotorFreightClassificationCode" expression="MapCurrency.NationalMotorFreightClassificationCode " type="id_String"/>
         <mapperTableEntries name="KittingNationalMotorFreightClassificationCode" expression="MapCurrency.KittingNationalMotorFreightClassificationCode " type="id_String"/>
-        <mapperTableEntries name="SK_Currency_Functional" expression="Relational.ISNULL(Dim_Currency.SK_Currency) ? -1 : Dim_Currency.SK_Currency " type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_Functional" expression="CustomStringHandling.dimensionKeyHandling(Dim_Currency.SK_Currency) " type="id_Integer"/>
         <mapperTableEntries name="CONO04" expression="MapCurrency.CONO04 " type="id_String" nullable="true"/>
         <mapperTableEntries name="PRMD15" expression="MapCurrency.PRMD15 " type="id_String" nullable="true"/>
         <mapperTableEntries name="PITP04" expression="MapCurrency.PITP04 " type="id_String" nullable="true"/>
@@ -1930,7 +1930,7 @@
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tSetGlobalVar_1"/>
   </node>
-  <node componentName="tPostjob" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="64" posY="384">
+  <node componentName="tPostjob" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="320" posY="256">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPostjob_1" show="false"/>
     <elementParameter field="TEXT" name="LABEL" value="PostJob"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
@@ -1980,7 +1980,7 @@
       <column comment="" key="false" length="-1" name="tableName" nullable="false" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tRunJob" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="256" posY="384">
+  <node componentName="tRunJob" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="512" posY="256">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRunJob_2" show="false"/>
     <elementParameter field="CHECK" name="USE_DYNAMIC_JOB" value="false"/>
     <elementParameter field="TEXT" name="CONTEXT_JOB" value="" show="false"/>
