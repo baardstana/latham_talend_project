@@ -447,7 +447,7 @@
         <mapperTableEntries name="OrderSuspenseCode" expression="Product.OrderSuspenseCode " type="id_String"/>
         <mapperTableEntries name="CustomProductHoldCode" expression="Product.CustomProductHoldCode " type="id_String"/>
         <mapperTableEntries name="CustomProductHoldDescription" expression="Product.CustomProductHoldDescription " type="id_String"/>
-        <mapperTableEntries name="SalesUnit" expression="Product.SalesUnit " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="SalesUnit" expression="&quot;Unit Override&quot;.equals(Product.UnitOverrideFlag) ? 1: Product.SalesUnit " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="Product" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="CONO55" type="id_String"/>
