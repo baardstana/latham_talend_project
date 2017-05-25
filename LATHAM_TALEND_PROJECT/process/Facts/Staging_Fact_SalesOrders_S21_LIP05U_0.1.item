@@ -210,10 +210,9 @@
       <column comment="" key="false" length="7" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
       <column comment="" key="false" length="60" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="12" name="DD_QuoteNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="12" usefulColumn="true"/>
-      <column comment="" key="false" length="40" name="DD_CustomerTagName_TORDERS" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="QuoteNumber">
         <mapperTableEntries name="CONO40" expression="LIP05U.CONO40 " type="id_String"/>
@@ -221,7 +220,6 @@
         <mapperTableEntries name="CustomProductHoldCode" expression="Relational.ISNULL(LIP05U.HDCD05) ? &quot;N/A&quot; :&#xD;&#xA;CustomStringHandling.replaceNullAndBlank(LIP05U.HDCD05) " type="id_String"/>
         <mapperTableEntries name="CustomProductHoldDescription" expression="Relational.ISNULL(LIP05U.HDCD05) ? &quot;N/A&quot; :&#xD;&#xA;CustomStringHandling.replaceNullAndBlank(LIP05U.HDR105) " type="id_String"/>
         <mapperTableEntries name="DD_QuoteNumber" expression="&quot;Unknown&quot;.equals(CustomStringHandling.replaceNullAndBlank(LIP05U.QUON05)) ? &#xD;&#xA;CustomStringHandling.replaceNullAndBlank(TORDERS.QUOTENUMBER) :&#xD;&#xA;CustomStringHandling.replaceNullAndBlank(LIP05U.QUON05) " type="id_String"/>
-        <mapperTableEntries name="DD_CustomerTagName_TORDERS" expression="CustomStringHandling.replaceNullAndBlank(TORDERS.TAGNAME) " type="id_String"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="LIP05U" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="CONO40" type="id_String"/>
@@ -231,48 +229,9 @@
         <mapperTableEntries name="QUON05" type="id_String"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="TORDERS" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
-        <mapperTableEntries name="ORDERID" type="id_String"/>
         <mapperTableEntries name="COMPANYNUMBER" expression="LIP05U.CONO40 " type="id_String" operator="="/>
-        <mapperTableEntries name="QUOTENUMBER" type="id_String"/>
-        <mapperTableEntries name="ACCOUNTNUMBER" type="id_String"/>
-        <mapperTableEntries name="CURRENCYCODE" type="id_String"/>
-        <mapperTableEntries name="ORDERSTATUSID" type="id_String"/>
-        <mapperTableEntries name="PONUMBER" type="id_String" nullable="true"/>
-        <mapperTableEntries name="TAGNAME" type="id_String" nullable="true"/>
-        <mapperTableEntries name="PLANTCODE" type="id_String" nullable="true"/>
-        <mapperTableEntries name="TIFFNUMBER" type="id_String" nullable="true"/>
-        <mapperTableEntries name="TIFFFROM" type="id_Integer" nullable="true"/>
-        <mapperTableEntries name="TIFFTO" type="id_Integer" nullable="true"/>
-        <mapperTableEntries name="TIFFTIMESTAMP" type="id_Date" nullable="true"/>
-        <mapperTableEntries name="SHIPPINGOPTIONID" type="id_String"/>
-        <mapperTableEntries name="SHIPPINGBUSINESSNAME" type="id_String" nullable="true"/>
-        <mapperTableEntries name="SHIPPINGLINE1" type="id_String" nullable="true"/>
-        <mapperTableEntries name="SHIPPINGLINE2" type="id_String" nullable="true"/>
-        <mapperTableEntries name="SHIPPINGLINE3" type="id_String" nullable="true"/>
-        <mapperTableEntries name="SHIPPINGCITY" type="id_String" nullable="true"/>
-        <mapperTableEntries name="SHIPPINGSTATE" type="id_String" nullable="true"/>
-        <mapperTableEntries name="SHIPPINGZIP1" type="id_String" nullable="true"/>
-        <mapperTableEntries name="SHIPPINGZIP2" type="id_String" nullable="true"/>
-        <mapperTableEntries name="SHIPPINGPHONE" type="id_String" nullable="true"/>
-        <mapperTableEntries name="INTERNALTEXT" type="id_String" nullable="true"/>
-        <mapperTableEntries name="EXTERNALTEXT" type="id_String" nullable="true"/>
-        <mapperTableEntries name="ORDERCHARGE1TYPECODE" type="id_String" nullable="true"/>
-        <mapperTableEntries name="ORDERCHARGE1AMOUNT" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ORDERCHARGE2TYPECODE" type="id_String" nullable="true"/>
-        <mapperTableEntries name="ORDERCHARGE2AMOUNT" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ORDERCHARGE3TYPECODE" type="id_String" nullable="true"/>
-        <mapperTableEntries name="ORDERCHARGE3AMOUNT" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="EARLYBUYCODE" type="id_String" nullable="true"/>
-        <mapperTableEntries name="EXPRESSSERVICE" type="id_Short"/>
-        <mapperTableEntries name="CREATEDBY" type="id_String"/>
-        <mapperTableEntries name="EXPORTEDBY" type="id_String" nullable="true"/>
-        <mapperTableEntries name="TIMESTAMPEXPORTED" type="id_Date" nullable="true"/>
         <mapperTableEntries name="SALESORDERNUMBER" expression="LIP05U.ORDN40 " type="id_String" nullable="true" operator="="/>
-        <mapperTableEntries name="SALESORDERTIMESTAMP" type="id_Date" nullable="true"/>
-        <mapperTableEntries name="SALESORDERSTATUSCODE" type="id_String" nullable="true"/>
-        <mapperTableEntries name="SALESORDERSTATUSTEXT" type="id_String" nullable="true"/>
-        <mapperTableEntries name="TIMESTAMPCREATED" type="id_Date"/>
-        <mapperTableEntries name="TIMESTAMPDELETED" type="id_Date" nullable="true"/>
+        <mapperTableEntries name="QUOTENUMBER" type="id_String"/>
       </inputTables>
     </nodeData>
   </node>
@@ -303,136 +262,19 @@
     <elementParameter field="CHECK" name="ENABLE_STREAM" value="false"/>
     <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="true"/>
     <elementParameter field="TABLE" name="TRIM_COLUMN" show="false">
-      <elementValue elementRef="SCHEMA_COLUMN" value="ORDERID"/>
-      <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="COMPANYNUMBER"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="QUOTENUMBER"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ACCOUNTNUMBER"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="CURRENCYCODE"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ORDERSTATUSID"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="PONUMBER"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="TAGNAME"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="PLANTCODE"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="TIFFNUMBER"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="TIFFFROM"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="TIFFTO"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="TIFFTIMESTAMP"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SHIPPINGOPTIONID"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SHIPPINGBUSINESSNAME"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SHIPPINGLINE1"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SHIPPINGLINE2"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SHIPPINGLINE3"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SHIPPINGCITY"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SHIPPINGSTATE"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SHIPPINGZIP1"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SHIPPINGZIP2"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SHIPPINGPHONE"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="INTERNALTEXT"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="EXTERNALTEXT"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ORDERCHARGE1TYPECODE"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ORDERCHARGE1AMOUNT"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ORDERCHARGE2TYPECODE"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ORDERCHARGE2AMOUNT"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ORDERCHARGE3TYPECODE"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ORDERCHARGE3AMOUNT"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="EARLYBUYCODE"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="EXPRESSSERVICE"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="CREATEDBY"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="EXPORTEDBY"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="TIMESTAMPEXPORTED"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="SALESORDERNUMBER"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SALESORDERTIMESTAMP"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SALESORDERSTATUSCODE"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SALESORDERSTATUSTEXT"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="TIMESTAMPCREATED"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="TIMESTAMPDELETED"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="QUOTENUMBER"/>
       <elementValue elementRef="TRIM" value="false"/>
     </elementParameter>
     <elementParameter field="TEXT" name="LABEL" value="TORDERS"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tMysqlInput_7">
-      <column comment="" key="false" length="19" name="ORDERID" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="2" name="COMPANYNUMBER" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="10" name="QUOTENUMBER" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="16" name="ACCOUNTNUMBER" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="8" name="CURRENCYCODE" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="19" name="ORDERSTATUSID" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="16" name="PONUMBER" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="40" name="TAGNAME" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="8" name="PLANTCODE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="8" name="TIFFNUMBER" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="10" name="TIFFFROM" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="10" name="TIFFTO" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="10" name="TIFFTIMESTAMP" nullable="true" pattern="&quot;yyyy-MM-dd&quot;" precision="0" sourceType="DATETIME" type="id_Date" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="19" name="SHIPPINGOPTIONID" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="35" name="SHIPPINGBUSINESSNAME" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="35" name="SHIPPINGLINE1" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="35" name="SHIPPINGLINE2" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="35" name="SHIPPINGLINE3" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="35" name="SHIPPINGCITY" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="35" name="SHIPPINGSTATE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="35" name="SHIPPINGZIP1" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="35" name="SHIPPINGZIP2" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="35" name="SHIPPINGPHONE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1024" name="INTERNALTEXT" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1024" name="EXTERNALTEXT" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="8" name="ORDERCHARGE1TYPECODE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="ORDERCHARGE1AMOUNT" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="8" name="ORDERCHARGE2TYPECODE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="ORDERCHARGE2AMOUNT" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="8" name="ORDERCHARGE3TYPECODE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="ORDERCHARGE3AMOUNT" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="8" name="EARLYBUYCODE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="5" name="EXPRESSSERVICE" nullable="false" pattern="" precision="0" sourceType="SMALLINT" type="id_Short" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="128" name="CREATEDBY" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="128" name="EXPORTEDBY" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="10" name="TIMESTAMPEXPORTED" nullable="true" pattern="&quot;yyyy-MM-dd&quot;" precision="0" sourceType="DATETIME" type="id_Date" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="7" name="SALESORDERNUMBER" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="10" name="SALESORDERTIMESTAMP" nullable="true" pattern="&quot;yyyy-MM-dd&quot;" precision="0" sourceType="DATETIME" type="id_Date" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="SALESORDERSTATUSCODE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="80" name="SALESORDERSTATUSTEXT" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="10" name="TIMESTAMPCREATED" nullable="false" pattern="&quot;yyyy-MM-dd&quot;" precision="0" sourceType="DATETIME" type="id_Date" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="10" name="TIMESTAMPDELETED" nullable="true" pattern="&quot;yyyy-MM-dd&quot;" precision="0" sourceType="DATETIME" type="id_Date" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="10" name="QUOTENUMBER" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="672" posY="160">
@@ -491,11 +333,6 @@
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="DD_CustomerTagName_TORDERS"/>
-      <elementValue elementRef="UPDATE_KEY" value="false"/>
-      <elementValue elementRef="DELETE_KEY" value="false"/>
-      <elementValue elementRef="UPDATABLE" value="true"/>
-      <elementValue elementRef="INSERTABLE" value="true"/>
     </elementParameter>
     <elementParameter field="CHECK" name="USE_HINT_OPTIONS" value="false"/>
     <elementParameter field="TABLE" name="HINT_OPTIONS" show="false"/>
@@ -511,7 +348,6 @@
       <column comment="" key="false" length="7" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
       <column comment="" key="false" length="60" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="12" name="DD_QuoteNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="12" usefulColumn="true"/>
-      <column comment="" key="false" length="40" name="DD_CustomerTagName_TORDERS" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <metadata connector="REJECT" name="REJECT">
       <column comment="" key="true" length="2" name="CONO40" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
@@ -519,7 +355,6 @@
       <column comment="" key="false" length="7" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
       <column comment="" key="false" length="60" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="12" name="DD_QuoteNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="12" usefulColumn="true"/>
-      <column comment="" key="false" length="40" name="DD_CustomerTagName_TORDERS" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
