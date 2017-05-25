@@ -34,7 +34,7 @@
   </context>
   <parameters>
     <elementParameter field="TEXT" name="SCREEN_OFFSET_X" value="0" show="false"/>
-    <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" value="171" show="false"/>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" value="128" show="false"/>
     <elementParameter field="TEXT" name="REPOSITORY_CONNECTION_ID" value="" show="false"/>
     <elementParameter field="TEXT" name="OOZIE_PROPERTY_TYPENAME" value="" show="false"/>
     <elementParameter field="TEXT" name="OOZIE_HADOOP_DISTRIBUTION" value="" show="false"/>
@@ -956,15 +956,17 @@
       <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="OrderLineUnitsOrdered" nullable="true" pattern="" precision="3" sourceType="" type="id_Float" originalLength="11" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="OrderLineUnitsOutstanding" nullable="true" pattern="" precision="3" sourceType="" type="id_Float" originalLength="11" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="OrderLineUnitsShipped" nullable="true" pattern="" precision="3" sourceType="" type="id_Float" originalLength="11" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="OrderLineExtendedValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="OrderLineExtendedValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="OrderLineNetUnitPriceTransactionCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="OrderLineExtendedDiscountValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="OrderLineExtendedDiscountValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="ConformedValues">
         <mapperTableEntries name="CONO55" expression="JoinedTables.CONO55 " type="id_String"/>
@@ -993,12 +995,14 @@
         <mapperTableEntries name="OrderLineQuantityOrdered" expression="JoinedTables.OrderLineQuantityOrdered " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineQuantityOutstanding" expression="JoinedTables.OrderLineQuantityOutstanding " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineQuantityShipped" expression="JoinedTables.OrderLineQuantityShipped " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineUnitsOrdered" expression="Relational.ISNULL(JoinedTables.OrderLineQuantityOrdered) || Relational.ISNULL(JoinedTables.SalesUnit) ? null : JoinedTables.OrderLineQuantityOrdered * JoinedTables.SalesUnit " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineUnitsOutstanding" expression="Relational.ISNULL(JoinedTables.OrderLineQuantityOutstanding) || Relational.ISNULL(JoinedTables.SalesUnit) ? null : JoinedTables.OrderLineQuantityOutstanding * JoinedTables.SalesUnit " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineUnitsShipped" expression="Relational.ISNULL(JoinedTables.OrderLineQuantityShipped) || Relational.ISNULL(JoinedTables.SalesUnit) ? null : JoinedTables.OrderLineQuantityShipped * JoinedTables.SalesUnit " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedValueFunctionalCurrency" expression="JoinedTables.OrderLineExtendedValueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedValueTransactionCurrency" expression="JoinedTables.OrderLineExtendedValueTransactionCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineNetUnitPriceTransactionCurrency" expression="JoinedTables.OrderLineNetUnitPriceTransactionCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedDiscountValueFunctionalCurrency" expression="JoinedTables.OrderLineExtendedDiscountValueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedDiscountValueTransactionCurrency" expression="Relational.ISNULL(JoinedTables.OrderLineExtendedDiscountValueTransactionCurrency1) ?  JoinedTables.OrderLineExtendedDiscountValueTransactionCurrency : JoinedTables.OrderLineExtendedDiscountValueTransactionCurrency1 " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="SalesUnit" expression="JoinedTables.SalesUnit " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="JoinedTables" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="CONO55" type="id_String"/>
@@ -1077,16 +1081,18 @@
       <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="OrderLineUnitsOrdered" nullable="true" pattern="" precision="3" sourceType="" type="id_Float" originalLength="11" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="OrderLineUnitsOutstanding" nullable="true" pattern="" precision="3" sourceType="" type="id_Float" originalLength="11" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="OrderLineUnitsShipped" nullable="true" pattern="" precision="3" sourceType="" type="id_Float" originalLength="11" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="OrderLineExtendedValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="OrderLineExtendedValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="OrderLineNetUnitPriceFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="OrderLineNetUnitPriceTransactionCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="OrderLineExtendedDiscountValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="OrderLineExtendedDiscountValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var">
         <mapperTableEntries name="ExchangeRate" expression="ConversionRateFunctional.ExchangeRate " type="id_Float" nullable="true"/>
       </varTables>
@@ -1117,13 +1123,15 @@
         <mapperTableEntries name="OrderLineQuantityOrdered" expression="ConformedValues.OrderLineQuantityOrdered " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineQuantityOutstanding" expression="ConformedValues.OrderLineQuantityOutstanding " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineQuantityShipped" expression="ConformedValues.OrderLineQuantityShipped " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineUnitsOrdered" expression="ConformedValues.OrderLineUnitsOrdered " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineUnitsOutstanding" expression="ConformedValues.OrderLineUnitsOutstanding " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineUnitsShipped" expression="ConformedValues.OrderLineUnitsShipped " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedValueFunctionalCurrency" expression="ConformedValues.OrderLineExtendedValueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedValueTransactionCurrency" expression="ConformedValues.OrderLineExtendedValueTransactionCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineNetUnitPriceFunctionalCurrency" expression="Relational.ISNULL(ConformedValues.OrderLineNetUnitPriceTransactionCurrency) || Relational.ISNULL(Var.ExchangeRate) ? null :  &#xD;&#xA;Var.ExchangeRate * ConformedValues.OrderLineNetUnitPriceTransactionCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineNetUnitPriceTransactionCurrency" expression="ConformedValues.OrderLineNetUnitPriceTransactionCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedDiscountValueFunctionalCurrency" expression="Relational.ISNULL(ConformedValues.OrderLineExtendedDiscountValueFunctionalCurrency) || Relational.ISNULL(Var.ExchangeRate) ?  &#xD;&#xA;&#x9;Relational.ISNULL(ConformedValues.OrderLineExtendedDiscountValueTransactionCurrency) || Relational.ISNULL(Var.ExchangeRate) ? null : &#xD;&#xA;&#x9;Var.ExchangeRate * ConformedValues.OrderLineExtendedDiscountValueTransactionCurrency :&#xD;&#xA;ConformedValues.OrderLineExtendedDiscountValueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedDiscountValueTransactionCurrency" expression="ConformedValues.OrderLineExtendedDiscountValueTransactionCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="SalesUnit" expression="ConformedValues.SalesUnit " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="ConformedValues" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="CONO55" type="id_String"/>
@@ -1152,12 +1160,14 @@
         <mapperTableEntries name="OrderLineQuantityOrdered" type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineQuantityOutstanding" type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineQuantityShipped" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineUnitsOrdered" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineUnitsOutstanding" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineUnitsShipped" type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedValueFunctionalCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedValueTransactionCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineNetUnitPriceTransactionCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedDiscountValueFunctionalCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedDiscountValueTransactionCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="SalesUnit" type="id_Float" nullable="true"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="ConversionRateFunctional" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="Scenario" type="id_String"/>
@@ -1260,6 +1270,9 @@
       <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="OrderLineUnitsOrdered" nullable="true" pattern="" precision="3" sourceType="" type="id_Float" originalLength="11" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="OrderLineUnitsOutstanding" nullable="true" pattern="" precision="3" sourceType="" type="id_Float" originalLength="11" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="OrderLineUnitsShipped" nullable="true" pattern="" precision="3" sourceType="" type="id_Float" originalLength="11" usefulColumn="true"/>
       <column comment="" key="false" length="15" name="OrderLineExtendedValueUSD" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="11" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="OrderLineExtendedValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="OrderLineExtendedValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
@@ -1269,10 +1282,9 @@
       <column comment="" key="false" length="15" name="OrderLineExtendedDiscountValueUSD" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="15" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="OrderLineExtendedDiscountValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="OrderLineExtendedDiscountValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var">
         <mapperTableEntries name="ExchangeRate" expression="ConversionRateUSD.ExchangeRate " type="id_Float" nullable="true"/>
       </varTables>
@@ -1303,6 +1315,9 @@
         <mapperTableEntries name="OrderLineQuantityOrdered" expression="ConvertFunctional.OrderLineQuantityOrdered " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineQuantityOutstanding" expression="ConvertFunctional.OrderLineQuantityOutstanding " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineQuantityShipped" expression="ConvertFunctional.OrderLineQuantityShipped " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineUnitsOrdered" expression="ConvertFunctional.OrderLineUnitsOrdered " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineUnitsOutstanding" expression="ConvertFunctional.OrderLineUnitsOutstanding " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineUnitsShipped" expression="ConvertFunctional.OrderLineUnitsShipped " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedValueUSD" expression="Relational.ISNULL(ConvertFunctional.OrderLineExtendedValueFunctionalCurrency) || Relational.ISNULL(Var.ExchangeRate) ? null : Var.ExchangeRate * ConvertFunctional.OrderLineExtendedValueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedValueFunctionalCurrency" expression="ConvertFunctional.OrderLineExtendedValueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedValueTransactionCurrency" expression="ConvertFunctional.OrderLineExtendedValueTransactionCurrency " type="id_Float" nullable="true"/>
@@ -1312,7 +1327,6 @@
         <mapperTableEntries name="OrderLineExtendedDiscountValueUSD" expression="Relational.ISNULL(ConvertFunctional.OrderLineExtendedDiscountValueFunctionalCurrency ) || Relational.ISNULL(Var.ExchangeRate) ? null : Var.ExchangeRate * ConvertFunctional.OrderLineExtendedDiscountValueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedDiscountValueFunctionalCurrency" expression="ConvertFunctional.OrderLineExtendedDiscountValueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedDiscountValueTransactionCurrency" expression="ConvertFunctional.OrderLineExtendedDiscountValueTransactionCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="SalesUnit" expression="ConvertFunctional.SalesUnit " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="ConvertFunctional" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="CONO55" type="id_String"/>
@@ -1341,13 +1355,15 @@
         <mapperTableEntries name="OrderLineQuantityOrdered" type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineQuantityOutstanding" type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineQuantityShipped" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineUnitsOrdered" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineUnitsOutstanding" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineUnitsShipped" type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedValueFunctionalCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedValueTransactionCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineNetUnitPriceFunctionalCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineNetUnitPriceTransactionCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedDiscountValueFunctionalCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedDiscountValueTransactionCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="SalesUnit" type="id_Float" nullable="true"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="ConversionRateUSD" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="Scenario" type="id_String"/>
@@ -1571,6 +1587,21 @@
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="OrderLineUnitsOrdered"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="OrderLineUnitsOutstanding"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="OrderLineUnitsShipped"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="OrderLineExtendedValueUSD"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
@@ -1616,11 +1647,6 @@
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SalesUnit"/>
-      <elementValue elementRef="UPDATE_KEY" value="false"/>
-      <elementValue elementRef="DELETE_KEY" value="false"/>
-      <elementValue elementRef="UPDATABLE" value="true"/>
-      <elementValue elementRef="INSERTABLE" value="true"/>
     </elementParameter>
     <elementParameter field="CHECK" name="USE_HINT_OPTIONS" value="false"/>
     <elementParameter field="TABLE" name="HINT_OPTIONS" show="false"/>
@@ -1657,6 +1683,9 @@
       <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="OrderLineUnitsOrdered" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="11" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="OrderLineUnitsOutstanding" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="11" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="OrderLineUnitsShipped" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="11" usefulColumn="true"/>
       <column comment="" key="false" length="15" name="OrderLineExtendedValueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="11" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="OrderLineExtendedValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="OrderLineExtendedValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
@@ -1666,7 +1695,6 @@
       <column comment="" key="false" length="15" name="OrderLineExtendedDiscountValueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="OrderLineExtendedDiscountValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="OrderLineExtendedDiscountValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <metadata connector="REJECT" name="REJECT">
       <column comment="" key="true" length="2" name="CONO55" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
@@ -1695,6 +1723,9 @@
       <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="OrderLineUnitsOrdered" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="11" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="OrderLineUnitsOutstanding" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="11" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="OrderLineUnitsShipped" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="11" usefulColumn="true"/>
       <column comment="" key="false" length="15" name="OrderLineExtendedValueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="11" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="OrderLineExtendedValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="OrderLineExtendedValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
@@ -1704,7 +1735,6 @@
       <column comment="" key="false" length="15" name="OrderLineExtendedDiscountValueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="OrderLineExtendedDiscountValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="OrderLineExtendedDiscountValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
@@ -1808,6 +1838,17 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk9" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="ConformedValues" lineStyle="0" metaname="ConformedValues" offsetLabelX="0" offsetLabelY="0" source="tMap_1" target="tMap_11">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="OrderLineUnitsOrdered"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="OrderLineUnitsShipped"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="OrderLineUnitsOutstanding"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="ConformedValues" show="false"/>
   </connection>
@@ -1835,6 +1876,15 @@
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
       <elementValue elementRef="TRACE_COLUMN" value="ORDN55"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="OrderLineUnitsOrdered"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="OrderLineUnitsShipped"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="OrderLineUnitsOutstanding"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
@@ -1869,6 +1919,15 @@
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
       <elementValue elementRef="TRACE_COLUMN" value="ORDN55"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="OrderLineUnitsOrdered"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="OrderLineUnitsShipped"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="OrderLineUnitsOutstanding"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
