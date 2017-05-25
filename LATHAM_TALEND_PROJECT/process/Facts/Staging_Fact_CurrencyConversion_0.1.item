@@ -219,9 +219,9 @@
       <outputTables sizeState="INTERMEDIATE" name="StagingFactCurrencyConversion">
         <mapperTableEntries name="Scenario" expression="FactCurrencyConversion.Scenario " type="id_String"/>
         <mapperTableEntries name="ExchangeRateType" expression="FactCurrencyConversion.ExchangeRateType " type="id_String"/>
-        <mapperTableEntries name="SK_Currency_From" expression="FromCurrency.SK_Currency " type="id_Integer"/>
-        <mapperTableEntries name="SK_Currency_To" expression="ToCurrency.SK_Currency " type="id_Integer"/>
-        <mapperTableEntries name="SK_Date" expression="DimDate.SK_Date " type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_From" expression="CustomStringHandling.dimensionKeyHandling(FromCurrency.SK_Currency) " type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_To" expression="CustomStringHandling.dimensionKeyHandling(ToCurrency.SK_Currency )" type="id_Integer"/>
+        <mapperTableEntries name="SK_Date" expression="CustomStringHandling.dimensionKeyHandling(DimDate.SK_Date )" type="id_Integer"/>
         <mapperTableEntries name="ExchangeRate" expression="FactCurrencyConversion.ExchangeRate " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="FactCurrencyConversion" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
