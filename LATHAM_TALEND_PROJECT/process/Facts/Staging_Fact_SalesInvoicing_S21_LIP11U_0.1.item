@@ -34,7 +34,7 @@
   </context>
   <parameters>
     <elementParameter field="TEXT" name="SCREEN_OFFSET_X" value="0" show="false"/>
-    <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" value="256" show="false"/>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" value="128" show="false"/>
     <elementParameter field="TEXT" name="REPOSITORY_CONNECTION_ID" value="" show="false"/>
     <elementParameter field="TEXT" name="OOZIE_PROPERTY_TYPENAME" value="" show="false"/>
     <elementParameter field="TEXT" name="OOZIE_HADOOP_DISTRIBUTION" value="" show="false"/>
@@ -369,7 +369,7 @@
       <elementValue elementRef="SCHEMA_COLUMN" value="TAGNAME"/>
       <elementValue elementRef="TRIM" value="false"/>
     </elementParameter>
-    <elementParameter field="TEXT" name="LABEL" value="row2"/>
+    <elementParameter field="TEXT" name="LABEL" value="TORDERS"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tMysqlInput_11">
       <column comment="" key="false" length="2" name="COMPANYNUMBER" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
@@ -397,13 +397,13 @@
       <column comment="" key="false" length="40" name="DD_CustomerTagName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="40" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="CustomerTagName">
         <mapperTableEntries name="CONO65" expression="LIP11U.CONO70 " type="id_String"/>
         <mapperTableEntries name="INVN65" expression="LIP11U.INVN70" type="id_String"/>
         <mapperTableEntries name="ORDL70" expression="LIP11U.ORDL70 " type="id_Float"/>
-        <mapperTableEntries name="DD_CustomerTagName" expression="Relational.ISNULL(LIP11U.MKB111) ?&#xD;&#xA;&#x9;Relational.ISNULL(TORDERS_2.TAGNAME) ? &quot;N/A&quot; : CustomStringHandling.replaceNullAndBlank(TORDERS_2.TAGNAME) &#xD;&#xA;: CustomStringHandling.replaceNullAndBlank(LIP11U.MKB111) " type="id_String"/>
+        <mapperTableEntries name="DD_CustomerTagName" expression="Relational.ISNULL(LIP11U.MKB111) ?&#xD;&#xA;&#x9;Relational.ISNULL(TORDERS.TAGNAME) ? &quot;N/A&quot; : CustomStringHandling.replaceNullAndBlank(TORDERS.TAGNAME) &#xD;&#xA;: CustomStringHandling.replaceNullAndBlank(LIP11U.MKB111) " type="id_String"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="LIP11U" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="CONO70" type="id_String"/>
@@ -412,7 +412,7 @@
         <mapperTableEntries name="MKB111" type="id_String" nullable="true"/>
         <mapperTableEntries name="ORDN70" type="id_String"/>
       </inputTables>
-      <inputTables sizeState="INTERMEDIATE" name="TORDERS_2" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
+      <inputTables sizeState="INTERMEDIATE" name="TORDERS" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="COMPANYNUMBER" expression="LIP11U.CONO70" type="id_String"/>
         <mapperTableEntries name="SALESORDERNUMBER" expression="LIP11U.ORDN70" type="id_String" nullable="true" operator="="/>
         <mapperTableEntries name="TAGNAME" type="id_String" nullable="true"/>
@@ -517,9 +517,9 @@
   <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlInput_10" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_10" target="tSetGlobalVar_1">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk1" show="false"/>
   </connection>
-  <connection connectorName="FLOW" label="TORDERS_2" lineStyle="8" metaname="tMysqlInput_11" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_11" target="tMap_9">
+  <connection connectorName="FLOW" label="TORDERS" lineStyle="8" metaname="tMysqlInput_11" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_11" target="tMap_9">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="TORDERS_2" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="TORDERS" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="CustomerTagName" lineStyle="0" metaname="CustomerTagName" offsetLabelX="0" offsetLabelY="0" source="tMap_9" target="tMysqlOutput_9">
     <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
