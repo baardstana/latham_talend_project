@@ -93,5 +93,21 @@ public class CustomStringHandling {
         	10000 * TalendDate.getPartOfDate("YEAR",dateToTransform) 
         	+ 100 * TalendDate.getPartOfDate("MONTH",dateToTransform) 
         	+ TalendDate.getPartOfDate("DAY",dateToTransform);
-    }      
+    }    
+    
+    /**
+     * dimensionKeyHandling: replaces illegal dimension key values
+     * 
+     * 
+     * {talendTypes} String
+     * 
+     * {Category} User Defined
+     * 
+     * {param} Integer("dimensionKey") input: The dimension key to validate.
+     * 
+     * {example} dimensionKeyHandling(null) # -1
+     */
+    public static int dimensionKeyHandling(Integer dimensionKey) {
+        return (dimensionKey == null || dimensionKey == 0) ? -1 : dimensionKey;
+    }     
 }
