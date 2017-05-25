@@ -463,7 +463,7 @@
         <mapperTableEntries name="CONO70" expression="Product.CONO70 " type="id_String"/>
         <mapperTableEntries name="INVN70" expression="Product.INVN70 " type="id_String"/>
         <mapperTableEntries name="ORDL70" expression="Product.ORDL70 " type="id_Float"/>
-        <mapperTableEntries name="SK_Customer" expression="Relational.ISNULL(DimCustomer.SK_Customer) ? -1 : DimCustomer.SK_Customer " type="id_Integer"/>
+        <mapperTableEntries name="SK_Customer" expression="CustomStringHandling.dimensionKeyHandling(DimCustomer.SK_Customer) " type="id_Integer"/>
         <mapperTableEntries name="SK_Product" expression="Relational.ISNULL(Product.SK_Product) ? -1 : Product.SK_Product " type="id_Integer"/>
         <mapperTableEntries name="MapStockroomCONO20_Manufactured" expression="Product.MapStockroomCONO20 " type="id_String" nullable="true"/>
         <mapperTableEntries name="MapStockroomSTRC20_Manufactured" expression="Product.MapStockroomSTRC20 " type="id_String" nullable="true"/>
@@ -617,7 +617,7 @@
       <column comment="" defaultValue="" key="false" length="15" name="CurrentStandardTotalOverheadCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="Stockroom">
         <mapperTableEntries name="CONO70" expression="Customer.CONO70 " type="id_String"/>
@@ -625,8 +625,8 @@
         <mapperTableEntries name="ORDL70" expression="Customer.ORDL70 " type="id_Float"/>
         <mapperTableEntries name="SK_Customer" expression="Customer.SK_Customer " type="id_Integer"/>
         <mapperTableEntries name="SK_Product" expression="Customer.SK_Product " type="id_Integer"/>
-        <mapperTableEntries name="SK_Stockroom_Manufactured" expression="Relational.ISNULL(DimStockroom_Manufactured.SK_Stockroom) ? -1 : DimStockroom_Manufactured.SK_Stockroom " type="id_Integer"/>
-        <mapperTableEntries name="SK_Stockroom_ShippedFrom" expression="Relational.ISNULL(DimStockroom_ShippedFrom.SK_Stockroom) ? -1 : DimStockroom_ShippedFrom.SK_Stockroom " type="id_Integer"/>
+        <mapperTableEntries name="SK_Stockroom_Manufactured" expression="CustomStringHandling.dimensionKeyHandling(DimStockroom_Manufactured.SK_Stockroom) " type="id_Integer"/>
+        <mapperTableEntries name="SK_Stockroom_ShippedFrom" expression="CustomStringHandling.dimensionKeyHandling(DimStockroom_ShippedFrom.SK_Stockroom) " type="id_Integer"/>
         <mapperTableEntries name="MapGeographyCompanyCode" expression="Customer.MapGeographyCompanyCode " type="id_String"/>
         <mapperTableEntries name="MapGeographyPostalCode" expression="Customer.MapGeographyPostalCode " type="id_String" nullable="true"/>
         <mapperTableEntries name="MapCompanyCONO" expression="Customer.MapCompanyCONO " type="id_String"/>
@@ -814,7 +814,7 @@
       <column comment="" defaultValue="" key="false" length="15" name="CurrentStandardTotalOverheadCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="Geography">
         <mapperTableEntries name="CONO70" expression="Stockroom.CONO70 " type="id_String"/>
@@ -824,7 +824,7 @@
         <mapperTableEntries name="SK_Product" expression="Stockroom.SK_Product " type="id_Integer"/>
         <mapperTableEntries name="SK_Stockroom_Manufactured" expression="Stockroom.SK_Stockroom_Manufactured " type="id_Integer"/>
         <mapperTableEntries name="SK_Stockroom_ShippedFrom" expression="Stockroom.SK_Stockroom_ShippedFrom " type="id_Integer"/>
-        <mapperTableEntries name="SK_Geography" expression="Relational.ISNULL(DimGeography.SK_Geography) ? -1 : DimGeography.SK_Geography " type="id_Integer"/>
+        <mapperTableEntries name="SK_Geography" expression="CustomStringHandling.dimensionKeyHandling(DimGeography.SK_Geography) " type="id_Integer"/>
         <mapperTableEntries name="MapCompanyCONO" expression="Stockroom.MapCompanyCONO " type="id_String"/>
         <mapperTableEntries name="MapCurrencyCURN83_Transaction" expression="Stockroom.MapCurrencyCURN83_Transaction " type="id_String"/>
         <mapperTableEntries name="OrderSourceCode" expression="Stockroom.OrderSourceCode " type="id_String"/>
@@ -963,7 +963,7 @@
       <column comment="" defaultValue="" key="false" length="15" name="CurrentStandardTotalOverheadCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="Company">
         <mapperTableEntries name="CONO70" expression="Geography.CONO70 " type="id_String"/>
@@ -974,8 +974,8 @@
         <mapperTableEntries name="SK_Stockroom_Manufactured" expression="Geography.SK_Stockroom_Manufactured " type="id_Integer"/>
         <mapperTableEntries name="SK_Stockroom_ShippedFrom" expression="Geography.SK_Stockroom_ShippedFrom " type="id_Integer"/>
         <mapperTableEntries name="SK_Geography" expression="Geography.SK_Geography " type="id_Integer"/>
-        <mapperTableEntries name="SK_Company" expression="Relational.ISNULL(DimCompany.SK_Company) ? -1 : DimCompany.SK_Company " type="id_Integer"/>
-        <mapperTableEntries name="SK_Currency_Functional" expression="Relational.ISNULL(DimCompany.SK_Currency ) ? -1 : DimCompany.SK_Currency " type="id_Integer"/>
+        <mapperTableEntries name="SK_Company" expression="CustomStringHandling.dimensionKeyHandling(DimCompany.SK_Company) " type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_Functional" expression="CustomStringHandling.dimensionKeyHandling(DimCompany.SK_Currency ) " type="id_Integer"/>
         <mapperTableEntries name="MapCurrencyCURN83_Transaction" expression="Geography.MapCurrencyCURN83_Transaction " type="id_String"/>
         <mapperTableEntries name="MapCurrencyCURN83_USD" expression="&quot;USD&quot;" type="id_String"/>
         <mapperTableEntries name="OrderSourceCode" expression="Geography.OrderSourceCode " type="id_String"/>
@@ -1113,7 +1113,7 @@
       <column comment="" defaultValue="" key="false" length="15" name="CurrentStandardTotalOverheadCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="Currency">
         <mapperTableEntries name="CONO70" expression="Company.CONO70 " type="id_String"/>
@@ -1126,8 +1126,8 @@
         <mapperTableEntries name="SK_Geography" expression="Company.SK_Geography " type="id_Integer"/>
         <mapperTableEntries name="SK_Company" expression="Company.SK_Company " type="id_Integer"/>
         <mapperTableEntries name="SK_Currency_Functional" expression="Company.SK_Currency_Functional " type="id_Integer"/>
-        <mapperTableEntries name="SK_Currency_Transaction" expression="Relational.ISNULL(DimCurrency_Transaction.SK_Currency) ? -1 : DimCurrency_Transaction.SK_Currency " type="id_Integer"/>
-        <mapperTableEntries name="SK_Currency_USD" expression="Relational.ISNULL(DimCurrency_USD.SK_Currency) ? -1 : DimCurrency_USD.SK_Currency " type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_Transaction" expression="CustomStringHandling.dimensionKeyHandling(DimCurrency_Transaction.SK_Currency) " type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_USD" expression="CustomStringHandling.dimensionKeyHandling(DimCurrency_USD.SK_Currency) " type="id_Integer"/>
         <mapperTableEntries name="OrderSourceCode" expression="Company.OrderSourceCode " type="id_String"/>
         <mapperTableEntries name="OrderLineTypeCode" expression="Company.OrderLineTypeCode " type="id_String"/>
         <mapperTableEntries name="OrderStatusCode" expression="Company.OrderStatusCode " type="id_String"/>
