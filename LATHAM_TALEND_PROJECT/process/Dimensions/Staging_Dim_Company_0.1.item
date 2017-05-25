@@ -215,13 +215,13 @@
       <additionalProperties key="Comment" value=""/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="StagingDimCompany">
         <mapperTableEntries name="BK_Company_CONO_S21" expression="InputDimCompany.CONO " type="id_String"/>
         <mapperTableEntries name="CompanyCode" expression="InputDimCompany.CONO " type="id_String" nullable="true"/>
         <mapperTableEntries name="CompanyName" expression="CustomStringHandling.replaceNullAndBlank(InputDimCompany.CONM ) " type="id_String" nullable="true"/>
-        <mapperTableEntries name="SK_Currency" expression="LookupDimCurrency.SK_Currency " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="SK_Currency" expression="CustomStringHandling.dimensionKeyHandling(LookupDimCurrency.SK_Currency) " type="id_Integer" nullable="true"/>
         <mapperTableEntries name="ParentCompanyName" expression="InputDimCompany.CONO.equals(&quot;LO&quot;) ? &quot;United States&quot; :&#xD;&#xA;InputDimCompany.CONO.equals(&quot;TI&quot;) ? &quot;Canada&quot; :&#xD;&#xA;InputDimCompany.CONO.equals(&quot;EU&quot;) ? &quot;Europe&quot; :&#xD;&#xA;InputDimCompany.CONO.equals(&quot;EL&quot;) ? &quot;Eliminations&quot; :&#xD;&#xA;InputDimCompany.CONO.equals(&quot;LH&quot;) ? &quot;LPP Holdings Inc&quot; : &quot;Other&quot; " type="id_String" nullable="true"/>
         <mapperTableEntries name="ConsolidatingCompanyName" expression="&quot;LPP Inc - Consolidated&quot;" type="id_String" nullable="true"/>
         <mapperTableEntries name="SK_SourceSystem" expression="InputMetaSourceSystemDimension.SK_SourceSystem " type="id_Integer"/>
@@ -680,7 +680,7 @@
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
   <subjob>
-    <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" value="true"/>
+    <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" value="true" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPrejob_1" show="false"/>
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="230;100;0"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="255;220;180"/>
@@ -701,7 +701,7 @@
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
   <subjob>
-    <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" value="true"/>
+    <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" value="true" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPostjob_1" show="false"/>
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="230;100;0"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="255;220;180"/>
