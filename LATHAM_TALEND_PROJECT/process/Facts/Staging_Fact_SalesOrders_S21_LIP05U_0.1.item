@@ -217,8 +217,8 @@
       <outputTables sizeState="INTERMEDIATE" name="QuoteNumber">
         <mapperTableEntries name="CONO40" expression="LIP05U.CONO40 " type="id_String"/>
         <mapperTableEntries name="ORDN40" expression="LIP05U.ORDN40 " type="id_String"/>
-        <mapperTableEntries name="CustomProductHoldCode" expression="Relational.ISNULL(LIP05U.HDCD05) ? &quot;N/A&quot; :&#xD;&#xA;CustomStringHandling.replaceNullAndBlank(LIP05U.HDCD05) " type="id_String"/>
-        <mapperTableEntries name="CustomProductHoldDescription" expression="Relational.ISNULL(LIP05U.HDCD05) ? &quot;N/A&quot; :&#xD;&#xA;CustomStringHandling.replaceNullAndBlank(LIP05U.HDR105) " type="id_String"/>
+        <mapperTableEntries name="CustomProductHoldCode" expression="Relational.ISNULL(LIP05U.HDCD05) || &quot;&quot;.equals(LIP05U.HDCD05) ? &quot;N/A&quot;  :&#xD;&#xA;CustomStringHandling.replaceNullAndBlank(LIP05U.HDCD05) " type="id_String"/>
+        <mapperTableEntries name="CustomProductHoldDescription" expression="Relational.ISNULL(LIP05U.HDCD05) || &quot;&quot;.equals(LIP05U.HDCD05) ? &quot;N/A&quot; :&#xD;&#xA;CustomStringHandling.replaceNullAndBlank(LIP05U.HDR105) " type="id_String"/>
         <mapperTableEntries name="DD_QuoteNumber" expression="&quot;Unknown&quot;.equals(CustomStringHandling.replaceNullAndBlank(LIP05U.QUON05)) ? &#xD;&#xA;CustomStringHandling.replaceNullAndBlank(TORDERS.QUOTENUMBER) :&#xD;&#xA;CustomStringHandling.replaceNullAndBlank(LIP05U.QUON05) " type="id_String"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="LIP05U" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
