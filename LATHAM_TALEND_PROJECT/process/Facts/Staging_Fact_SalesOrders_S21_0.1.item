@@ -34,7 +34,7 @@
   </context>
   <parameters>
     <elementParameter field="TEXT" name="SCREEN_OFFSET_X" value="0" show="false"/>
-    <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" value="171" show="false"/>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" value="128" show="false"/>
     <elementParameter field="TEXT" name="REPOSITORY_CONNECTION_ID" value="" show="false"/>
     <elementParameter field="TEXT" name="OOZIE_PROPERTY_TYPENAME" value="" show="false"/>
     <elementParameter field="TEXT" name="OOZIE_HADOOP_DISTRIBUTION" value="" show="false"/>
@@ -380,7 +380,7 @@
       <column comment="" key="false" length="2" name="CONO" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="2" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="NotExists" activateCondensedTool="true" rejectInnerJoin="true">
         <mapperTableEntries name="OrderSourceCode" expression="SalesOrderJunk.OrderSourceCode " type="id_String"/>
@@ -1172,7 +1172,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT DISTINCT OEP40.OrderSourceCode&#xD;&#xA;&#x9;, OEP55.OrderLineTypeCode&#xD;&#xA;&#x9;, OEP40.OrderStatusCode&#xD;&#xA;&#x9;, OEP55.OrderCancellationReasonCode&#xD;&#xA;&#x9;, OEP40.OrderTypeCode&#xD;&#xA;&#x9;, OEP40.OrderSuspenseCode&#xD;&#xA;&#x9;, LIP05U.CustomProductHoldCode&#xD;&#xA;&#x9;, LIP05U.CustomProductHoldDescription&#xD;&#xA;&#x9;, OEP40.CONO40&#xD;&#xA;FROM Staging_Fact_SalesOrders_S21_OEP40 AS OEP40&#xD;&#xA;INNER JOIN Staging_Fact_SalesOrders_S21_OEP55 AS OEP55&#xD;&#xA;&#x9;ON OEP40.CONO40 = OEP55.CONO55&#xD;&#xA;&#x9;AND OEP40.ORDN40 = OEP55.ORDN55&#xD;&#xA;INNER JOIN Staging_Fact_SalesOrders_S21_LIP05U AS LIP05U&#xD;&#xA;&#x9;ON OEP40.CONO40 = LIP05U.CONO40 &#xD;&#xA;&#x9;AND OEP40.ORDN40 = LIP05U.ORDN40&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT OEP55.CONO55&#xD;&#xA;&#x9;, OEP55.ORDN55&#xD;&#xA;    , OEP55.ORDL55&#xD;&#xA;&#x9;, Dimensions.SK_Customer&#xD;&#xA;&#x9;, Dimensions.SK_Product&#xD;&#xA;&#x9;, Dimensions.SK_Stockroom&#xD;&#xA;&#x9;, Dimensions.SK_Geography&#xD;&#xA;&#x9;, Dimensions.SK_Currency_USD&#xD;&#xA;&#x9;, Dimensions.SK_Currency_Functional&#xD;&#xA;&#x9;, Dimensions.SK_Currency_Transaction&#xD;&#xA;&#x9;, Dimensions.SK_Company&#xD;&#xA;&#x9;, Dimensions.SalesOrderDetail&#xD;&#xA;    , OEP40.SK_Date_CustomerOrdered&#xD;&#xA;    , OEP40.SK_Date_SystemEntered&#xD;&#xA;    , OEP55.SK_Date_CurrentPromisedShip&#xD;&#xA;    , LIP11U.SK_Date_ScheduledBuild&#xD;&#xA;    , INP56.SK_Date_OrderCompletion&#xD;&#xA;    , OEP40.DD_OrderNumber&#xD;&#xA;    , OEP55.DD_OrderLineNumber&#xD;&#xA;    , LIP05U.DD_QuoteNumber&#xD;&#xA;    , LIP11U.DD_SerialNumber&#xD;&#xA;    , OEP40.DD_CustomerPurchaseOrderNumber&#xD;&#xA;    , LIP11U.DD_CustomerTagName&#xD;&#xA;    , OEP55.OrderLineQuantityOrdered&#xD;&#xA;    , OEP55.OrderLineQuantityOutstanding&#xD;&#xA;    , OEP55.OrderLineQuantityShipped&#xD;&#xA;    , OEP55.OrderLineExtendedValueFunctionalCurrency&#xD;&#xA;    , OEP55.OrderLineExtendedValueTransactionCurrency&#xD;&#xA;    , OEP55.OrderLineNetUnitPriceTransactionCurrency&#xD;&#xA;    , OEP55.OrderLineExtendedDiscountValueFunctionalCurrency&#xD;&#xA;    , OEP55.OrderLineExtendedDiscountValueTransactionCurrency&#xD;&#xA;    , LIP11U.OrderLineExtendedDiscountValueTransactionCurrency&#xD;&#xA;    , Dimensions.SalesUnit&#xD;&#xA;FROM Staging_Fact_SalesOrders_S21_OEP40 AS OEP40&#xD;&#xA;INNER JOIN Staging_Fact_SalesOrders_S21_OEP55 AS OEP55&#xD;&#xA;&#x9;ON OEP40.CONO40 = OEP55.CONO55&#xD;&#xA;&#x9;AND OEP40.ORDN40 = OEP55.ORDN55&#xD;&#xA;INNER JOIN Staging_Fact_SalesOrders_S21_LIP05U AS LIP05U&#xD;&#xA;&#x9;ON OEP40.CONO40 = LIP05U.CONO40 &#xD;&#xA;&#x9;AND OEP40.ORDN40 = LIP05U.ORDN40&#xD;&#xA;INNER JOIN Staging_Fact_SalesOrders_S21_OEP40V02 AS OEP40V02&#xD;&#xA;&#x9;ON OEP40.CONO40 = OEP40V02.CONO40 &#xD;&#xA;&#x9;AND OEP40.ORDN40 = OEP40V02.ORDN40&#xD;&#xA;INNER JOIN Staging_Fact_SalesOrders_S21_INP56 AS INP56&#xD;&#xA;&#x9;ON OEP40.CONO40 = INP56.CONO40 &#xD;&#xA;&#x9;AND OEP40.ORDN40 = INP56.ORDN40    &#xD;&#xA;INNER JOIN Staging_Fact_SalesOrders_S21_LIP11U AS LIP11U&#xD;&#xA;&#x9;ON OEP55.CONO55 = LIP11U.CONO55 &#xD;&#xA;&#x9;AND OEP55.ORDN55 = LIP11U.ORDN55&#xD;&#xA;&#x9;AND OEP55.ORDL55 = LIP11U.ORDL55&#xD;&#xA;INNER JOIN Staging_Fact_SalesOrders_S21_Dimensions AS Dimensions&#xD;&#xA;&#x9;ON OEP55.CONO55 = Dimensions.CONO55 &#xD;&#xA;&#x9;AND OEP55.ORDN55 = Dimensions.ORDN55&#xD;&#xA;&#x9;AND OEP55.ORDL55 = Dimensions.ORDL55&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -1265,33 +1265,33 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="SalesOrderDetail" show="false"/>
   </connection>
+  <connection connectorName="PARALLELIZE" label="Parallelize" lineStyle="13" metaname="tParallelize_1" offsetLabelX="0" offsetLabelY="0" outputId="1" source="tParallelize_1" target="tRunJob_6">
+    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="Parallelize" show="false"/>
+  </connection>
+  <connection connectorName="PARALLELIZE" label="Parallelize" lineStyle="13" metaname="tParallelize_1" offsetLabelX="0" offsetLabelY="0" outputId="2" source="tParallelize_1" target="tRunJob_8">
+    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="Parallelize" show="false"/>
+  </connection>
+  <connection connectorName="PARALLELIZE" label="Parallelize" lineStyle="13" metaname="tParallelize_1" offsetLabelX="0" offsetLabelY="0" outputId="3" source="tParallelize_1" target="tRunJob_7">
+    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="Parallelize" show="false"/>
+  </connection>
+  <connection connectorName="PARALLELIZE" label="Parallelize" lineStyle="13" metaname="tParallelize_1" offsetLabelX="0" offsetLabelY="0" outputId="4" source="tParallelize_1" target="tRunJob_5">
+    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="Parallelize" show="false"/>
+  </connection>
+  <connection connectorName="PARALLELIZE" label="Parallelize" lineStyle="13" metaname="tParallelize_1" offsetLabelX="0" offsetLabelY="0" outputId="5" source="tParallelize_1" target="tRunJob_4">
+    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="Parallelize" show="false"/>
+  </connection>
+  <connection connectorName="PARALLELIZE" label="Parallelize" lineStyle="13" metaname="tParallelize_1" offsetLabelX="0" offsetLabelY="0" outputId="6" source="tParallelize_1" target="tRunJob_3">
+    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="Parallelize" show="false"/>
+  </connection>
   <connection connectorName="SYNCHRONIZE" label="Synchronize" lineStyle="12" metaname="tParallelize_1" offsetLabelX="50" offsetLabelY="3" source="tParallelize_1" target="tSetGlobalVar_2">
     <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="Synchronize" show="false"/>
-  </connection>
-  <connection connectorName="PARALLELIZE" label="Parallelize" lineStyle="13" metaname="tParallelize_1" offsetLabelX="0" offsetLabelY="0" outputId="1" source="tParallelize_1" target="tRunJob_3">
-    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="Parallelize" show="false"/>
-  </connection>
-  <connection connectorName="PARALLELIZE" label="Parallelize" lineStyle="13" metaname="tParallelize_1" offsetLabelX="0" offsetLabelY="0" outputId="2" source="tParallelize_1" target="tRunJob_4">
-    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="Parallelize" show="false"/>
-  </connection>
-  <connection connectorName="PARALLELIZE" label="Parallelize" lineStyle="13" metaname="tParallelize_1" offsetLabelX="0" offsetLabelY="0" outputId="3" source="tParallelize_1" target="tRunJob_5">
-    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="Parallelize" show="false"/>
-  </connection>
-  <connection connectorName="PARALLELIZE" label="Parallelize" lineStyle="13" metaname="tParallelize_1" offsetLabelX="0" offsetLabelY="0" outputId="4" source="tParallelize_1" target="tRunJob_7">
-    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="Parallelize" show="false"/>
-  </connection>
-  <connection connectorName="PARALLELIZE" label="Parallelize" lineStyle="13" metaname="tParallelize_1" offsetLabelX="0" offsetLabelY="0" outputId="5" source="tParallelize_1" target="tRunJob_8">
-    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="Parallelize" show="false"/>
-  </connection>
-  <connection connectorName="PARALLELIZE" label="Parallelize" lineStyle="13" metaname="tParallelize_1" offsetLabelX="0" offsetLabelY="0" outputId="6" source="tParallelize_1" target="tRunJob_6">
-    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="Parallelize" show="false"/>
   </connection>
   <connection connectorName="RUN_IF" label="StagingSucceeded" lineStyle="6" metaname="tSetGlobalVar_2" offsetLabelX="50" offsetLabelY="50" source="tSetGlobalVar_2" target="tJava_9">
     <elementParameter field="MEMO_JAVA" name="CONDITION" value="&quot;Succeeded&quot;.equals((String)globalMap.get(&quot;stagingOutcome&quot;))"/>
