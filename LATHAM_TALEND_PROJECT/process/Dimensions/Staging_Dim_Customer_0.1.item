@@ -1748,7 +1748,7 @@
       <additionalProperties key="Comment" value=""/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="StageDimCustomer">
         <mapperTableEntries name="BK_Customer_CONO05_S21" expression="DimCustomerMapped.BK_Customer_CONO05_S21 " type="id_String"/>
@@ -1795,7 +1795,7 @@
         <mapperTableEntries name="ThorDealerCode" expression="DimCustomerMapped.ThorDealerCode " type="id_String"/>
         <mapperTableEntries name="CustomerPricingLevel" expression="DimCustomerMapped.CustomerPricingLevel " type="id_String"/>
         <mapperTableEntries name="CustomerCorporationName" expression="DimCustomerMapped.CustomerCorporationName " type="id_String"/>
-        <mapperTableEntries name="SK_Geography" expression="Relational.ISNULL(DimGeography.SK_Geography ) || DimGeography.SK_Geography == 0 ? -1 : DimGeography.SK_Geography " type="id_Integer"/>
+        <mapperTableEntries name="SK_Geography" expression="CustomStringHandling.dimensionKeyHandling(DimGeography.SK_Geography ) " type="id_Integer"/>
         <mapperTableEntries name="SK_SourceSystem" expression="DimCustomerMapped.SK_SourceSystem " type="id_Integer"/>
         <mapperTableEntries name="ValidFrom" expression="DimCustomerMapped.ValidFrom " type="id_Date"/>
         <mapperTableEntries name="Map_Geography_CompanyCode" expression="DimCustomerMapped.Map_Geography_CompanyCode " type="id_String" nullable="true"/>
@@ -2824,7 +2824,7 @@
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
   <subjob>
-    <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" value="true"/>
+    <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" value="true" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPrejob_1" show="false"/>
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="230;100;0"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="255;220;180"/>
@@ -2835,7 +2835,7 @@
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
   <subjob>
-    <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" value="true"/>
+    <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" value="true" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPostjob_1" show="false"/>
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="230;100;0"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="255;220;180"/>
