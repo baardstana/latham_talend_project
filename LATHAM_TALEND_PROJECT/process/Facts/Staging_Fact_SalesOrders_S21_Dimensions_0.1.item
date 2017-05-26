@@ -303,7 +303,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT OEP55.CONO55&#xD;&#xA;&#x9;, OEP55.ORDN55&#xD;&#xA;    , OEP55.ORDL55&#xD;&#xA;&#x9;, DimProduct.SK_product&#xD;&#xA;&#x9;, OEP40.MapCustomerCONO05&#xD;&#xA;    , OEP40.MapCustomerCUSN05&#xD;&#xA;    , OEP40.MapCustomerDSEQ05&#xD;&#xA;    , OEP55.MapStockroomCONO20&#xD;&#xA;    , OEP55.MapStockroomSTRC20&#xD;&#xA;    , OEP40V02.MapGeographyCompanyCode&#xD;&#xA;    , OEP40V02.MapGeographyPostalCode&#xD;&#xA;    , OEP40.MapCurrencyCURN83_Transaction&#xD;&#xA;    , OEP40.MapCompanyCONO&#xD;&#xA;    , OEP40.OrderSourceCode&#xD;&#xA;&#x9;, OEP55.OrderLineTypeCode&#xD;&#xA;&#x9;, OEP40.OrderStatusCode&#xD;&#xA;&#x9;, OEP55.OrderCancellationReasonCode&#xD;&#xA;&#x9;, OEP40.OrderTypeCode&#xD;&#xA;&#x9;, OEP40.OrderSuspenseCode&#xD;&#xA;&#x9;, LIP05U.CustomProductHoldCode&#xD;&#xA;&#x9;, LIP05U.CustomProductHoldDescription&#xD;&#xA;    , DimProduct.SalesUnit&#xD;&#xA;&#x9;, DimProduct.UnitOverrideFlag    &#xD;&#xA;FROM Staging_Fact_SalesOrders_S21_OEP40 AS OEP40&#xD;&#xA;INNER JOIN Staging_Fact_SalesOrders_S21_OEP55 AS OEP55&#xD;&#xA;&#x9;ON OEP40.CONO40 = OEP55.CONO55&#xD;&#xA;&#x9;AND OEP40.ORDN40 = OEP55.ORDN55&#xD;&#xA;INNER JOIN Staging_Fact_SalesOrders_S21_LIP05U AS LIP05U&#xD;&#xA;&#x9;ON OEP40.CONO40 = LIP05U.CONO40 &#xD;&#xA;&#x9;AND OEP40.ORDN40 = LIP05U.ORDN40&#xD;&#xA;INNER JOIN Staging_Fact_SalesOrders_S21_OEP40V02 AS OEP40V02&#xD;&#xA;&#x9;ON OEP40.CONO40 = OEP40V02.CONO40 &#xD;&#xA;&#x9;AND OEP40.ORDN40 = OEP40V02.ORDN40&#xD;&#xA;LEFT JOIN LDW_dev.Dim_Product AS DimProduct&#xD;&#xA;&#x9;ON OEP55.MapProductCONO35 = DimProduct.BK_Product_CONO35_S21&#xD;&#xA;    AND OEP55.MapProductPNUM35 = DimProduct.BK_Product_PNUM35_S21&#xD;&#xA;&#x9;AND DimProduct.IsCurrent = 1   &#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT OEP55.CONO55&#xD;&#xA;&#x9;, OEP55.ORDN55&#xD;&#xA;    , OEP55.ORDL55&#xD;&#xA;&#x9;, DimProduct.SK_product&#xD;&#xA;&#x9;, OEP40.MapCustomerCONO05&#xD;&#xA;    , OEP40.MapCustomerCUSN05&#xD;&#xA;    , OEP40.MapCustomerDSEQ05&#xD;&#xA;    , OEP55.MapStockroomCONO20&#xD;&#xA;    , OEP55.MapStockroomSTRC20&#xD;&#xA;    , OEP40V02.MapGeographyCompanyCode&#xD;&#xA;    , OEP40V02.MapGeographyPostalCode&#xD;&#xA;    , OEP40.MapCurrencyCURN83_Transaction&#xD;&#xA;    , OEP40.MapCompanyCONO&#xD;&#xA;    , OEP40.OrderSourceCode&#xD;&#xA;&#x9;, OEP55.OrderLineTypeCode&#xD;&#xA;&#x9;, OEP40.OrderStatusCode&#xD;&#xA;&#x9;, OEP55.OrderCancellationReasonCode&#xD;&#xA;&#x9;, OEP40.OrderTypeCode&#xD;&#xA;&#x9;, OEP40.OrderSuspenseCode&#xD;&#xA;&#x9;, LIP05U.CustomProductHoldCode&#xD;&#xA;&#x9;, LIP05U.CustomProductHoldDescription&#xD;&#xA;    , DimProduct.SalesUnit&#xD;&#xA;&#x9;, DimProduct.UnitOverrideFlag    &#xD;&#xA;FROM Staging_Fact_SalesOrders_S21_OEP40 AS OEP40&#xD;&#xA;INNER JOIN Staging_Fact_SalesOrders_S21_OEP55 AS OEP55&#xD;&#xA;&#x9;ON OEP40.CONO40 = OEP55.CONO55&#xD;&#xA;&#x9;AND OEP40.ORDN40 = OEP55.ORDN55&#xD;&#xA;INNER JOIN Staging_Fact_SalesOrders_S21_LIP05U AS LIP05U&#xD;&#xA;&#x9;ON OEP40.CONO40 = LIP05U.CONO40 &#xD;&#xA;&#x9;AND OEP40.ORDN40 = LIP05U.ORDN40&#xD;&#xA;INNER JOIN Staging_Fact_SalesOrders_S21_OEP40V02 AS OEP40V02&#xD;&#xA;&#x9;ON OEP40.CONO40 = OEP40V02.CONO40 &#xD;&#xA;&#x9;AND OEP40.ORDN40 = OEP40V02.ORDN40&#xD;&#xA;LEFT JOIN LDW_&quot; + context.parameter_LDW_DWH_environment + &quot;.Dim_Product AS DimProduct&#xD;&#xA;&#x9;ON OEP55.MapProductCONO35 = DimProduct.BK_Product_CONO35_S21&#xD;&#xA;    AND OEP55.MapProductPNUM35 = DimProduct.BK_Product_PNUM35_S21&#xD;&#xA;&#x9;AND DimProduct.IsCurrent = 1   &#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -425,7 +425,7 @@
       <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="WithCustomer">
         <mapperTableEntries name="CONO55" expression="Product.CONO55 " type="id_String"/>
@@ -562,7 +562,7 @@
       <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="Stockroom">
         <mapperTableEntries name="CONO55" expression="WithCustomer.CONO55 " type="id_String"/>
@@ -691,7 +691,7 @@
       <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="WithGeography">
         <mapperTableEntries name="CONO55" expression="Stockroom.CONO55 " type="id_String"/>
@@ -819,7 +819,7 @@
       <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="Currency">
         <mapperTableEntries name="CONO55" expression="WithGeography.CONO55 " type="id_String"/>
@@ -987,7 +987,7 @@
       <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="Company">
         <mapperTableEntries name="CONO55" expression="Currency.CONO55 " type="id_String"/>
