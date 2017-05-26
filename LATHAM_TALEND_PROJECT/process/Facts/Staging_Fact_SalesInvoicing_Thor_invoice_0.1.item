@@ -386,7 +386,7 @@
       <column comment="" key="false" length="3" name="OrderSuspenseCode" nullable="false" pattern="" precision="-1" sourceType="" type="id_String" originalLength="3" usefulColumn="true"/>
       <column comment="" key="false" length="3" name="CustomProductHoldCode" nullable="false" pattern="" precision="-1" sourceType="" type="id_String" originalLength="3" usefulColumn="true"/>
       <column comment="" key="false" length="3" name="CustomProductHoldDescription" nullable="false" pattern="" precision="-1" sourceType="" type="id_String" originalLength="3" usefulColumn="true"/>
-      <column comment="" key="false" length="10" name="creditReasonID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="10" name="InvoiceReasonCode" nullable="false" pattern="" precision="0" sourceType="INT" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="20" name="InvoiceTransactionTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="8" name="SK_Date_Invoiced" nullable="false" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;" precision="0" sourceType="DATETIME" type="id_Integer" originalLength="8" usefulColumn="true"/>
       <column comment="" key="false" length="8" name="SK_Date_ActualBuild" nullable="false" pattern="" precision="0" sourceType="DATETIME" type="id_Integer" originalLength="8" usefulColumn="true"/>
@@ -418,7 +418,7 @@
         <mapperTableEntries name="OrderSuspenseCode" expression="&quot;N/A&quot;" type="id_String"/>
         <mapperTableEntries name="CustomProductHoldCode" expression="&quot;N/A&quot;" type="id_String"/>
         <mapperTableEntries name="CustomProductHoldDescription" expression="&quot;N/A&quot;" type="id_String"/>
-        <mapperTableEntries name="creditReasonID" expression="Relational.ISNULL(CreditReasonCode) ? &quot;N/A&quot; : CHAR(CreditReasonCode) " type="id_String"/>
+        <mapperTableEntries name="InvoiceReasonCode" expression="Relational.ISNULL(invoice.creditReasonID) ? &quot;N/A&quot; : CHAR(invoice.creditReasonID) " type="id_String"/>
         <mapperTableEntries name="InvoiceTransactionTypeCode" expression="Relational.ISNULL(invoice.invoiceType) ? &quot;Unknown&quot; : &#xD;&#xA;&quot;CREDIT&quot;.equals(invoice.invoiceType) ? &quot;CR&quot; : &#xD;&#xA;&quot;DEBIT&quot;.equals(invoice.invoiceType) ? &quot;IN&quot; : &quot;Unknown&quot; " type="id_String"/>
         <mapperTableEntries name="SK_Date_Invoiced" expression="CustomStringHandling.transformDateToKey(invoice.modifiedOn) " type="id_Integer"/>
         <mapperTableEntries name="SK_Date_ActualBuild" expression="Relational.ISNULL(shell.productionEndDate) ? CustomStringHandling.transformDateToKey(shell.productionBeginDate) : CustomStringHandling.transformDateToKey(shell.productionEndDate) " type="id_Integer"/>
@@ -563,7 +563,7 @@
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="creditReasonID"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceReasonCode"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
@@ -644,7 +644,7 @@
       <column comment="" key="false" length="3" name="OrderSuspenseCode" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="3" usefulColumn="true"/>
       <column comment="" key="false" length="3" name="CustomProductHoldCode" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="3" usefulColumn="true"/>
       <column comment="" key="false" length="3" name="CustomProductHoldDescription" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="3" usefulColumn="true"/>
-      <column comment="" key="false" length="10" name="creditReasonID" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="10" name="InvoiceReasonCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="20" name="InvoiceTransactionTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="8" name="SK_Date_Invoiced" nullable="false" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;" precision="0" sourceType="INT" type="id_Integer" originalLength="8" usefulColumn="true"/>
       <column comment="" key="false" length="8" name="SK_Date_ActualBuild" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="8" usefulColumn="true"/>
@@ -673,7 +673,7 @@
       <column comment="" key="false" length="3" name="OrderSuspenseCode" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="3" usefulColumn="true"/>
       <column comment="" key="false" length="3" name="CustomProductHoldCode" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="3" usefulColumn="true"/>
       <column comment="" key="false" length="3" name="CustomProductHoldDescription" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="3" usefulColumn="true"/>
-      <column comment="" key="false" length="10" name="creditReasonID" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="10" name="InvoiceReasonCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="20" name="InvoiceTransactionTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="8" name="SK_Date_Invoiced" nullable="false" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;" precision="0" sourceType="INT" type="id_Integer" originalLength="8" usefulColumn="true"/>
       <column comment="" key="false" length="8" name="SK_Date_ActualBuild" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="8" usefulColumn="true"/>
@@ -872,7 +872,7 @@
       <elementValue elementRef="TRACE_COLUMN" value="OrderTypeCode"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="creditReasonID"/>
+      <elementValue elementRef="TRACE_COLUMN" value="InvoiceReasonCode"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
       <elementValue elementRef="TRACE_COLUMN" value="OrderSourceCode"/>
