@@ -389,7 +389,7 @@
       <outputTables sizeState="INTERMEDIATE" name="renamedproductorder">
         <mapperTableEntries name="invoiceID" expression="UniqueOrderitem.invoiceID " type="id_Integer"/>
         <mapperTableEntries name="invoiceItemID" expression="UniqueOrderitem.invoiceItemID " type="id_Integer"/>
-        <mapperTableEntries name="DD_OrderLineNumber" expression="UniqueOrderitem.orderItemID.floatValue() " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="DD_OrderLineNumber" expression="Relational.ISNULL(UniqueOrderitem.orderItemID) ? null : UniqueOrderitem.orderItemID.floatValue() " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="UniqueOrderitem" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="invoiceID" type="id_Integer"/>
