@@ -1229,9 +1229,10 @@
       <column comment="" key="false" length="40" name="DD_CustomerTagName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="InvoiceLineQuantity" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="11" name="InvoiceLineUnits" nullable="true" pattern="" precision="3" sourceType="" type="id_Float" originalLength="11" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="ConformedValues">
         <mapperTableEntries name="SK_Customer" expression="JoinedValues.SK_Customer " type="id_Integer"/>
@@ -1259,6 +1260,7 @@
         <mapperTableEntries name="DD_CustomerTagName" expression="Relational.ISNULL(JoinedValues.DD_CustomerTagName) ? &quot;N/A&quot; : JoinedValues.DD_CustomerTagName " type="id_String"/>
         <mapperTableEntries name="InvoiceLineQuantity" expression="JoinedValues.InvoiceLineQuantity " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineUnits" expression="Relational.ISNULL(JoinedValues.InvoiceLineQuantity) || Relational.ISNULL(JoinedValues.SalesUnit) ? null : JoinedValues.InvoiceLineQuantity * JoinedValues.SalesUnit " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="SK_SourceSystem" expression="JoinedValues.SK_SourceSystem " type="id_Integer"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="JoinedValues" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Customer" type="id_Integer"/>
@@ -1446,6 +1448,11 @@
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SK_SourceSystem"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
     </elementParameter>
     <elementParameter field="CHECK" name="USE_HINT_OPTIONS" value="false"/>
     <elementParameter field="TABLE" name="HINT_OPTIONS" show="false"/>
@@ -1481,6 +1488,7 @@
       <column comment="" key="false" length="40" name="DD_CustomerTagName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="InvoiceLineQuantity" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="11" name="InvoiceLineUnits" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="11" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
     </metadata>
     <metadata connector="REJECT" name="REJECT">
       <column comment="" defaultValue="" key="false" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
@@ -1508,6 +1516,7 @@
       <column comment="" key="false" length="40" name="DD_CustomerTagName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="InvoiceLineQuantity" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="11" name="InvoiceLineUnits" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="11" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
@@ -1687,6 +1696,11 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk17" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="ConformedValues" lineStyle="0" metaname="ConformedValues" offsetLabelX="0" offsetLabelY="0" source="tMap_1" target="tMysqlOutput_1">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="SK_SourceSystem"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="ConformedValues" show="false"/>
   </connection>
