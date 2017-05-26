@@ -237,7 +237,7 @@
     <elementParameter field="TEXT" name="LABEL" value="OpenConnectionLDW"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
   </node>
-  <node componentName="tJava" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="64" posY="992">
+  <node componentName="tJava" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="64" posY="736">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_1" show="false"/>
     <elementParameter field="MEMO_JAVA" name="CODE" value="System.out.println( new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(TalendDate.getCurrentDate()) + &quot; - &quot; + jobName + &quot; - Finished staging data, starting to handle junk dimension for sales orders&quot;);"/>
     <elementParameter field="MEMO_IMPORT" name="IMPORT" value="//import java.util.List;"/>
@@ -245,7 +245,7 @@
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tJava_1"/>
   </node>
-  <node componentName="tJava" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="64" posY="1280">
+  <node componentName="tJava" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="64" posY="1024">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_2" show="false"/>
     <elementParameter field="MEMO_JAVA" name="CODE" value="System.out.println( new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(TalendDate.getCurrentDate()) + &quot; - &quot; + jobName + &quot; - Starting to handle junk dimension for sales invoices&quot;);"/>
     <elementParameter field="MEMO_IMPORT" name="IMPORT" value="//import java.util.List;"/>
@@ -746,7 +746,7 @@
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tSetGlobalVar_2"/>
   </node>
-  <node componentName="tSetGlobalVar" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="224" posY="480">
+  <node componentName="tSetGlobalVar" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="224" posY="448">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tSetGlobalVar_3" show="false"/>
     <elementParameter field="TABLE" name="VARIABLES">
       <elementValue elementRef="KEY" value="&quot;stagingOutcome&quot;"/>
@@ -756,7 +756,7 @@
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tSetGlobalVar_3"/>
   </node>
-  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="224" posY="992">
+  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="224" posY="736">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_2" show="false"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
@@ -767,12 +767,12 @@
     <elementParameter field="TEXT" name="TYPE" value="MySQL" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
     <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;&quot;"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Staging_Fact_SalesInvoicing_Thor_invoice&quot;"/>
     <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT DISTINCT OEP65.OrderSourceCode&#xD;&#xA;&#x9;, OEP70.OrderLineTypeCode&#xD;&#xA;    , OEP40.OrderStatusCode&#xD;&#xA;    , OEP55.OrderCancellationReasonCode&#xD;&#xA;    , OEP65.OrderTypeCode&#xD;&#xA;    , OEP40.OrderSuspenseCode&#xD;&#xA;    , OEP65.CustomProductHoldCode&#xD;&#xA;    , OEP65.CustomProductHoldDescription&#xD;&#xA;    , OEP65.CONO65&#xD;&#xA;FROM Staging_Fact_SalesInvoicing_S21_OEP65 AS OEP65&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_S21_OEP70 AS OEP70&#xD;&#xA;&#x9;ON OEP65.CONO65 = OEP70.CONO70&#xD;&#xA;    AND OEP65.INVN65 = OEP70.INVN70&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_S21_OEP40 AS OEP40&#xD;&#xA;&#x9;ON OEP65.CONO65 = OEP40.CONO65&#xD;&#xA;    AND OEP65.INVN65 = OEP40.INVN65&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicing_S21_OEP55 AS OEP55&#xD;&#xA;&#x9;ON OEP70.CONO70 = OEP55.CONO70&#xD;&#xA;    AND OEP70.INVN70 = OEP55.INVN70&#xD;&#xA;    AND OEP70.ORDL70 = OEP55.ORDL70&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT DISTINCT OrderSourceCode&#xD;&#xA;&#x9;, OrderLineTypeCode&#xD;&#xA;    , OrderStatusCode&#xD;&#xA;    , OrderCancellationReasonCode&#xD;&#xA;    , OrderTypeCode&#xD;&#xA;    , OrderSuspenseCode&#xD;&#xA;    , CustomProductHoldCode&#xD;&#xA;    , CustomProductHoldDescription&#xD;&#xA;    , CONO&#xD;&#xA;FROM Staging_Fact_SalesInvoicing_Thor_invoice&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -799,75 +799,87 @@
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="CustomProductHoldDescription"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="CONO65"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CONO"/>
       <elementValue elementRef="TRIM" value="false"/>
     </elementParameter>
     <elementParameter field="TEXT" name="LABEL" value="SalesOrderJunk"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tMysqlInput_2">
-      <column comment="" key="false" length="1" name="OrderSourceCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="OrderLineTypeCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="3" name="OrderSourceCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="3" name="OrderLineTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="3" name="OrderStatusCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="3" name="OrderCancellationReasonCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="OrderTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="3" name="OrderCancellationReasonCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="3" name="OrderTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="3" name="OrderSuspenseCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="3" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="3" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="CONO65" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="2" name="CONO" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="416" posY="992">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMap_1" show="false"/>
+  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="544" posY="736">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMap_3" show="false"/>
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="_LCOtsEIdEeeoLudCVJBqXQ-tMap_1-PREVIEW.bmp"/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_LCOtsEIdEeeoLudCVJBqXQ-tMap_3-PREVIEW.bmp"/>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
     <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
     <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
     <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
     <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="false"/>
-    <elementParameter field="TEXT" name="LABEL" value="RemoveNulls"/>
+    <elementParameter field="TEXT" name="LABEL" value="CheckIfExists"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" label="nullsRemoved" name="NullsRemoved">
-      <column comment="" key="false" length="3" name="OrderSourceCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="3" usefulColumn="true"/>
-      <column comment="" key="false" length="3" name="OrderLineTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="3" usefulColumn="true"/>
-      <column comment="" key="false" length="3" name="OrderStatusCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="3" name="OrderCancellationReasonCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="3" name="OrderTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="3" usefulColumn="true"/>
-      <column comment="" key="false" length="3" name="OrderSuspenseCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="3" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="3" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="CONO65" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+    <metadata connector="FLOW" name="NotExists">
+      <column comment="" key="false" length="7" name="OrderSourceCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="OrderLineTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="OrderStatusCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="OrderCancellationReasonCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="OrderTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="OrderSuspenseCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="60" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="2" name="CONO" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="2" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
-      <outputTables sizeState="INTERMEDIATE" name="NullsRemoved">
-        <mapperTableEntries name="OrderSourceCode" expression="SalesOrderJunk.OrderSourceCode " type="id_String"/>
-        <mapperTableEntries name="OrderLineTypeCode" expression="Relational.ISNULL(SalesOrderJunk.OrderLineTypeCode) ? &quot;N/A&quot; : SalesOrderJunk.OrderLineTypeCode " type="id_String"/>
-        <mapperTableEntries name="OrderStatusCode" expression="SalesOrderJunk.OrderStatusCode " type="id_String"/>
-        <mapperTableEntries name="OrderCancellationReasonCode" expression="Relational.ISNULL(SalesOrderJunk.OrderCancellationReasonCode) ? &quot;N/A&quot; : SalesOrderJunk.OrderCancellationReasonCode " type="id_String"/>
-        <mapperTableEntries name="OrderTypeCode" expression="SalesOrderJunk.OrderTypeCode " type="id_String"/>
-        <mapperTableEntries name="OrderSuspenseCode" expression="SalesOrderJunk.OrderSuspenseCode " type="id_String"/>
-        <mapperTableEntries name="CustomProductHoldCode" expression="SalesOrderJunk.CustomProductHoldCode " type="id_String"/>
-        <mapperTableEntries name="CustomProductHoldDescription" expression="SalesOrderJunk.CustomProductHoldDescription " type="id_String"/>
-        <mapperTableEntries name="CONO65" expression="SalesOrderJunk.CONO65 " type="id_String"/>
+      <outputTables sizeState="INTERMEDIATE" name="NotExists" activateCondensedTool="true" rejectInnerJoin="true">
+        <mapperTableEntries name="OrderSourceCode" expression="NullsRemoved.OrderSourceCode " type="id_String"/>
+        <mapperTableEntries name="OrderLineTypeCode" expression="NullsRemoved.OrderLineTypeCode " type="id_String"/>
+        <mapperTableEntries name="OrderStatusCode" expression="NullsRemoved.OrderStatusCode " type="id_String"/>
+        <mapperTableEntries name="OrderCancellationReasonCode" expression="NullsRemoved.OrderCancellationReasonCode " type="id_String"/>
+        <mapperTableEntries name="OrderTypeCode" expression="NullsRemoved.OrderTypeCode " type="id_String"/>
+        <mapperTableEntries name="OrderSuspenseCode" expression="NullsRemoved.OrderSuspenseCode " type="id_String"/>
+        <mapperTableEntries name="CustomProductHoldCode" expression="NullsRemoved.CustomProductHoldCode " type="id_String"/>
+        <mapperTableEntries name="CustomProductHoldDescription" expression="NullsRemoved.CustomProductHoldDescription " type="id_String"/>
+        <mapperTableEntries name="CONO" expression="NullsRemoved.CONO65 " type="id_String"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="SalesOrderJunk" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="OrderSourceCode" type="id_String"/>
-        <mapperTableEntries name="OrderLineTypeCode" type="id_String" nullable="true"/>
+        <mapperTableEntries name="OrderLineTypeCode" type="id_String"/>
         <mapperTableEntries name="OrderStatusCode" type="id_String"/>
-        <mapperTableEntries name="OrderCancellationReasonCode" type="id_String" nullable="true"/>
+        <mapperTableEntries name="OrderCancellationReasonCode" type="id_String"/>
         <mapperTableEntries name="OrderTypeCode" type="id_String"/>
         <mapperTableEntries name="OrderSuspenseCode" type="id_String"/>
         <mapperTableEntries name="CustomProductHoldCode" type="id_String"/>
         <mapperTableEntries name="CustomProductHoldDescription" type="id_String"/>
-        <mapperTableEntries name="CONO65" type="id_String"/>
+        <mapperTableEntries name="CONO" type="id_String"/>
+      </inputTables>
+      <inputTables sizeState="INTERMEDIATE" name="SalesOrderDetail" activateCondensedTool="true" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE" innerJoin="true">
+        <mapperTableEntries name="SK_SalesOrderDetail" type="id_Integer"/>
+        <mapperTableEntries name="OrderSourceCode" expression="NullsRemoved.OrderSourceCode " type="id_String" operator="="/>
+        <mapperTableEntries name="OrderLineTypeCode" expression="NullsRemoved.OrderLineTypeCode " type="id_String" operator="="/>
+        <mapperTableEntries name="OrderStatusCode" expression="NullsRemoved.OrderStatusCode " type="id_String" operator="="/>
+        <mapperTableEntries name="OrderCancellationReasonCode" expression="NullsRemoved.OrderCancellationReasonCode " type="id_String" operator="="/>
+        <mapperTableEntries name="OrderTypeCode" expression="NullsRemoved.OrderTypeCode " type="id_String" operator="="/>
+        <mapperTableEntries name="OrderSuspenseCode" expression="NullsRemoved.OrderSuspenseCode " type="id_String" operator="="/>
+        <mapperTableEntries name="CustomProductHoldCode" expression="NullsRemoved.CustomProductHoldCode " type="id_String" operator="="/>
+        <mapperTableEntries name="CustomProductHoldDescription" expression="NullsRemoved.CustomProductHoldDescription " type="id_String" operator="="/>
+        <mapperTableEntries name="CONO" expression="NullsRemoved.CONO65 " type="id_String" operator="="/>
       </inputTables>
     </nodeData>
   </node>
-  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="672" posY="832">
+  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="544" posY="576">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_4" show="false"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
@@ -930,70 +942,7 @@
       <column comment="" key="false" length="-1" name="CONO" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="672" posY="992">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMap_3" show="false"/>
-    <elementParameter field="EXTERNAL" name="MAP" value=""/>
-    <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
-    <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="_LCOtsEIdEeeoLudCVJBqXQ-tMap_3-PREVIEW.bmp"/>
-    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
-    <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
-    <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
-    <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
-    <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="false"/>
-    <elementParameter field="TEXT" name="LABEL" value="CheckIfExists"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="NotExists">
-      <column comment="" key="false" length="7" name="OrderSourceCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
-      <column comment="" key="false" length="7" name="OrderLineTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
-      <column comment="" key="false" length="7" name="OrderStatusCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
-      <column comment="" key="false" length="7" name="OrderCancellationReasonCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
-      <column comment="" key="false" length="7" name="OrderTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
-      <column comment="" key="false" length="7" name="OrderSuspenseCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
-      <column comment="" key="false" length="7" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="60" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="CONO" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="2" usefulColumn="true"/>
-    </metadata>
-    <nodeData xsi:type="MapperData">
-      <uiProperties/>
-      <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
-      <outputTables sizeState="INTERMEDIATE" name="NotExists" activateCondensedTool="true" rejectInnerJoin="true">
-        <mapperTableEntries name="OrderSourceCode" expression="NullsRemoved.OrderSourceCode " type="id_String"/>
-        <mapperTableEntries name="OrderLineTypeCode" expression="NullsRemoved.OrderLineTypeCode " type="id_String"/>
-        <mapperTableEntries name="OrderStatusCode" expression="NullsRemoved.OrderStatusCode " type="id_String"/>
-        <mapperTableEntries name="OrderCancellationReasonCode" expression="NullsRemoved.OrderCancellationReasonCode " type="id_String"/>
-        <mapperTableEntries name="OrderTypeCode" expression="NullsRemoved.OrderTypeCode " type="id_String"/>
-        <mapperTableEntries name="OrderSuspenseCode" expression="NullsRemoved.OrderSuspenseCode " type="id_String"/>
-        <mapperTableEntries name="CustomProductHoldCode" expression="NullsRemoved.CustomProductHoldCode " type="id_String"/>
-        <mapperTableEntries name="CustomProductHoldDescription" expression="NullsRemoved.CustomProductHoldDescription " type="id_String"/>
-        <mapperTableEntries name="CONO" expression="NullsRemoved.CONO65 " type="id_String"/>
-      </outputTables>
-      <inputTables sizeState="INTERMEDIATE" name="NullsRemoved" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
-        <mapperTableEntries name="OrderSourceCode" type="id_String"/>
-        <mapperTableEntries name="OrderLineTypeCode" type="id_String"/>
-        <mapperTableEntries name="OrderStatusCode" type="id_String"/>
-        <mapperTableEntries name="OrderCancellationReasonCode" type="id_String"/>
-        <mapperTableEntries name="OrderTypeCode" type="id_String"/>
-        <mapperTableEntries name="OrderSuspenseCode" type="id_String"/>
-        <mapperTableEntries name="CustomProductHoldCode" type="id_String"/>
-        <mapperTableEntries name="CustomProductHoldDescription" type="id_String"/>
-        <mapperTableEntries name="CONO65" type="id_String"/>
-      </inputTables>
-      <inputTables sizeState="INTERMEDIATE" name="SalesOrderDetail" activateCondensedTool="true" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE" innerJoin="true">
-        <mapperTableEntries name="SK_SalesOrderDetail" type="id_Integer"/>
-        <mapperTableEntries name="OrderSourceCode" expression="NullsRemoved.OrderSourceCode " type="id_String" operator="="/>
-        <mapperTableEntries name="OrderLineTypeCode" expression="NullsRemoved.OrderLineTypeCode " type="id_String" operator="="/>
-        <mapperTableEntries name="OrderStatusCode" expression="NullsRemoved.OrderStatusCode " type="id_String" operator="="/>
-        <mapperTableEntries name="OrderCancellationReasonCode" expression="NullsRemoved.OrderCancellationReasonCode " type="id_String" operator="="/>
-        <mapperTableEntries name="OrderTypeCode" expression="NullsRemoved.OrderTypeCode " type="id_String" operator="="/>
-        <mapperTableEntries name="OrderSuspenseCode" expression="NullsRemoved.OrderSuspenseCode " type="id_String" operator="="/>
-        <mapperTableEntries name="CustomProductHoldCode" expression="NullsRemoved.CustomProductHoldCode " type="id_String" operator="="/>
-        <mapperTableEntries name="CustomProductHoldDescription" expression="NullsRemoved.CustomProductHoldDescription " type="id_String" operator="="/>
-        <mapperTableEntries name="CONO" expression="NullsRemoved.CONO65 " type="id_String" operator="="/>
-      </inputTables>
-    </nodeData>
-  </node>
-  <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="928" posY="992">
+  <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="800" posY="736">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlOutput_2" show="false"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
@@ -1103,7 +1052,7 @@
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="224" posY="1280">
+  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="224" posY="1024">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_3" show="false"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
@@ -1145,7 +1094,7 @@
       <column comment="" key="false" length="2" name="CONO65" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="480" posY="1120">
+  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="480" posY="864">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_5" show="false"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
@@ -1190,7 +1139,7 @@
       <column comment="" key="false" length="-1" name="CONO" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="480" posY="1280">
+  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="480" posY="1024">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMap_4" show="false"/>
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
@@ -1229,7 +1178,7 @@
       </inputTables>
     </nodeData>
   </node>
-  <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="736" posY="1280">
+  <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="736" posY="1024">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlOutput_3" show="false"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
@@ -1490,30 +1439,12 @@
     <elementParameter field="MEMO_JAVA" name="CONDITION" value="&quot;Succeeded&quot;.equals((String)globalMap.get(&quot;stagingOutcome&quot;))"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="StagingSucceeded" show="false"/>
   </connection>
-  <connection connectorName="FLOW" label="SalesOrderJunk" lineStyle="0" metaname="tMysqlInput_2" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_2" target="tMap_1">
-    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
-      <elementValue elementRef="TRACE_COLUMN" value="MapProductCONO35"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-    </elementParameter>
+  <connection connectorName="FLOW" label="SalesOrderJunk" lineStyle="0" metaname="tMysqlInput_2" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_2" target="tMap_3">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="SalesOrderJunk" show="false"/>
   </connection>
   <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlInput_2" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_2" target="tJava_2">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk6" show="false"/>
-  </connection>
-  <connection connectorName="FLOW" label="NullsRemoved" lineStyle="0" metaname="NullsRemoved" offsetLabelX="0" offsetLabelY="0" source="tMap_1" target="tMap_3">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="NullsRemoved" show="false"/>
-  </connection>
-  <connection connectorName="FLOW" label="SalesOrderDetail" lineStyle="8" metaname="tMysqlInput_4" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_4" target="tMap_3">
-    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
-      <elementValue elementRef="TRACE_COLUMN" value="CONO"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-    </elementParameter>
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="SalesOrderDetail" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="NotExists" lineStyle="0" metaname="NotExists" offsetLabelX="0" offsetLabelY="0" source="tMap_3" target="tMysqlOutput_2">
     <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
@@ -1532,6 +1463,15 @@
     </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="NotExists" show="false"/>
+  </connection>
+  <connection connectorName="FLOW" label="SalesOrderDetail" lineStyle="8" metaname="tMysqlInput_4" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_4" target="tMap_3">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="CONO"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="SalesOrderDetail" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="SalesInvoicingJunk" lineStyle="0" metaname="tMysqlInput_3" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_3" target="tMap_4">
     <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
