@@ -353,7 +353,7 @@
       <outputTables sizeState="INTERMEDIATE" name="renamedInvoiceItem">
         <mapperTableEntries name="invoiceItemID" expression="invoiceItem.invoiceItemID " type="id_Integer"/>
         <mapperTableEntries name="invoiceID" expression="invoiceItem.invoiceID " type="id_Integer"/>
-        <mapperTableEntries name="InvoiceLineQuantity" expression="(Float) invoiceItem.qty " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineQuantity" expression="invoiceItem.qty.floatValue() " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="invoiceItem" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="invoiceItemID" type="id_Integer"/>
