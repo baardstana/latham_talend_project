@@ -32,7 +32,7 @@
   </context>
   <parameters>
     <elementParameter field="TEXT" name="SCREEN_OFFSET_X" value="0" show="false"/>
-    <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" value="171" show="false"/>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" value="128" show="false"/>
     <elementParameter field="TEXT" name="REPOSITORY_CONNECTION_ID" value="" show="false"/>
     <elementParameter field="TEXT" name="OOZIE_PROPERTY_TYPENAME" value="" show="false"/>
     <elementParameter field="TEXT" name="OOZIE_HADOOP_DISTRIBUTION" value="" show="false"/>
@@ -308,7 +308,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT Dimensions.SK_Customer&#xD;&#xA;&#x9;, Dimensions.SK_Product&#xD;&#xA;&#x9;, Dimensions.SK_Stockroom_Manufactured&#xD;&#xA;&#x9;, Dimensions.SK_Stockroom_ShippedFrom&#xD;&#xA;&#x9;, Dimensions.SK_Geography_ShippedTo&#xD;&#xA;&#x9;, Dimensions.SK_Currency_USD&#xD;&#xA;&#x9;, Dimensions.SK_Currency_Functional&#xD;&#xA;&#x9;, Dimensions.SK_Currency_Transaction&#xD;&#xA;&#x9;, Dimensions.SK_Company&#xD;&#xA;&#x9;, Dimensions.SK_SalesOrderDetail&#xD;&#xA;&#x9;, Dimensions.SK_SalesInvoicingDetail&#xD;&#xA;&#x9;, OEP65.SK_Date_CustomerOrdered&#x9;&#xD;&#xA;&#x9;, OEP40.SK_Date_SystemEntered&#xD;&#xA;    , OEP55.SK_Date_CurrentPromisedShip&#xD;&#xA;    , OEP65.SK_Date_Invoiced&#xD;&#xA;    , INP95.SK_Date_ActualBuild&#xD;&#xA;    , OEP65.DD_OrderNumber&#xD;&#xA;    , OEP70.DD_OrderLineNumber&#xD;&#xA;    , OEP65.DD_InvoiceNumber&#xD;&#xA;    , LIP05U.DD_QuoteNumber&#xD;&#xA;    , INP95.DD_SerialNumber&#xD;&#xA;    , OEP65.DD_CustomerPurchaseOrderNumber&#xD;&#xA;    , LIP11U.DD_CustomerTagName&#xD;&#xA;    , OEP70.InvoiceLineQuantity&#xD;&#xA;    , Dimensions.SalesUnit&#xD;&#xA;&#x9;, Dimensions.SK_SourceSystem&#xD;&#xA;FROM Staging_Fact_SalesInvoicing_S21_OEP65 AS OEP65&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_S21_OEP70 AS OEP70&#xD;&#xA;&#x9;ON OEP65.CONO65 = OEP70.CONO70&#xD;&#xA;    AND OEP65.INVN65 = OEP70.INVN70&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_S21_OEP40 AS OEP40&#xD;&#xA;&#x9;ON OEP65.CONO65 = OEP40.CONO65&#xD;&#xA;    AND OEP65.INVN65 = OEP40.INVN65&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicing_S21_OEP55 AS OEP55&#xD;&#xA;&#x9;ON OEP70.CONO70 = OEP55.CONO70&#xD;&#xA;    AND OEP70.INVN70 = OEP55.INVN70&#xD;&#xA;    AND OEP70.ORDL70 = OEP55.ORDL70&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicing_S21_INP95 AS INP95&#xD;&#xA;&#x9;ON OEP70.CONO70 = INP95.CONO70&#xD;&#xA;    AND OEP70.INVN70 = INP95.INVN70&#xD;&#xA;    AND OEP70.ORDL70 = INP95.ORDL70    &#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_S21_LIP05U AS LIP05U&#xD;&#xA;&#x9;ON OEP65.CONO65 = LIP05U.CONO65&#xD;&#xA;    AND OEP65.INVN65 = LIP05U.INVN65   &#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicing_S21_LIP11U AS LIP11U&#xD;&#xA;&#x9;ON OEP70.CONO70 = LIP11U.CONO70&#xD;&#xA;    AND OEP70.INVN70 = LIP11U.INVN70&#xD;&#xA;    AND OEP70.ORDL70 = LIP11U.ORDL70       &#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_S21_Dimensions AS Dimensions&#xD;&#xA;&#x9;ON OEP70.CONO70 = Dimensions.CONO70&#xD;&#xA;    AND OEP70.INVN70 = Dimensions.INVN70&#xD;&#xA;    AND OEP70.ORDL70 = Dimensions.ORDL70&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT Dimensions.SK_Customer&#xD;&#xA;&#x9;, Dimensions.SK_Product&#xD;&#xA;&#x9;, Dimensions.SK_Stockroom_Manufactured&#xD;&#xA;&#x9;, Dimensions.SK_Stockroom_ShippedFrom&#xD;&#xA;&#x9;, Dimensions.SK_Geography_ShippedTo&#xD;&#xA;&#x9;, Dimensions.SK_Company&#xD;&#xA;&#x9;, Dimensions.SK_Currency_USD&#xD;&#xA;&#x9;, Dimensions.SK_Currency_Functional&#xD;&#xA;&#x9;, Dimensions.SK_Currency_Transaction&#xD;&#xA;&#x9;, Dimensions.SK_SalesOrderDetail&#xD;&#xA;&#x9;, Dimensions.SK_SalesInvoicingDetail&#xD;&#xA;    , productorder.SK_Date_CustomerOrdered&#xD;&#xA;    , productorder.SK_Date_SystemEntered&#xD;&#xA;    , productorder.SK_Date_CurrentPromisedShip&#xD;&#xA;    , invoice.SK_Date_Invoiced&#xD;&#xA;    , invoice.SK_Date_ActualBuild&#xD;&#xA;    , invoice.DD_OrderNumber&#xD;&#xA;    , orderitem.DD_OrderLineNumber&#xD;&#xA;    , invoice.DD_InvoiceNumber&#xD;&#xA;    , invoice.DD_QuoteNumber&#xD;&#xA;    , invoice.DD_Serialnumber&#xD;&#xA;    , productorder.DD_CustomerPurchaseOrderNumber&#xD;&#xA;    , invoice.DD_CustomerTagName&#xD;&#xA;    , invoiceItem.InvoiceLineQuantity&#xD;&#xA;    , Dimensions.SalesUnit&#xD;&#xA;FROM Staging_Fact_SalesInvoicing_Thor_invoice AS invoice&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_Thor_invoiceItem AS invoiceItem&#xD;&#xA;&#x9;ON invoice.invoiceID = invoiceItem.invoiceID&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicing_Thor_productorder AS productorder&#xD;&#xA;&#x9;ON invoice.invoiceID = productorder.invoiceID&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicing_Thor_orderitem AS orderitem&#xD;&#xA;&#x9;ON invoiceItem.invoiceID = orderitem.invoiceID&#xD;&#xA;    AND invoiceItem.invoiceItemID = orderitem.invoiceItemID&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_Thor_Dimensions AS Dimensions&#xD;&#xA;&#x9;ON invoiceItem.invoiceID = Dimensions.invoiceID&#xD;&#xA;    AND invoiceItem.invoiceItemID = Dimensions.invoiceItemID&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -329,13 +329,13 @@
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="SK_Geography_ShippedTo"/>
       <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Company"/>
+      <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="SK_Currency_USD"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="SK_Currency_Functional"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="SK_Currency_Transaction"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Company"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="SK_SalesOrderDetail"/>
       <elementValue elementRef="TRIM" value="false"/>
@@ -369,8 +369,6 @@
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="SalesUnit"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SK_SourceSystem"/>
-      <elementValue elementRef="TRIM" value="false"/>
     </elementParameter>
     <elementParameter field="TEXT" name="LABEL" value="JoinTables"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
@@ -380,27 +378,26 @@
       <column comment="" defaultValue="" key="false" length="11" name="SK_Stockroom_Manufactured" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_Stockroom_ShippedFrom" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_Geography_ShippedTo" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Company" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_USD" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_Functional" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_Transaction" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="true" length="11" name="SK_Company" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_SalesOrderDetail" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_SalesInvoicingDetail" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="8" name="SK_Date_CustomerOrdered" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="8" name="SK_Date_SystemEntered" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="8" name="SK_Date_CustomerOrdered" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="8" name="SK_Date_SystemEntered" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="8" name="SK_Date_CurrentPromisedShip" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="8" name="SK_Date_Invoiced" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="8" name="SK_Date_ActualBuild" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="7" name="DD_OrderNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="true" length="4" name="DD_OrderLineNumber" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="true" length="7" name="DD_InvoiceNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="8" name="SK_Date_ActualBuild" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="50" name="DD_OrderNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="DD_OrderLineNumber" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="true" length="25" name="DD_InvoiceNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="10" name="DD_QuoteNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="15" name="DD_SerialNumber" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="20" name="DD_CustomerPurchaseOrderNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="40" name="DD_CustomerTagName" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="InvoiceLineQuantity" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="25" name="DD_SerialNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="50" name="DD_CustomerPurchaseOrderNumber" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="10" name="DD_CustomerTagName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="6" name="InvoiceLineQuantity" nullable="true" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="448" posY="1280">
@@ -481,27 +478,26 @@
         <mapperTableEntries name="SK_Stockroom_Manufactured" type="id_Integer"/>
         <mapperTableEntries name="SK_Stockroom_ShippedFrom" type="id_Integer"/>
         <mapperTableEntries name="SK_Geography_ShippedTo" type="id_Integer"/>
+        <mapperTableEntries name="SK_Company" type="id_Integer"/>
         <mapperTableEntries name="SK_Currency_USD" type="id_Integer"/>
         <mapperTableEntries name="SK_Currency_Functional" type="id_Integer"/>
         <mapperTableEntries name="SK_Currency_Transaction" type="id_Integer"/>
-        <mapperTableEntries name="SK_Company" type="id_Integer"/>
         <mapperTableEntries name="SK_SalesOrderDetail" type="id_Integer"/>
         <mapperTableEntries name="SK_SalesInvoicingDetail" type="id_Integer"/>
-        <mapperTableEntries name="SK_Date_CustomerOrdered" type="id_Integer"/>
-        <mapperTableEntries name="SK_Date_SystemEntered" type="id_Integer"/>
+        <mapperTableEntries name="SK_Date_CustomerOrdered" type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="SK_Date_SystemEntered" type="id_Integer" nullable="true"/>
         <mapperTableEntries name="SK_Date_CurrentPromisedShip" type="id_Integer" nullable="true"/>
         <mapperTableEntries name="SK_Date_Invoiced" type="id_Integer"/>
-        <mapperTableEntries name="SK_Date_ActualBuild" type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="SK_Date_ActualBuild" type="id_Integer"/>
         <mapperTableEntries name="DD_OrderNumber" type="id_String"/>
         <mapperTableEntries name="DD_OrderLineNumber" type="id_Float"/>
         <mapperTableEntries name="DD_InvoiceNumber" type="id_String"/>
         <mapperTableEntries name="DD_QuoteNumber" type="id_String"/>
-        <mapperTableEntries name="DD_SerialNumber" type="id_String" nullable="true"/>
-        <mapperTableEntries name="DD_CustomerPurchaseOrderNumber" type="id_String"/>
-        <mapperTableEntries name="DD_CustomerTagName" type="id_String" nullable="true"/>
+        <mapperTableEntries name="DD_SerialNumber" type="id_String"/>
+        <mapperTableEntries name="DD_CustomerPurchaseOrderNumber" type="id_String" nullable="true"/>
+        <mapperTableEntries name="DD_CustomerTagName" type="id_String"/>
         <mapperTableEntries name="InvoiceLineQuantity" type="id_Float" nullable="true"/>
         <mapperTableEntries name="SalesUnit" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="SK_SourceSystem" type="id_Integer"/>
       </inputTables>
     </nodeData>
   </node>
@@ -841,7 +837,7 @@
       <column comment="" key="false" length="2" name="CONO" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="2" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="NotExists" activateCondensedTool="true" rejectInnerJoin="true">
         <mapperTableEntries name="OrderSourceCode" expression="SalesOrderJunk.OrderSourceCode " type="id_String"/>
@@ -1158,7 +1154,7 @@
       <column comment="" key="false" length="7" name="CONO" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="copyOfNotExists" activateCondensedTool="true" rejectInnerJoin="true">
         <mapperTableEntries name="InvoiceReasonCode" expression="SalesInvoicingJunk.InvoiceReasonCode " type="id_String"/>
