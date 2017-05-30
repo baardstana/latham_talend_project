@@ -214,14 +214,14 @@
       <column comment="" key="false" length="2" name="CONO" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="SalesInvoicingDescriptions">
         <mapperTableEntries name="SK_SalesInvoicingDetail" expression="SalesInvoicingCodes.SK_SalesInvoicingDetail " type="id_Integer"/>
         <mapperTableEntries name="InvoiceReasonCode" expression="SalesInvoicingCodes.InvoiceReasonCode " type="id_String"/>
         <mapperTableEntries name="InvoiceReasonDescription" expression="&quot;N/A&quot;.equals(SalesInvoicingCodes.InvoiceReasonCode) ? &quot;N/A&quot; :&#xD;&#xA;&quot;&quot;.equals(SalesInvoicingCodes.InvoiceReasonCode) ? &quot;N/A&quot; :&#xD;&#xA;Relational.ISNULL(RFCR.PRMD15) ? SalesInvoicingCodes.InvoiceReasonDescription  : RFCR.PRMD15 " type="id_String"/>
         <mapperTableEntries name="InvoiceTransactionTypeCode" expression="SalesInvoicingCodes.InvoiceTransactionTypeCode " type="id_String"/>
-        <mapperTableEntries name="InvoiceTransactionTypeDescription" expression="&quot;CR&quot;.equals(SalesInvoicingCodes.InvoiceTransactionTypeCode) ? &quot;Credit&quot; : &#xD;&#xA;&quot;IN&quot;.equals(SalesInvoicingCodes.InvoiceTransactionTypeCode) ? &quot;Invoice&quot; : &#xD;&#xA;&quot;N/A&quot;.equals(SalesInvoicingCodes.InvoiceTransactionTypeCode) ? &quot;N/A&quot; : &quot;Unknown&quot; " type="id_String"/>
+        <mapperTableEntries name="InvoiceTransactionTypeDescription" expression="Relational.ISNULL(SalesInvoicingCodes.InvoiceTransactionTypeCode) ? &#xD;&#xA;&#x9;Relational.ISNULL(invoiceCreditReason.description) ? &quot;Unknown&quot; : invoiceCreditReason.description&#xD;&#xA;: &quot;CR&quot;.equals(SalesInvoicingCodes.InvoiceTransactionTypeCode) ? &quot;Credit&quot; : &#xD;&#xD;&#xA;&quot;IN&quot;.equals(SalesInvoicingCodes.InvoiceTransactionTypeCode) ? &quot;Invoice&quot; : &#xD;&#xD;&#xA;&quot;N/A&quot;.equals(SalesInvoicingCodes.InvoiceTransactionTypeCode) ? &quot;N/A&quot; : &quot;Unknown&quot; " type="id_String"/>
         <mapperTableEntries name="CONO" expression="SalesInvoicingCodes.CONO " type="id_String"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="SalesInvoicingCodes" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
@@ -256,7 +256,7 @@
         <mapperTableEntries name="PCHD15" type="id_String"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="invoiceCreditReason" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
-        <mapperTableEntries name="reasonID" type="id_Integer"/>
+        <mapperTableEntries name="reasonID" expression="SalesInvoicingCodes.InvoiceTransactionTypeCode " type="id_Integer" operator="="/>
         <mapperTableEntries name="description" type="id_String" nullable="true"/>
         <mapperTableEntries name="status" type="id_String" nullable="true"/>
       </inputTables>
