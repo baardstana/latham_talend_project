@@ -445,7 +445,7 @@
       <column comment="" key="false" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="ConformedValues">
         <mapperTableEntries name="SK_Customer" expression="JoinedValues.SK_Customer " type="id_Integer"/>
@@ -459,18 +459,18 @@
         <mapperTableEntries name="SK_Company" expression="JoinedValues.SK_Company " type="id_Integer"/>
         <mapperTableEntries name="SK_SalesOrderDetail" expression="JoinedValues.SK_SalesOrderDetail " type="id_Integer"/>
         <mapperTableEntries name="SK_SalesInvoicingDetail" expression="JoinedValues.SK_SalesInvoicingDetail " type="id_Integer"/>
-        <mapperTableEntries name="SK_Date_CustomerOrdered" expression="JoinedValues.SK_Date_CustomerOrdered " type="id_Integer"/>
-        <mapperTableEntries name="SK_Date_SystemEntered" expression="JoinedValues.SK_Date_SystemEntered " type="id_Integer"/>
+        <mapperTableEntries name="SK_Date_CustomerOrdered" expression="CustomStringHandling.dateKeyHandling(JoinedValues.SK_Date_CustomerOrdered )" type="id_Integer"/>
+        <mapperTableEntries name="SK_Date_SystemEntered" expression="CustomStringHandling.dateKeyHandling(JoinedValues.SK_Date_SystemEntered )" type="id_Integer"/>
         <mapperTableEntries name="SK_Date_CurrentPromisedShip" expression="CustomStringHandling.dateKeyHandling(JoinedValues.SK_Date_CurrentPromisedShip) " type="id_Integer"/>
         <mapperTableEntries name="SK_Date_Invoiced" expression="JoinedValues.SK_Date_Invoiced " type="id_Integer"/>
-        <mapperTableEntries name="SK_Date_ActualBuild" expression="CustomStringHandling.dateKeyHandling(JoinedValues.SK_Date_ActualBuild) " type="id_Integer"/>
+        <mapperTableEntries name="SK_Date_ActualBuild" expression="JoinedValues.SK_Date_ActualBuild" type="id_Integer"/>
         <mapperTableEntries name="DD_OrderNumber" expression="JoinedValues.DD_OrderNumber " type="id_String"/>
         <mapperTableEntries name="DD_OrderLineNumber" expression="JoinedValues.DD_OrderLineNumber " type="id_Float"/>
         <mapperTableEntries name="DD_InvoiceNumber" expression="JoinedValues.DD_InvoiceNumber " type="id_String"/>
         <mapperTableEntries name="DD_QuoteNumber" expression="JoinedValues.DD_QuoteNumber " type="id_String"/>
-        <mapperTableEntries name="DD_SerialNumber" expression="Relational.ISNULL(JoinedValues.DD_SerialNumber) ? &quot;N/A&quot; : JoinedValues.DD_SerialNumber " type="id_String"/>
-        <mapperTableEntries name="DD_CustomerPurchaseOrderNumber" expression="JoinedValues.DD_CustomerPurchaseOrderNumber " type="id_String"/>
-        <mapperTableEntries name="DD_CustomerTagName" expression="Relational.ISNULL(JoinedValues.DD_CustomerTagName) ? &quot;N/A&quot; : JoinedValues.DD_CustomerTagName " type="id_String"/>
+        <mapperTableEntries name="DD_SerialNumber" expression="JoinedValues.DD_SerialNumber " type="id_String"/>
+        <mapperTableEntries name="DD_CustomerPurchaseOrderNumber" expression="Relational.ISNULL(JoinedValues.DD_CustomerPurchaseOrderNumber) ? &quot;N/A&quot; : JoinedValues.DD_CustomerPurchaseOrderNumber " type="id_String"/>
+        <mapperTableEntries name="DD_CustomerTagName" expression="JoinedValues.DD_CustomerTagName " type="id_String"/>
         <mapperTableEntries name="InvoiceLineQuantity" expression="JoinedValues.InvoiceLineQuantity " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineUnits" expression="Relational.ISNULL(JoinedValues.InvoiceLineQuantity) || Relational.ISNULL(JoinedValues.SalesUnit) ? null : JoinedValues.InvoiceLineQuantity * JoinedValues.SalesUnit " type="id_Float" nullable="true"/>
         <mapperTableEntries name="SK_SourceSystem" expression="JoinedValues.SK_SourceSystem " type="id_Integer"/>
