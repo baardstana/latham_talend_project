@@ -368,7 +368,7 @@
       <outputTables sizeState="INTERMEDIATE" name="RenamedOEP50">
         <mapperTableEntries name="CONO65" expression="OEP50.CONO65 " type="id_String"/>
         <mapperTableEntries name="INVN65" expression="OEP50.INVN65 " type="id_String"/>
-        <mapperTableEntries name="FreightRevenueFunctionalCurrency" expression="OEP50.PRML15 == 2 ? OEP50.BCHV50 : null " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="FreightRevenueFunctionalCurrency" expression="Relational.ISNULL(OEP50.PRML15) || Relational.ISNULL(OEP50.CHGV50 ) ? null :&#xD;&#xA;OEP50.PRML15 == 2 ? OEP50.BCHV50 : null " type="id_Float" nullable="true"/>
         <mapperTableEntries name="FreightRevenueTransactionCurrency" expression="Relational.ISNULL(OEP50.PRML15) || Relational.ISNULL(OEP50.CHGV50 ) ? null :&#xD;&#xA;&quot;2&quot;.equals(OEP50.PRML15) ? OEP50.CHGV50 : null " type="id_Float" nullable="true"/>
         <mapperTableEntries name="FreightSalesTaxFunctionalCurrency" expression="Relational.ISNULL(OEP50.PRML15) || Relational.ISNULL(OEP50.BVAT50) ? null :&#xD;&#xA;&quot;2&quot;.equals(OEP50.PRML15) ? OEP50.BVAT50 : null " type="id_Float" nullable="true"/>
         <mapperTableEntries name="FreightSalesTaxTransactionCurrency" expression="Relational.ISNULL(OEP50.PRML15) || Relational.ISNULL(OEP50.LVAT50) ? null :&#xD;&#xA;&quot;2&quot;.equals(OEP50.PRML15) ? OEP50.LVAT50 : null " type="id_Float" nullable="true"/>
