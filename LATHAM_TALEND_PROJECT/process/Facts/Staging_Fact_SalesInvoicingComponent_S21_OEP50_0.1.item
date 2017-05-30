@@ -389,7 +389,7 @@
       <inputTables sizeState="INTERMEDIATE" name="INP15SUNC" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="CONO15" expression="OEP50.CONO50 " type="id_String"/>
         <mapperTableEntries name="PRMT15" expression="&quot;SUNC&quot;" type="id_String"/>
-        <mapperTableEntries name="PSAR15" expression="Float.toString(OEP50.CHGC50) " type="id_String" operator="="/>
+        <mapperTableEntries name="PSAR15" expression="Relational.ISNULL(OEP50.CHGC50) ? null :&#xD;&#xA;Float.toString(OEP50.CHGC50) " type="id_String" operator="="/>
         <mapperTableEntries name="PRMD15" expression="" type="id_String"/>
         <mapperTableEntries name="PRML15" type="id_Float"/>
         <mapperTableEntries name="PVIN15" type="id_String"/>
