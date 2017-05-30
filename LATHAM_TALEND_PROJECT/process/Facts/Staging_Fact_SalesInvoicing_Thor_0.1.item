@@ -308,7 +308,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT Dimensions.SK_Customer&#xD;&#xA;&#x9;, Dimensions.SK_Product&#xD;&#xA;&#x9;, Dimensions.SK_Stockroom_Manufactured&#xD;&#xA;&#x9;, Dimensions.SK_Stockroom_ShippedFrom&#xD;&#xA;&#x9;, Dimensions.SK_Geography_ShippedTo&#xD;&#xA;&#x9;, Dimensions.SK_Company&#xD;&#xA;&#x9;, Dimensions.SK_Currency_USD&#xD;&#xA;&#x9;, Dimensions.SK_Currency_Functional&#xD;&#xA;&#x9;, Dimensions.SK_Currency_Transaction&#xD;&#xA;&#x9;, Dimensions.SK_SalesOrderDetail&#xD;&#xA;&#x9;, Dimensions.SK_SalesInvoicingDetail&#xD;&#xA;    , productorder.SK_Date_CustomerOrdered&#xD;&#xA;    , productorder.SK_Date_SystemEntered&#xD;&#xA;    , productorder.SK_Date_CurrentPromisedShip&#xD;&#xA;    , invoice.SK_Date_Invoiced&#xD;&#xA;    , invoice.SK_Date_ActualBuild&#xD;&#xA;    , invoice.DD_OrderNumber&#xD;&#xA;    , orderitem.DD_OrderLineNumber&#xD;&#xA;    , invoice.DD_InvoiceNumber&#xD;&#xA;    , invoice.DD_QuoteNumber&#xD;&#xA;    , invoice.DD_Serialnumber&#xD;&#xA;    , productorder.DD_CustomerPurchaseOrderNumber&#xD;&#xA;    , invoice.DD_CustomerTagName&#xD;&#xA;    , invoiceItem.InvoiceLineQuantity&#xD;&#xA;    , Dimensions.SalesUnit&#xD;&#xA;FROM Staging_Fact_SalesInvoicing_Thor_invoice AS invoice&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_Thor_invoiceItem AS invoiceItem&#xD;&#xA;&#x9;ON invoice.invoiceID = invoiceItem.invoiceID&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicing_Thor_productorder AS productorder&#xD;&#xA;&#x9;ON invoice.invoiceID = productorder.invoiceID&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicing_Thor_orderitem AS orderitem&#xD;&#xA;&#x9;ON invoiceItem.invoiceID = orderitem.invoiceID&#xD;&#xA;    AND invoiceItem.invoiceItemID = orderitem.invoiceItemID&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_Thor_Dimensions AS Dimensions&#xD;&#xA;&#x9;ON invoiceItem.invoiceID = Dimensions.invoiceID&#xD;&#xA;    AND invoiceItem.invoiceItemID = Dimensions.invoiceItemID&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT Dimensions.SK_Customer&#xD;&#xA;&#x9;, Dimensions.SK_Product&#xD;&#xA;&#x9;, Dimensions.SK_Stockroom_Manufactured&#xD;&#xA;&#x9;, Dimensions.SK_Stockroom_ShippedFrom&#xD;&#xA;&#x9;, Dimensions.SK_Geography_ShippedTo&#xD;&#xA;&#x9;, Dimensions.SK_Company&#xD;&#xA;&#x9;, Dimensions.SK_Currency_USD&#xD;&#xA;&#x9;, Dimensions.SK_Currency_Functional&#xD;&#xA;&#x9;, Dimensions.SK_Currency_Transaction&#xD;&#xA;&#x9;, Dimensions.SK_SalesOrderDetail&#xD;&#xA;&#x9;, Dimensions.SK_SalesInvoicingDetail&#xD;&#xA;    , productorder.SK_Date_CustomerOrdered&#xD;&#xA;    , productorder.SK_Date_SystemEntered&#xD;&#xA;    , productorder.SK_Date_CurrentPromisedShip&#xD;&#xA;    , invoice.SK_Date_Invoiced&#xD;&#xA;    , invoice.SK_Date_ActualBuild&#xD;&#xA;    , invoice.DD_OrderNumber&#xD;&#xA;    , orderitem.DD_OrderLineNumber&#xD;&#xA;    , invoice.DD_InvoiceNumber&#xD;&#xA;    , invoice.DD_QuoteNumber&#xD;&#xA;    , invoice.DD_Serialnumber&#xD;&#xA;    , productorder.DD_CustomerPurchaseOrderNumber&#xD;&#xA;    , invoice.DD_CustomerTagName&#xD;&#xA;    , invoiceItem.InvoiceLineQuantity&#xD;&#xA;    , Dimensions.SalesUnit&#xD;&#xA;&#x9;, Dimensions.SK_SourceSystem&#xD;&#xA;FROM Staging_Fact_SalesInvoicing_Thor_invoice AS invoice&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_Thor_invoiceItem AS invoiceItem&#xD;&#xA;&#x9;ON invoice.invoiceID = invoiceItem.invoiceID&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicing_Thor_productorder AS productorder&#xD;&#xA;&#x9;ON invoice.invoiceID = productorder.invoiceID&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicing_Thor_orderitem AS orderitem&#xD;&#xA;&#x9;ON invoiceItem.invoiceID = orderitem.invoiceID&#xD;&#xA;    AND invoiceItem.invoiceItemID = orderitem.invoiceItemID&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_Thor_Dimensions AS Dimensions&#xD;&#xA;&#x9;ON invoiceItem.invoiceID = Dimensions.invoiceID&#xD;&#xA;    AND invoiceItem.invoiceItemID = Dimensions.invoiceItemID&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -369,6 +369,8 @@
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="SalesUnit"/>
       <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SK_SourceSystem"/>
+      <elementValue elementRef="TRIM" value="false"/>
     </elementParameter>
     <elementParameter field="TEXT" name="LABEL" value="JoinTables"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
@@ -398,6 +400,7 @@
       <column comment="" key="false" length="10" name="DD_CustomerTagName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="6" name="InvoiceLineQuantity" nullable="true" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="448" posY="1280">
@@ -498,6 +501,7 @@
         <mapperTableEntries name="DD_CustomerTagName" type="id_String"/>
         <mapperTableEntries name="InvoiceLineQuantity" type="id_Float" nullable="true"/>
         <mapperTableEntries name="SalesUnit" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="SK_SourceSystem" type="id_Integer"/>
       </inputTables>
     </nodeData>
   </node>
