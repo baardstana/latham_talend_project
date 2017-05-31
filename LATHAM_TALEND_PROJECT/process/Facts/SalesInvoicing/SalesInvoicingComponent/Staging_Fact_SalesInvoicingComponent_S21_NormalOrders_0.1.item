@@ -939,8 +939,6 @@
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineNetUnitPriceTransactionCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="7" name="InvoiceLineUnitDiscountValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="7" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="7" name="InvoiceLineUnitDiscountValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="7" name="LSTP11" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="7" name="QTOR11" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="19" name="AllocationBasis" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
@@ -1001,8 +999,6 @@
         <mapperTableEntries name="InvoiceLineNetUnitPriceTransactionCurrency" expression="WithTransactionRate.InvoiceLineNetUnitPriceTransactionCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineUnitDiscountValueFunctionalCurrency" expression="Relational.ISNULL(WithTransactionRate.BDIS70) || Relational.ISNULL(WithTransactionRate.InvoiceLineQuantity) ?  &#xD;&#xA;&#x9;Relational.ISNULL(WithTransactionRate.InvoiceLineUnitDiscountValueTransactionCurrency) || Relational.ISNULL(Var.Rate) ? null :  WithTransactionRate.InvoiceLineUnitDiscountValueTransactionCurrency * Var.Rate &#xD;&#xA;: WithTransactionRate.BDIS70 / WithTransactionRate.InvoiceLineQuantity " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineUnitDiscountValueTransactionCurrency" expression="WithTransactionRate.InvoiceLineUnitDiscountValueTransactionCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="LSTP11" expression="WithTransactionRate.LSTP11 " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="QTOR11" expression="WithTransactionRate.QTOR11 " type="id_Float" nullable="true"/>
         <mapperTableEntries name="AllocationBasis" expression="WithTransactionRate.AllocationBasis " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="WithTransactionRate" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
@@ -1162,32 +1158,42 @@
       <column comment="" key="false" length="40" name="DD_CustomerTagName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="InvoiceLineQuantity" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="InvoiceLineUnits" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="15" name="InvoiceLineExtendedSalesValueUSD" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="15" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineExtendedSalesValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineExtendedSalesValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="15" name="InvoiceLineExtendedDiscountValueUSD" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="15" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineExtendedDiscountValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineExtendedDiscountValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="15" name="FreightRevenueUSD" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="15" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="FreightRevenueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="FreightRevenueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="15" name="InvoiceLineExtendedTotalDirectCostUSD" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="15" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineExtendedTotalDirectCostFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="15" name="InvoiceLineExtendedTotalDirectCostTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="15" usefulColumn="true"/>
+      <column comment="" key="false" length="16" name="InvoiceLineExtendedDirectMaterialCostUSD" nullable="true" pattern="" precision="5" sourceType="" type="id_Float" originalLength="16" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="16" name="InvoiceLineExtendedDirectMaterialCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="16" name="InvoiceLineExtendedDirectMaterialCostTransactionCurrency" nullable="true" pattern="" precision="5" sourceType="" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" key="false" length="16" name="InvoiceLineExtendedDirectLaborCostUSD" nullable="true" pattern="" precision="5" sourceType="" type="id_Float" originalLength="16" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="16" name="InvoiceLineExtendedDirectLaborCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="16" name="InvoiceLineExtendedDirectLaborCostTransactionCurrency" nullable="true" pattern="" precision="5" sourceType="" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" key="false" length="16" name="InvoiceLineExtendedDirectOverheadCostUSD" nullable="true" pattern="" precision="5" sourceType="" type="id_Float" originalLength="16" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="16" name="InvoiceLineExtendedDirectOverheadCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="16" name="InvoiceLineExtendedDirectOverheadCostTransactionCurrency" nullable="true" pattern="" precision="5" sourceType="" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="InvoiceLineExtendedAdderValueUSD" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="16" usefulColumn="true"/>
       <column comment="" key="false" length="7" name="InvoiceLineExtendedAdderValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="7" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="7" name="InvoiceLineExtendedAdderValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="15" name="InvoiceLineExtendedPromotionValueUSD" nullable="true" pattern="" precision="5" sourceType="" type="id_Float" originalLength="15" usefulColumn="true"/>
       <column comment="" key="false" length="15" name="InvoiceLineExtendedPromotionValueFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="" type="id_Float" originalLength="15" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineExtendedPromotionValueTransactionCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="15" name="SalesTaxUSD" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="15" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="SalesTaxFunctional" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="SalesTaxTransaction" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="15" name="InvoiceLineNetUnitPriceUSD" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="15" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineNetUnitPriceFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineNetUnitPriceTransactionCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="InvoiceLineUnitDiscountValueUSD" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="7" usefulColumn="true"/>
       <column comment="" key="false" length="7" name="InvoiceLineUnitDiscountValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="7" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="7" name="InvoiceLineUnitDiscountValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="7" name="LSTP11" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="7" name="QTOR11" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="19" name="AllocationBasis" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
@@ -1224,32 +1230,42 @@
         <mapperTableEntries name="DD_CustomerTagName" expression="WithFunctionalRate.DD_CustomerTagName " type="id_String"/>
         <mapperTableEntries name="InvoiceLineQuantity" expression="WithFunctionalRate.InvoiceLineQuantity " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineUnits" expression="WithFunctionalRate.InvoiceLineUnits " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedSalesValueUSD" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedSalesValueFunctionalCurrency" expression="WithFunctionalRate.InvoiceLineExtendedSalesValueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedSalesValueTransactionCurrency" expression="WithFunctionalRate.InvoiceLineExtendedSalesValueTransactionCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedDiscountValueUSD" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedDiscountValueFunctionalCurrency" expression="WithFunctionalRate.InvoiceLineExtendedDiscountValueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedDiscountValueTransactionCurrency" expression="WithFunctionalRate.InvoiceLineExtendedDiscountValueTransactionCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="FreightRevenueUSD" type="id_Float" nullable="true"/>
         <mapperTableEntries name="FreightRevenueFunctionalCurrency" expression="WithFunctionalRate.FreightRevenueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="FreightRevenueTransactionCurrency" expression="WithFunctionalRate.FreightRevenueTransactionCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedTotalDirectCostUSD" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedTotalDirectCostFunctionalCurrency" expression="WithFunctionalRate.InvoiceLineExtendedTotalDirectCostFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedTotalDirectCostTransactionCurrency" expression="WithFunctionalRate.InvoiceLineExtendedTotalDirectCostTransactionCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedDirectMaterialCostUSD" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedDirectMaterialCostFunctionalCurrency" expression="WithFunctionalRate.InvoiceLineExtendedDirectMaterialCostFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedDirectMaterialCostTransactionCurrency" expression="WithFunctionalRate.InvoiceLineExtendedDirectMaterialCostTransactionCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedDirectLaborCostUSD" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedDirectLaborCostFunctionalCurrency" expression="WithFunctionalRate.InvoiceLineExtendedDirectLaborCostFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedDirectLaborCostTransactionCurrency" expression="WithFunctionalRate.InvoiceLineExtendedDirectLaborCostTransactionCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedDirectOverheadCostUSD" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedDirectOverheadCostFunctionalCurrency" expression="WithFunctionalRate.InvoiceLineExtendedDirectOverheadCostFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedDirectOverheadCostTransactionCurrency" expression="WithFunctionalRate.InvoiceLineExtendedDirectOverheadCostTransactionCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedAdderValueUSD" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedAdderValueFunctionalCurrency" expression="WithFunctionalRate.InvoiceLineExtendedAdderValueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedAdderValueTransactionCurrency" expression="WithFunctionalRate.InvoiceLineExtendedAdderValueTransactionCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedPromotionValueUSD" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedPromotionValueFunctionalCurrency" expression="WithFunctionalRate.InvoiceLineExtendedPromotionValueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedPromotionValueTransactionCurrency" expression="WithFunctionalRate.InvoiceLineExtendedPromotionValueTransactionCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="SalesTaxUSD" type="id_Float" nullable="true"/>
         <mapperTableEntries name="SalesTaxFunctional" expression="WithFunctionalRate.SalesTaxFunctional " type="id_Float" nullable="true"/>
         <mapperTableEntries name="SalesTaxTransaction" expression="WithFunctionalRate.SalesTaxTransaction " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineNetUnitPriceUSD" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineNetUnitPriceFunctionalCurrency" expression="WithFunctionalRate.InvoiceLineNetUnitPriceFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineNetUnitPriceTransactionCurrency" expression="WithFunctionalRate.InvoiceLineNetUnitPriceTransactionCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineUnitDiscountValueUSD" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineUnitDiscountValueFunctionalCurrency" expression="WithFunctionalRate.InvoiceLineUnitDiscountValueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineUnitDiscountValueTransactionCurrency" expression="WithFunctionalRate.InvoiceLineUnitDiscountValueTransactionCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="LSTP11" expression="WithFunctionalRate.LSTP11 " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="QTOR11" expression="WithFunctionalRate.QTOR11 " type="id_Float" nullable="true"/>
         <mapperTableEntries name="AllocationBasis" expression="WithFunctionalRate.AllocationBasis " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="WithFunctionalRate" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
@@ -1305,8 +1321,6 @@
         <mapperTableEntries name="InvoiceLineNetUnitPriceTransactionCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineUnitDiscountValueFunctionalCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineUnitDiscountValueTransactionCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="LSTP11" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="QTOR11" type="id_Float" nullable="true"/>
         <mapperTableEntries name="AllocationBasis" type="id_Float" nullable="true"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="USDRate" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
