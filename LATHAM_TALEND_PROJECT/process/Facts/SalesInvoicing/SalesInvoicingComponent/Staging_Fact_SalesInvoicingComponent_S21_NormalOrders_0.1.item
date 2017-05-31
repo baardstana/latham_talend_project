@@ -1230,40 +1230,40 @@
         <mapperTableEntries name="DD_CustomerTagName" expression="WithFunctionalRate.DD_CustomerTagName " type="id_String"/>
         <mapperTableEntries name="InvoiceLineQuantity" expression="WithFunctionalRate.InvoiceLineQuantity " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineUnits" expression="WithFunctionalRate.InvoiceLineUnits " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedSalesValueUSD" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedSalesValueUSD" expression="Relational.ISNULL(WithFunctionalRate.InvoiceLineExtendedSalesValueFunctionalCurrency) || Relational.ISNULL(Var.Rate) ? null : WithFunctionalRate.InvoiceLineExtendedSalesValueFunctionalCurrency * Var.Rate " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedSalesValueFunctionalCurrency" expression="WithFunctionalRate.InvoiceLineExtendedSalesValueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedSalesValueTransactionCurrency" expression="WithFunctionalRate.InvoiceLineExtendedSalesValueTransactionCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDiscountValueUSD" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedDiscountValueUSD" expression="Relational.ISNULL(WithFunctionalRate.InvoiceLineExtendedDiscountValueFuntionalCurrency) || Relational.ISNULL(Var.Rate) ? null : WithFunctionalRate.InvoiceLineExtendedDiscountValueFuntionalCurrency * Var.Rate " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedDiscountValueFunctionalCurrency" expression="WithFunctionalRate.InvoiceLineExtendedDiscountValueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedDiscountValueTransactionCurrency" expression="WithFunctionalRate.InvoiceLineExtendedDiscountValueTransactionCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="FreightRevenueUSD" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="FreightRevenueUSD" expression="Relational.ISNULL(WithFunctionalRate.FreightRevenueFuntionalCurrency) || Relational.ISNULL(Var.Rate) ? null : WithFunctionalRate.FreightRevenueFuntionalCurrency * Var.Rate " type="id_Float" nullable="true"/>
         <mapperTableEntries name="FreightRevenueFunctionalCurrency" expression="WithFunctionalRate.FreightRevenueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="FreightRevenueTransactionCurrency" expression="WithFunctionalRate.FreightRevenueTransactionCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedTotalDirectCostUSD" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedTotalDirectCostUSD" expression="Relational.ISNULL(WithFunctionalRate.InvoiceLineExtendedTotalDirectCostFunctionalCurrency) || Relational.ISNULL(Var.Rate) ? null : WithFunctionalRate.InvoiceLineExtendedTotalDirectCostFunctionalCurrency * Var.Rate " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedTotalDirectCostFunctionalCurrency" expression="WithFunctionalRate.InvoiceLineExtendedTotalDirectCostFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedTotalDirectCostTransactionCurrency" expression="WithFunctionalRate.InvoiceLineExtendedTotalDirectCostTransactionCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectMaterialCostUSD" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedDirectMaterialCostUSD" expression="Relational.ISNULL(WithFunctionalRate.InvoiceLineExtendedDirectMaterialCostFunctionalCurrency) || Relational.ISNULL(Var.Rate) ? null : WithFunctionalRate.InvoiceLineExtendedDirectMaterialCostFunctionalCurrency * Var.Rate " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedDirectMaterialCostFunctionalCurrency" expression="WithFunctionalRate.InvoiceLineExtendedDirectMaterialCostFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedDirectMaterialCostTransactionCurrency" expression="WithFunctionalRate.InvoiceLineExtendedDirectMaterialCostTransactionCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectLaborCostUSD" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedDirectLaborCostUSD" expression="Relational.ISNULL(WithFunctionalRate.InvoiceLineExtendedDirectLaborCostTransactionCurrency) || Relational.ISNULL(Var.Rate) ? null : WithFunctionalRate.InvoiceLineExtendedDirectLaborCostTransactionCurrency * Var.Rate " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedDirectLaborCostFunctionalCurrency" expression="WithFunctionalRate.InvoiceLineExtendedDirectLaborCostFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedDirectLaborCostTransactionCurrency" expression="WithFunctionalRate.InvoiceLineExtendedDirectLaborCostTransactionCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectOverheadCostUSD" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedDirectOverheadCostUSD" expression="Relational.ISNULL(WithFunctionalRate.InvoiceLineExtendedDirectOverheadCostTransactionCurrency) || Relational.ISNULL(Var.Rate) ? null : WithFunctionalRate.InvoiceLineExtendedDirectOverheadCostTransactionCurrency * Var.Rate " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedDirectOverheadCostFunctionalCurrency" expression="WithFunctionalRate.InvoiceLineExtendedDirectOverheadCostFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedDirectOverheadCostTransactionCurrency" expression="WithFunctionalRate.InvoiceLineExtendedDirectOverheadCostTransactionCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedAdderValueUSD" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedAdderValueUSD" expression="Relational.ISNULL(WithFunctionalRate.InvoiceLineExtendedAdderValueFunctionalCurrency) || Relational.ISNULL(Var.Rate) ? null : WithFunctionalRate.InvoiceLineExtendedAdderValueFunctionalCurrency * Var.Rate " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedAdderValueFunctionalCurrency" expression="WithFunctionalRate.InvoiceLineExtendedAdderValueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedAdderValueTransactionCurrency" expression="WithFunctionalRate.InvoiceLineExtendedAdderValueTransactionCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedPromotionValueUSD" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedPromotionValueUSD" expression="Relational.ISNULL(WithFunctionalRate.InvoiceLineExtendedPromotionValueFunctionalCurrency) || Relational.ISNULL(Var.Rate) ? null : WithFunctionalRate.InvoiceLineExtendedPromotionValueFunctionalCurrency * Var.Rate " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedPromotionValueFunctionalCurrency" expression="WithFunctionalRate.InvoiceLineExtendedPromotionValueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedPromotionValueTransactionCurrency" expression="WithFunctionalRate.InvoiceLineExtendedPromotionValueTransactionCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="SalesTaxUSD" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="SalesTaxUSD" expression="Relational.ISNULL(WithFunctionalRate.SalesTaxFunctional) || Relational.ISNULL(Var.Rate) ? null : WithFunctionalRate.SalesTaxFunctional * Var.Rate " type="id_Float" nullable="true"/>
         <mapperTableEntries name="SalesTaxFunctional" expression="WithFunctionalRate.SalesTaxFunctional " type="id_Float" nullable="true"/>
         <mapperTableEntries name="SalesTaxTransaction" expression="WithFunctionalRate.SalesTaxTransaction " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineNetUnitPriceUSD" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineNetUnitPriceUSD" expression="Relational.ISNULL(WithFunctionalRate.InvoiceLineNetUnitPriceFunctionalCurrency) || Relational.ISNULL(Var.Rate) ? null : WithFunctionalRate.InvoiceLineNetUnitPriceFunctionalCurrency * Var.Rate " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineNetUnitPriceFunctionalCurrency" expression="WithFunctionalRate.InvoiceLineNetUnitPriceFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineNetUnitPriceTransactionCurrency" expression="WithFunctionalRate.InvoiceLineNetUnitPriceTransactionCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineUnitDiscountValueUSD" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineUnitDiscountValueUSD" expression="Relational.ISNULL(WithFunctionalRate.InvoiceLineListUnitPriceFunctionalCurrency) || Relational.ISNULL(Var.Rate) ? null : WithFunctionalRate.InvoiceLineListUnitPriceFunctionalCurrency * Var.Rate " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineUnitDiscountValueFunctionalCurrency" expression="WithFunctionalRate.InvoiceLineUnitDiscountValueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineUnitDiscountValueTransactionCurrency" expression="WithFunctionalRate.InvoiceLineUnitDiscountValueTransactionCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="AllocationBasis" expression="WithFunctionalRate.AllocationBasis " type="id_Float" nullable="true"/>
