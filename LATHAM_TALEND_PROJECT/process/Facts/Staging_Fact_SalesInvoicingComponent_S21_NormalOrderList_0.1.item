@@ -303,7 +303,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT DISTINCT OEP70.CONO70&#xD;&#xA;&#x9;, OEP70.INVN70&#xD;&#xA;    , OEP70.ORDL70&#xD;&#xA;FROM Staging_Fact_SalesInvoicing_S21_Dimensions AS Dimensions&#xD;&#xA;JOIN Staging_Fact_SalesInvoicing_S21_OEP70 AS OEP70&#xD;&#xA;&#x9;ON Dimensions.CONO70 = OEP70.CONO70&#xD;&#xA;    AND Dimensions.INVN70 = OEP70.INVN70&#xD;&#xA;    AND Dimensions.ORDL70 = OEP70.ORDL70&#xD;&#xA;JOIN Extract_MSP40_S21 AS MSP40&#xD;&#xA;&#x9;ON OEP70.CONO70 = MSP40.CONO40&#xD;&#xA;    AND OEP70.ORDN70 = MSP40.W1RF40&#xD;&#xA;    AND OEP70.CATN70 = MSP40.ITEM40&#xD;&#xA;    AND MSP40.W1RF40 &lt;> ''&#xD;&#xA;    AND MSP40.WSTA40 &lt;> '9'&#xD;&#xA;WHERE OEP70.OSRC70 = '4'&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT DISTINCT OEP70.CONO70&#xD;&#xA;&#x9;, OEP70.INVN70&#xD;&#xA;    , OEP70.ORDL70&#xD;&#xA;FROM Staging_Fact_SalesInvoicing_S21_Dimensions AS Dimensions&#xD;&#xA;JOIN Staging_Fact_SalesInvoicing_S21_OEP70 AS OEP70&#xD;&#xA;&#x9;ON Dimensions.CONO70 = OEP70.CONO70&#xD;&#xA;    AND Dimensions.INVN70 = OEP70.INVN70&#xD;&#xA;    AND Dimensions.ORDL70 = OEP70.ORDL70&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_PoolKitList AS PoolKits&#xD;&#xA;&#x9;ON OEP70.CONO70 = PoolKits.CONO70&#xD;&#xA;    AND OEP70.INVN70 = PoolKits.INVN70&#xD;&#xA;    AND OEP70.ORDL70 = PoolKits.ORDL70&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_ViperOrderList AS ViperOrders&#xD;&#xA;&#x9;ON OEP70.CONO70 = ViperOrders.CONO70&#xD;&#xA;    AND OEP70.INVN70 = ViperOrders.INVN70&#xD;&#xA;    AND OEP70.ORDL70 = ViperOrders.ORDL70&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_SalesKitList AS SalesKits&#xD;&#xA;&#x9;ON OEP70.CONO70 = SalesKits.CONO70&#xD;&#xA;    AND OEP70.INVN70 = SalesKits.INVN70&#xD;&#xA;    AND OEP70.ORDL70 = SalesKits.ORDL70 &#xD;&#xA;WHERE PoolKits.CONO70 IS NULL&#xD;&#xA;&#x9;AND ViperOrders.CONO70 IS NULL&#xD;&#xA;    AND SalesKits.CONO70 IS NULL&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -321,7 +321,7 @@
       <elementValue elementRef="SCHEMA_COLUMN" value="ORDL70"/>
       <elementValue elementRef="TRIM" value="false"/>
     </elementParameter>
-    <elementParameter field="TEXT" name="LABEL" value="ViperOrders"/>
+    <elementParameter field="TEXT" name="LABEL" value="NormalOrders"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tMysqlInput_4">
       <column comment="" key="true" length="2" name="CONO70" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
@@ -413,9 +413,9 @@
   <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tPostjob_1" offsetLabelX="0" offsetLabelY="0" source="tPostjob_1" target="tRunJob_2">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnComponentOk2" show="false"/>
   </connection>
-  <connection connectorName="FLOW" label="ViperOrderList" lineStyle="0" metaname="tMysqlInput_4" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_4" target="tMysqlOutput_4">
+  <connection connectorName="FLOW" label="NormalOrderList" lineStyle="0" metaname="tMysqlInput_4" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_4" target="tMysqlOutput_4">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="ViperOrderList" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="NormalOrderList" show="false"/>
   </connection>
   <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlInput_4" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_4" target="tSetGlobalVar_1">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk1" show="false"/>
