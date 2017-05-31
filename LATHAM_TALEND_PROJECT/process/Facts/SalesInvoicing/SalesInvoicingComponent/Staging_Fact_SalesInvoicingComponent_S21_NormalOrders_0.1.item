@@ -946,7 +946,7 @@
       <column comment="" defaultValue="" key="false" length="15" name="SalesTaxFunctional" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="SalesTaxTransaction" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineNetUnitPriceFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineNetUnitPriceTransactionCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineNetUnitPriceTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="15" name="InvoiceLineListUnitPriceFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="15" usefulColumn="true"/>
       <column comment="" key="false" length="15" name="InvoiceLineListUnitPriceTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="7" usefulColumn="true"/>
       <column comment="" key="false" length="15" name="InvoiceLineUnitDiscountValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="7" usefulColumn="true"/>
@@ -1206,7 +1206,10 @@
       <column comment="" defaultValue="" key="false" length="15" name="SalesTaxTransaction" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="15" name="InvoiceLineNetUnitPriceUSD" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="15" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineNetUnitPriceFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineNetUnitPriceTransactionCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineNetUnitPriceTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="15" name="InvoiceLineListUnitPriceUSD" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="15" usefulColumn="true"/>
+      <column comment="" key="false" length="15" name="InvoiceLineListUnitPriceFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="15" usefulColumn="true"/>
+      <column comment="" key="false" length="15" name="InvoiceLineListUnitPriceTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="7" usefulColumn="true"/>
       <column comment="" key="false" length="7" name="InvoiceLineUnitDiscountValueUSD" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="7" usefulColumn="true"/>
       <column comment="" key="false" length="7" name="InvoiceLineUnitDiscountValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="7" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="7" name="InvoiceLineUnitDiscountValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
@@ -1279,6 +1282,9 @@
         <mapperTableEntries name="InvoiceLineNetUnitPriceUSD" expression="Relational.ISNULL(WithFunctionalRate.InvoiceLineNetUnitPriceFunctionalCurrency) || Relational.ISNULL(Var.Rate) ? null : WithFunctionalRate.InvoiceLineNetUnitPriceFunctionalCurrency * Var.Rate " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineNetUnitPriceFunctionalCurrency" expression="WithFunctionalRate.InvoiceLineNetUnitPriceFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineNetUnitPriceTransactionCurrency" expression="WithFunctionalRate.InvoiceLineNetUnitPriceTransactionCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineListUnitPriceUSD" expression="Relational.ISNULL(WithFunctionalRate.InvoiceLineListUnitPriceFunctionalCurrency ) || Relational.ISNULL(Var.Rate) ? null : WithFunctionalRate.InvoiceLineListUnitPriceFunctionalCurrency  * Var.Rate " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineListUnitPriceFunctionalCurrency" expression="WithFunctionalRate.InvoiceLineListUnitPriceFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineListUnitPriceTransactionCurrency" expression="WithFunctionalRate.InvoiceLineListUnitPriceTransactionCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineUnitDiscountValueUSD" expression="Relational.ISNULL(WithFunctionalRate.InvoiceLineUnitDiscountValueFunctionalCurrency ) || Relational.ISNULL(Var.Rate) ? null : WithFunctionalRate.InvoiceLineUnitDiscountValueFunctionalCurrency  * Var.Rate " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineUnitDiscountValueFunctionalCurrency" expression="WithFunctionalRate.InvoiceLineUnitDiscountValueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineUnitDiscountValueTransactionCurrency" expression="WithFunctionalRate.InvoiceLineUnitDiscountValueTransactionCurrency " type="id_Float" nullable="true"/>
@@ -1618,6 +1624,9 @@
         <mapperTableEntries name="InvoiceLineNetUnitPriceUSD" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineNetUnitPriceFunctionalCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineNetUnitPriceTransactionCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineListUnitPriceUSD" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineListUnitPriceFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineListUnitPriceTransactionCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineUnitDiscountValueUSD" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineUnitDiscountValueFunctionalCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineUnitDiscountValueTransactionCurrency" type="id_Float" nullable="true"/>
@@ -2433,6 +2442,17 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="FunctionalRate" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="WithUSDRate" lineStyle="0" metaname="WithUSDRate" offsetLabelX="0" offsetLabelY="0" source="tMap_4" target="tMap_5">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineListUnitPriceFunctionalCurrency"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineListUnitPriceUSD"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineListUnitPriceTransactionCurrency"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="WithUSDRate" show="false"/>
   </connection>
