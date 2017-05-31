@@ -937,6 +937,7 @@
       <column comment="" defaultValue="" key="false" length="15" name="SalesTaxTransaction" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineNetUnitPriceFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineNetUnitPriceTransactionCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="InvoiceLineUnitDiscountValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="7" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="7" name="InvoiceLineUnitDiscountValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="7" name="LSTP11" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="7" name="QTOR11" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
@@ -998,6 +999,7 @@
         <mapperTableEntries name="SalesTaxTransaction" expression="WithTransactionRate.SalesTaxTransaction " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineNetUnitPriceFunctionalCurrency" expression="WithTransactionRate.InvoiceLineNetUnitPriceFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineNetUnitPriceTransactionCurrency" expression="WithTransactionRate.InvoiceLineNetUnitPriceTransactionCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineUnitDiscountValueFunctionalCurrency" expression="Relational.ISNULL(WithTransactionRate.BDIS70) || Relational.ISNULL(WithTransactionRate.InvoiceLineQuantity) ?  &#xD;&#xA;&#x9;Relational.ISNULL(WithTransactionRate.InvoiceLineUnitDiscountValueTransactionCurrency) || Relational.ISNULL(Var.Rate) ? null :  WithTransactionRate.InvoiceLineUnitDiscountValueTransactionCurrency * Var.Rate &#xD;&#xA;: WithTransactionRate.BDIS70 / WithTransactionRate.InvoiceLineQuantity " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineUnitDiscountValueTransactionCurrency" expression="WithTransactionRate.InvoiceLineUnitDiscountValueTransactionCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="LSTP11" expression="WithTransactionRate.LSTP11 " type="id_Float" nullable="true"/>
         <mapperTableEntries name="QTOR11" expression="WithTransactionRate.QTOR11 " type="id_Float" nullable="true"/>
