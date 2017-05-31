@@ -700,7 +700,8 @@
       <column comment="" defaultValue="" key="false" length="15" name="SalesTaxTransaction" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineNetUnitPriceFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineNetUnitPriceTransactionCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="7" name="InvoiceLineUnitDiscountValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="15" name="InvoiceLineListUnitPriceTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="7" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineUnitDiscountValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="7" name="LSTP11" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="7" name="QTOR11" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="19" name="AllocationBasis" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
@@ -759,6 +760,7 @@
         <mapperTableEntries name="SalesTaxTransaction" expression="RenamedColumns.SalesTaxTransaction " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineNetUnitPriceFunctionalCurrency" expression="RenamedColumns.InvoiceLineNetUnitPriceFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineNetUnitPriceTransactionCurrency" expression="RenamedColumns.InvoiceLineNetUnitPriceTransactionCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineListUnitPriceTransactionCurrency" expression="RenamedColumns.InvoiceLineListUnitPriceTransactionCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineUnitDiscountValueTransactionCurrency" expression="RenamedColumns.InvoiceLineUnitDiscountValueTransactionCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="LSTP11" expression="RenamedColumns.LSTP11 " type="id_Float" nullable="true"/>
         <mapperTableEntries name="QTOR11" expression="RenamedColumns.QTOR11 " type="id_Float" nullable="true"/>
@@ -1053,6 +1055,7 @@
         <mapperTableEntries name="SalesTaxTransaction" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineNetUnitPriceFunctionalCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineNetUnitPriceTransactionCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineListUnitPriceTransactionCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineUnitDiscountValueTransactionCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="LSTP11" type="id_Float" nullable="true"/>
         <mapperTableEntries name="QTOR11" type="id_Float" nullable="true"/>
@@ -2383,6 +2386,11 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="RenamedColumns" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="WithTransactionRate" lineStyle="0" metaname="WithTransactionRate" offsetLabelX="0" offsetLabelY="0" source="tMap_2" target="tMap_3">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineListUnitPriceTransactionCurrency"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="WithTransactionRate" show="false"/>
   </connection>
