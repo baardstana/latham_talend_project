@@ -303,7 +303,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT OEP70.CONO70&#xD;&#xA;&#x9;, OEP70.INVN70&#xD;&#xA;&#x9;, OEP70.ORDL70&#xD;&#xA;&#x9;, LIP14U.CONO14&#xD;&#xA;&#x9;, LIP14U.LOCD14&#xD;&#xA;FROM Extract_OEP70_S21 AS OEP70&#xD;&#xA;INNER JOIN Extract_LIP04U_S21 AS LIP04U&#xD;&#xA;&#x9;ON OEP70.CONO70 = LIP04U.CONO04&#xD;&#xA;&#x9;AND OEP70.ORDN70 = LIP04U.ORDN04&#xD;&#xA;&#x9;AND OEP70.ORDL70 = LIP04U.ORDL04&#xD;&#xA;INNER JOIN Extract_LIP14U_S21 AS LIP14U&#xD;&#xA;&#x9;ON LIP04U.CONO04 = LIP14U.CONO14&#xD;&#xA;&#x9;AND LIP04U.SERN04 = LIP14U.SERN14&#xD;&#xA;&#x9;AND LIP14U.SCAN14 = 'SHIPPED'&#xD;&#xA;WHERE OEP70.ORDN70 &lt;> ''&#xD;&#xA;ORDER BY OEP70.CONO70 ASC&#xD;&#xA;&#x9;, OEP70.INVN70 ASC&#xD;&#xA;&#x9;, OEP70.ORDL70 ASC&#xD;&#xA;&#x9;, LIP14U.TSST14 DESC&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT OEP70.CONO70&#xD;&#xA;&#x9;, OEP70.INVN70&#xD;&#xA;&#x9;, OEP70.ORDL70&#xD;&#xA;&#x9;, LIP14U.CONO14&#xD;&#xA;&#x9;, LIP14U.LOCD14&#xD;&#xA;&#x9;,LIP04U.NETA04&#xD;&#xA;FROM Extract_OEP70_S21 AS OEP70&#xD;&#xA;INNER JOIN Extract_LIP04U_S21 AS LIP04U&#xD;&#xA;&#x9;ON OEP70.CONO70 = LIP04U.CONO04&#xD;&#xA;&#x9;AND OEP70.ORDN70 = LIP04U.ORDN04&#xD;&#xA;&#x9;AND OEP70.ORDL70 = LIP04U.ORDL04&#xD;&#xA;INNER JOIN Extract_LIP14U_S21 AS LIP14U&#xD;&#xA;&#x9;ON LIP04U.CONO04 = LIP14U.CONO14&#xD;&#xA;&#x9;AND LIP04U.SERN04 = LIP14U.SERN14&#xD;&#xA;&#x9;AND LIP14U.SCAN14 = 'SHIPPED'&#xD;&#xA;WHERE OEP70.ORDN70 &lt;> ''&#xD;&#xA;ORDER BY OEP70.CONO70 ASC&#xD;&#xA;&#x9;, OEP70.INVN70 ASC&#xD;&#xA;&#x9;, OEP70.ORDL70 ASC&#xD;&#xA;&#x9;, LIP14U.TSST14 DESC&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -324,6 +324,8 @@
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="LOCD14"/>
       <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="NETA04"/>
+      <elementValue elementRef="TRIM" value="false"/>
     </elementParameter>
     <elementParameter field="TEXT" name="LABEL" value="LIP04U_LIP14U"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
@@ -333,6 +335,7 @@
       <column comment="" defaultValue="" key="true" length="3" name="ORDL70" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="2" name="CONO14" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="2" name="LOCD14" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="7" name="NETA04" nullable="false" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tUniqRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="288" posY="64">
@@ -353,6 +356,9 @@
       <elementValue elementRef="SCHEMA_COLUMN" value="LOCD14"/>
       <elementValue elementRef="KEY_ATTRIBUTE" value="false"/>
       <elementValue elementRef="CASE_SENSITIVE" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="NETA04"/>
+      <elementValue elementRef="KEY_ATTRIBUTE" value="false"/>
+      <elementValue elementRef="CASE_SENSITIVE" value="false"/>
     </elementParameter>
     <elementParameter field="CHECK" name="ONLY_ONCE_EACH_DUPLICATED_KEY" value="false"/>
     <elementParameter field="CHECK" name="IS_VIRTUAL_COMPONENT" value="false"/>
@@ -367,6 +373,7 @@
       <column comment="" defaultValue="" key="true" length="3" name="ORDL70" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="2" name="CONO14" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="2" name="LOCD14" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="7" name="NETA04" nullable="false" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <metadata connector="UNIQUE" name="UNIQUE">
       <column comment="" key="true" length="2" name="CONO70" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
@@ -374,6 +381,7 @@
       <column comment="" defaultValue="" key="true" length="3" name="ORDL70" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="2" name="CONO14" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="2" name="LOCD14" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="7" name="NETA04" nullable="false" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <metadata connector="DUPLICATE" name="DUPLICATE">
       <column comment="" key="true" length="2" name="CONO70" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
@@ -381,6 +389,7 @@
       <column comment="" defaultValue="" key="true" length="3" name="ORDL70" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="2" name="CONO14" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="2" name="LOCD14" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="7" name="NETA04" nullable="false" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="608" posY="64">
@@ -402,9 +411,10 @@
       <column comment="" defaultValue="" key="true" length="3" name="ORDL70" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="2" name="MapStockroomCONO20" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="2" name="MapStockroomSTRC20" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="7" name="NETA04" nullable="false" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="RenamedLIP04U_LIP14U">
         <mapperTableEntries name="CONO70" expression="UniqueLIP04U_LIP14U.CONO70 " type="id_String"/>
@@ -412,6 +422,7 @@
         <mapperTableEntries name="ORDL70" expression="UniqueLIP04U_LIP14U.ORDL70 " type="id_Float"/>
         <mapperTableEntries name="MapStockroomCONO20" expression="UniqueLIP04U_LIP14U.CONO14 " type="id_String"/>
         <mapperTableEntries name="MapStockroomSTRC20" expression="UniqueLIP04U_LIP14U.LOCD14 " type="id_String"/>
+        <mapperTableEntries name="NETA04" expression="UniqueLIP04U_LIP14U.NETA04 " type="id_Float"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="UniqueLIP04U_LIP14U" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="CONO70" type="id_String"/>
@@ -419,6 +430,7 @@
         <mapperTableEntries name="ORDL70" type="id_Float"/>
         <mapperTableEntries name="CONO14" type="id_String"/>
         <mapperTableEntries name="LOCD14" type="id_String"/>
+        <mapperTableEntries name="NETA04" type="id_Float"/>
       </inputTables>
     </nodeData>
   </node>
@@ -478,6 +490,11 @@
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="NETA04"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
     </elementParameter>
     <elementParameter field="CHECK" name="USE_HINT_OPTIONS" value="false"/>
     <elementParameter field="TABLE" name="HINT_OPTIONS" show="false"/>
@@ -493,6 +510,7 @@
       <column comment="" defaultValue="" key="true" length="3" name="ORDL70" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="2" name="MapStockroomCONO20" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="2" name="MapStockroomSTRC20" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="7" name="NETA04" nullable="false" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <metadata connector="REJECT" name="REJECT">
       <column comment="" key="true" length="2" name="CONO70" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
@@ -500,6 +518,7 @@
       <column comment="" defaultValue="" key="true" length="3" name="ORDL70" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="2" name="MapStockroomCONO20" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="2" name="MapStockroomSTRC20" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="7" name="NETA04" nullable="false" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
@@ -588,6 +607,9 @@
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
       <elementValue elementRef="TRACE_COLUMN" value="MapStockroomSTRC20"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="NETA04"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
