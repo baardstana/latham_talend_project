@@ -1733,6 +1733,7 @@
       <column comment="" key="false" length="15" name="DD_SerialNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="20" name="DD_CustomerPurchaseOrderNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="40" name="DD_CustomerTagName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="true" length="25" name="DD_ComponentIdentifier" nullable="false" pattern="" precision="-1" sourceType="" type="id_String" originalLength="25" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="InvoiceLineComponentQuantity" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="InvoiceLineComponentUnits" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="15" name="InvoiceLineExtendedSalesValueUSD" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="15" usefulColumn="true"/>
@@ -1811,6 +1812,7 @@
         <mapperTableEntries name="DD_SerialNumber" expression="WithSourceSystem.DD_SerialNumber " type="id_String"/>
         <mapperTableEntries name="DD_CustomerPurchaseOrderNumber" expression="WithSourceSystem.DD_CustomerPurchaseOrderNumber " type="id_String"/>
         <mapperTableEntries name="DD_CustomerTagName" expression="WithSourceSystem.DD_CustomerTagName " type="id_String"/>
+        <mapperTableEntries name="DD_ComponentIdentifier" expression="&quot;N/A&quot;" type="id_String"/>
         <mapperTableEntries name="InvoiceLineComponentQuantity" expression="WithSourceSystem.InvoiceLineComponentQuantity " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineComponentUnits" expression="WithSourceSystem.InvoiceLineComponentUnits " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedSalesValueUSD" expression="WithSourceSystem.InvoiceLineExtendedSalesValueUSD " type="id_Float" nullable="true"/>
@@ -2147,6 +2149,11 @@
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="DD_ComponentIdentifier"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceLineComponentQuantity"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
@@ -2410,6 +2417,7 @@
       <column comment="" key="false" length="15" name="DD_SerialNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="20" name="DD_CustomerPurchaseOrderNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="40" name="DD_CustomerTagName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="true" length="25" name="DD_ComponentIdentifier" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="25" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="InvoiceLineComponentQuantity" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="InvoiceLineComponentUnits" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="15" name="InvoiceLineExtendedSalesValueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
@@ -2485,6 +2493,7 @@
       <column comment="" key="false" length="15" name="DD_SerialNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="20" name="DD_CustomerPurchaseOrderNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="40" name="DD_CustomerTagName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="true" length="25" name="DD_ComponentIdentifier" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="25" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="InvoiceLineComponentQuantity" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="InvoiceLineComponentUnits" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="15" name="InvoiceLineExtendedSalesValueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
@@ -2666,6 +2675,11 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="SourceSystem" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="WithComponentDetail" lineStyle="0" metaname="WithComponentDetail" offsetLabelX="0" offsetLabelY="0" source="tMap_6" target="tMysqlOutput_4">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="DD_ComponentIdentifier"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="WithComponentDetail" show="false"/>
   </connection>
