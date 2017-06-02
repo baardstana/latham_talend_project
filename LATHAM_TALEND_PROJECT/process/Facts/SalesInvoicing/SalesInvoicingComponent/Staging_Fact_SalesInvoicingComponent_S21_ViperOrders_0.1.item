@@ -303,7 +303,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT NormalOrders.CONO70&#xD;&#xA;&#x9;, NormalOrders.INVN70&#xD;&#xA;    , NormalOrders.ORDL70&#xD;&#xA;    , SalesInvoicing.SK_Customer&#xD;&#xA;    , SalesInvoicing.SK_Product&#xD;&#xA;    , SalesInvoicing.SK_Stockroom_Manufactured&#xD;&#xA;    , SalesInvoicing.SK_Stockroom_ShippedFrom&#xD;&#xA;    , SalesInvoicing.SK_Geography_ShippedTo&#xD;&#xA;    , SalesInvoicing.SK_Currency_USD&#xD;&#xA;    , SalesInvoicing.SK_Currency_Functional&#xD;&#xA;    , SalesInvoicing.SK_Currency_Transaction&#xD;&#xA;    , SalesInvoicing.SK_Company&#xD;&#xA;    , SalesInvoicing.SK_SalesOrderDetail&#xD;&#xA;    , SalesInvoicing.SK_SalesInvoicingDetail&#xD;&#xA;    , SalesInvoicing.SK_Date_CustomerOrdered&#xD;&#xA;    , SalesInvoicing.SK_Date_SystemEntered&#xD;&#xA;    , SalesInvoicing.SK_Date_CurrentPromisedShip&#xD;&#xA;    , SalesInvoicing.SK_Date_Invoiced&#xD;&#xA;    , SalesInvoicing.SK_Date_ActualBuild&#xD;&#xA;    , SalesInvoicing.DD_OrderNumber&#xD;&#xA;    , SalesInvoicing.DD_OrderLineNumber&#xD;&#xA;    , SalesInvoicing.DD_InvoiceNumber&#xD;&#xA;    , SalesInvoicing.DD_QuoteNumber&#xD;&#xA;    , SalesInvoicing.DD_SerialNumber&#xD;&#xA;    , SalesInvoicing.DD_CustomerPurchaseOrderNumber&#xD;&#xA;    , SalesInvoicing.DD_CustomerTagName&#xD;&#xA;    , SalesInvoicing.InvoiceLineQuantity&#xD;&#xA;    , SalesInvoicing.InvoiceLineUnits&#xD;&#xA;    , OEP70.BLIV70&#xD;&#xA;    , OEP70.LVAL70&#xD;&#xA;    , OEP70.BDIS70&#xD;&#xA;    , OEP70.DISV70&#xD;&#xA;    , LIP11U.DISA11&#xD;&#xA;    , OEP50.FreightRevenueFunctionalCurrency&#xD;&#xA;    , OEP50.FreightRevenueTransactionCurrency&#xD;&#xA;    , OEP70.CVAL70&#xD;&#xA;    , LIOEP071.InvoiceLineExtendedDirectMaterialCostFunctionalCurrency&#xD;&#xA;    , LIOEP071.InvoiceLineExtendedDirectLaborCostFunctionalCurrency&#xD;&#xA;    , LIOEP071.InvoiceLineExtendedDirectOverheadCostFunctionalCurrency&#xD;&#xA;    , LIP14U.NETA04&#xD;&#xA;    , LIOEP056.InvoiceLineExtendedPromotionValueTransactionCurrency&#xD;&#xA;    , OEP65.BIVT65&#xD;&#xA;    , OEP50.FreightSalesTaxFunctionalCurrency&#xD;&#xA;    , OEP65.INVV65&#xD;&#xA;    , OEP50.FreightSalesTaxTransactionCurrency&#xD;&#xA;&#x9;, OEP70.UPRC70&#xD;&#xA;    , LIP11U.LSTP11&#xD;&#xA;    , LIP11U.QTOR11&#xD;&#xA;    , Allocate.AllocationBasis&#xD;&#xA;FROM Staging_Fact_SalesInvoicingComponent_S21_NormalOrderList AS NormalOrders&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_S21 AS SalesInvoicing&#xD;&#xA;&#x9;ON NormalOrders.CONO70 = SalesInvoicing.CONO70&#xD;&#xA;&#x9;AND NormalOrders.INVN70 = SalesInvoicing.INVN70&#xD;&#xA;    AND NormalOrders.ORDL70 = SalesInvoicing.ORDL70&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_S21_OEP65 AS OEP65&#xD;&#xA;&#x9;ON NormalOrders.CONO70 = OEP65.CONO65&#xD;&#xA;&#x9;AND NormalOrders.INVN70 = OEP65.INVN65&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_S21_OEP70 AS OEP70&#xD;&#xA;&#x9;ON NormalOrders.CONO70 = OEP70.CONO70&#xD;&#xA;&#x9;AND NormalOrders.INVN70 = OEP70.INVN70&#xD;&#xA;    AND NormalOrders.ORDL70 = OEP70.ORDL70&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicing_S21_LIP11U AS LIP11U&#xD;&#xA;&#x9;ON NormalOrders.CONO70 = LIP11U.CONO70&#xD;&#xA;&#x9;AND NormalOrders.INVN70 = LIP11U.INVN70&#xD;&#xA;    AND NormalOrders.ORDL70 = LIP11U.ORDL70&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_OEP50 AS OEP50&#xD;&#xA;&#x9;ON NormalOrders.CONO70 = OEP50.CONO65&#xD;&#xA;&#x9;AND NormalOrders.INVN70 = OEP50.INVN65&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_LIOEP071 AS LIOEP071&#xD;&#xA;&#x9;ON NormalOrders.CONO70 = LIOEP071.CONO70&#xD;&#xA;&#x9;AND NormalOrders.INVN70 = LIOEP071.INVN70&#xD;&#xA;    AND NormalOrders.ORDL70 = LIOEP071.ORDL70&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicing_S21_LIP14U AS LIP14U&#xD;&#xA;&#x9;ON NormalOrders.CONO70 = LIP14U.CONO70&#xD;&#xA;&#x9;AND NormalOrders.INVN70 = LIP14U.INVN70&#xD;&#xA;    AND NormalOrders.ORDL70 = LIP14U.ORDL70   &#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_LIOEP056 AS LIOEP056&#xD;&#xA;&#x9;ON NormalOrders.CONO70 = LIOEP056.CONO70&#xD;&#xA;&#x9;AND NormalOrders.INVN70 = LIOEP056.INVN70&#xD;&#xA;    AND NormalOrders.ORDL70 = LIOEP056.ORDL70    &#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_NormalOrderAllocation AS Allocate&#xD;&#xA;&#x9;ON NormalOrders.CONO70 = Allocate.CONO70&#xD;&#xA;&#x9;AND NormalOrders.INVN70 = Allocate.INVN70&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT count(*)&#xD;&#xA;FROM Staging_Fact_SalesInvoicingComponent_S21_ViperOrderList AS ViperOrders&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_S21_OEP70 AS OEP70&#xD;&#xA;&#x9;ON ViperOrders.CONO70 = OEP70.CONO70&#xD;&#xA;    AND ViperOrders.INVN70 = OEP70.INVN70&#xD;&#xA;    AND ViperOrders.ORDL70 = OEP70.ORDL70&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_S21_OEP65 AS OEP65&#xD;&#xA;&#x9;ON OEP70.CONO70 = OEP65.CONO65&#xD;&#xA;    AND OEP70.INVN70 = OEP65.INVN65&#xD;&#xA;INNER JOIN Extract_MSP40_S21 AS MSP40&#xD;&#xA;&#x9;ON OEP70.CONO70 = MSP40.CONO40&#xD;&#xA;    AND OEP70.ORDN70 = MSP40.W1RF40&#xD;&#xA;    AND OEP70.CATN70 = MSP40.ITEM40&#xD;&#xA;INNER JOIN Extract_MSP42_S21 AS MSP42&#xD;&#xA;&#x9;ON MSP40.CONO40 = MSP42.CONO42&#xD;&#xA;    AND MSP40.WORD40 = MSP42.WORD42&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -413,7 +413,7 @@
       <elementValue elementRef="SCHEMA_COLUMN" value="AllocationBasis"/>
       <elementValue elementRef="TRIM" value="false"/>
     </elementParameter>
-    <elementParameter field="TEXT" name="LABEL" value="PoolKits"/>
+    <elementParameter field="TEXT" name="LABEL" value="ViperOrders"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tMysqlInput_4">
       <column comment="" key="true" length="2" name="CONO70" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
@@ -472,7 +472,7 @@
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="_fyI8AEbjEeeSgbbuInrSFw-tMap_1-PREVIEW.bmp"/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_jnZFUEeeEeeSgbbuInrSFw-tMap_1-PREVIEW.bmp"/>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
     <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
     <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
@@ -645,7 +645,7 @@
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="_fyI8AEbjEeeSgbbuInrSFw-tMap_2-PREVIEW.bmp"/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_jnZFUEeeEeeSgbbuInrSFw-tMap_2-PREVIEW.bmp"/>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
     <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
     <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
@@ -888,7 +888,7 @@
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="_fyI8AEbjEeeSgbbuInrSFw-tMap_3-PREVIEW.bmp"/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_jnZFUEeeEeeSgbbuInrSFw-tMap_3-PREVIEW.bmp"/>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
     <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
     <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
@@ -1137,7 +1137,7 @@
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="_fyI8AEbjEeeSgbbuInrSFw-tMap_4-PREVIEW.bmp"/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_jnZFUEeeEeeSgbbuInrSFw-tMap_4-PREVIEW.bmp"/>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
     <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
     <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
@@ -1413,7 +1413,7 @@
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="_fyI8AEbjEeeSgbbuInrSFw-tMap_5-PREVIEW.bmp"/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_jnZFUEeeEeeSgbbuInrSFw-tMap_5-PREVIEW.bmp"/>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
     <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
     <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
@@ -1496,7 +1496,7 @@
       <column comment="" defaultValue="" key="false" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="WithSourceSystem">
         <mapperTableEntries name="CONO70" expression="WithUSDRate.CONO70 " type="id_String"/>
@@ -1696,7 +1696,7 @@
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="_fyI8AEbjEeeSgbbuInrSFw-tMap_6-PREVIEW.bmp"/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_jnZFUEeeEeeSgbbuInrSFw-tMap_6-PREVIEW.bmp"/>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
     <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
     <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
@@ -1780,7 +1780,7 @@
       <column comment="" defaultValue="" key="false" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="WithComponentDetail">
         <mapperTableEntries name="CONO70" expression="WithSourceSystem.CONO70 " type="id_String"/>
