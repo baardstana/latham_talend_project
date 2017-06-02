@@ -674,7 +674,7 @@
         <mapperTableEntries name="FreightRevenueFunctionalCurrency_Parent" expression="RenamedColumns.FreightRevenueFunctionalCurrency_Parent " type="id_Float" nullable="true"/>
         <mapperTableEntries name="FreightRevenueTransactionCurrency_Parent" expression="RenamedColumns.FreightRevenueTransactionCurrency_Parent " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedTotalDirectCostFunctionalCurrency" expression="RenamedColumns.InvoiceLineExtendedTotalDirectCostFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedTotalDirectCostTransactionCurrency" expression="RenamedColumns.InvoiceLineExtendedTotalDirectCostFunctionalCurrency  Var.Rate " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedTotalDirectCostTransactionCurrency" expression="CustomStringHandling.currencyConversion(RenamedColumns.InvoiceLineExtendedTotalDirectCostFunctionalCurrency,Var.Rate) " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="RenamedColumns" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Customer" type="id_Integer"/>
