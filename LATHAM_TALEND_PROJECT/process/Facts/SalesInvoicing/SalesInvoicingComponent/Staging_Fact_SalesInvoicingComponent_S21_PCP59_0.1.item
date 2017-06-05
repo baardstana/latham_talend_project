@@ -415,7 +415,7 @@
         <mapperTableEntries name="MapProductCONO35" expression="&quot;A_&quot; + AggregatedPCP59.CATN70 " type="id_String"/>
         <mapperTableEntries name="AssemblyCost" expression="CustomStringHandling.sumValues(CustomStringHandling.sumValues(AggregatedPCP59.MOVC59, AggregatedPCP59.OHD159), AggregatedPCP59.OHD259) " type="id_Float" nullable="true"/>
         <mapperTableEntries name="LaborAssemblyCost" expression="AggregatedPCP59.MOVC59 " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OverheadAssemblyCost" expression="AggregatedPCP59.OHD159  AggregatedPCP59.OHD259 " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OverheadAssemblyCost" expression="CustomStringHandling.sumValues(AggregatedPCP59.OHD159 , AggregatedPCP59.OHD259 )" type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="AggregatedPCP59" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="CONO70" type="id_String"/>
