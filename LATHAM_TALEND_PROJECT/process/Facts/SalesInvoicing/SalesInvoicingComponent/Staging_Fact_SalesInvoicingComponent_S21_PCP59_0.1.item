@@ -402,6 +402,8 @@
       <column comment="" defaultValue="" key="true" length="3" name="ORDL70" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="17" name="MapProductCONO35" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="17" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="19" name="AssemblyCost" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="19" name="LaborAssemblyCost" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="19" name="OverheadAssemblyCost" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
@@ -412,6 +414,8 @@
         <mapperTableEntries name="ORDL70" expression="AggregatedPCP59.ORDL70 " type="id_Float"/>
         <mapperTableEntries name="MapProductCONO35" expression="&quot;A_&quot; + AggregatedPCP59.CATN70 " type="id_String"/>
         <mapperTableEntries name="AssemblyCost" expression="CustomStringHandling.sumValues(CustomStringHandling.sumValues(AggregatedPCP59.MOVC59, AggregatedPCP59.OHD159), AggregatedPCP59.OHD259) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="LaborAssemblyCost" expression="AggregatedPCP59.MOVC59 " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OverheadAssemblyCost" expression="AggregatedPCP59.OHD159  AggregatedPCP59.OHD259 " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="AggregatedPCP59" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="CONO70" type="id_String"/>
@@ -480,6 +484,16 @@
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="LaborAssemblyCost"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="OverheadAssemblyCost"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
     </elementParameter>
     <elementParameter field="CHECK" name="USE_HINT_OPTIONS" value="false"/>
     <elementParameter field="TABLE" name="HINT_OPTIONS" show="false"/>
@@ -495,6 +509,8 @@
       <column comment="" defaultValue="" key="true" length="3" name="ORDL70" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="17" name="MapProductCONO35" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="17" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="19" name="AssemblyCost" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="19" name="LaborAssemblyCost" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="19" name="OverheadAssemblyCost" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <metadata connector="REJECT" label="RenamedColumns" name="REJECT">
       <column comment="" key="true" length="2" name="CONO70" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
@@ -502,6 +518,8 @@
       <column comment="" defaultValue="" key="true" length="3" name="ORDL70" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="17" name="MapProductCONO35" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="17" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="19" name="AssemblyCost" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="19" name="LaborAssemblyCost" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="19" name="OverheadAssemblyCost" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
@@ -536,6 +554,12 @@
   <connection connectorName="FLOW" label="RenamedColumns" lineStyle="0" metaname="RenamedColumns" offsetLabelX="0" offsetLabelY="0" source="tMap_1" target="tMysqlOutput_4">
     <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
       <elementValue elementRef="TRACE_COLUMN" value="MapProductCONO35"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="LaborAssemblyCost"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="OverheadAssemblyCost"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
