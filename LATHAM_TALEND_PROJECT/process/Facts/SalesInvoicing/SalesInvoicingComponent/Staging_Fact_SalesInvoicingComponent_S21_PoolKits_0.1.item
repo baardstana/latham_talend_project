@@ -544,12 +544,12 @@
         <mapperTableEntries name="DD_ComponentIdentifier" expression="CustomStringHandling.replaceNullAndBlank(PoolKits.DD_ComponentIdentifier) " type="id_String"/>
         <mapperTableEntries name="InvoiceLineComponentQuantity" expression="PoolKits.QUANTITY " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineComponentUnits" expression="Relational.ISNULL(PoolKits.QUANTITY) || Relational.ISNULL(PoolKits.SalesUnit) ? null :&#xD;&#xA;&quot;Unit Override&quot;.equals(PoolKits.UnitOverrideFlag) ? PoolKits.QUANTITY : PoolKits.QUANTITY * PoolKits.SalesUnit " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedSalesValueTransactionCurrency" expression="(PoolKits.LISTPRICE - PoolKits.DISCOUNTAMOUNT) * PoolKits.QUANTITY " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDiscountValueTransactionCurrency" expression="PoolKits.DISCOUNTAMOUNT * PoolKits.QUANTITY " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedListValueTransactionCurrency" expression="PoolKits.LISTPRICE * PoolKits.QUANTITY " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedSalesValueTransactionCurrency" expression="CustomStringHandling.multiplyValues(CustomStringHandling.subtractValues(PoolKits.LISTPRICE,PoolKits.DISCOUNTAMOUNT)&#xD;&#xA;,PoolKits.QUANTITY " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedDiscountValueTransactionCurrency" expression="CustomStringHandling.multiplyValues(PoolKits.DISCOUNTAMOUNT,PoolKits.QUANTITY ) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedListValueTransactionCurrency" expression="CustomStringHandling.multiplyValues(PoolKits.LISTPRICE,PoolKits.QUANTITY )" type="id_Float" nullable="true"/>
         <mapperTableEntries name="FreightRevenueFunctionalCurrency" expression="PoolKits.FreightRevenueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="FreightRevenueTransactionCurrency" expression="PoolKits.FreightRevenueTransactionCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="TotalCostFunctional" expression="PoolKits.CVAL70 - PoolKits.AssemblyCost " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="TotalCostFunctional" expression="CustomStringHandling.subtractValues(PoolKits.CVAL70, PoolKits.AssemblyCost )" type="id_Float" nullable="true"/>
         <mapperTableEntries name="MOVC95" expression="PoolKits.MOVC95 " type="id_Float" nullable="true"/>
         <mapperTableEntries name="BasisInvoice" expression="PoolKits.BasisInvoice " type="id_Float" nullable="true"/>
         <mapperTableEntries name="BasisInvoiceLine" expression="PoolKits.BasisInvoiceLine " type="id_Float" nullable="true"/>
@@ -561,7 +561,7 @@
         <mapperTableEntries name="InvoiceLineExtendedPromotionValueTransactionCurrency" expression="PoolKits.InvoiceLineExtendedPromotionValueTransactionCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineAllocatedSalesTaxValueFunctionalCurrency" expression="CustomStringHandling.sumValues(PoolKits.BIVT65, PoolKits.FreightSalesTaxFunctionalCurrency) " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineAllocatedSalesTaxValueTransactionCurrency" expression="CustomStringHandling.sumValues(PoolKits.INVV65, PoolKits.FreightSalesTaxTransactionCurrency) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineNetUnitPriceTransactionCurrency" expression="PoolKits.LISTPRICE - PoolKits.DISCOUNTAMOUNT " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineNetUnitPriceTransactionCurrency" expression="CustomStringHandling.subtractValues(PoolKits.LISTPRICE, PoolKits.DISCOUNTAMOUNT )" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineListUnitPriceTransactionCurrency" expression="PoolKits.LISTPRICE " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineUnitDiscountValueFunctionalCurrency" expression="PoolKits.DISCOUNTAMOUNT " type="id_Float" nullable="true"/>
       </outputTables>
