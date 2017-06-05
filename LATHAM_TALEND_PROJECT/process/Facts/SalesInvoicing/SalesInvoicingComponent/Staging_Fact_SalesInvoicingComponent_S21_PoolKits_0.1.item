@@ -1646,9 +1646,9 @@
       <column comment="" defaultValue="" key="false" length="10" name="InvoiceLineExtendedListValueUSD" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="10" name="InvoiceLineExtendedListValueFunctionalCurrency" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="10" name="InvoiceLineExtendedListValueTransactionCurrency" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="FreightRevenueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="FreightRevenueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="FreightRevenueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineAllocatedFreightRevenueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineAllocatedFreightRevenueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineAllocatedFreightRevenueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineExtendedTotalDirectCostUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineExtendedTotalDirectCostFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineExtendedTotalDirectCostTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
@@ -1722,9 +1722,9 @@
         <mapperTableEntries name="InvoiceLineExtendedListValueUSD" expression="WithSourceSystem.InvoiceLineExtendedListValueUSD " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedListValueFunctionalCurrency" expression="WithSourceSystem.InvoiceLineExtendedListValueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedListValueTransactionCurrency" expression="WithSourceSystem.InvoiceLineExtendedListValueTransactionCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="FreightRevenueUSD" expression="CustomStringHandling.allocateValue(WithSourceSystem.FreightRevenueUSD,WithSourceSystem.InvoiceLineExtendedSalesValueFunctionalCurrency,WithSourceSystem.BasisInvoice) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="FreightRevenueFunctionalCurrency" expression="CustomStringHandling.allocateValue(WithSourceSystem.FreightRevenueFunctionalCurrency ,WithSourceSystem.InvoiceLineExtendedSalesValueFunctionalCurrency,WithSourceSystem.BasisInvoice) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="FreightRevenueTransactionCurrency" expression="CustomStringHandling.allocateValue(WithSourceSystem.FreightRevenueTransactionCurrency ,WithSourceSystem.InvoiceLineExtendedSalesValueFunctionalCurrency,WithSourceSystem.BasisInvoice) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineAllocatedFreightRevenueUSD" expression="CustomStringHandling.allocateValue(WithSourceSystem.FreightRevenueUSD,WithSourceSystem.InvoiceLineExtendedSalesValueFunctionalCurrency,WithSourceSystem.BasisInvoice) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineAllocatedFreightRevenueFunctionalCurrency" expression="CustomStringHandling.allocateValue(WithSourceSystem.FreightRevenueFunctionalCurrency ,WithSourceSystem.InvoiceLineExtendedSalesValueFunctionalCurrency,WithSourceSystem.BasisInvoice) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineAllocatedFreightRevenueTransactionCurrency" expression="CustomStringHandling.allocateValue(WithSourceSystem.FreightRevenueTransactionCurrency ,WithSourceSystem.InvoiceLineExtendedSalesValueFunctionalCurrency,WithSourceSystem.BasisInvoice) " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedTotalDirectCostUSD" expression="WithSourceSystem.InvoiceLineExtendedTotalDirectCostUSD " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedTotalDirectCostFunctionalCurrency" expression="WithSourceSystem.InvoiceLineExtendedTotalDirectCostFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedTotalDirectCostTransactionCurrency" expression="WithSourceSystem.InvoiceLineExtendedTotalDirectCostTransactionCurrency " type="id_Float" nullable="true"/>
@@ -2082,17 +2082,17 @@
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="FreightRevenueUSD"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceLineAllocatedFreightRevenueUSD"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="FreightRevenueFunctionalCurrency"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceLineAllocatedFreightRevenueFunctionalCurrency"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="FreightRevenueTransactionCurrency"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceLineAllocatedFreightRevenueTransactionCurrency"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
@@ -2299,9 +2299,9 @@
       <column comment="" defaultValue="" key="false" length="10" name="InvoiceLineExtendedListValueUSD" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="10" name="InvoiceLineExtendedListValueFunctionalCurrency" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="10" name="InvoiceLineExtendedListValueTransactionCurrency" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="FreightRevenueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="FreightRevenueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="FreightRevenueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineAllocatedFreightRevenueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineAllocatedFreightRevenueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineAllocatedFreightRevenueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineExtendedTotalDirectCostUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineExtendedTotalDirectCostFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineExtendedTotalDirectCostTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
@@ -2372,9 +2372,9 @@
       <column comment="" defaultValue="" key="false" length="10" name="InvoiceLineExtendedListValueUSD" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="10" name="InvoiceLineExtendedListValueFunctionalCurrency" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="10" name="InvoiceLineExtendedListValueTransactionCurrency" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="FreightRevenueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="FreightRevenueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="FreightRevenueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineAllocatedFreightRevenueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineAllocatedFreightRevenueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineAllocatedFreightRevenueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineExtendedTotalDirectCostUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineExtendedTotalDirectCostFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineExtendedTotalDirectCostTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
@@ -2856,13 +2856,19 @@
       <elementValue elementRef="TRACE_COLUMN" value="DD_ComponentIdentifier"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="FreightRevenueTransactionCurrency"/>
+      <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineAllocatedFreightRevenueTransactionCurrency"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
       <elementValue elementRef="TRACE_COLUMN" value="SK_Stockroom_Manufactured"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
       <elementValue elementRef="TRACE_COLUMN" value="DD_SerialNumber"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineAllocatedFreightRevenueUSD"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineAllocatedFreightRevenueFunctionalCurrency"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
