@@ -2400,6 +2400,7 @@
       <column comment="" defaultValue="" key="false" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_Product" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_Product_Component" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="SK_Stockroom_Manufactured" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_Stockroom_ShippedFrom" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_Geography_ShippedTo" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_USD" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
@@ -2416,12 +2417,9 @@
       <column comment="" key="false" length="7" name="DD_OrderNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="5" name="DD_OrderLineNumber" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="true" length="7" name="DD_InvoiceNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="20" name="DD_CustomerPurchaseOrderNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="19" name="InvoiceLineExtendedTotalDirectCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="19" name="InvoiceLineExtendedDirectLaborCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="19" name="InvoiceLineExtendedDirectOverheadCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="10" name="DD_QuoteNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="40" name="DD_CustomerTagName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
@@ -2429,7 +2427,8 @@
       <outputTables sizeState="INTERMEDIATE" name="RenamedAssembly">
         <mapperTableEntries name="SK_Customer" expression="Assembly.SK_Customer " type="id_Integer"/>
         <mapperTableEntries name="SK_Product" expression="Assembly.SK_Product " type="id_Integer"/>
-        <mapperTableEntries name="SK_Product_Component" expression="Assembly.SK_Product_Component" type="id_Integer"/>
+        <mapperTableEntries name="SK_Product_Component" expression="CustomStringHandling.dimensionKeyHandling(Assembly.SK_Product_Component) " type="id_Integer"/>
+        <mapperTableEntries name="SK_Stockroom_Manufactured" expression="CustomStringHandling.dimensionKeyHandling(Stockroom_Assembly.SK_Stockroom) " type="id_Integer"/>
         <mapperTableEntries name="SK_Stockroom_ShippedFrom" expression="Assembly.SK_Stockroom_ShippedFrom " type="id_Integer"/>
         <mapperTableEntries name="SK_Geography_ShippedTo" expression="Assembly.SK_Geography_ShippedTo " type="id_Integer"/>
         <mapperTableEntries name="SK_Currency_USD" expression="Assembly.SK_Currency_USD " type="id_Integer"/>
@@ -2446,12 +2445,9 @@
         <mapperTableEntries name="DD_OrderNumber" expression="Assembly.DD_OrderNumber " type="id_String"/>
         <mapperTableEntries name="DD_OrderLineNumber" expression="Assembly.DD_OrderLineNumber " type="id_Float"/>
         <mapperTableEntries name="DD_InvoiceNumber" expression="Assembly.DD_InvoiceNumber " type="id_String"/>
-        <mapperTableEntries name="DD_CustomerPurchaseOrderNumber" expression="Assembly.DD_CustomerPurchaseOrderNumber " type="id_String"/>
         <mapperTableEntries name="InvoiceLineExtendedTotalDirectCostFunctionalCurrency" expression="Assembly.AssemblyCost " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedDirectLaborCostFunctionalCurrency" expression="Assembly.LaborAssemblyCost " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedDirectOverheadCostFunctionalCurrency" expression="Assembly.OverheadAssemblyCost " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="DD_QuoteNumber" expression="Assembly.DD_QuoteNumber " type="id_String"/>
-        <mapperTableEntries name="DD_CustomerTagName" expression="Assembly.DD_CustomerTagName " type="id_String"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="Assembly" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Customer" type="id_Integer"/>
