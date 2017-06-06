@@ -547,7 +547,7 @@
         <mapperTableEntries name="CurrentStandardTotalOverheadCostFunctionalCurrency" expression="ViperOrders.CurrentStandardTotalOverheadCostFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineAllocatedSalesTaxValueFunctionalCurrency" expression="CustomStringHandling.sumValues(ViperOrders.BIVT65, ViperOrders.FreightSalesTaxFunctionalCurrency) " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineAllocatedSalesTaxValueTransactionCurrency" expression="CustomStringHandling.sumValues(ViperOrders.INVV65, ViperOrders.FreightSalesTaxTransactionCurrency)" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineNetUnitPriceFunctionalCurrency" expression="ViperOrders.BLIV70  ViperOrders.InvoiceLineQuantity " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineNetUnitPriceFunctionalCurrency" expression="CustomStringHandling.divideValues(ViperOrders.BLIV70, ViperOrders.InvoiceLineQuantity) " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineNetUnitPriceTransactionCurrency" expression="ViperOrders.UPRC70 " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="ViperOrders" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
