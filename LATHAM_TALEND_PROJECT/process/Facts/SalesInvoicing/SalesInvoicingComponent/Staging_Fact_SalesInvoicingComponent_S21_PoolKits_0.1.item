@@ -34,7 +34,7 @@
   </context>
   <parameters>
     <elementParameter field="TEXT" name="SCREEN_OFFSET_X" value="0" show="false"/>
-    <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" value="128" show="false"/>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" value="171" show="false"/>
     <elementParameter field="TEXT" name="REPOSITORY_CONNECTION_ID" value="" show="false"/>
     <elementParameter field="TEXT" name="OOZIE_PROPERTY_TYPENAME" value="" show="false"/>
     <elementParameter field="TEXT" name="OOZIE_HADOOP_DISTRIBUTION" value="" show="false"/>
@@ -2715,7 +2715,7 @@
     <nodeData xsi:type="MapperData">
       <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var">
-        <mapperTableEntries name="Rate" expression="FuncRate.ExchangeRate " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="Rate" expression="TranRate.ExchangeRate " type="id_Float" nullable="true"/>
       </varTables>
       <outputTables sizeState="INTERMEDIATE" name="TransactionAssembly">
         <mapperTableEntries name="SK_Customer" expression="RenamedAssembly.SK_Customer " type="id_Integer"/>
@@ -2774,7 +2774,7 @@
         <mapperTableEntries name="DD_QuoteNumber" type="id_String"/>
         <mapperTableEntries name="DD_CustomerTagName" type="id_String"/>
       </inputTables>
-      <inputTables sizeState="INTERMEDIATE" name="FuncRate" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
+      <inputTables sizeState="INTERMEDIATE" name="TranRate" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="Scenario" expression="&quot;Actual&quot;" type="id_String"/>
         <mapperTableEntries name="ExchangeRateType" expression="&quot;Avg&quot;" type="id_String"/>
         <mapperTableEntries name="SK_Currency_From" expression="RenamedAssembly.SK_Currency_Functional " type="id_Integer" operator="="/>
@@ -4497,9 +4497,9 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="TransactionAssembly" show="false"/>
   </connection>
-  <connection connectorName="FLOW" label="FuncRate" lineStyle="8" metaname="tMysqlInput_8" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_8" target="tMap_8">
+  <connection connectorName="FLOW" label="TranRate" lineStyle="8" metaname="tMysqlInput_8" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_8" target="tMap_8">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="FuncRate" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="TranRate" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="USDAssembly" lineStyle="0" metaname="USDAssembly" offsetLabelX="0" offsetLabelY="0" source="tMap_9" target="tMap_10">
     <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
