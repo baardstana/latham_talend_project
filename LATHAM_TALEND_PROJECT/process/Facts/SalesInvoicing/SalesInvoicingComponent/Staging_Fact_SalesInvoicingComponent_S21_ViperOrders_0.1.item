@@ -303,7 +303,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT count(*)&#xD;&#xA;FROM Staging_Fact_SalesInvoicingComponent_S21_ViperOrderList AS ViperOrders&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_S21_OEP70 AS OEP70&#xD;&#xA;&#x9;ON ViperOrders.CONO70 = OEP70.CONO70&#xD;&#xA;    AND ViperOrders.INVN70 = OEP70.INVN70&#xD;&#xA;    AND ViperOrders.ORDL70 = OEP70.ORDL70&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_S21_OEP65 AS OEP65&#xD;&#xA;&#x9;ON OEP70.CONO70 = OEP65.CONO65&#xD;&#xA;    AND OEP70.INVN70 = OEP65.INVN65&#xD;&#xA;INNER JOIN Extract_MSP40_S21 AS MSP40&#xD;&#xA;&#x9;ON OEP70.CONO70 = MSP40.CONO40&#xD;&#xA;    AND OEP70.ORDN70 = MSP40.W1RF40&#xD;&#xA;    AND OEP70.CATN70 = MSP40.ITEM40&#xD;&#xA;INNER JOIN Extract_MSP42_S21 AS MSP42&#xD;&#xA;&#x9;ON MSP40.CONO40 = MSP42.CONO42&#xD;&#xA;    AND MSP40.WORD40 = MSP42.WORD42&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT SalesInvoicing.SK_Customer&#xD;&#xA;&#x9;, SalesInvoicing.SK_Product&#xD;&#xA;    , Product.SK_Product AS SK_Product_Component&#xD;&#xA;    , MSP42.MapStockroomCONO20_Manufactured&#xD;&#xA;    , MSP42.MapStockroomSTRC20_Manufactured&#xD;&#xA;&#x9;, SalesInvoicing.SK_Stockroom_ShippedFrom&#xD;&#xA;&#x9;, SalesInvoicing.SK_Geography_ShippedTo&#xD;&#xA;&#x9;, SalesInvoicing.SK_Currency_USD&#xD;&#xA;&#x9;, SalesInvoicing.SK_Currency_Functional&#xD;&#xA;&#x9;, SalesInvoicing.SK_Currency_Transaction&#xD;&#xA;&#x9;, SalesInvoicing.SK_Company&#xD;&#xA;&#x9;, SalesInvoicing.SK_SalesOrderDetail&#xD;&#xA;&#x9;, SalesInvoicing.SK_SalesInvoicingDetail&#xD;&#xA;&#x9;, SalesInvoicing.SK_Date_CustomerOrdered&#xD;&#xA;&#x9;, SalesInvoicing.SK_Date_SystemEntered&#xD;&#xA;&#x9;, SalesInvoicing.SK_Date_CurrentPromisedShip&#xD;&#xA;&#x9;, SalesInvoicing.SK_Date_Invoiced&#xD;&#xA;    , MSP42.SK_Date_ActualBuild&#xD;&#xA;&#x9;, SalesInvoicing.DD_OrderNumber&#xD;&#xA;&#x9;, SalesInvoicing.DD_OrderLineNumber&#xD;&#xA;&#x9;, SalesInvoicing.DD_InvoiceNumber&#xD;&#xA;    , MSP42.DD_ComponentIdentifier&#xD;&#xA;    , MSP42.InvoiceLineComponentQuantity&#xD;&#xA;    , Product.SalesUnit&#xD;&#xA;    , Product.UnitOverrideFlag&#xD;&#xA;    , OEP70.BLIV70&#xD;&#xA;    , OEP70.LVAL70&#xD;&#xA;    , OEP50.FreightRevenueFunctionalCurrency&#xD;&#xA;    , OEP50.FreightRevenueTransactionCurrency&#xD;&#xA;    , OEP70.CVAL70&#xD;&#xA;    , INP95.MOVC95&#xD;&#xA;&#x9;, PCP59.AssemblyCost&#xD;&#xA;    , Allocation.BasisInvoice&#xD;&#xA;    , Allocation.BasisInvoiceLine&#xD;&#xA;    , Product.CurrentStandardTotalCostFunctionalCurrency&#xD;&#xA;    , Product.CurrentStandardTotalMaterialCostFunctionalCurrency&#xD;&#xA;    , Product.CurrentStandardTotalLaborCostFunctionalCurrency&#xD;&#xA;    , Product.CurrentStandardTotalOverheadCostFunctionalCurrency&#xD;&#xA;    , OEP65.BIVT65&#xD;&#xA;    , OEP50.FreightSalesTaxFunctionalCurrency&#xD;&#xA;    , OEP65.INVV65&#xD;&#xA;    , OEP50.FreightSalesTaxTransactionCurrency&#xD;&#xA;    , SalesInvoicing.InvoiceLineQuantity&#xD;&#xA;    , OEP70.UPRC70&#xD;&#xA;FROM Staging_Fact_SalesInvoicingComponent_S21_ViperOrderList AS ViperOrders&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_S21 AS SalesInvoicing&#xD;&#xA;&#x9;ON ViperOrders.CONO70 = SalesInvoicing.CONO70&#xD;&#xA;&#x9;AND ViperOrders.INVN70 = SalesInvoicing.INVN70&#xD;&#xA;    AND ViperOrders.ORDL70 = SalesInvoicing.ORDL70&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_S21_OEP65 AS OEP65&#xD;&#xA;&#x9;ON ViperOrders.CONO70 = OEP65.CONO65&#xD;&#xA;&#x9;AND ViperOrders.INVN70 = OEP65.INVN65&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_S21_OEP70 AS OEP70&#xD;&#xA;&#x9;ON ViperOrders.CONO70 = OEP70.CONO70&#xD;&#xA;&#x9;AND ViperOrders.INVN70 = OEP70.INVN70&#xD;&#xA;    AND ViperOrders.ORDL70 = OEP70.ORDL70&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicingComponent_S21_MSP42 AS MSP42&#xD;&#xA;&#x9;ON ViperOrders.CONO70 = MSP42.CONO70&#xD;&#xA;&#x9;AND ViperOrders.INVN70 = MSP42.INVN70&#xD;&#xA;    AND ViperOrders.ORDL70 = MSP42.ORDL70&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_INP95_Viper AS INP95&#xD;&#xA;&#x9;ON MSP42.CONO70 = INP95.CONO70&#xD;&#xA;&#x9;AND MSP42.INVN70 = INP95.INVN70&#xD;&#xA;    AND MSP42.ORDL70 = INP95.ORDL70&#xD;&#xA;    AND MSP42.COMP42 = INP95.PNUM95&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicingComponent_S21_PCP59_Viper AS PCP59 &#xD;&#xA; &#x9;ON ViperOrders.CONO70 = PCP59.CONO70&#xD;&#xA;&#x9;AND ViperOrders.INVN70 = PCP59.INVN70&#xD;&#xA;    AND ViperOrders.ORDL70 = PCP59.ORDL70    &#xD;&#xA;LEFT JOIN LDW_dev.Dim_Product AS Product&#xD;&#xA;&#x9;ON MSP42.MapProductCONO35_Component = Product.BK_Product_CONO35_S21&#xD;&#xA;    AND MSP42.MapProductPNUM35_Component = Product.BK_Product_PNUM35_S21&#xD;&#xA;    AND Product.BK_Product_CONO35_S21 IS NOT NULL&#xD;&#xA;    AND Product.BK_Product_PNUM35_S21 IS NOT NULL&#xD;&#xA;    AND Product.IsCurrent = 1    &#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicingComponent_S21_ViperOrderAllocation AS Allocation &#xD;&#xA; &#x9;ON ViperOrders.CONO70 = Allocation.CONO70&#xD;&#xA;&#x9;AND ViperOrders.INVN70 = Allocation.INVN70&#xD;&#xA;    AND ViperOrders.ORDL70 = Allocation.ORDL70   &#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_OEP50 AS OEP50&#xD;&#xA;&#x9;ON OEP65.CONO65 = OEP50.CONO65&#xD;&#xA;&#x9;AND OEP65.INVN65 = OEP50.INVN65   &#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -314,17 +314,15 @@
     <elementParameter field="CHECK" name="ENABLE_STREAM" value="false"/>
     <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="true"/>
     <elementParameter field="TABLE" name="TRIM_COLUMN" show="false">
-      <elementValue elementRef="SCHEMA_COLUMN" value="CONO70"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="INVN70"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ORDL70"/>
-      <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="SK_Customer"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="SK_Product"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Stockroom_Manufactured"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Product_Component"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="MapStockroomCONO20_Manufactured"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="MapStockroomSTRC20_Manufactured"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="SK_Stockroom_ShippedFrom"/>
       <elementValue elementRef="TRIM" value="false"/>
@@ -358,27 +356,17 @@
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="DD_InvoiceNumber"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="DD_QuoteNumber"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="DD_ComponentIdentifier"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="DD_SerialNumber"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceLineComponentQuantity"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="DD_CustomerPurchaseOrderNumber"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SalesUnit"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="DD_CustomerTagName"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceLineQuantity"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceLineUnits"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="UnitOverrideFlag"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="BLIV70"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="LVAL70"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="BDIS70"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="DISV70"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="DISA11"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="FreightRevenueFunctionalCurrency"/>
       <elementValue elementRef="TRIM" value="false"/>
@@ -386,15 +374,21 @@
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="CVAL70"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceLineExtendedDirectMaterialCostFunctionalCurrency"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="MOVC95"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceLineExtendedDirectLaborCostFunctionalCurrency"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="AssemblyCost"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceLineExtendedDirectOverheadCostFunctionalCurrency"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="BasisInvoice"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="NETA04"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="BasisInvoiceLine"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceLineExtendedPromotionValueTransactionCurrency"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CurrentStandardTotalCostFunctionalCurrency"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CurrentStandardTotalMaterialCostFunctionalCurrency"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CurrentStandardTotalLaborCostFunctionalCurrency"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CurrentStandardTotalOverheadCostFunctionalCurrency"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="BIVT65"/>
       <elementValue elementRef="TRIM" value="false"/>
@@ -404,30 +398,25 @@
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="FreightSalesTaxTransactionCurrency"/>
       <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceLineQuantity"/>
+      <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="UPRC70"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="LSTP11"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="QTOR11"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="AllocationBasis"/>
       <elementValue elementRef="TRIM" value="false"/>
     </elementParameter>
     <elementParameter field="TEXT" name="LABEL" value="ViperOrders"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tMysqlInput_4">
-      <column comment="" key="true" length="2" name="CONO70" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="true" length="7" name="INVN70" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="true" length="5" name="ORDL70" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_Product" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Stockroom_Manufactured" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="SK_Product_Component" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="2" name="MapStockroomCONO20_Manufactured" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="2" name="MapStockroomSTRC20_Manufactured" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_Stockroom_ShippedFrom" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_Geography_ShippedTo" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_USD" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_Functional" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_Transaction" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Company" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Company" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_SalesOrderDetail" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_SalesInvoicingDetail" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="8" name="SK_Date_CustomerOrdered" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
@@ -436,35 +425,31 @@
       <column comment="" defaultValue="" key="false" length="8" name="SK_Date_Invoiced" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="8" name="SK_Date_ActualBuild" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="7" name="DD_OrderNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="5" name="DD_OrderLineNumber" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="7" name="DD_InvoiceNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="10" name="DD_QuoteNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="15" name="DD_SerialNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="20" name="DD_CustomerPurchaseOrderNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="40" name="DD_CustomerTagName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="InvoiceLineQuantity" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="InvoiceLineUnits" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="5" name="DD_OrderLineNumber" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="true" length="7" name="DD_InvoiceNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="true" length="25" name="DD_ComponentIdentifier" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="InvoiceLineComponentQuantity" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="25" name="UnitOverrideFlag" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="BLIV70" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="LVAL70" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="BDIS70" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="DISV70" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="7" name="DISA11" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="FreightRevenueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="FreightRevenueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="CVAL70" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="16" name="InvoiceLineExtendedDirectMaterialCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="16" name="InvoiceLineExtendedDirectLaborCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="16" name="InvoiceLineExtendedDirectOverheadCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="7" name="NETA04" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineExtendedPromotionValueTransactionCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="MOVC95" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="19" name="AssemblyCost" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="19" name="BasisInvoice" nullable="true" pattern="" precision="2" sourceType="DOUBLE" type="id_Double" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="19" name="BasisInvoiceLine" nullable="true" pattern="" precision="2" sourceType="DOUBLE" type="id_Double" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="CurrentStandardTotalCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="CurrentStandardTotalMaterialCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="CurrentStandardTotalLaborCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="CurrentStandardTotalOverheadCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="BIVT65" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="FreightSalesTaxFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="INVV65" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="FreightSalesTaxTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="InvoiceLineQuantity" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="UPRC70" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="7" name="LSTP11" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="7" name="QTOR11" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="19" name="AllocationBasis" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="320" posY="320">
@@ -588,12 +573,11 @@
         <mapperTableEntries name="BLIV70" expression="PoolKits.BLIV70 " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="PoolKits" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
-        <mapperTableEntries name="CONO70" type="id_String"/>
-        <mapperTableEntries name="INVN70" type="id_String"/>
-        <mapperTableEntries name="ORDL70" type="id_Float"/>
         <mapperTableEntries name="SK_Customer" type="id_Integer"/>
         <mapperTableEntries name="SK_Product" type="id_Integer"/>
-        <mapperTableEntries name="SK_Stockroom_Manufactured" type="id_Integer"/>
+        <mapperTableEntries name="SK_Product_Component" type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="MapStockroomCONO20_Manufactured" type="id_String" nullable="true"/>
+        <mapperTableEntries name="MapStockroomSTRC20_Manufactured" type="id_String" nullable="true"/>
         <mapperTableEntries name="SK_Stockroom_ShippedFrom" type="id_Integer"/>
         <mapperTableEntries name="SK_Geography_ShippedTo" type="id_Integer"/>
         <mapperTableEntries name="SK_Currency_USD" type="id_Integer"/>
@@ -610,33 +594,29 @@
         <mapperTableEntries name="DD_OrderNumber" type="id_String"/>
         <mapperTableEntries name="DD_OrderLineNumber" type="id_Float"/>
         <mapperTableEntries name="DD_InvoiceNumber" type="id_String"/>
-        <mapperTableEntries name="DD_QuoteNumber" type="id_String"/>
-        <mapperTableEntries name="DD_SerialNumber" type="id_String"/>
-        <mapperTableEntries name="DD_CustomerPurchaseOrderNumber" type="id_String"/>
-        <mapperTableEntries name="DD_CustomerTagName" type="id_String"/>
-        <mapperTableEntries name="InvoiceLineQuantity" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineUnits" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="DD_ComponentIdentifier" type="id_String"/>
+        <mapperTableEntries name="InvoiceLineComponentQuantity" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="SalesUnit" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="UnitOverrideFlag" type="id_String" nullable="true"/>
         <mapperTableEntries name="BLIV70" type="id_Float" nullable="true"/>
         <mapperTableEntries name="LVAL70" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="BDIS70" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="DISV70" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="DISA11" type="id_Float" nullable="true"/>
         <mapperTableEntries name="FreightRevenueFunctionalCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="FreightRevenueTransactionCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="CVAL70" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectMaterialCostFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectLaborCostFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectOverheadCostFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="NETA04" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedPromotionValueTransactionCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="MOVC95" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="AssemblyCost" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="BasisInvoice" type="id_Double" nullable="true"/>
+        <mapperTableEntries name="BasisInvoiceLine" type="id_Double" nullable="true"/>
+        <mapperTableEntries name="CurrentStandardTotalCostFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="CurrentStandardTotalMaterialCostFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="CurrentStandardTotalLaborCostFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="CurrentStandardTotalOverheadCostFunctionalCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="BIVT65" type="id_Float" nullable="true"/>
         <mapperTableEntries name="FreightSalesTaxFunctionalCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="INVV65" type="id_Float" nullable="true"/>
         <mapperTableEntries name="FreightSalesTaxTransactionCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineQuantity" type="id_Float" nullable="true"/>
         <mapperTableEntries name="UPRC70" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="LSTP11" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="QTOR11" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="AllocationBasis" type="id_Float" nullable="true"/>
       </inputTables>
     </nodeData>
   </node>
@@ -2538,7 +2518,7 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRunJob_3" show="false"/>
     <elementParameter field="CHECK" name="USE_DYNAMIC_JOB" value="false"/>
     <elementParameter field="TEXT" name="CONTEXT_JOB" value="" show="false"/>
-    <elementParameter field="PROCESS_TYPE" name="PROCESS" value="Staging_Fact_SalesInvoicingComponent_S21_PoolKitAllocation"/>
+    <elementParameter field="PROCESS_TYPE" name="PROCESS" value="Staging_Fact_SalesInvoicingComponent_S21_PoolKitAllocationRev"/>
     <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_CONTEXT" value="Default"/>
     <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_PROCESS" value="_kTyv0EbDEeeSgbbuInrSFw"/>
     <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_VERSION" value="Latest"/>
