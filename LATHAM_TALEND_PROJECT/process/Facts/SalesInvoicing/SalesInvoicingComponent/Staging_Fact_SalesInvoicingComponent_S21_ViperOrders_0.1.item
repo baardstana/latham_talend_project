@@ -505,6 +505,7 @@
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineAllocatedSalesTaxValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineNetUnitPriceFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineNetUnitPriceTransactionCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="CVAL70" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
@@ -549,6 +550,7 @@
         <mapperTableEntries name="InvoiceLineAllocatedSalesTaxValueTransactionCurrency" expression="CustomStringHandling.sumValues(ViperOrders.INVV65, ViperOrders.FreightSalesTaxTransactionCurrency)" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineNetUnitPriceFunctionalCurrency" expression="CustomStringHandling.divideValues(ViperOrders.BLIV70, ViperOrders.InvoiceLineQuantity) " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineNetUnitPriceTransactionCurrency" expression="ViperOrders.UPRC70 " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="CVAL70" expression="ViperOrders.CVAL70 " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="ViperOrders" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Customer" type="id_Integer"/>
@@ -699,6 +701,7 @@
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineAllocatedSalesTaxValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineNetUnitPriceFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineNetUnitPriceTransactionCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="CVAL70" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
@@ -746,6 +749,7 @@
         <mapperTableEntries name="InvoiceLineAllocatedSalesTaxValueTransactionCurrency" expression="WithStockroom.InvoiceLineAllocatedSalesTaxValueTransactionCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineNetUnitPriceFunctionalCurrency" expression="WithStockroom.InvoiceLineNetUnitPriceFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineNetUnitPriceTransactionCurrency" expression="WithStockroom.InvoiceLineNetUnitPriceTransactionCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="CVAL70" expression="WithStockroom.CVAL70 " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="WithStockroom" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Customer" type="id_Integer"/>
@@ -787,6 +791,7 @@
         <mapperTableEntries name="InvoiceLineAllocatedSalesTaxValueTransactionCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineNetUnitPriceFunctionalCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineNetUnitPriceTransactionCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="CVAL70" type="id_Float" nullable="true"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="TransactionRate" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="Scenario" expression="&quot;Actual&quot;" type="id_String"/>
@@ -886,15 +891,29 @@
       <column comment="" key="true" length="50" name="DD_ComponentIdentifier" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="50" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="InvoiceLineComponentQuantity" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="InvoiceLineComponentUnits" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineExtendedSalesValueFunctionalCurrency_1" nullable="true" originalDbColumnName="InvoiceLineExtendedSalesValueFunctionalCurrency" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineExtendedSalesValueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineExtendedSalesValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineExtendedSalesValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="FreightRevenueFunctionalCurrency_1" nullable="true" originalDbColumnName="FreightRevenueFunctionalCurrency" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="FreightRevenueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="FreightRevenueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="FreightRevenueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="TotalCostFunctional_1" nullable="true" originalDbColumnName="TotalCostFunctional" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="TotalCostUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="TotalCostFunctional" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="TotalCostTransaction" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="MOVC95" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="19" name="BasisInvoice" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="19" name="BasisInvoiceLine" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="CurrentStandardTotalCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="CurrentStandardTotalMaterialCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="CurrentStandardTotalLaborCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="CurrentStandardTotalOverheadCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineAllocatedSalesTaxValueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineAllocatedSalesTaxValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineAllocatedSalesTaxValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineNetUnitPriceFunctionalUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineNetUnitPriceFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineNetUnitPriceTransactionCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="CVAL70" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
@@ -925,15 +944,29 @@
         <mapperTableEntries name="DD_ComponentIdentifier" expression="WithTransactionRate.DD_ComponentIdentifier " type="id_String"/>
         <mapperTableEntries name="InvoiceLineComponentQuantity" expression="WithTransactionRate.InvoiceLineComponentQuantity " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineComponentUnits" expression="WithTransactionRate.InvoiceLineComponentUnits " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedSalesValueFunctionalCurrency_1" expression="WithTransactionRate.InvoiceLineExtendedSalesValueFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedSalesValueUSD" expression="CustomStringHandling.currencyConversion(WithTransactionRate.InvoiceLineExtendedSalesValueFunctionalCurrency, Var.Rate) " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedSalesValueFunctionalCurrency" expression="WithTransactionRate.InvoiceLineExtendedSalesValueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedSalesValueTransactionCurrency" expression="WithTransactionRate.InvoiceLineExtendedSalesValueTransactionCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="FreightRevenueFunctionalCurrency_1" expression="WithTransactionRate.FreightRevenueFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="FreightRevenueUSD" expression="CustomStringHandling.currencyConversion(WithTransactionRate.FreightRevenueFunctionalCurrency , Var.Rate) " type="id_Float" nullable="true"/>
         <mapperTableEntries name="FreightRevenueFunctionalCurrency" expression="WithTransactionRate.FreightRevenueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="FreightRevenueTransactionCurrency" expression="WithTransactionRate.FreightRevenueTransactionCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="TotalCostFunctional_1" expression="WithTransactionRate.TotalCostFunctional " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="TotalCostUSD" expression="CustomStringHandling.currencyConversion(WithTransactionRate.TotalCostFunctional , Var.Rate) " type="id_Float" nullable="true"/>
         <mapperTableEntries name="TotalCostFunctional" expression="WithTransactionRate.TotalCostFunctional " type="id_Float" nullable="true"/>
         <mapperTableEntries name="TotalCostTransaction" expression="WithTransactionRate.TotalCostTransaction " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="MOVC95" expression="WithTransactionRate.MOVC95 " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="BasisInvoice" expression="WithTransactionRate.BasisInvoice " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="BasisInvoiceLine" expression="WithTransactionRate.BasisInvoiceLine " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="CurrentStandardTotalCostFunctionalCurrency" expression="WithTransactionRate.CurrentStandardTotalCostFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="CurrentStandardTotalMaterialCostFunctionalCurrency" expression="WithTransactionRate.CurrentStandardTotalMaterialCostFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="CurrentStandardTotalLaborCostFunctionalCurrency" expression="WithTransactionRate.CurrentStandardTotalLaborCostFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="CurrentStandardTotalOverheadCostFunctionalCurrency" expression="WithTransactionRate.CurrentStandardTotalOverheadCostFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineAllocatedSalesTaxValueUSD" expression="CustomStringHandling.currencyConversion(WithTransactionRate.InvoiceLineAllocatedSalesTaxValueFunctionalCurrency , Var.Rate) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineAllocatedSalesTaxValueFunctionalCurrency" expression="WithTransactionRate.InvoiceLineAllocatedSalesTaxValueFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineAllocatedSalesTaxValueTransactionCurrency" expression="WithTransactionRate.InvoiceLineAllocatedSalesTaxValueTransactionCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineNetUnitPriceFunctionalUSD" expression="CustomStringHandling.currencyConversion(WithTransactionRate.InvoiceLineNetUnitPriceFunctionalCurrency , Var.Rate) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineNetUnitPriceFunctionalCurrency" expression="WithTransactionRate.InvoiceLineNetUnitPriceFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineNetUnitPriceTransactionCurrency" expression="WithTransactionRate.InvoiceLineNetUnitPriceTransactionCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="CVAL70" expression="WithTransactionRate.CVAL70 " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="WithTransactionRate" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Customer" type="id_Integer"/>
@@ -976,6 +1009,7 @@
         <mapperTableEntries name="InvoiceLineAllocatedSalesTaxValueTransactionCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineNetUnitPriceFunctionalCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineNetUnitPriceTransactionCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="CVAL70" type="id_Float" nullable="true"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="USDRate" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="Scenario" expression="&quot;Actual&quot;" type="id_String"/>
@@ -1226,15 +1260,29 @@
         <mapperTableEntries name="DD_ComponentIdentifier" type="id_String"/>
         <mapperTableEntries name="InvoiceLineComponentQuantity" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineComponentUnits" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedSalesValueFunctionalCurrency_1" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedSalesValueUSD" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedSalesValueFunctionalCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedSalesValueTransactionCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="FreightRevenueFunctionalCurrency_1" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="FreightRevenueUSD" type="id_Float" nullable="true"/>
         <mapperTableEntries name="FreightRevenueFunctionalCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="FreightRevenueTransactionCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="TotalCostFunctional_1" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="TotalCostUSD" type="id_Float" nullable="true"/>
         <mapperTableEntries name="TotalCostFunctional" type="id_Float" nullable="true"/>
         <mapperTableEntries name="TotalCostTransaction" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="MOVC95" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="BasisInvoice" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="BasisInvoiceLine" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="CurrentStandardTotalCostFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="CurrentStandardTotalMaterialCostFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="CurrentStandardTotalLaborCostFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="CurrentStandardTotalOverheadCostFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineAllocatedSalesTaxValueUSD" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineAllocatedSalesTaxValueFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineAllocatedSalesTaxValueTransactionCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineNetUnitPriceFunctionalUSD" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineNetUnitPriceFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineNetUnitPriceTransactionCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="CVAL70" type="id_Float" nullable="true"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="SourceSystem" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_SourceSystem" type="id_Integer"/>
@@ -2008,6 +2056,9 @@
       <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineAllocatedSalesTaxValueFunctionalCurrency"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="CVAL70"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="WithStockroom" show="false"/>
@@ -2017,6 +2068,11 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="Stockroom" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="WithTransactionRate" lineStyle="0" metaname="WithTransactionRate" offsetLabelX="0" offsetLabelY="0" source="tMap_2" target="tMap_4">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="CVAL70"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="WithTransactionRate" show="false"/>
   </connection>
@@ -2060,6 +2116,60 @@
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
       <elementValue elementRef="TRACE_COLUMN" value="FreightRevenueFunctionalCurrency_1"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="CurrentStandardTotalCostFunctionalCurrency"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="CurrentStandardTotalMaterialCostFunctionalCurrency"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineNetUnitPriceTransactionCurrency"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="BasisInvoiceLine"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="MOVC95"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="CurrentStandardTotalOverheadCostFunctionalCurrency"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineAllocatedSalesTaxValueFunctionalCurrency"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="CurrentStandardTotalLaborCostFunctionalCurrency"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="BasisInvoice"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineNetUnitPriceFunctionalUSD"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineAllocatedSalesTaxValueFunctionalCurrency_1"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="CVAL70"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineNetUnitPriceFunctionalCurrency"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineAllocatedSalesTaxValueTransactionCurrency"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="FreightRevenueUSD"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="TotalCostUSD"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineAllocatedSalesTaxValueUSD"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineExtendedSalesValueUSD"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
