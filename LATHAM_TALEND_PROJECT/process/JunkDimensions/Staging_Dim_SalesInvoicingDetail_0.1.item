@@ -255,8 +255,8 @@
         <mapperTableEntries name="VTHD15" type="id_String"/>
         <mapperTableEntries name="PCHD15" type="id_String"/>
       </inputTables>
-      <inputTables sizeState="INTERMEDIATE" name="invoiceCreditReason" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
-        <mapperTableEntries name="reasonID" expression="SalesInvoicingCodes.InvoiceTransactionTypeCode + &quot;_Thor&quot; " type="id_Integer" operator="="/>
+      <inputTables sizeState="INTERMEDIATE" name="invoiceCreditReason" expressionFilter="SalesInvoicingCodes.InvoiceTransactionTypeCode + &quot;_Thor&quot; == invoiceCreditReason.reasonID.toString()" activateExpressionFilter="true" matchingMode="ALL_ROWS" lookupMode="LOAD_ONCE">
+        <mapperTableEntries name="reasonID" expression="" type="id_Integer"/>
         <mapperTableEntries name="description" type="id_String" nullable="true"/>
         <mapperTableEntries name="status" type="id_String" nullable="true"/>
       </inputTables>
