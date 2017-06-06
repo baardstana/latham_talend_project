@@ -427,7 +427,7 @@
       <column comment="" key="false" length="7" name="DD_OrderNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="5" name="DD_OrderLineNumber" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="true" length="7" name="DD_InvoiceNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="true" length="25" name="DD_ComponentIdentifier" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="true" length="25" name="DD_ComponentIdentifier" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="InvoiceLineComponentQuantity" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="25" name="UnitOverrideFlag" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
@@ -530,7 +530,7 @@
         <mapperTableEntries name="DD_OrderNumber" expression="ViperOrders.DD_OrderNumber " type="id_String"/>
         <mapperTableEntries name="DD_OrderLineNumber" expression="ViperOrders.DD_OrderLineNumber " type="id_Float"/>
         <mapperTableEntries name="DD_InvoiceNumber" expression="ViperOrders.DD_InvoiceNumber " type="id_String"/>
-        <mapperTableEntries name="DD_ComponentIdentifier" expression="ViperOrders.DD_ComponentIdentifier " type="id_String"/>
+        <mapperTableEntries name="DD_ComponentIdentifier" expression="CustomStringHandling.replaceNullAndBlank(ViperOrders.DD_ComponentIdentifier) " type="id_String"/>
         <mapperTableEntries name="InvoiceLineComponentQuantity" expression="ViperOrders.InvoiceLineComponentQuantity " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineComponentUnits" expression="Relational.ISNULL(ViperOrders.InvoiceLineComponentQuantity) || Relational.ISNULL(ViperOrders.SalesUnit) ? null :&#xD;&#xA;&quot;Unit Override&quot;.equals(ViperOrders.UnitOverrideFlag) ? ViperOrders.InvoiceLineComponentQuantity : ViperOrders.InvoiceLineComponentQuantity * ViperOrders.SalesUnit " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedSalesValueFunctionalCurrency" expression="ViperOrders.BLIV70 " type="id_Float" nullable="true"/>
@@ -572,7 +572,7 @@
         <mapperTableEntries name="DD_OrderNumber" type="id_String"/>
         <mapperTableEntries name="DD_OrderLineNumber" type="id_Float"/>
         <mapperTableEntries name="DD_InvoiceNumber" type="id_String"/>
-        <mapperTableEntries name="DD_ComponentIdentifier" type="id_String"/>
+        <mapperTableEntries name="DD_ComponentIdentifier" type="id_String" nullable="true"/>
         <mapperTableEntries name="InvoiceLineComponentQuantity" type="id_Float" nullable="true"/>
         <mapperTableEntries name="SalesUnit" type="id_Float" nullable="true"/>
         <mapperTableEntries name="UnitOverrideFlag" type="id_String" nullable="true"/>
