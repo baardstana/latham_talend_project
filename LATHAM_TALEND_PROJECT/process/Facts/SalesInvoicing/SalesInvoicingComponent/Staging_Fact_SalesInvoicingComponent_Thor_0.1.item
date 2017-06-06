@@ -459,8 +459,8 @@
       <column comment="" key="false" length="50" name="DD_CustomerPurchaseOrderNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="50" usefulColumn="true"/>
       <column comment="" key="false" length="10" name="DD_CustomerTagName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="10" usefulColumn="true"/>
       <column comment="" key="true" length="10" name="DD_ComponentIdentifier" nullable="false" pattern="" precision="0" sourceType="" type="id_String" originalLength="10" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="6" name="InvoiceLineQuantity" nullable="true" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="6" usefulColumn="true"/>
-      <column comment="" key="false" length="11" name="InvoiceLineUnits" nullable="true" pattern="" precision="3" sourceType="" type="id_Float" originalLength="11" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="6" name="InvoiceLineComponentQuantity" nullable="true" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="6" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="InvoiceLineComponentUnits" nullable="true" pattern="" precision="3" sourceType="" type="id_Float" originalLength="11" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="18" name="InvoiceLineExtendedSalesValueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="18" name="InvoiceLineExtendedSalesValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="18" name="InvoiceLineExtendedSalesValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
@@ -535,8 +535,8 @@
         <mapperTableEntries name="DD_CustomerPurchaseOrderNumber" expression="Relational.ISNULL(JoinedValues.DD_CustomerPurchaseOrderNumber) ? &quot;N/A&quot; : JoinedValues.DD_CustomerPurchaseOrderNumber " type="id_String"/>
         <mapperTableEntries name="DD_CustomerTagName" expression="JoinedValues.DD_CustomerTagName " type="id_String"/>
         <mapperTableEntries name="DD_ComponentIdentifier" expression="&quot;N/A&quot;" type="id_String"/>
-        <mapperTableEntries name="InvoiceLineQuantity" expression="JoinedValues.InvoiceLineQuantity " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineUnits" expression="Relational.ISNULL(JoinedValues.InvoiceLineQuantity) || Relational.ISNULL(JoinedValues.SalesUnit) ? null : JoinedValues.InvoiceLineQuantity * JoinedValues.SalesUnit " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineComponentQuantity" expression="JoinedValues.InvoiceLineQuantity " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineComponentUnits" expression="Relational.ISNULL(JoinedValues.InvoiceLineQuantity) || Relational.ISNULL(JoinedValues.SalesUnit) ? null : JoinedValues.InvoiceLineQuantity * JoinedValues.SalesUnit " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedSalesValueUSD" expression="JoinedValues.itemSubTotal " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedSalesValueFunctionalCurrency" expression="JoinedValues.itemSubTotal " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedSalesValueTransactionCurrency" expression="JoinedValues.itemSubTotal " type="id_Float" nullable="true"/>
@@ -720,13 +720,13 @@
       <elementValue elementRef="INPUT_COLUMN" value="SK_Product_Component"/>
     </elementParameter>
     <elementParameter field="TABLE" name="OPERATIONS">
-      <elementValue elementRef="OUTPUT_COLUMN" value="InvoiceLineQuantity"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="InvoiceLineComponentQuantity"/>
       <elementValue elementRef="FUNCTION" value="sum"/>
-      <elementValue elementRef="INPUT_COLUMN" value="InvoiceLineQuantity"/>
+      <elementValue elementRef="INPUT_COLUMN" value="SK_Customer"/>
       <elementValue elementRef="IGNORE_NULL" value="true"/>
-      <elementValue elementRef="OUTPUT_COLUMN" value="InvoiceLineUnits"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="InvoiceLineComponentUnits"/>
       <elementValue elementRef="FUNCTION" value="sum"/>
-      <elementValue elementRef="INPUT_COLUMN" value="InvoiceLineUnits"/>
+      <elementValue elementRef="INPUT_COLUMN" value="SK_Customer"/>
       <elementValue elementRef="IGNORE_NULL" value="true"/>
       <elementValue elementRef="OUTPUT_COLUMN" value="InvoiceLineExtendedSalesValueUSD"/>
       <elementValue elementRef="FUNCTION" value="sum"/>
@@ -930,8 +930,8 @@
       <column comment="" key="false" length="50" name="DD_CustomerPurchaseOrderNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="50" usefulColumn="true"/>
       <column comment="" key="false" length="10" name="DD_CustomerTagName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="10" usefulColumn="true"/>
       <column comment="" key="true" length="10" name="DD_ComponentIdentifier" nullable="false" pattern="" precision="0" sourceType="" type="id_String" originalLength="10" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="6" name="InvoiceLineQuantity" nullable="true" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="6" usefulColumn="true"/>
-      <column comment="" key="false" length="11" name="InvoiceLineUnits" nullable="true" pattern="" precision="3" sourceType="" type="id_Float" originalLength="11" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="6" name="InvoiceLineComponentQuantity" nullable="true" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="6" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="InvoiceLineComponentUnits" nullable="true" pattern="" precision="3" sourceType="" type="id_Float" originalLength="11" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="18" name="InvoiceLineExtendedSalesValueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="18" name="InvoiceLineExtendedSalesValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="18" name="InvoiceLineExtendedSalesValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
@@ -1138,12 +1138,12 @@
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceLineQuantity"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceLineComponentQuantity"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceLineUnits"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceLineComponentUnits"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
@@ -1399,8 +1399,8 @@
       <column comment="" key="false" length="50" name="DD_CustomerPurchaseOrderNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="50" usefulColumn="true"/>
       <column comment="" key="false" length="10" name="DD_CustomerTagName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="10" usefulColumn="true"/>
       <column comment="" key="true" length="10" name="DD_ComponentIdentifier" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="10" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="6" name="InvoiceLineQuantity" nullable="true" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="6" usefulColumn="true"/>
-      <column comment="" key="false" length="11" name="InvoiceLineUnits" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="11" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="6" name="InvoiceLineComponentQuantity" nullable="true" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="6" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="InvoiceLineComponentUnits" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="11" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="18" name="InvoiceLineExtendedSalesValueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="18" name="InvoiceLineExtendedSalesValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="18" name="InvoiceLineExtendedSalesValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
@@ -1472,8 +1472,8 @@
       <column comment="" key="false" length="50" name="DD_CustomerPurchaseOrderNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="50" usefulColumn="true"/>
       <column comment="" key="false" length="10" name="DD_CustomerTagName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="10" usefulColumn="true"/>
       <column comment="" key="true" length="10" name="DD_ComponentIdentifier" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="10" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="6" name="InvoiceLineQuantity" nullable="true" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="6" usefulColumn="true"/>
-      <column comment="" key="false" length="11" name="InvoiceLineUnits" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="11" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="6" name="InvoiceLineComponentQuantity" nullable="true" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="6" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="InvoiceLineComponentUnits" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="11" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="18" name="InvoiceLineExtendedSalesValueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="18" name="InvoiceLineExtendedSalesValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="18" name="InvoiceLineExtendedSalesValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
@@ -1710,6 +1710,9 @@
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
       <elementValue elementRef="TRACE_COLUMN" value="SK_Product_Component"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineComponentQuantity"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
