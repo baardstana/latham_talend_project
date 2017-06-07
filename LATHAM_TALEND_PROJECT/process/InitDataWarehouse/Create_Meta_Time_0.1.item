@@ -136,33 +136,7 @@
       </column>
     </metadata>
   </node>
-  <node componentName="tUnite" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="384" posY="160">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tUnite_1" show="false"/>
-    <elementParameter field="TEXT" name="LABEL" value="UniteRows"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tUnite_1">
-      <column comment="" key="false" length="-1" name="Date" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="-1" sourceType="" type="id_Date" originalLength="-1" usefulColumn="true">
-        <additionalField key="FUNCTION_INFO" value="{&quot;NAME&quot;:&quot;addDate&quot;,&quot;PARAMETERS&quot;:[{&quot;PARAMETER_NAME&quot;:&quot;date&quot;,&quot;PARAMETER_VALUE&quot;:&quot;context.startDate &quot;},{&quot;PARAMETER_NAME&quot;:&quot;nb&quot;,&quot;PARAMETER_VALUE&quot;:&quot;Numeric.sequence(\&quot;s1\&quot;,1,1) - 1 &quot;},{&quot;PARAMETER_NAME&quot;:&quot;dateType&quot;,&quot;PARAMETER_VALUE&quot;:&quot;\&quot;dd\&quot; &quot;}],&quot;PARAMETER_CLASS_NAME&quot;:&quot;TalendDate&quot;}"/>
-      </column>
-    </metadata>
-  </node>
-  <node componentName="tRowGenerator" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="96" posY="224">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRowGenerator_2" show="false"/>
-    <elementParameter field="TEXT" name="NB_ROWS" value="1" show="false"/>
-    <elementParameter field="TABLE" name="VALUES" show="false">
-      <elementValue elementRef="SCHEMA_COLUMN" value="Date"/>
-      <elementValue elementRef="ARRAY" value="TalendDate.addDate(TalendDate.parseDate(&quot;yyyy-MM-dd HH:mm:ss&quot;,&quot;9999-01-01 00:00:00&quot;) ,Numeric.sequence(&quot;s1&quot;,1,1) - 1 ,&quot;dd&quot; )"/>
-    </elementParameter>
-    <elementParameter field="EXTERNAL" name="MAP" value=""/>
-    <elementParameter field="TEXT" name="LABEL" value="GenerateDates"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tRowGenerator_2">
-      <column comment="" key="false" length="-1" name="Date" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="-1" sourceType="" type="id_Date" originalLength="-1" usefulColumn="true">
-        <additionalField key="FUNCTION_INFO" value="{&quot;NAME&quot;:&quot;addDate&quot;,&quot;PARAMETERS&quot;:[{&quot;PARAMETER_NAME&quot;:&quot;date&quot;,&quot;PARAMETER_VALUE&quot;:&quot;TalendDate.parseDate(\&quot;yyyy-MM-dd HH:mm:ss\&quot;,\&quot;9999-01-01 00:00:00\&quot;) &quot;},{&quot;PARAMETER_NAME&quot;:&quot;nb&quot;,&quot;PARAMETER_VALUE&quot;:&quot;Numeric.sequence(\&quot;s1\&quot;,1,1) - 1 &quot;},{&quot;PARAMETER_NAME&quot;:&quot;dateType&quot;,&quot;PARAMETER_VALUE&quot;:&quot;\&quot;dd\&quot; &quot;}],&quot;PARAMETER_CLASS_NAME&quot;:&quot;TalendDate&quot;}"/>
-      </column>
-    </metadata>
-  </node>
-  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="576" posY="160">
+  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="320" posY="64">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMap_1" show="false"/>
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
@@ -206,40 +180,40 @@
       <column comment="" key="false" length="3" name="DaysInYear" nullable="true" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="3" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var">
-        <mapperTableEntries name="DayOfWeek" expression="TalendDate.formatDate(&quot;EEEE&quot;,Dates.Date).equals(&quot;Sunday&quot;) ? 1 :&#xD;&#xA;TalendDate.formatDate(&quot;EEEE&quot;,Dates.Date).equals(&quot;Monday&quot;) ? 2 :&#xD;&#xA;TalendDate.formatDate(&quot;EEEE&quot;,Dates.Date).equals(&quot;Tuesday&quot;) ? 3 :&#xD;&#xA;TalendDate.formatDate(&quot;EEEE&quot;,Dates.Date).equals(&quot;Wednesday&quot;) ? 4 :&#xD;&#xA;TalendDate.formatDate(&quot;EEEE&quot;,Dates.Date).equals(&quot;Thursday&quot;) ? 5 :&#xD;&#xA;TalendDate.formatDate(&quot;EEEE&quot;,Dates.Date).equals(&quot;Friday&quot;) ? 6 : 7 " type="id_Integer"/>
-        <mapperTableEntries name="DayOfYear" expression="Integer.parseInt(TalendDate.formatDate(&quot;D&quot;,Dates.Date))" type="id_Integer"/>
-        <mapperTableEntries name="WeekOfYear" expression="Integer.parseInt(TalendDate.formatDate(&quot;w&quot;,Dates.Date))" type="id_Integer"/>
-        <mapperTableEntries name="IsLeapYear" expression="Integer.parseInt(TalendDate.formatDate(&quot;yyyy&quot;,Dates.Date)) % 4 == 0 ? 1 : 0 " type="id_Integer"/>
+        <mapperTableEntries name="DayOfWeek" expression="TalendDate.formatDate(&quot;EEEE&quot;,row1.Date).equals(&quot;Sunday&quot;) ? 1 :&#xD;&#xA;TalendDate.formatDate(&quot;EEEE&quot;,row1.Date).equals(&quot;Monday&quot;) ? 2 :&#xD;&#xA;TalendDate.formatDate(&quot;EEEE&quot;,row1.Date).equals(&quot;Tuesday&quot;) ? 3 :&#xD;&#xA;TalendDate.formatDate(&quot;EEEE&quot;,row1.Date).equals(&quot;Wednesday&quot;) ? 4 :&#xD;&#xA;TalendDate.formatDate(&quot;EEEE&quot;,row1.Date).equals(&quot;Thursday&quot;) ? 5 :&#xD;&#xA;TalendDate.formatDate(&quot;EEEE&quot;,row1.Date).equals(&quot;Friday&quot;) ? 6 : 7 " type="id_Integer"/>
+        <mapperTableEntries name="DayOfYear" expression="Integer.parseInt(TalendDate.formatDate(&quot;D&quot;,row1.Date))" type="id_Integer"/>
+        <mapperTableEntries name="WeekOfYear" expression="Integer.parseInt(TalendDate.formatDate(&quot;w&quot;,row1.Date))" type="id_Integer"/>
+        <mapperTableEntries name="IsLeapYear" expression="Integer.parseInt(TalendDate.formatDate(&quot;yyyy&quot;,row1.Date)) % 4 == 0 ? 1 : 0 " type="id_Integer"/>
         <mapperTableEntries name="DaysInYear" expression="Var.IsLeapYear == 1 ? 366 : 365 " type="id_Integer"/>
       </varTables>
       <outputTables sizeState="INTERMEDIATE" name="DatesWithDetails">
-        <mapperTableEntries name="SK_Date" expression="Integer.parseInt(TalendDate.formatDate(&quot;yyyyMMdd&quot;,Dates.Date))" type="id_Integer"/>
-        <mapperTableEntries name="Date" expression="Dates.Date " type="id_Date" nullable="true"/>
-        <mapperTableEntries name="FullDateUSA" expression="Dates.Date " type="id_Date" nullable="true"/>
-        <mapperTableEntries name="DayOfMonth" expression="Integer.parseInt(TalendDate.formatDate(&quot;d&quot;,Dates.Date))" type="id_Integer" nullable="true"/>
-        <mapperTableEntries name="DayName" expression="TalendDate.formatDate(&quot;EEEE&quot;,Dates.Date) " type="id_String" nullable="true"/>
+        <mapperTableEntries name="SK_Date" expression="Integer.parseInt(TalendDate.formatDate(&quot;yyyyMMdd&quot;,row1.Date))" type="id_Integer"/>
+        <mapperTableEntries name="Date" expression="row1.Date " type="id_Date" nullable="true"/>
+        <mapperTableEntries name="FullDateUSA" expression="row1.Date " type="id_Date" nullable="true"/>
+        <mapperTableEntries name="DayOfMonth" expression="Integer.parseInt(TalendDate.formatDate(&quot;d&quot;,row1.Date))" type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="DayName" expression="TalendDate.formatDate(&quot;EEEE&quot;,row1.Date) " type="id_String" nullable="true"/>
         <mapperTableEntries name="DayOfWeek" expression="Var.DayOfWeek " type="id_Integer" nullable="true"/>
-        <mapperTableEntries name="DayOfWeekInMonth" expression="Integer.parseInt(TalendDate.formatDate(&quot;F&quot;,Dates.Date))" type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="DayOfWeekInMonth" expression="Integer.parseInt(TalendDate.formatDate(&quot;F&quot;,row1.Date))" type="id_Integer" nullable="true"/>
         <mapperTableEntries name="DayOfYear" expression="Var.DayOfYear " type="id_Integer" nullable="true"/>
         <mapperTableEntries name="WeekOfYear" expression="Var.WeekOfYear " type="id_Integer" nullable="true"/>
-        <mapperTableEntries name="Month" expression="Integer.parseInt(TalendDate.formatDate(&quot;MM&quot;,Dates.Date)) " type="id_Integer" nullable="true"/>
-        <mapperTableEntries name="MonthName" expression="TalendDate.formatDate(&quot;MMMM&quot;,Dates.Date) " type="id_String" nullable="true"/>
-        <mapperTableEntries name="MonthShortName" expression="TalendDate.formatDate(&quot;MMM&quot;,Dates.Date) " type="id_String" nullable="true"/>
-        <mapperTableEntries name="MonthOfQuarter" expression="Integer.parseInt(TalendDate.formatDate(&quot;MM&quot;,Dates.Date)) - ((Integer.parseInt(TalendDate.formatDate(&quot;MM&quot;,Dates.Date)) - 1) / 4 ) * 4 " type="id_Integer" nullable="true"/>
-        <mapperTableEntries name="Quarter" expression="(Integer.parseInt(TalendDate.formatDate(&quot;MM&quot;,Dates.Date)) + 2) / 3" type="id_Integer" nullable="true"/>
-        <mapperTableEntries name="QuarterName" expression="&quot;Quarter &quot; +  ((Integer.parseInt(TalendDate.formatDate(&quot;MM&quot;,Dates.Date)) + 2) / 3 ) " type="id_String" nullable="true"/>
-        <mapperTableEntries name="Year" expression="Integer.parseInt(TalendDate.formatDate(&quot;yyyy&quot;,Dates.Date))" type="id_Integer" nullable="true"/>
-        <mapperTableEntries name="YearName" expression="TalendDate.formatDate(&quot;yyyy&quot;,Dates.Date)" type="id_String" nullable="true"/>
-        <mapperTableEntries name="MonthYear" expression="TalendDate.formatDate(&quot;MMM&quot;,Dates.Date) + &quot;-&quot; + TalendDate.formatDate(&quot;yyyy&quot;,Dates.Date)" type="id_String" nullable="true"/>
-        <mapperTableEntries name="YYYYMM" expression="100*Integer.parseInt(TalendDate.formatDate(&quot;yyyy&quot;,Dates.Date))  + Integer.parseInt(TalendDate.formatDate(&quot;MM&quot;,Dates.Date))" type="id_Integer" nullable="true"/>
-        <mapperTableEntries name="FirstDayOfWeek" expression="Var.WeekOfYear == 1 ?&#xD;&#xA;TalendDate.addDate(Dates.Date,-Var.DayOfYear + 1,&quot;dd&quot;) :&#xD;&#xA;TalendDate.addDate(Dates.Date,-Var.DayOfWeek + 1,&quot;dd&quot;) " type="id_Date" nullable="true"/>
-        <mapperTableEntries name="LastDayOfWeek" expression="TalendDate.getPartOfDate(&quot;YEAR&quot;,TalendDate.addDate(Dates.Date,7,&quot;dd&quot;)) == TalendDate.getPartOfDate(&quot;YEAR&quot;,Dates.Date) ?&#xD;&#xA;TalendDate.addDate(Dates.Date, 7 - Var.DayOfWeek, &quot;dd&quot;) :&#xA;TalendDate.addDate(Dates.Date, Var.DaysInYear - Var.DayOfYear, &quot;dd&quot;) " type="id_Date" nullable="true"/>
-        <mapperTableEntries name="FirstDayOfMonth" expression="TalendDate.getFirstDayOfMonth(Dates.Date) " type="id_Date" nullable="true"/>
-        <mapperTableEntries name="LastDayOfMonth" expression="TalendDate.getLastDayOfMonth(Dates.Date)" type="id_Date" nullable="true"/>
-        <mapperTableEntries name="FirstDayOfYear" expression="TalendDate.addDate(Dates.Date,-Var.DayOfYear + 1,&quot;dd&quot;) " type="id_Date" nullable="true"/>
-        <mapperTableEntries name="LastDayOfYear" expression="TalendDate.addDate(TalendDate.addDate(Dates.Date,-Var.DayOfYear,&quot;dd&quot;), 1, &quot;yyyy&quot;) " type="id_Date" nullable="true"/>
+        <mapperTableEntries name="Month" expression="Integer.parseInt(TalendDate.formatDate(&quot;MM&quot;,row1.Date)) " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="MonthName" expression="TalendDate.formatDate(&quot;MMMM&quot;,row1.Date) " type="id_String" nullable="true"/>
+        <mapperTableEntries name="MonthShortName" expression="TalendDate.formatDate(&quot;MMM&quot;,row1.Date) " type="id_String" nullable="true"/>
+        <mapperTableEntries name="MonthOfQuarter" expression="Integer.parseInt(TalendDate.formatDate(&quot;MM&quot;,row1.Date)) - ((Integer.parseInt(TalendDate.formatDate(&quot;MM&quot;,row1.Date)) - 1) / 4 ) * 4 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="Quarter" expression="(Integer.parseInt(TalendDate.formatDate(&quot;MM&quot;,row1.Date)) + 2) / 3" type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="QuarterName" expression="&quot;Quarter &quot; +  ((Integer.parseInt(TalendDate.formatDate(&quot;MM&quot;,row1.Date)) + 2) / 3 ) " type="id_String" nullable="true"/>
+        <mapperTableEntries name="Year" expression="Integer.parseInt(TalendDate.formatDate(&quot;yyyy&quot;,row1.Date))" type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="YearName" expression="TalendDate.formatDate(&quot;yyyy&quot;,row1.Date)" type="id_String" nullable="true"/>
+        <mapperTableEntries name="MonthYear" expression="TalendDate.formatDate(&quot;MMM&quot;,row1.Date) + &quot;-&quot; + TalendDate.formatDate(&quot;yyyy&quot;,row1.Date)" type="id_String" nullable="true"/>
+        <mapperTableEntries name="YYYYMM" expression="100*Integer.parseInt(TalendDate.formatDate(&quot;yyyy&quot;,row1.Date))  + Integer.parseInt(TalendDate.formatDate(&quot;MM&quot;,row1.Date))" type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="FirstDayOfWeek" expression="Var.WeekOfYear == 1 ?&#xD;&#xA;TalendDate.addDate(row1.Date,-Var.DayOfYear + 1,&quot;dd&quot;) :&#xD;&#xA;TalendDate.addDate(row1.Date,-Var.DayOfWeek + 1,&quot;dd&quot;) " type="id_Date" nullable="true"/>
+        <mapperTableEntries name="LastDayOfWeek" expression="TalendDate.getPartOfDate(&quot;YEAR&quot;,TalendDate.addDate(row1.Date,7,&quot;dd&quot;)) == TalendDate.getPartOfDate(&quot;YEAR&quot;,row1.Date) ?&#xD;&#xA;TalendDate.addDate(row1.Date, 7 - Var.DayOfWeek, &quot;dd&quot;) :&#xA;TalendDate.addDate(row1.Date, Var.DaysInYear - Var.DayOfYear, &quot;dd&quot;) " type="id_Date" nullable="true"/>
+        <mapperTableEntries name="FirstDayOfMonth" expression="TalendDate.getFirstDayOfMonth(row1.Date) " type="id_Date" nullable="true"/>
+        <mapperTableEntries name="LastDayOfMonth" expression="TalendDate.getLastDayOfMonth(row1.Date)" type="id_Date" nullable="true"/>
+        <mapperTableEntries name="FirstDayOfYear" expression="TalendDate.addDate(row1.Date,-Var.DayOfYear + 1,&quot;dd&quot;) " type="id_Date" nullable="true"/>
+        <mapperTableEntries name="LastDayOfYear" expression="TalendDate.addDate(TalendDate.addDate(row1.Date,-Var.DayOfYear,&quot;dd&quot;), 1, &quot;yyyy&quot;) " type="id_Date" nullable="true"/>
         <mapperTableEntries name="IsWeekday" expression="Var.DayOfWeek == 1 ||  Var.DayOfWeek == 7 ? 0 : 1 " type="id_Integer" nullable="true"/>
         <mapperTableEntries name="IsLeapYear" expression="Var.IsLeapYear " type="id_Integer" nullable="true"/>
         <mapperTableEntries name="DaysInYear" expression="Var.DaysInYear " type="id_Integer" nullable="true"/>
@@ -249,7 +223,7 @@
       </inputTables>
     </nodeData>
   </node>
-  <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="832" posY="160">
+  <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="576" posY="64">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlOutput_1" show="false"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" value="_nZ81MC5pEeeaXuPQxSDjCQ" show="false"/>
@@ -494,17 +468,9 @@
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <connection connectorName="FLOW" label="NormalDates" lineStyle="10" mergeOrder="1" metaname="tRowGenerator_1" offsetLabelX="0" offsetLabelY="0" source="tRowGenerator_1" target="tUnite_1">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="NormalDates" show="false"/>
-  </connection>
-  <connection connectorName="FLOW" label="Dates" lineStyle="0" metaname="tUnite_1" offsetLabelX="0" offsetLabelY="0" source="tUnite_1" target="tMap_1">
+  <connection connectorName="FLOW" label="Dates" lineStyle="0" metaname="tRowGenerator_1" offsetLabelX="0" offsetLabelY="0" source="tRowGenerator_1" target="tMap_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="Dates" show="false"/>
-  </connection>
-  <connection connectorName="FLOW" label="UnknownRow" lineStyle="10" mergeOrder="2" metaname="tRowGenerator_2" offsetLabelX="0" offsetLabelY="0" source="tRowGenerator_2" target="tUnite_1">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="UnknownRow" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="DatesWithDetails" lineStyle="0" metaname="DatesWithDetails" offsetLabelX="0" offsetLabelY="0" source="tMap_1" target="tMysqlOutput_1">
     <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
