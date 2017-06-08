@@ -157,7 +157,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT CountryCode, PostalCode, CompanyCode, PostalCodeType, CountryName, StateOrProvinceCode&#xD;&#xA;&#x9;,CountyCode, StateOrProvinceName, CountyName, City, TerritorySalesManager, TerritorySalesManagerCode&#xD;&#xA;    ,RegionalSalesDirector, Region, CustomerServiceTeamManager, CustomerServiceTeam, BusinessDevelopmentManager&#xD;&#xA;    ,AutoCoverCustomerServiceManager, 'FlatFiles' AS SourceSystemShortName&#xD;&#xA;FROM Extract_DimGeography_FlatFiles;&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT &#xA;  `Extract_DimGeography_FlatFiles`.`PostalCode`, &#xA;  `Extract_DimGeography_FlatFiles`.`PostalCodeType`, &#xA;  `Extract_DimGeography_FlatFiles`.`PostalCodeLatitude`, &#xA;  `Extract_DimGeography_FlatFiles`.`PostalCodeLongitude`, &#xA;  `Extract_DimGeography_FlatFiles`.`CountryCode`, &#xA;  `Extract_DimGeography_FlatFiles`.`CountryName`, &#xA;  `Extract_DimGeography_FlatFiles`.`StateOrProvinceCode`, &#xA;  `Extract_DimGeography_FlatFiles`.`StateOrProvinceName`, &#xA;  `Extract_DimGeography_FlatFiles`.`City`, &#xA;  `Extract_DimGeography_FlatFiles`.`CountyCode`, &#xA;  `Extract_DimGeography_FlatFiles`.`CountyName`, &#xA;  `Extract_DimGeography_FlatFiles`.`CompanyCode`, &#xA;  `Extract_DimGeography_FlatFiles`.`Region`, &#xA;  `Extract_DimGeography_FlatFiles`.`Territory`, &#xA;  `Extract_DimGeography_FlatFiles`.`RegionalSalesDirector`, &#xA;  `Extract_DimGeography_FlatFiles`.`TerritorySalesManager`, &#xA;  `Extract_DimGeography_FlatFiles`.`FGBusinessDevelopmentManager`, &#xA;  `Extract_DimGeography_FlatFiles`.`FGFieldWarranyRepairLocation`, &#xA;  `Extract_DimGeography_FlatFiles`.`CustomerServiceTeam`, &#xA;  `Extract_DimGeography_FlatFiles`.`CustomerServiceTeamManager`, &#xA;  `Extract_DimGeography_FlatFiles`.`AutoCoverCustomerServiceManager`, &#xA;  `Extract_DimGeography_FlatFiles`.`AutoCoverAccountManagerZone`, &#xA;  `Extract_DimGeography_FlatFiles`.`AutoCoverCustomerAccountManager`, &#xA;  `Extract_DimGeography_FlatFiles`.`AutoCoverProductSpecialistTerritory`, &#xA;  `Extract_DimGeography_FlatFiles`.`AutoCoverProductSpecialist`, &#xA;  `Extract_DimGeography_FlatFiles`.`PCSAccountManagerZone`, &#xA;  `Extract_DimGeography_FlatFiles`.`PCSAccountManager`&#xA;FROM `Extract_DimGeography_FlatFiles`&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -168,67 +168,91 @@
     <elementParameter field="CHECK" name="ENABLE_STREAM" value="false"/>
     <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="false"/>
     <elementParameter field="TABLE" name="TRIM_COLUMN">
-      <elementValue elementRef="SCHEMA_COLUMN" value="CountryCode"/>
-      <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="PostalCode"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="CompanyCode"/>
-      <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="PostalCodeType"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="PostalCodeLatitude"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="PostalCodeLongitude"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CountryCode"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="CountryName"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="StateOrProvinceCode"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="CountyCode"/>
-      <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="StateOrProvinceName"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="CountyName"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="City"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="TerritorySalesManager"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CountyCode"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="TerritorySalesManagerCode"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CountyName"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="RegionalSalesDirector"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CompanyCode"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="Region"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="CustomerServiceTeamManager"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Territory"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="RegionalSalesDirector"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="TerritorySalesManager"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="FGBusinessDevelopmentManager"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="FGFieldWarranyRepairLocation"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="CustomerServiceTeam"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="BusinessDevelopmentManager"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CustomerServiceTeamManager"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="AutoCoverCustomerServiceManager"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SourceSystemShortName"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="AutoCoverAccountManagerZone"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="AutoCoverCustomerAccountManager"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="AutoCoverProductSpecialistTerritory"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="AutoCoverProductSpecialist"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="PCSAccountManagerZone"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="PCSAccountManager"/>
       <elementValue elementRef="TRIM" value="false"/>
     </elementParameter>
     <elementParameter field="TEXT" name="LABEL" value="InputGeography"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tMysqlInput_1">
-      <column comment="" key="false" length="7" name="CountryCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="7" name="PostalCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="7" name="CompanyCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="30" name="PostalCodeType" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="30" name="CountryName" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="7" name="StateOrProvinceCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="250" name="CountyCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="25" name="StateOrProvinceName" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="100" name="CountyName" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="255" name="City" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="100" name="TerritorySalesManager" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="25" name="TerritorySalesManagerCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="100" name="RegionalSalesDirector" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="30" name="Region" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="100" name="CustomerServiceTeamManager" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="100" name="CustomerServiceTeam" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="100" name="BusinessDevelopmentManager" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="100" name="AutoCoverCustomerServiceManager" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="10" name="SourceSystemShortName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="10" usefulColumn="true"/>
+      <column comment="" key="true" length="-1" name="PostalCode" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="PostalCodeType" nullable="true" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="-1" name="PostalCodeLatitude" nullable="true" pattern="" precision="-1" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="-1" name="PostalCodeLongitude" nullable="true" pattern="" precision="-1" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="true" length="-1" name="CountryCode" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="CountryName" nullable="true" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="StateOrProvinceCode" nullable="true" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="StateOrProvinceName" nullable="true" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="City" nullable="true" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="CountyCode" nullable="true" pattern="" precision="-1" sourceType="INT" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="CountyName" nullable="true" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="true" length="-1" name="CompanyCode" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="Region" nullable="true" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="Territory" nullable="true" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="RegionalSalesDirector" nullable="true" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="TerritorySalesManager" nullable="true" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="FGBusinessDevelopmentManager" nullable="true" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="FGFieldWarranyRepairLocation" nullable="true" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="CustomerServiceTeam" nullable="true" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="CustomerServiceTeamManager" nullable="true" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="AutoCoverCustomerServiceManager" nullable="true" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="AutoCoverAccountManagerZone" nullable="true" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="AutoCoverCustomerAccountManager" nullable="true" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="AutoCoverProductSpecialistTerritory" nullable="true" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="AutoCoverProductSpecialist" nullable="true" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="PCSAccountManagerZone" nullable="true" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="PCSAccountManager" nullable="true" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="480" posY="288">
@@ -248,30 +272,44 @@
       <column comment="" key="true" length="2" name="BK_Geography_CountryCode_FlatFiles" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
       <column comment="" key="true" length="5" name="BK_Geography_PostalCode_FlatFiles" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
       <column comment="" key="true" length="2" name="BK_Geography_CompanyCode_FlatFiles" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="7" name="PostalCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="PostalCodeType" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="7" name="CountryCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="7" name="GeographyCompanyCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="CountryName" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="7" name="StateOrProvinceCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="7" name="CountyCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="25" name="StateOrProvinceName" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CountyName" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="255" name="City" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentTerritorySalesManager" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionTerritorySalesManager" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="CurrentTerritorySalesManagerCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="TransactionTerritorySalesManagerCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentRegionalSalesDirector" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionRegionalSalesDirector" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="CurrentRegion" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="TransactionRegion" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CustomerServiceTeamManager" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CustomerServiceTeam" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentBusinessDevelopmentManager" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionBusinessDevelopmentManager" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentAutodesignCustomerServiceManager" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionAutodesignCustomerServiceManager" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="7" name="PostalCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="PostalCodeType" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="7" name="CountryCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="7" name="GeographyCompanyCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="CountryName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="7" name="StateOrProvinceCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="7" name="CountyCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="25" name="StateOrProvinceName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CountyName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="255" name="City" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentTerritorySalesManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionTerritorySalesManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentRegionalSalesDirector" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionRegionalSalesDirector" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="CurrentRegion" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="TransactionRegion" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="CurrentTerritory" nullable="false" pattern="" precision="0" sourceType="" type="id_String" originalLength="30" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="TransactionTerritory" nullable="false" pattern="" precision="0" sourceType="" type="id_String" originalLength="30" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CustomerServiceTeamManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CustomerServiceTeam" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentFGBusinessDevelopmentManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionFGBusinessDevelopmentManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentFGFieldWarrantyRepairLocation" nullable="false" pattern="" precision="0" sourceType="" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionFGFieldWarrantyRepairLocation" nullable="false" pattern="" precision="0" sourceType="" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentAutocoverCustomerServiceManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionAutocoverCustomerServiceManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentAutoCoverAccountManagerZone" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionAutoCoverAccountManagerZone" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentAutoCoverCustomerAccountManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionAutoCoverCustomerAccountManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentAutoCoverProductSpecialistTerritory" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionAutoCoverProductSpecialistTerritory" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentAutoCoverProductSpecialist" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionAutoCoverProductSpecialist" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentPCSAccountManagerZone" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionPCSAccountManagerZone" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentPCSAccountManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionPCSAccountManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
       <column comment="" key="false" length="10" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
       <additionalProperties key="Comment" value=""/>
     </metadata>
@@ -282,57 +320,79 @@
         <mapperTableEntries name="BK_Geography_CountryCode_FlatFiles" expression="InputDimGeography.CountryCode " type="id_String"/>
         <mapperTableEntries name="BK_Geography_PostalCode_FlatFiles" expression="InputDimGeography.PostalCode " type="id_String"/>
         <mapperTableEntries name="BK_Geography_CompanyCode_FlatFiles" expression="InputDimGeography.CompanyCode " type="id_String"/>
-        <mapperTableEntries name="PostalCode" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.PostalCode ) " type="id_String" nullable="true"/>
-        <mapperTableEntries name="PostalCodeType" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.PostalCodeType ) " type="id_String" nullable="true"/>
-        <mapperTableEntries name="CountryCode" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.CountryCode ) " type="id_String" nullable="true"/>
-        <mapperTableEntries name="GeographyCompanyCode" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.CompanyCode ) " type="id_String" nullable="true"/>
-        <mapperTableEntries name="CountryName" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.CountryName ) " type="id_String" nullable="true"/>
-        <mapperTableEntries name="StateOrProvinceCode" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.StateOrProvinceCode ) " type="id_String" nullable="true"/>
-        <mapperTableEntries name="CountyCode" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.CountyCode ) " type="id_String" nullable="true"/>
-        <mapperTableEntries name="StateOrProvinceName" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.StateOrProvinceName ) " type="id_String" nullable="true"/>
-        <mapperTableEntries name="CountyName" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.CountyName ) " type="id_String" nullable="true"/>
-        <mapperTableEntries name="City" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.City ) " type="id_String" nullable="true"/>
-        <mapperTableEntries name="CurrentTerritorySalesManager" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.TerritorySalesManager ) " type="id_String" nullable="true"/>
-        <mapperTableEntries name="TransactionTerritorySalesManager" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.TerritorySalesManager ) " type="id_String" nullable="true"/>
-        <mapperTableEntries name="CurrentTerritorySalesManagerCode" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.TerritorySalesManagerCode ) " type="id_String" nullable="true"/>
-        <mapperTableEntries name="TransactionTerritorySalesManagerCode" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.TerritorySalesManagerCode ) " type="id_String" nullable="true"/>
-        <mapperTableEntries name="CurrentRegionalSalesDirector" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.RegionalSalesDirector ) " type="id_String" nullable="true"/>
-        <mapperTableEntries name="TransactionRegionalSalesDirector" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.RegionalSalesDirector ) " type="id_String" nullable="true"/>
-        <mapperTableEntries name="CurrentRegion" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.Region ) " type="id_String" nullable="true"/>
-        <mapperTableEntries name="TransactionRegion" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.Region ) " type="id_String" nullable="true"/>
-        <mapperTableEntries name="CustomerServiceTeamManager" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.CustomerServiceTeamManager ) " type="id_String" nullable="true"/>
-        <mapperTableEntries name="CustomerServiceTeam" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.CustomerServiceTeam ) " type="id_String" nullable="true"/>
-        <mapperTableEntries name="CurrentBusinessDevelopmentManager" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.BusinessDevelopmentManager ) " type="id_String" nullable="true"/>
-        <mapperTableEntries name="TransactionBusinessDevelopmentManager" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.BusinessDevelopmentManager ) " type="id_String" nullable="true"/>
-        <mapperTableEntries name="CurrentAutodesignCustomerServiceManager" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.AutoCoverCustomerServiceManager) " type="id_String" nullable="true"/>
-        <mapperTableEntries name="TransactionAutodesignCustomerServiceManager" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.AutoCoverCustomerServiceManager) " type="id_String" nullable="true"/>
+        <mapperTableEntries name="PostalCode" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.PostalCode ) " type="id_String"/>
+        <mapperTableEntries name="PostalCodeType" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.PostalCodeType ) " type="id_String"/>
+        <mapperTableEntries name="CountryCode" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.CountryCode ) " type="id_String"/>
+        <mapperTableEntries name="GeographyCompanyCode" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.CompanyCode ) " type="id_String"/>
+        <mapperTableEntries name="CountryName" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.CountryName ) " type="id_String"/>
+        <mapperTableEntries name="StateOrProvinceCode" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.StateOrProvinceCode ) " type="id_String"/>
+        <mapperTableEntries name="CountyCode" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.CountyCode ) " type="id_String"/>
+        <mapperTableEntries name="StateOrProvinceName" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.StateOrProvinceName ) " type="id_String"/>
+        <mapperTableEntries name="CountyName" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.CountyName ) " type="id_String"/>
+        <mapperTableEntries name="City" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.City ) " type="id_String"/>
+        <mapperTableEntries name="CurrentTerritorySalesManager" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.TerritorySalesManager ) " type="id_String"/>
+        <mapperTableEntries name="TransactionTerritorySalesManager" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.TerritorySalesManager ) " type="id_String"/>
+        <mapperTableEntries name="CurrentRegionalSalesDirector" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.RegionalSalesDirector ) " type="id_String"/>
+        <mapperTableEntries name="TransactionRegionalSalesDirector" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.RegionalSalesDirector ) " type="id_String"/>
+        <mapperTableEntries name="CurrentRegion" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.Region ) " type="id_String"/>
+        <mapperTableEntries name="TransactionRegion" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.Region ) " type="id_String"/>
+        <mapperTableEntries name="CurrentTerritory" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.Territory )" type="id_String"/>
+        <mapperTableEntries name="TransactionTerritory" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.Territory )" type="id_String"/>
+        <mapperTableEntries name="CustomerServiceTeamManager" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.CustomerServiceTeamManager ) " type="id_String"/>
+        <mapperTableEntries name="CustomerServiceTeam" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.CustomerServiceTeam ) " type="id_String"/>
+        <mapperTableEntries name="CurrentFGBusinessDevelopmentManager" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.FGBusinessDevelopmentManager ) " type="id_String"/>
+        <mapperTableEntries name="TransactionFGBusinessDevelopmentManager" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.FGBusinessDevelopmentManager ) " type="id_String"/>
+        <mapperTableEntries name="CurrentFGFieldWarrantyRepairLocation" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.FGFieldWarranyRepairLocation )" type="id_String"/>
+        <mapperTableEntries name="TransactionFGFieldWarrantyRepairLocation" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.FGFieldWarranyRepairLocation )" type="id_String"/>
+        <mapperTableEntries name="CurrentAutocoverCustomerServiceManager" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.AutoCoverCustomerServiceManager) " type="id_String"/>
+        <mapperTableEntries name="TransactionAutocoverCustomerServiceManager" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.AutoCoverCustomerServiceManager) " type="id_String"/>
+        <mapperTableEntries name="CurrentAutoCoverAccountManagerZone" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.AutoCoverAccountManagerZone )" type="id_String"/>
+        <mapperTableEntries name="TransactionAutoCoverAccountManagerZone" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.AutoCoverAccountManagerZone )" type="id_String"/>
+        <mapperTableEntries name="CurrentAutoCoverCustomerAccountManager" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.AutoCoverCustomerAccountManager )" type="id_String"/>
+        <mapperTableEntries name="TransactionAutoCoverCustomerAccountManager" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.AutoCoverCustomerAccountManager )" type="id_String"/>
+        <mapperTableEntries name="CurrentAutoCoverProductSpecialistTerritory" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.AutoCoverProductSpecialistTerritory )" type="id_String"/>
+        <mapperTableEntries name="TransactionAutoCoverProductSpecialistTerritory" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.AutoCoverProductSpecialistTerritory )" type="id_String"/>
+        <mapperTableEntries name="CurrentAutoCoverProductSpecialist" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.AutoCoverProductSpecialist )" type="id_String"/>
+        <mapperTableEntries name="TransactionAutoCoverProductSpecialist" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.AutoCoverProductSpecialist )" type="id_String"/>
+        <mapperTableEntries name="CurrentPCSAccountManagerZone" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.PCSAccountManagerZone )" type="id_String"/>
+        <mapperTableEntries name="TransactionPCSAccountManagerZone" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.PCSAccountManagerZone )" type="id_String"/>
+        <mapperTableEntries name="CurrentPCSAccountManager" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.PCSAccountManager )" type="id_String"/>
+        <mapperTableEntries name="TransactionPCSAccountManager" expression="CustomStringHandling.replaceNullAndBlank(InputDimGeography.PCSAccountManager )" type="id_String"/>
         <mapperTableEntries name="SK_SourceSystem" expression="InputMetaSourceSystemDimension.SK_SourceSystem " type="id_Integer"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="InputDimGeography" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
-        <mapperTableEntries name="CountryCode" type="id_String" nullable="true"/>
-        <mapperTableEntries name="PostalCode" type="id_String" nullable="true"/>
-        <mapperTableEntries name="CompanyCode" type="id_String" nullable="true"/>
+        <mapperTableEntries name="PostalCode" type="id_String"/>
         <mapperTableEntries name="PostalCodeType" type="id_String" nullable="true"/>
+        <mapperTableEntries name="PostalCodeLatitude" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="PostalCodeLongitude" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="CountryCode" type="id_String"/>
         <mapperTableEntries name="CountryName" type="id_String" nullable="true"/>
         <mapperTableEntries name="StateOrProvinceCode" type="id_String" nullable="true"/>
-        <mapperTableEntries name="CountyCode" type="id_String" nullable="true"/>
         <mapperTableEntries name="StateOrProvinceName" type="id_String" nullable="true"/>
-        <mapperTableEntries name="CountyName" type="id_String" nullable="true"/>
         <mapperTableEntries name="City" type="id_String" nullable="true"/>
-        <mapperTableEntries name="TerritorySalesManager" type="id_String" nullable="true"/>
-        <mapperTableEntries name="TerritorySalesManagerCode" type="id_String" nullable="true"/>
-        <mapperTableEntries name="RegionalSalesDirector" type="id_String" nullable="true"/>
+        <mapperTableEntries name="CountyCode" type="id_String" nullable="true"/>
+        <mapperTableEntries name="CountyName" type="id_String" nullable="true"/>
+        <mapperTableEntries name="CompanyCode" type="id_String"/>
         <mapperTableEntries name="Region" type="id_String" nullable="true"/>
-        <mapperTableEntries name="CustomerServiceTeamManager" type="id_String" nullable="true"/>
+        <mapperTableEntries name="Territory" type="id_String" nullable="true"/>
+        <mapperTableEntries name="RegionalSalesDirector" type="id_String" nullable="true"/>
+        <mapperTableEntries name="TerritorySalesManager" type="id_String" nullable="true"/>
+        <mapperTableEntries name="FGBusinessDevelopmentManager" type="id_String" nullable="true"/>
+        <mapperTableEntries name="FGFieldWarranyRepairLocation" type="id_String" nullable="true"/>
         <mapperTableEntries name="CustomerServiceTeam" type="id_String" nullable="true"/>
-        <mapperTableEntries name="BusinessDevelopmentManager" type="id_String" nullable="true"/>
+        <mapperTableEntries name="CustomerServiceTeamManager" type="id_String" nullable="true"/>
         <mapperTableEntries name="AutoCoverCustomerServiceManager" type="id_String" nullable="true"/>
-        <mapperTableEntries name="SourceSystemShortName" type="id_String"/>
+        <mapperTableEntries name="AutoCoverAccountManagerZone" type="id_String" nullable="true"/>
+        <mapperTableEntries name="AutoCoverCustomerAccountManager" type="id_String" nullable="true"/>
+        <mapperTableEntries name="AutoCoverProductSpecialistTerritory" type="id_String" nullable="true"/>
+        <mapperTableEntries name="AutoCoverProductSpecialist" type="id_String" nullable="true"/>
+        <mapperTableEntries name="PCSAccountManagerZone" type="id_String" nullable="true"/>
+        <mapperTableEntries name="PCSAccountManager" type="id_String" nullable="true"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="InputMetaSourceSystemDimension" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_SourceSystem" type="id_Integer"/>
-        <mapperTableEntries name="SourceSystemName" type="id_String" nullable="true"/>
-        <mapperTableEntries name="SourceSystemShortName" expression="InputDimGeography.SourceSystemShortName " type="id_String" nullable="true" operator="="/>
+        <mapperTableEntries name="SourceSystemName" expression="" type="id_String" nullable="true"/>
+        <mapperTableEntries name="SourceSystemShortName" expression="&quot;FlatFiles&quot;" type="id_String" nullable="true" operator="="/>
       </inputTables>
     </nodeData>
   </node>
@@ -484,16 +544,6 @@
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="CurrentTerritorySalesManagerCode"/>
-      <elementValue elementRef="UPDATE_KEY" value="false"/>
-      <elementValue elementRef="DELETE_KEY" value="false"/>
-      <elementValue elementRef="UPDATABLE" value="true"/>
-      <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="TransactionTerritorySalesManagerCode"/>
-      <elementValue elementRef="UPDATE_KEY" value="false"/>
-      <elementValue elementRef="DELETE_KEY" value="false"/>
-      <elementValue elementRef="UPDATABLE" value="true"/>
-      <elementValue elementRef="INSERTABLE" value="true"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="CurrentRegionalSalesDirector"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
@@ -514,6 +564,16 @@
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CurrentTerritory"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="TransactionTerritory"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="CustomerServiceTeamManager"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
@@ -524,22 +584,92 @@
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="CurrentBusinessDevelopmentManager"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CurrentFGBusinessDevelopmentManager"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="TransactionBusinessDevelopmentManager"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="TransactionFGBusinessDevelopmentManager"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="CurrentAutodesignCustomerServiceManager"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CurrentFGFieldWarrantyRepairLocation"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="TransactionAutodesignCustomerServiceManager"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="TransactionFGFieldWarrantyRepairLocation"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CurrentAutocoverCustomerServiceManager"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="TransactionAutocoverCustomerServiceManager"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CurrentAutoCoverAccountManagerZone"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="TransactionAutoCoverAccountManagerZone"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CurrentAutoCoverCustomerAccountManager"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="TransactionAutoCoverCustomerAccountManager"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CurrentAutoCoverProductSpecialistTerritory"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="TransactionAutoCoverProductSpecialistTerritory"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CurrentAutoCoverProductSpecialist"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="TransactionAutoCoverProductSpecialist"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CurrentPCSAccountManagerZone"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="TransactionPCSAccountManagerZone"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CurrentPCSAccountManager"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="TransactionPCSAccountManager"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
@@ -562,30 +692,44 @@
       <column comment="" key="true" length="2" name="BK_Geography_CountryCode_FlatFiles" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
       <column comment="" key="true" length="5" name="BK_Geography_PostalCode_FlatFiles" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
       <column comment="" key="true" length="2" name="BK_Geography_CompanyCode_FlatFiles" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="7" name="PostalCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="PostalCodeType" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="7" name="CountryCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="7" name="GeographyCompanyCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="CountryName" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="7" name="StateOrProvinceCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="7" name="CountyCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="25" name="StateOrProvinceName" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CountyName" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="255" name="City" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentTerritorySalesManager" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionTerritorySalesManager" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="CurrentTerritorySalesManagerCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="TransactionTerritorySalesManagerCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentRegionalSalesDirector" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionRegionalSalesDirector" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="CurrentRegion" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="TransactionRegion" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CustomerServiceTeamManager" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CustomerServiceTeam" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentBusinessDevelopmentManager" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionBusinessDevelopmentManager" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentAutodesignCustomerServiceManager" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionAutodesignCustomerServiceManager" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="7" name="PostalCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="PostalCodeType" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="7" name="CountryCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="7" name="GeographyCompanyCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="CountryName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="7" name="StateOrProvinceCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="7" name="CountyCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="25" name="StateOrProvinceName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CountyName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="255" name="City" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentTerritorySalesManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionTerritorySalesManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentRegionalSalesDirector" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionRegionalSalesDirector" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="CurrentRegion" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="TransactionRegion" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="CurrentTerritory" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="30" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="TransactionTerritory" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="30" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CustomerServiceTeamManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CustomerServiceTeam" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentFGBusinessDevelopmentManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionFGBusinessDevelopmentManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentFGFieldWarrantyRepairLocation" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionFGFieldWarrantyRepairLocation" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentAutocoverCustomerServiceManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionAutocoverCustomerServiceManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentAutoCoverAccountManagerZone" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionAutoCoverAccountManagerZone" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentAutoCoverCustomerAccountManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionAutoCoverCustomerAccountManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentAutoCoverProductSpecialistTerritory" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionAutoCoverProductSpecialistTerritory" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentAutoCoverProductSpecialist" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionAutoCoverProductSpecialist" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentPCSAccountManagerZone" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionPCSAccountManagerZone" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentPCSAccountManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionPCSAccountManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
       <column comment="" key="false" length="10" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
       <additionalProperties key="Comment" value=""/>
     </metadata>
@@ -593,30 +737,44 @@
       <column comment="" key="true" length="2" name="BK_Geography_CountryCode_FlatFiles" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
       <column comment="" key="true" length="5" name="BK_Geography_PostalCode_FlatFiles" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
       <column comment="" key="true" length="2" name="BK_Geography_CompanyCode_FlatFiles" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="7" name="PostalCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="PostalCodeType" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="7" name="CountryCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="7" name="GeographyCompanyCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="CountryName" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="7" name="StateOrProvinceCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="7" name="CountyCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="25" name="StateOrProvinceName" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CountyName" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="255" name="City" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentTerritorySalesManager" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionTerritorySalesManager" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="CurrentTerritorySalesManagerCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="TransactionTerritorySalesManagerCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentRegionalSalesDirector" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionRegionalSalesDirector" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="CurrentRegion" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="TransactionRegion" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CustomerServiceTeamManager" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CustomerServiceTeam" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentBusinessDevelopmentManager" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionBusinessDevelopmentManager" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentAutodesignCustomerServiceManager" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionAutodesignCustomerServiceManager" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="7" name="PostalCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="PostalCodeType" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="7" name="CountryCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="7" name="GeographyCompanyCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="CountryName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="7" name="StateOrProvinceCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="7" name="CountyCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="25" name="StateOrProvinceName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CountyName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="255" name="City" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentTerritorySalesManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionTerritorySalesManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentRegionalSalesDirector" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionRegionalSalesDirector" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="CurrentRegion" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="TransactionRegion" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="CurrentTerritory" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="30" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="30" name="TransactionTerritory" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="30" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CustomerServiceTeamManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CustomerServiceTeam" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentFGBusinessDevelopmentManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionFGBusinessDevelopmentManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentFGFieldWarrantyRepairLocation" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionFGFieldWarrantyRepairLocation" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentAutocoverCustomerServiceManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionAutocoverCustomerServiceManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentAutoCoverAccountManagerZone" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionAutoCoverAccountManagerZone" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentAutoCoverCustomerAccountManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionAutoCoverCustomerAccountManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentAutoCoverProductSpecialistTerritory" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionAutoCoverProductSpecialistTerritory" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentAutoCoverProductSpecialist" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionAutoCoverProductSpecialist" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentPCSAccountManagerZone" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionPCSAccountManagerZone" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="CurrentPCSAccountManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
+      <column comment="" defaultValue="'Unknown'" key="false" length="100" name="TransactionPCSAccountManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="100" usefulColumn="true"/>
       <column comment="" key="false" length="10" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
@@ -775,6 +933,68 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk1" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="StageDimGeography" lineStyle="0" metaname="StageDimGeography" offsetLabelX="0" offsetLabelY="0" source="tMap_1" target="tMysqlOutput_1">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="CurrentFGFieldWarrantyRepairLocation"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="CurrentAutoCoverProductSpecialist"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="TransactionTerritory"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="TransactionAutoCoverProductSpecialistTerritory"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="TransactionAutoCoverProductSpecialist"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="CurrentTerritory"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="CurrentAutoCoverAccountManagerZone"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="TransactionAutoCoverAccountManagerZone"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="CurrentPCSAccountManager"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="TransactionAutocoverCustomerServiceManager"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="CurrentAutoCoverCustomerAccountManager"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="TransactionPCSAccountManagerZone"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="TransactionAutoCoverCustomerAccountManager"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="TransactionFGBusinessDevelopmentManager"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="CurrentAutocoverCustomerServiceManager"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="CurrentFGBusinessDevelopmentManager"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="CurrentAutoCoverProductSpecialistTerritory"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="CurrentPCSAccountManagerZone"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="TransactionPCSAccountManager"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="TransactionFGFieldWarrantyRepairLocation"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="StageDimGeography" show="false"/>
   </connection>
