@@ -303,7 +303,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT f.SK_Customer,&#xD;&#xA;    f.SK_Product,&#xD;&#xA;    f.SK_Stockroom,&#xD;&#xA;    f.SK_Geography_ShipDestination,&#xD;&#xA;    f.SK_Currency_USD,&#xD;&#xA;    f.SK_Currency_Functional,&#xD;&#xA;    f.SK_Currency_Transaction,&#xD;&#xA;    f.SK_Company,&#xD;&#xA;    f.SK_SalesOrderDetail,&#xD;&#xA;    f.SK_Date_CustomerOrdered,&#xD;&#xA;    f.SK_Date_SystemEntered,&#xD;&#xA;    f.SK_Date_CurrentPromisedShip,&#xD;&#xA;    f.SK_Date_ScheduledBuild,&#xD;&#xA;    f.SK_Date_OrderCompletion,&#xD;&#xA;    f.DD_OrderNumber,&#xD;&#xA;    f.DD_OrderLineNumber,&#xD;&#xA;    f.DD_QuoteNumber,&#xD;&#xA;    f.DD_SerialNumber,&#xD;&#xA;    f.DD_CustomerPurchaseOrderNumber,&#xD;&#xA;    f.DD_CustomerTagName,&#xD;&#xA;    f.OrderLineQuantityOrdered,&#xD;&#xA;    f.OrderLineQuantityOutstanding,&#xD;&#xA;    f.OrderLineQuantityShipped,&#xD;&#xA;    f.OrderLineUnitsOrdered,&#xD;&#xA;    f.OrderLineUnitsOutstanding,&#xD;&#xA;    f.OrderLineUnitsShipped,&#xD;&#xA;    f.OrderLineExtendedValueUSD,&#xD;&#xA;    f.OrderLineExtendedValueFunctionalCurrency,&#xD;&#xA;    f.OrderLineExtendedValueTransactionCurrency,&#xD;&#xA;    f.OrderLineNetUnitPriceUSD,&#xD;&#xA;    f.OrderLineNetUnitPriceFunctionalCurrency,&#xD;&#xA;    f.OrderLineNetUnitPriceTransactionCurrency,&#xD;&#xA;    f.OrderLineExtendedDiscountValueUSD,&#xD;&#xA;    f.OrderLineExtendedDiscountValueFunctionalCurrency,&#xD;&#xA;    f.OrderLineExtendedDiscountValueTransactionCurrency,&#xD;&#xA;    f.SK_SourceSystem&#xD;&#xA;FROM Fact_SalesOrders AS f&#xD;&#xA;INNER JOIN Dim_SalesOrderDetail AS d&#xD;&#xA;&#x9;ON f.SK_SalesOrderDetail = d.SK_SalesOrderDetail&#xD;&#xA;    AND d.OrderStatusCode NOT IN ('C','X')&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT f.SK_Customer,&#xD;&#xA;    f.SK_Product,&#xD;&#xA;    f.SK_Stockroom,&#xD;&#xA;    f.SK_Geography_ShipDestination,&#xD;&#xA;    f.SK_Currency_USD,&#xD;&#xA;    f.SK_Currency_Functional,&#xD;&#xA;    f.SK_Currency_Transaction,&#xD;&#xA;    f.SK_Company,&#xD;&#xA;    f.SK_SalesOrderDetail,&#xD;&#xA;    f.SK_Date_CustomerOrdered,&#xD;&#xA;    f.SK_Date_SystemEntered,&#xD;&#xA;    f.SK_Date_CurrentPromisedShip,&#xD;&#xA;    f.SK_Date_ScheduledBuild,&#xD;&#xA;    f.DD_OrderNumber,&#xD;&#xA;    f.DD_OrderLineNumber,&#xD;&#xA;    f.DD_QuoteNumber,&#xD;&#xA;    f.DD_SerialNumber,&#xD;&#xA;    f.DD_CustomerPurchaseOrderNumber,&#xD;&#xA;    f.DD_CustomerTagName,&#xD;&#xA;    f.OrderLineQuantityOutstanding,&#xD;&#xA;    f.OrderLineUnitsOutstanding,&#xD;&#xA;    f.OrderLineExtendedValueUSD,&#xD;&#xA;    f.OrderLineExtendedValueFunctionalCurrency,&#xD;&#xA;    f.OrderLineExtendedValueTransactionCurrency,&#xD;&#xA;    f.SK_SourceSystem&#xD;&#xA;FROM Fact_SalesOrders AS f&#xD;&#xA;INNER JOIN Dim_SalesOrderDetail AS d&#xD;&#xA;&#x9;ON f.SK_SalesOrderDetail = d.SK_SalesOrderDetail&#xD;&#xA;    AND d.OrderStatusCode NOT IN ('C','X')&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -340,8 +340,6 @@
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="SK_Date_ScheduledBuild"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Date_OrderCompletion"/>
-      <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="DD_OrderNumber"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="DD_OrderLineNumber"/>
@@ -354,35 +352,15 @@
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="DD_CustomerTagName"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="OrderLineQuantityOrdered"/>
-      <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="OrderLineQuantityOutstanding"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="OrderLineQuantityShipped"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="OrderLineUnitsOrdered"/>
-      <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="OrderLineUnitsOutstanding"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="OrderLineUnitsShipped"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="OrderLineExtendedValueUSD"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="OrderLineExtendedValueFunctionalCurrency"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="OrderLineExtendedValueTransactionCurrency"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="OrderLineNetUnitPriceUSD"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="OrderLineNetUnitPriceFunctionalCurrency"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="OrderLineNetUnitPriceTransactionCurrency"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="OrderLineExtendedDiscountValueUSD"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="OrderLineExtendedDiscountValueFunctionalCurrency"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="OrderLineExtendedDiscountValueTransactionCurrency"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="SK_SourceSystem"/>
       <elementValue elementRef="TRIM" value="false"/>
@@ -403,28 +381,17 @@
       <column comment="" defaultValue="" key="false" length="11" name="SK_Date_SystemEntered" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_Date_CurrentPromisedShip" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_Date_ScheduledBuild" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Date_OrderCompletion" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="true" length="50" name="DD_OrderNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="11" name="DD_OrderLineNumber" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="12" name="DD_QuoteNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="50" name="DD_SerialNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="50" name="DD_CustomerPurchaseOrderNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="40" name="DD_CustomerTagName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="OrderLineUnitsOrdered" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="OrderLineUnitsOutstanding" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="OrderLineUnitsShipped" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="OrderLineExtendedValueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="OrderLineExtendedValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="OrderLineExtendedValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="OrderLineNetUnitPriceUSD" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="OrderLineNetUnitPriceFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="OrderLineNetUnitPriceTransactionCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="OrderLineExtendedDiscountValueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="OrderLineExtendedDiscountValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="OrderLineExtendedDiscountValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
@@ -514,28 +481,17 @@
         <mapperTableEntries name="SK_Date_SystemEntered" type="id_Integer"/>
         <mapperTableEntries name="SK_Date_CurrentPromisedShip" type="id_Integer"/>
         <mapperTableEntries name="SK_Date_ScheduledBuild" type="id_Integer"/>
-        <mapperTableEntries name="SK_Date_OrderCompletion" type="id_Integer"/>
         <mapperTableEntries name="DD_OrderNumber" type="id_String"/>
         <mapperTableEntries name="DD_OrderLineNumber" type="id_Float"/>
         <mapperTableEntries name="DD_QuoteNumber" type="id_String"/>
         <mapperTableEntries name="DD_SerialNumber" type="id_String"/>
         <mapperTableEntries name="DD_CustomerPurchaseOrderNumber" type="id_String"/>
         <mapperTableEntries name="DD_CustomerTagName" type="id_String"/>
-        <mapperTableEntries name="OrderLineQuantityOrdered" type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineQuantityOutstanding" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OrderLineQuantityShipped" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OrderLineUnitsOrdered" type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineUnitsOutstanding" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OrderLineUnitsShipped" type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedValueUSD" type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedValueFunctionalCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedValueTransactionCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OrderLineNetUnitPriceUSD" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OrderLineNetUnitPriceFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OrderLineNetUnitPriceTransactionCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OrderLineExtendedDiscountValueUSD" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OrderLineExtendedDiscountValueFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OrderLineExtendedDiscountValueTransactionCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="SK_SourceSystem" type="id_Integer"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="Now" matchingMode="ALL_ROWS" lookupMode="LOAD_ONCE">
