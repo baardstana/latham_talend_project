@@ -1799,10 +1799,10 @@
       <column comment="" defaultValue="" key="false" length="18" name="OrderLineExtendedDiscountValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="WithCompany">
-        <mapperTableEntries name="SK_Company" expression="Relational.ISNULL(Company.SK_Company) ? -1 : Company.SK_Company " type="id_Integer"/>
+        <mapperTableEntries name="SK_Company" expression="CustomStringHandling.dimensionKeyHandling(Company.SK_Company) " type="id_Integer"/>
         <mapperTableEntries name="MapProductProductId" expression="JoinedTables.MapProductProductId " type="id_Integer"/>
         <mapperTableEntries name="MapCustomerDealerId" expression="JoinedTables.MapCustomerDealerId " type="id_Integer" nullable="true"/>
         <mapperTableEntries name="MapCustomerDealerOfficeId" expression="JoinedTables.MapCustomerDealerOfficeId " type="id_Integer" nullable="true"/>
@@ -1984,12 +1984,12 @@
       <column comment="" key="false" length="11" name="SK_Currency_Transaction" nullable="false" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="11" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="WithCurrency">
         <mapperTableEntries name="SK_Company" expression="WithCompany.SK_Company " type="id_Integer"/>
-        <mapperTableEntries name="SK_Currency_USD" expression="Relational.ISNULL(Currency.SK_Currency) ? -1 : Currency.SK_Currency " type="id_Integer"/>
-        <mapperTableEntries name="SK_Currency_Functional" expression="Relational.ISNULL(Currency.SK_Currency) ? -1 : Currency.SK_Currency " type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_USD" expression="CustomStringHandling.dimensionKeyHandling(Currency.SK_Currency )" type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_Functional" expression="CustomStringHandling.dimensionKeyHandling(Currency.SK_Currency )" type="id_Integer"/>
         <mapperTableEntries name="MapProductProductId" expression="WithCompany.MapProductProductId " type="id_Integer"/>
         <mapperTableEntries name="MapCustomerDealerId" expression="WithCompany.MapCustomerDealerId " type="id_Integer" nullable="true"/>
         <mapperTableEntries name="MapCustomerDealerOfficeId" expression="WithCompany.MapCustomerDealerOfficeId " type="id_Integer" nullable="true"/>
@@ -2027,7 +2027,7 @@
         <mapperTableEntries name="OrderLineExtendedDiscountValueUSD" expression="WithCompany.OrderLineExtendedDiscountValueUSD " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedDiscountValueFunctionalCurrency" expression="WithCompany.OrderLineExtendedDiscountValueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OrderLineExtendedDiscountValueTransactionCurrency" expression="WithCompany.OrderLineExtendedDiscountValueTransactionCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="SK_Currency_Transaction" expression="Relational.ISNULL(Currency.SK_Currency) ? -1 : Currency.SK_Currency " type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_Transaction" expression="CustomStringHandling.dimensionKeyHandling(Currency.SK_Currency )" type="id_Integer"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="WithCompany" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Company" type="id_Integer"/>
@@ -2170,11 +2170,11 @@
       <column comment="" key="false" length="11" name="SK_Currency_Transaction" nullable="false" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="11" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="WithCustomer">
         <mapperTableEntries name="SK_Company" expression="WithCurrency.SK_Company " type="id_Integer"/>
-        <mapperTableEntries name="SK_Customer" expression="Relational.ISNULL(Customer.SK_Customer) ? -1 : Customer.SK_Customer " type="id_Integer"/>
+        <mapperTableEntries name="SK_Customer" expression="CustomStringHandling.dimensionKeyHandling(Customer.SK_Customer )" type="id_Integer"/>
         <mapperTableEntries name="MapProductProductId" expression="WithCurrency.MapProductProductId " type="id_Integer"/>
         <mapperTableEntries name="MapStockroomPlantCode" expression="WithCurrency.MapStockroomPlantCode " type="id_String"/>
         <mapperTableEntries name="MapGeographyPostalCode" expression="WithCurrency.MapGeographyPostalCode " type="id_String"/>
@@ -2361,12 +2361,12 @@
       <column comment="" key="false" length="11" name="SK_Currency_Transaction" nullable="false" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="11" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="WithGeography">
         <mapperTableEntries name="SK_Company" expression="WithCustomer.SK_Company " type="id_Integer"/>
         <mapperTableEntries name="SK_Customer" expression="WithCustomer.SK_Customer " type="id_Integer"/>
-        <mapperTableEntries name="SK_Geography_ShipDestination" expression="Relational.ISNULL(Geography.SK_Geography) ? -1 : Geography.SK_Geography " type="id_Integer"/>
+        <mapperTableEntries name="SK_Geography_ShipDestination" expression="CustomStringHandling.dimensionKeyHandling(Geography.SK_Geography)" type="id_Integer"/>
         <mapperTableEntries name="MapProductProductId" expression="WithCustomer.MapProductProductId " type="id_Integer"/>
         <mapperTableEntries name="MapStockroomPlantCode" expression="WithCustomer.MapStockroomPlantCode " type="id_String"/>
         <mapperTableEntries name="OrderSourceCode" expression="WithCustomer.OrderSourceCode " type="id_String"/>
@@ -2551,13 +2551,13 @@
       <column comment="" key="false" length="11" name="SK_Currency_Transaction" nullable="false" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="11" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="WithProduct">
         <mapperTableEntries name="SK_Company" expression="WithGeography.SK_Company " type="id_Integer"/>
         <mapperTableEntries name="SK_Customer" expression="WithGeography.SK_Customer " type="id_Integer"/>
         <mapperTableEntries name="SK_Geography_ShipDestination" expression="WithGeography.SK_Geography_ShipDestination" type="id_Integer"/>
-        <mapperTableEntries name="SK_Product" expression="Relational.ISNULL(Product.SK_Product) ? -1 : Product.SK_Product " type="id_Integer"/>
+        <mapperTableEntries name="SK_Product" expression="CustomStringHandling.dimensionKeyHandling(Product.SK_Product )" type="id_Integer"/>
         <mapperTableEntries name="MapStockroomPlantCode" expression="WithGeography.MapStockroomPlantCode " type="id_String"/>
         <mapperTableEntries name="OrderSourceCode" expression="WithGeography.OrderSourceCode " type="id_String"/>
         <mapperTableEntries name="OrderLineTypeCode" expression="WithGeography.OrderLineTypeCode " type="id_String"/>
@@ -2743,14 +2743,14 @@
       <column comment="" key="false" length="11" name="SK_Currency_Transaction" nullable="false" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="11" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="WithStockroom">
         <mapperTableEntries name="SK_Company" expression="WithProduct.SK_Company " type="id_Integer"/>
         <mapperTableEntries name="SK_Customer" expression="WithProduct.SK_Customer " type="id_Integer"/>
         <mapperTableEntries name="SK_Geography_ShipDestination" expression="WithProduct.SK_Geography_ShipDestination " type="id_Integer"/>
         <mapperTableEntries name="SK_Product" expression="WithProduct.SK_Product " type="id_Integer"/>
-        <mapperTableEntries name="SK_Stockroom" expression="Relational.ISNULL(Stockroom.SK_Stockroom) ? -1 : Stockroom.SK_Stockroom " type="id_Integer"/>
+        <mapperTableEntries name="SK_Stockroom" expression="CustomStringHandling.dimensionKeyHandling(Stockroom.SK_Stockroom )" type="id_Integer"/>
         <mapperTableEntries name="OrderSourceCode" expression="WithProduct.OrderSourceCode " type="id_String"/>
         <mapperTableEntries name="OrderLineTypeCode" expression="WithProduct.OrderLineTypeCode " type="id_String"/>
         <mapperTableEntries name="OrderStatusCode" expression="WithProduct.OrderStatusCode " type="id_String"/>
@@ -2927,7 +2927,7 @@
       <column comment="" key="false" length="11" name="SK_Currency_Transaction" nullable="false" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="11" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="WithSalesOrderDetail">
         <mapperTableEntries name="SK_Company" expression="WithStockroom.SK_Company " type="id_Integer"/>
