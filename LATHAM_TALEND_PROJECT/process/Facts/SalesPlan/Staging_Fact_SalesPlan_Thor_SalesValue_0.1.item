@@ -303,7 +303,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT D.FiscalYear&#xD;&#xA;&#x9;, D.FiscalMonthNumber&#xD;&#xA;    , Co.CompanyCode&#xD;&#xA;    , C.CustomerMarket&#xD;&#xA;    , S.ThorPlantCode&#xD;&#xA;    , P.ModelID&#xD;&#xA;    , P.ProductMajorCode&#xD;&#xA;&#x9;, SIC.SK_Date_Invoiced&#xD;&#xA;    , SIC.SK_Customer&#xD;&#xA;    , SIC.SK_Product&#xD;&#xA;    , SIC.SK_Stockroom_ShippedFrom&#xD;&#xA;    , SIC.SK_Geography_ShippedTo&#xD;&#xA;    , SIC.SK_Currency_USD&#xD;&#xA;    , SIC.SK_Currency_Functional&#xD;&#xA;    , SIC.SK_Company&#xD;&#xA;&#x9;, SIC.SK_SourceSystem&#xD;&#xA;    , SUM(SIC.InvoiceLineExtendedSalesValueFunctionalCurrency) AS InvoiceLineExtendedSalesValueFunctionalCurrency&#xD;&#xA;FROM Fact_SalesInvoicingComponent AS SIC&#xD;&#xA;INNER JOIN Meta_SourceSystemDimension AS SSD&#xD;&#xA;&#x9;ON SIC.SK_SourceSystem = SSD.SK_SourceSystem&#xD;&#xA;    AND SSD.SourceSystemShortName = 'Thor'&#xD;&#xA;INNER JOIN Meta_Now AS N&#xD;&#xA;&#x9;ON 1=1&#xD;&#xA;INNER JOIN Dim_Date AS D&#xD;&#xA;&#x9;ON SIC.SK_Date_Invoiced = D.SK_Date&#xD;&#xA;    AND D.FiscalYear = YEAR(N.Now) - 1&#xD;&#xA;INNER JOIN Dim_Customer AS C&#xD;&#xA;&#x9;ON SIC.SK_Customer = C.SK_Customer&#xD;&#xA;    AND C.CustomerType &lt;> 'Intercompany'&#xD;&#xA;INNER JOIN Dim_Product AS P&#xD;&#xA;&#x9;ON SIC.SK_Product = P.SK_Product&#xD;&#xA;INNER JOIN Dim_Company AS Co&#xD;&#xA;&#x9;ON SIC.SK_Company = Co.SK_Company&#xD;&#xA;INNER JOIN Dim_Stockroom AS S&#xD;&#xA;&#x9;ON SIC.SK_Stockroom_ShippedFrom = S.SK_Stockroom&#xD;&#xA;GROUP BY D.FiscalYear&#xD;&#xA;&#x9;, D.FiscalMonthNumber&#xD;&#xA;    , Co.CompanyCode&#xD;&#xA;    , C.CustomerMarket&#xD;&#xA;    , S.ThorPlantCode&#xD;&#xA;    , P.ModelID&#xD;&#xA;    , P.ProductMajorCode&#xD;&#xA;&#x9;, SIC.SK_Date_Invoiced&#xD;&#xA;    , SIC.SK_Customer&#xD;&#xA;    , SIC.SK_Product&#xD;&#xA;    , SIC.SK_Stockroom_ShippedFrom&#xD;&#xA;    , SIC.SK_Geography_ShippedTo&#xD;&#xA;    , SIC.SK_Currency_USD&#xD;&#xA;    , SIC.SK_Currency_Functional&#xD;&#xA;    , SIC.SK_Company    &#xD;&#xA;&#x9;, SIC.SK_SourceSystem&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT D.FiscalYear + 1 AS FiscalYear&#xD;&#xA;&#x9;, D.FiscalMonthNumber&#xD;&#xA;    , Co.CompanyCode&#xD;&#xA;    , C.CustomerMarket&#xD;&#xA;    , S.ThorPlantCode&#xD;&#xA;    , P.ModelID&#xD;&#xA;    , P.ProductMajorCode&#xD;&#xA;&#x9;, SIC.SK_Date_Invoiced&#xD;&#xA;    , SIC.SK_Customer&#xD;&#xA;    , SIC.SK_Product&#xD;&#xA;    , SIC.SK_Stockroom_ShippedFrom&#xD;&#xA;    , SIC.SK_Geography_ShippedTo&#xD;&#xA;    , SIC.SK_Currency_USD&#xD;&#xA;    , SIC.SK_Currency_Functional&#xD;&#xA;    , SIC.SK_Company&#xD;&#xA;&#x9;, SIC.SK_SourceSystem&#xD;&#xA;    , SUM(SIC.InvoiceLineExtendedSalesValueFunctionalCurrency) AS InvoiceLineExtendedSalesValueFunctionalCurrency&#xD;&#xA;FROM Fact_SalesInvoicingComponent AS SIC&#xD;&#xA;INNER JOIN Meta_SourceSystemDimension AS SSD&#xD;&#xA;&#x9;ON SIC.SK_SourceSystem = SSD.SK_SourceSystem&#xD;&#xA;    AND SSD.SourceSystemShortName = 'Thor'&#xD;&#xA;INNER JOIN Meta_Now AS N&#xD;&#xA;&#x9;ON 1=1&#xD;&#xA;INNER JOIN Dim_Date AS D&#xD;&#xA;&#x9;ON SIC.SK_Date_Invoiced = D.SK_Date&#xD;&#xA;    AND D.FiscalYear = YEAR(N.Now) - 1&#xD;&#xA;INNER JOIN Dim_Customer AS C&#xD;&#xA;&#x9;ON SIC.SK_Customer = C.SK_Customer&#xD;&#xA;    AND C.CustomerType &lt;> 'Intercompany'&#xD;&#xA;INNER JOIN Dim_Product AS P&#xD;&#xA;&#x9;ON SIC.SK_Product = P.SK_Product&#xD;&#xA;INNER JOIN Dim_Company AS Co&#xD;&#xA;&#x9;ON SIC.SK_Company = Co.SK_Company&#xD;&#xA;INNER JOIN Dim_Stockroom AS S&#xD;&#xA;&#x9;ON SIC.SK_Stockroom_ShippedFrom = S.SK_Stockroom&#xD;&#xA;GROUP BY D.FiscalYear&#xD;&#xA;&#x9;, D.FiscalMonthNumber&#xD;&#xA;    , Co.CompanyCode&#xD;&#xA;    , C.CustomerMarket&#xD;&#xA;    , S.ThorPlantCode&#xD;&#xA;    , P.ModelID&#xD;&#xA;    , P.ProductMajorCode&#xD;&#xA;&#x9;, SIC.SK_Date_Invoiced&#xD;&#xA;    , SIC.SK_Customer&#xD;&#xA;    , SIC.SK_Product&#xD;&#xA;    , SIC.SK_Stockroom_ShippedFrom&#xD;&#xA;    , SIC.SK_Geography_ShippedTo&#xD;&#xA;    , SIC.SK_Currency_USD&#xD;&#xA;    , SIC.SK_Currency_Functional&#xD;&#xA;    , SIC.SK_Company    &#xD;&#xA;&#x9;, SIC.SK_SourceSystem&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -384,7 +384,7 @@
     <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="false"/>
     <elementParameter field="TEXT" name="LABEL" value="CalculateIncreases"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="ConvertFunctional">
+    <metadata connector="FLOW" name="Increases">
       <column comment="" defaultValue="" key="true" length="8" name="SK_Date_Plan" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="11" name="SK_Product" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
@@ -405,7 +405,7 @@
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var"/>
-      <outputTables sizeState="INTERMEDIATE" name="ConvertFunctional">
+      <outputTables sizeState="INTERMEDIATE" name="Increases">
         <mapperTableEntries name="SK_Date_Plan" expression="SalesValue.SK_Date_Invoiced + 10000 " type="id_Integer"/>
         <mapperTableEntries name="SK_Customer" expression="SalesValue.SK_Customer " type="id_Integer"/>
         <mapperTableEntries name="SK_Product" expression="SalesValue.SK_Product " type="id_Integer"/>
@@ -444,7 +444,43 @@
       </inputTables>
     </nodeData>
   </node>
-  <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="736" posY="192">
+  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="704" posY="192">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMap_1" show="false"/>
+    <elementParameter field="EXTERNAL" name="MAP" value=""/>
+    <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
+    <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_Ho3QwE03EeedmaYu-yXBlQ-tMap_1-PREVIEW.bmp"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
+    <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
+    <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
+    <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
+    <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="ConvertToUSD"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <nodeData xsi:type="MapperData">
+      <uiProperties/>
+      <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
+      <inputTables sizeState="INTERMEDIATE" name="Increases" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
+        <mapperTableEntries name="SK_Date_Plan" type="id_Integer"/>
+        <mapperTableEntries name="SK_Customer" type="id_Integer"/>
+        <mapperTableEntries name="SK_Product" type="id_Integer"/>
+        <mapperTableEntries name="SK_Stockroom" type="id_Integer"/>
+        <mapperTableEntries name="SK_Geography" type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_USD" type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_Functional" type="id_Integer"/>
+        <mapperTableEntries name="SK_Company" type="id_Integer"/>
+        <mapperTableEntries name="SK_SourceSystem" type="id_Integer"/>
+        <mapperTableEntries name="ActualSalesFunctional" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="PlanExtendedSalesValueMarketGrowthFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="PlanExtendedSalesValueExistingBusinessGrowthFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="PlanExtendedSalesValueNewBusinessGrowthFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="PlanExtendedSalesValueAttritionFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="PlanExtendedSalesValueNetLathamGrowthFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="PlanExtendedSalesValueSalesPriceGrowthFunctionalCurrency" type="id_Float" nullable="true"/>
+      </inputTables>
+    </nodeData>
+  </node>
+  <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1024" posY="192">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlOutput_1" show="false"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
@@ -795,6 +831,57 @@
       <column comment="" defaultValue="" key="false" length="5" name="ExchangeRate" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
+  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="704" posY="64">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_2" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
+    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_2"/>
+    <elementParameter field="TEXT" name="HOST" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PORT" value="&quot;3306&quot;" show="false"/>
+    <elementParameter field="TEXT" name="DBNAME" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="TYPE" value="MySQL" show="false"/>
+    <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Fact_CurrencyConversion&quot;"/>
+    <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
+    <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT *&#xD;&#xA;FROM Fact_CurrencyConversion&#xD;&#xA;WHERE Scenario = 'Plan'&#xD;&#xA;&#x9;AND ExchangeRateType = 'Avg'&#xD;&#xA;&quot;"/>
+    <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
+    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
+    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
+    <elementParameter field="MAPPING_TYPE" name="MAPPING" value="mysql_id" show="false"/>
+    <elementParameter field="TEXT" name="PROPERTIES" value="&quot;noDatetimeStringSync=true&quot;" show="false"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter field="CHECK" name="ENABLE_STREAM" value="false"/>
+    <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="true"/>
+    <elementParameter field="TABLE" name="TRIM_COLUMN" show="false">
+      <elementValue elementRef="SCHEMA_COLUMN" value="Scenario"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ExchangeRateType"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Currency_From"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Currency_To"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Date"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ExchangeRate"/>
+      <elementValue elementRef="TRIM" value="false"/>
+    </elementParameter>
+    <elementParameter field="TEXT" name="LABEL" value="FactCurrencyConversionUSD"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tMysqlInput_2">
+      <column comment="" key="false" length="-1" name="Scenario" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ExchangeRateType" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="-1" name="SK_Currency_From" nullable="false" pattern="" precision="-1" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="-1" name="SK_Currency_To" nullable="false" pattern="" precision="-1" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="-1" name="SK_Date" nullable="false" pattern="" precision="-1" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="-1" name="ExchangeRate" nullable="false" pattern="" precision="-1" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
   <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tPrejob_1" offsetLabelX="0" offsetLabelY="0" source="tPrejob_1" target="tRunJob_1">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnComponentOk1" show="false"/>
   </connection>
@@ -822,6 +909,10 @@
   </connection>
   <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlInput_1" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_1" target="tSetGlobalVar_1">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk9" show="false"/>
+  </connection>
+  <connection connectorName="FLOW" label="Increases" lineStyle="0" metaname="Increases" offsetLabelX="0" offsetLabelY="0" source="tMap_11" target="tMap_1">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="Increases" show="false"/>
   </connection>
   <subjob>
     <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" value="true" show="false"/>
@@ -872,6 +963,11 @@
   </subjob>
   <subjob>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_12" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_2" show="false"/>
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
