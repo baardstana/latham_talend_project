@@ -410,7 +410,7 @@
       <varTables sizeState="INTERMEDIATE" name="Var">
         <mapperTableEntries name="SalesValue" expression="SalesValue.FiscalMonthNumber &lt;= DimScenario.NumberMonthsActual ? null : SalesValue.InvoiceLineExtendedSalesValueFunctionalCurrency " type="id_Float" nullable="true"/>
       </varTables>
-      <outputTables sizeState="INTERMEDIATE" name="WithScenario" activateExpressionFilter="true">
+      <outputTables sizeState="INTERMEDIATE" name="WithScenario" expressionFilter="! Relational.ISNULL(Var.SalesValue)" activateExpressionFilter="true">
         <mapperTableEntries name="FiscalYear" expression="SalesValue.FiscalYear " type="id_Integer"/>
         <mapperTableEntries name="FiscalMonthNumber" expression="SalesValue.FiscalMonthNumber " type="id_Integer"/>
         <mapperTableEntries name="CompanyCode" expression="SalesValue.CompanyCode " type="id_String"/>
