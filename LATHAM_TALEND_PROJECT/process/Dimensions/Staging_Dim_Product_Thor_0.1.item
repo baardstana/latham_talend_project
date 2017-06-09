@@ -1986,8 +1986,8 @@
         <mapperTableEntries name="CurrentStandardTotalOverheadCostFunctionalCurrency" expression="null" type="id_Float" nullable="true"/>
         <mapperTableEntries name="LDWGeneratedFlag" expression="&quot;Not generated in LDW&quot;" type="id_String"/>
         <mapperTableEntries name="SK_SourceSystem" expression="SourceSystem.SK_SourceSystem " type="id_Integer"/>
-        <mapperTableEntries name="ModelName" expression="CustomStringHandling.replaceNullAndBlank(Currency.modelName) " type="id_String"/>
-        <mapperTableEntries name="ModelCode" expression="CustomStringHandling.replaceNullAndBlank(Currency.modelCode) " type="id_String"/>
+        <mapperTableEntries name="ModelName" expression="Relational.ISNULL(Currency.modelName) ? &quot;N/A&quot; : Currency.modelName " type="id_String"/>
+        <mapperTableEntries name="ModelCode" expression="Relational.ISNULL(Currency.modelCode) ? &quot;N/A&quot; : Currency.modelCode " type="id_String"/>
         <mapperTableEntries name="ModelID" expression="Currency.modelID " type="id_Integer" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="Currency" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
