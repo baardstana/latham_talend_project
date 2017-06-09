@@ -404,7 +404,9 @@
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
-      <varTables sizeState="INTERMEDIATE" name="Var"/>
+      <varTables sizeState="INTERMEDIATE" name="Var">
+        <mapperTableEntries name="Increase" expression="(float) 0.05" type="id_Float" nullable="true"/>
+      </varTables>
       <outputTables sizeState="INTERMEDIATE" name="Increases">
         <mapperTableEntries name="SK_Date_Plan" expression="SalesValue.SK_Date_Invoiced + 10000 " type="id_Integer"/>
         <mapperTableEntries name="SK_Customer" expression="SalesValue.SK_Customer " type="id_Integer"/>
@@ -415,13 +417,13 @@
         <mapperTableEntries name="SK_Currency_Functional" expression="SalesValue.SK_Currency_Functional " type="id_Integer"/>
         <mapperTableEntries name="SK_Company" expression="SalesValue.SK_Company " type="id_Integer"/>
         <mapperTableEntries name="SK_SourceSystem" expression="SalesValue.SK_SourceSystem " type="id_Integer"/>
-        <mapperTableEntries name="ActualSalesFunctional" expression="CustomStringHandling.multiplyValues(SalesValue.InvoiceLineExtendedSalesValueFunctionalCurrency, 0.1) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="PlanExtendedSalesValueMarketGrowthFunctionalCurrency" expression="CustomStringHandling.multiplyValues(SalesValue.InvoiceLineExtendedSalesValueFunctionalCurrency , 0.1) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="PlanExtendedSalesValueExistingBusinessGrowthFunctionalCurrency" expression="CustomStringHandling.multiplyValues(SalesValue.InvoiceLineExtendedSalesValueFunctionalCurrency , 0.1) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="PlanExtendedSalesValueNewBusinessGrowthFunctionalCurrency" expression="CustomStringHandling.multiplyValues(SalesValue.InvoiceLineExtendedSalesValueFunctionalCurrency , 0.1) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="PlanExtendedSalesValueAttritionFunctionalCurrency" expression="CustomStringHandling.multiplyValues(SalesValue.InvoiceLineExtendedSalesValueFunctionalCurrency , 0.1) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="PlanExtendedSalesValueNetLathamGrowthFunctionalCurrency" expression="CustomStringHandling.multiplyValues(SalesValue.InvoiceLineExtendedSalesValueFunctionalCurrency , 0.1) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="PlanExtendedSalesValueSalesPriceGrowthFunctionalCurrency" expression="CustomStringHandling.multiplyValues(SalesValue.InvoiceLineExtendedSalesValueFunctionalCurrency , 0.1) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ActualSalesFunctional" expression="SalesValue.InvoiceLineExtendedSalesValueFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="PlanExtendedSalesValueMarketGrowthFunctionalCurrency" expression="CustomStringHandling.multiplyValues(SalesValue.InvoiceLineExtendedSalesValueFunctionalCurrency, Var.Increase) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="PlanExtendedSalesValueExistingBusinessGrowthFunctionalCurrency" expression="CustomStringHandling.multiplyValues(SalesValue.InvoiceLineExtendedSalesValueFunctionalCurrency , Var.Increase) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="PlanExtendedSalesValueNewBusinessGrowthFunctionalCurrency" expression="CustomStringHandling.multiplyValues(SalesValue.InvoiceLineExtendedSalesValueFunctionalCurrency , Var.Increase) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="PlanExtendedSalesValueAttritionFunctionalCurrency" expression="CustomStringHandling.multiplyValues(SalesValue.InvoiceLineExtendedSalesValueFunctionalCurrency , Var.Increase) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="PlanExtendedSalesValueNetLathamGrowthFunctionalCurrency" expression="CustomStringHandling.multiplyValues(SalesValue.InvoiceLineExtendedSalesValueFunctionalCurrency, Var.Increase) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="PlanExtendedSalesValueSalesPriceGrowthFunctionalCurrency" expression="CustomStringHandling.multiplyValues(SalesValue.InvoiceLineExtendedSalesValueFunctionalCurrency, Var.Increase) " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="SalesValue" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="FiscalYear" type="id_Integer"/>
