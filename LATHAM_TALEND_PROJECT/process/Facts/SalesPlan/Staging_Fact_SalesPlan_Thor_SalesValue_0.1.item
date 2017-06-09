@@ -239,7 +239,7 @@
     <elementParameter field="TEXT" name="LABEL" value="OpenConnectionLDW"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
   </node>
-  <node componentName="tSetGlobalVar" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="64" posY="320">
+  <node componentName="tSetGlobalVar" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="128" posY="320">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tSetGlobalVar_1" show="false"/>
     <elementParameter field="TABLE" name="VARIABLES">
       <elementValue elementRef="KEY" value="&quot;loadOutcome&quot;"/>
@@ -251,12 +251,12 @@
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tSetGlobalVar_1"/>
   </node>
-  <node componentName="tPostjob" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="224" posY="320">
+  <node componentName="tPostjob" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="288" posY="320">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPostjob_1" show="false"/>
     <elementParameter field="TEXT" name="LABEL" value="PostJob"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
   </node>
-  <node componentName="tRunJob" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="416" posY="320">
+  <node componentName="tRunJob" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="480" posY="320">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRunJob_2" show="false"/>
     <elementParameter field="CHECK" name="USE_DYNAMIC_JOB" value="false"/>
     <elementParameter field="TEXT" name="CONTEXT_JOB" value="" show="false"/>
@@ -468,7 +468,7 @@
       <column comment="" defaultValue="" key="true" length="11" name="SK_Company" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="true" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="19" name="ActualSalesFunctional" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="19" name="ActualSalesFunctional_1" nullable="true" originalDbColumnName="ActualSalesFunctional" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="19" name="ActualSalesUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="19" name="PlanExtendedSalesValueMarketGrowthFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="19" usefulColumn="true"/>
       <column comment="" key="false" length="19" name="PlanExtendedSalesValueMarketGrowthUSD" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="19" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="19" name="PlanExtendedSalesValueExistingBusinessGrowthFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
@@ -498,7 +498,7 @@
         <mapperTableEntries name="SK_Company" expression="Increases.SK_Company " type="id_Integer"/>
         <mapperTableEntries name="SK_SourceSystem" expression="Increases.SK_SourceSystem " type="id_Integer"/>
         <mapperTableEntries name="ActualSalesFunctional" expression="Increases.ActualSalesFunctional " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ActualSalesFunctional_1" expression="CustomStringHandling.currencyConversion(Increases.ActualSalesFunctional, Var.Rate) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ActualSalesUSD" expression="CustomStringHandling.currencyConversion(Increases.ActualSalesFunctional, Var.Rate) " type="id_Float" nullable="true"/>
         <mapperTableEntries name="PlanExtendedSalesValueMarketGrowthFunctionalCurrency" expression="Increases.PlanExtendedSalesValueMarketGrowthFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="PlanExtendedSalesValueMarketGrowthUSD" expression="CustomStringHandling.currencyConversion(Increases.PlanExtendedSalesValueMarketGrowthFunctionalCurrency , Var.Rate) " type="id_Float" nullable="true"/>
         <mapperTableEntries name="PlanExtendedSalesValueExistingBusinessGrowthFunctionalCurrency" expression="Increases.PlanExtendedSalesValueExistingBusinessGrowthFunctionalCurrency " type="id_Float" nullable="true"/>
@@ -606,7 +606,7 @@
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" label="SummedValues" name="SummedValues"/>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="SummedValues"/>
       <inputTables sizeState="INTERMEDIATE" name="USDIncreases" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
@@ -620,7 +620,7 @@
         <mapperTableEntries name="SK_Company" type="id_Integer"/>
         <mapperTableEntries name="SK_SourceSystem" type="id_Integer"/>
         <mapperTableEntries name="ActualSalesFunctional" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ActualSalesFunctional_1" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ActualSalesUSD" type="id_Float" nullable="true"/>
         <mapperTableEntries name="PlanExtendedSalesValueMarketGrowthFunctionalCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="PlanExtendedSalesValueMarketGrowthUSD" type="id_Float" nullable="true"/>
         <mapperTableEntries name="PlanExtendedSalesValueExistingBusinessGrowthFunctionalCurrency" type="id_Float" nullable="true"/>
