@@ -384,11 +384,53 @@
     <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="false"/>
     <elementParameter field="TEXT" name="LABEL" value="GetScenario"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" label="WithScenario" name="WithScenario"/>
+    <metadata connector="FLOW" label="WithScenario" name="WithScenario">
+      <column comment="" defaultValue="" key="false" length="4" name="FiscalYear" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="2" name="FiscalMonthNumber" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="2" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="CompanyCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="255" name="CustomerMarket" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="ThorPlantCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="ModelID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="ProductMajorCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="50" name="BK_Scenario_ScenarioName_FlatFiles" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="8" name="SK_Date_Invoiced" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Product" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Stockroom_ShippedFrom" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Geography_ShippedTo" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Currency_USD" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Currency_Functional" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Company" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="true" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Scenario" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="19" name="InvoiceLineExtendedSalesValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+    </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
-      <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
-      <outputTables sizeState="INTERMEDIATE" name="WithScenario"/>
+      <uiProperties shellMaximized="true"/>
+      <varTables sizeState="INTERMEDIATE" name="Var">
+        <mapperTableEntries name="SalesValue" expression="SalesValue.FiscalMonthNumber &lt;= DimScenario.NumberMonthsActual ? null : SalesValue.InvoiceLineExtendedSalesValueFunctionalCurrency " type="id_Float" nullable="true"/>
+      </varTables>
+      <outputTables sizeState="INTERMEDIATE" name="WithScenario" expressionFilter="! Relational.ISNULL(Var.SalesValue)" activateExpressionFilter="true">
+        <mapperTableEntries name="FiscalYear" expression="SalesValue.FiscalYear " type="id_Integer"/>
+        <mapperTableEntries name="FiscalMonthNumber" expression="SalesValue.FiscalMonthNumber " type="id_Integer"/>
+        <mapperTableEntries name="CompanyCode" expression="SalesValue.CompanyCode " type="id_String"/>
+        <mapperTableEntries name="CustomerMarket" expression="SalesValue.CustomerMarket " type="id_String"/>
+        <mapperTableEntries name="ThorPlantCode" expression="SalesValue.ThorPlantCode " type="id_String"/>
+        <mapperTableEntries name="ModelID" expression="SalesValue.ModelID " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="ProductMajorCode" expression="SalesValue.ProductMajorCode " type="id_String"/>
+        <mapperTableEntries name="BK_Scenario_ScenarioName_FlatFiles" expression="DimScenario.BK_Scenario_ScenarioName_FlatFiles " type="id_String" nullable="true"/>
+        <mapperTableEntries name="SK_Date_Invoiced" expression="SalesValue.SK_Date_Invoiced " type="id_Integer"/>
+        <mapperTableEntries name="SK_Customer" expression="SalesValue.SK_Customer " type="id_Integer"/>
+        <mapperTableEntries name="SK_Product" expression="SalesValue.SK_Product " type="id_Integer"/>
+        <mapperTableEntries name="SK_Stockroom_ShippedFrom" expression="SalesValue.SK_Stockroom_ShippedFrom " type="id_Integer"/>
+        <mapperTableEntries name="SK_Geography_ShippedTo" expression="SalesValue.SK_Geography_ShippedTo " type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_USD" expression="SalesValue.SK_Currency_USD " type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_Functional" expression="SalesValue.SK_Currency_Functional " type="id_Integer"/>
+        <mapperTableEntries name="SK_Company" expression="SalesValue.SK_Company " type="id_Integer"/>
+        <mapperTableEntries name="SK_SourceSystem" expression="SalesValue.SK_SourceSystem " type="id_Integer"/>
+        <mapperTableEntries name="SK_Scenario" expression="DimScenario.SK_Scenario " type="id_Integer"/>
+        <mapperTableEntries name="InvoiceLineExtendedSalesValueFunctionalCurrency" expression=" Var.SalesValue " type="id_Float" nullable="true"/>
+      </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="SalesValue" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="FiscalYear" type="id_Integer"/>
         <mapperTableEntries name="FiscalMonthNumber" type="id_Integer"/>
@@ -411,7 +453,7 @@
       <inputTables sizeState="INTERMEDIATE" name="DimScenario" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Scenario" type="id_Integer"/>
         <mapperTableEntries name="BK_Scenario_ScenarioName_FlatFiles" type="id_String" nullable="true"/>
-        <mapperTableEntries name="ScenarioYear" type="id_Integer"/>
+        <mapperTableEntries name="ScenarioYear" expression="SalesValue.FiscalYear " type="id_Integer" operator="="/>
         <mapperTableEntries name="NumberMonthsActual" type="id_Integer"/>
       </inputTables>
     </nodeData>
@@ -455,7 +497,7 @@
     <elementParameter field="TEXT" name="LABEL" value="DimScenario"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tMysqlInput_3">
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Scenario" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Scenario" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="50" name="BK_Scenario_ScenarioName_FlatFiles" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="4" name="ScenarioYear" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="10" name="NumberMonthsActual" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
@@ -484,6 +526,7 @@
       <column comment="" defaultValue="" key="true" length="11" name="SK_Currency_Functional" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="11" name="SK_Company" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="true" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Scenario" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="19" name="ActualSalesFunctional" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="19" name="PlanExtendedSalesValueMarketGrowthFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="19" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="19" name="PlanExtendedSalesValueExistingBusinessGrowthFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
@@ -498,24 +541,45 @@
         <mapperTableEntries name="Increase" expression="(float) 0.05" type="id_Float" nullable="true"/>
       </varTables>
       <outputTables sizeState="INTERMEDIATE" name="Increases">
-        <mapperTableEntries name="SK_Date_Plan" expression="SalesValue.SK_Date_Invoiced + 10000 " type="id_Integer"/>
-        <mapperTableEntries name="SK_Customer" expression="SalesValue.SK_Customer " type="id_Integer"/>
-        <mapperTableEntries name="SK_Product" expression="SalesValue.SK_Product " type="id_Integer"/>
-        <mapperTableEntries name="SK_Stockroom" expression="SalesValue.SK_Stockroom_ShippedFrom " type="id_Integer"/>
-        <mapperTableEntries name="SK_Geography" expression="SalesValue.SK_Geography_ShippedTo " type="id_Integer"/>
-        <mapperTableEntries name="SK_Currency_USD" expression="SalesValue.SK_Currency_USD " type="id_Integer"/>
-        <mapperTableEntries name="SK_Currency_Functional" expression="SalesValue.SK_Currency_Functional " type="id_Integer"/>
-        <mapperTableEntries name="SK_Company" expression="SalesValue.SK_Company " type="id_Integer"/>
-        <mapperTableEntries name="SK_SourceSystem" expression="SalesValue.SK_SourceSystem " type="id_Integer"/>
-        <mapperTableEntries name="ActualSalesFunctional" expression="SalesValue.InvoiceLineExtendedSalesValueFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="PlanExtendedSalesValueMarketGrowthFunctionalCurrency" expression="CustomStringHandling.multiplyValues(SalesValue.InvoiceLineExtendedSalesValueFunctionalCurrency, Var.Increase) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="PlanExtendedSalesValueExistingBusinessGrowthFunctionalCurrency" expression="CustomStringHandling.multiplyValues(SalesValue.InvoiceLineExtendedSalesValueFunctionalCurrency , Var.Increase) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="PlanExtendedSalesValueNewBusinessGrowthFunctionalCurrency" expression="CustomStringHandling.multiplyValues(SalesValue.InvoiceLineExtendedSalesValueFunctionalCurrency , Var.Increase) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="PlanExtendedSalesValueAttritionFunctionalCurrency" expression="CustomStringHandling.multiplyValues(SalesValue.InvoiceLineExtendedSalesValueFunctionalCurrency , Var.Increase) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="PlanExtendedSalesValueNetLathamGrowthFunctionalCurrency" expression="CustomStringHandling.multiplyValues(SalesValue.InvoiceLineExtendedSalesValueFunctionalCurrency, Var.Increase) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="PlanExtendedSalesValueSalesPriceGrowthFunctionalCurrency" expression="CustomStringHandling.multiplyValues(SalesValue.InvoiceLineExtendedSalesValueFunctionalCurrency, Var.Increase) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="SK_Date_Plan" expression="WithScenario.SK_Date_Invoiced + 10000 " type="id_Integer"/>
+        <mapperTableEntries name="SK_Customer" expression="WithScenario.SK_Customer " type="id_Integer"/>
+        <mapperTableEntries name="SK_Product" expression="WithScenario.SK_Product " type="id_Integer"/>
+        <mapperTableEntries name="SK_Stockroom" expression="WithScenario.SK_Stockroom_ShippedFrom " type="id_Integer"/>
+        <mapperTableEntries name="SK_Geography" expression="WithScenario.SK_Geography_ShippedTo " type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_USD" expression="WithScenario.SK_Currency_USD " type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_Functional" expression="WithScenario.SK_Currency_Functional " type="id_Integer"/>
+        <mapperTableEntries name="SK_Company" expression="WithScenario.SK_Company " type="id_Integer"/>
+        <mapperTableEntries name="SK_SourceSystem" expression="WithScenario.SK_SourceSystem " type="id_Integer"/>
+        <mapperTableEntries name="SK_Scenario" expression="WithScenario.SK_Scenario " type="id_Integer"/>
+        <mapperTableEntries name="ActualSalesFunctional" expression="WithScenario.InvoiceLineExtendedSalesValueFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="PlanExtendedSalesValueMarketGrowthFunctionalCurrency" expression="CustomStringHandling.multiplyValues(WithScenario.InvoiceLineExtendedSalesValueFunctionalCurrency, Var.Increase) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="PlanExtendedSalesValueExistingBusinessGrowthFunctionalCurrency" expression="CustomStringHandling.multiplyValues(WithScenario.InvoiceLineExtendedSalesValueFunctionalCurrency , Var.Increase) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="PlanExtendedSalesValueNewBusinessGrowthFunctionalCurrency" expression="CustomStringHandling.multiplyValues(WithScenario.InvoiceLineExtendedSalesValueFunctionalCurrency , Var.Increase) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="PlanExtendedSalesValueAttritionFunctionalCurrency" expression="CustomStringHandling.multiplyValues(WithScenario.InvoiceLineExtendedSalesValueFunctionalCurrency , Var.Increase) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="PlanExtendedSalesValueNetLathamGrowthFunctionalCurrency" expression="CustomStringHandling.multiplyValues(WithScenario.InvoiceLineExtendedSalesValueFunctionalCurrency, Var.Increase) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="PlanExtendedSalesValueSalesPriceGrowthFunctionalCurrency" expression="CustomStringHandling.multiplyValues(WithScenario.InvoiceLineExtendedSalesValueFunctionalCurrency, Var.Increase) " type="id_Float" nullable="true"/>
       </outputTables>
-      <inputTables sizeState="INTERMEDIATE" name="WithScenario" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE"/>
+      <inputTables sizeState="INTERMEDIATE" name="WithScenario" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
+        <mapperTableEntries name="FiscalYear" type="id_Integer"/>
+        <mapperTableEntries name="FiscalMonthNumber" type="id_Integer"/>
+        <mapperTableEntries name="CompanyCode" type="id_String"/>
+        <mapperTableEntries name="CustomerMarket" type="id_String"/>
+        <mapperTableEntries name="ThorPlantCode" type="id_String"/>
+        <mapperTableEntries name="ModelID" type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="ProductMajorCode" type="id_String"/>
+        <mapperTableEntries name="BK_Scenario_ScenarioName_FlatFiles" type="id_String" nullable="true"/>
+        <mapperTableEntries name="SK_Date_Invoiced" type="id_Integer"/>
+        <mapperTableEntries name="SK_Customer" type="id_Integer"/>
+        <mapperTableEntries name="SK_Product" type="id_Integer"/>
+        <mapperTableEntries name="SK_Stockroom_ShippedFrom" type="id_Integer"/>
+        <mapperTableEntries name="SK_Geography_ShippedTo" type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_USD" type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_Functional" type="id_Integer"/>
+        <mapperTableEntries name="SK_Company" type="id_Integer"/>
+        <mapperTableEntries name="SK_SourceSystem" type="id_Integer"/>
+        <mapperTableEntries name="SK_Scenario" type="id_Integer"/>
+        <mapperTableEntries name="InvoiceLineExtendedSalesValueFunctionalCurrency" type="id_Float" nullable="true"/>
+      </inputTables>
     </nodeData>
   </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="832" posY="192">
@@ -596,6 +660,7 @@
         <mapperTableEntries name="SK_Currency_Functional" type="id_Integer"/>
         <mapperTableEntries name="SK_Company" type="id_Integer"/>
         <mapperTableEntries name="SK_SourceSystem" type="id_Integer"/>
+        <mapperTableEntries name="SK_Scenario" type="id_Integer"/>
         <mapperTableEntries name="ActualSalesFunctional" type="id_Float" nullable="true"/>
         <mapperTableEntries name="PlanExtendedSalesValueMarketGrowthFunctionalCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="PlanExtendedSalesValueExistingBusinessGrowthFunctionalCurrency" type="id_Float" nullable="true"/>
@@ -1295,6 +1360,11 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="DimScenario" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="Increases" lineStyle="0" metaname="Increases" offsetLabelX="0" offsetLabelY="0" source="tMap_11" target="tMap_1">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="SK_Scenario"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="Increases" show="false"/>
   </connection>
