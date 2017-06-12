@@ -306,7 +306,7 @@
       <additionalProperties key="Comment" value=""/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="DimCustomer">
         <mapperTableEntries name="BK_Customer_CONO05_S21" expression="InputDimCustomer.CONO05 " type="id_String"/>
@@ -325,7 +325,7 @@
         <mapperTableEntries name="CustomerShipToCountry" expression="CustomStringHandling.replaceNullAndBlank(InputDimCustomer.DESC60 )" type="id_String"/>
         <mapperTableEntries name="TerritorySalesManager" expression="CustomStringHandling.replaceNullAndBlank(InputDimCustomer.PRMD15 )" type="id_String"/>
         <mapperTableEntries name="CustomerRegion" expression="CustomStringHandling.replaceNullAndBlank(InputDimCustomer.PRMD151 )" type="id_String"/>
-        <mapperTableEntries name="CustomerMarket" expression="InputDimCustomer.COCD05 " type="id_String"/>
+        <mapperTableEntries name="CustomerMarket" expression="&quot;USA&quot;.equals(InputDimCustomer.COCD05) ? &quot;United States&quot; :&#xD;&#xA;&quot;CDN&quot;.equals(InputDimCustomer.COCD05) ? &quot;Canada&quot; : &quot;Export&quot; " type="id_String"/>
         <mapperTableEntries name="CustomerPriceListCode" expression="CustomStringHandling.replaceNullAndBlank(InputDimCustomer.LIST20 )" type="id_String"/>
         <mapperTableEntries name="CustomerPriceListName" expression="CustomStringHandling.replaceNullAndBlank(InputDimCustomer.TEXT751 )" type="id_String"/>
         <mapperTableEntries name="CustomerClassCode" expression="CustomStringHandling.replaceNullAndBlank(InputDimCustomer.CCLS20 )" type="id_String"/>
@@ -1966,7 +1966,7 @@
       <column comment="" key="false" length="50" name="CustomerInternalDivision" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="WithInternalHierarchy">
         <mapperTableEntries name="BK_Customer_CONO05_S21" expression="StageDimCustomer.BK_Customer_CONO05_S21 " type="id_String"/>
