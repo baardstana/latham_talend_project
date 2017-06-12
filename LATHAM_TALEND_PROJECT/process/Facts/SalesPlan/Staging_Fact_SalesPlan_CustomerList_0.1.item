@@ -485,9 +485,8 @@
     <elementParameter field="TEXT" name="LABEL" value="GetCurrentYear"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="CurrentYearList">
-      <column comment="" key="true" length="2" name="BK_Customer_CONO05_S21" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="true" length="8" name="BK_Customer_CUSN05_S21" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="true" length="3" name="BK_Customer_DSEQ05_S21" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="true" length="7" name="ProductMajorCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="4" name="FiscalYear" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="4" name="FiscalPreviousYear" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="1" name="CurrentYearFlag" nullable="false" pattern="" precision="0" sourceType="BIGINT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
@@ -497,9 +496,8 @@
       <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="CurrentYearList">
-        <mapperTableEntries name="BK_Customer_CONO05_S21" expression="CustomerYears.BK_Customer_CONO05_S21 " type="id_String"/>
-        <mapperTableEntries name="BK_Customer_CUSN05_S21" expression="CustomerYears.BK_Customer_CUSN05_S21 " type="id_String"/>
-        <mapperTableEntries name="BK_Customer_DSEQ05_S21" expression="CustomerYears.BK_Customer_DSEQ05_S21 " type="id_String"/>
+        <mapperTableEntries name="SK_Customer" expression="CustomerProductMajor.SK_Customer " type="id_Integer"/>
+        <mapperTableEntries name="ProductMajorCode" expression="CustomerProductMajor.ProductMajorCode " type="id_String"/>
         <mapperTableEntries name="FiscalYear" expression="CustomerYears.FiscalYear " type="id_Integer"/>
         <mapperTableEntries name="FiscalPreviousYear" expression="CustomerYears.FiscalPreviousYear " type="id_Integer"/>
         <mapperTableEntries name="CurrentYearFlag" expression="Relational.ISNULL(CurrentYear.CurrentYearFlag) || CurrentYear.CurrentYearFlag == 0 ? 0 : CurrentYear.CurrentYearFlag " type="id_Integer"/>
@@ -582,30 +580,31 @@
     <elementParameter field="TEXT" name="LABEL" value="GetPreviousYear"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="PreviousYearList">
-      <column comment="" key="true" length="2" name="BK_Customer_CONO05_S21" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="true" length="8" name="BK_Customer_CUSN05_S21" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="true" length="3" name="BK_Customer_DSEQ05_S21" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="true" length="7" name="ProductMajorCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="4" name="FiscalYear" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="4" name="FiscalPreviousYear" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="1" name="CurrentYearFlag" nullable="false" pattern="" precision="0" sourceType="BIGINT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="CurrentYearSales" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="1" name="PreviousYearFlag" nullable="false" pattern="" precision="0" sourceType="BIGINT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="PreviousYearSales" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="PreviousYearList">
-        <mapperTableEntries name="BK_Customer_CONO05_S21" expression="CurrentYearList.BK_Customer_CONO05_S21 " type="id_String"/>
-        <mapperTableEntries name="BK_Customer_CUSN05_S21" expression="CurrentYearList.BK_Customer_CUSN05_S21 " type="id_String"/>
-        <mapperTableEntries name="BK_Customer_DSEQ05_S21" expression="CurrentYearList.BK_Customer_DSEQ05_S21 " type="id_String"/>
+        <mapperTableEntries name="SK_Customer" expression="CurrentYearList.SK_Customer " type="id_Integer"/>
+        <mapperTableEntries name="ProductMajorCode" expression="CurrentYearList.ProductMajorCode " type="id_String"/>
         <mapperTableEntries name="FiscalYear" expression="CurrentYearList.FiscalYear " type="id_Integer"/>
         <mapperTableEntries name="FiscalPreviousYear" expression="CurrentYearList.FiscalPreviousYear " type="id_Integer"/>
         <mapperTableEntries name="CurrentYearFlag" expression="CurrentYearList.CurrentYearFlag " type="id_Integer"/>
+        <mapperTableEntries name="CurrentYearSales" expression="CurrentYearList.CurrentYearSales " type="id_Float" nullable="true"/>
         <mapperTableEntries name="PreviousYearFlag" expression="Relational.ISNULL(PreviousYear.PreviousYearFlag) || PreviousYear.PreviousYearFlag == 0 ? 0 : PreviousYear.PreviousYearFlag " type="id_Integer"/>
+        <mapperTableEntries name="PreviousYearSales" expression="PreviousYear.PreviousYearSales " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="CurrentYearList" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
-        <mapperTableEntries name="BK_Customer_CONO05_S21" type="id_String"/>
-        <mapperTableEntries name="BK_Customer_CUSN05_S21" type="id_String"/>
-        <mapperTableEntries name="BK_Customer_DSEQ05_S21" type="id_String"/>
+        <mapperTableEntries name="SK_Customer" type="id_Integer"/>
+        <mapperTableEntries name="ProductMajorCode" type="id_String"/>
         <mapperTableEntries name="FiscalYear" type="id_Integer"/>
         <mapperTableEntries name="FiscalPreviousYear" type="id_Integer"/>
         <mapperTableEntries name="CurrentYearFlag" type="id_Integer"/>
@@ -613,8 +612,8 @@
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="PreviousYear" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="FiscalYear" expression="CurrentYearList.FiscalPreviousYear " type="id_Integer" operator="="/>
-        <mapperTableEntries name="SK_Customer" type="id_Integer"/>
-        <mapperTableEntries name="ProductMajorCode" type="id_String"/>
+        <mapperTableEntries name="SK_Customer" expression="CurrentYearList.SK_Customer " type="id_Integer" operator="="/>
+        <mapperTableEntries name="ProductMajorCode" expression="CurrentYearList.ProductMajorCode " type="id_String" operator="="/>
         <mapperTableEntries name="PreviousYearFlag" type="id_Integer"/>
         <mapperTableEntries name="PreviousYearSales" type="id_Float" nullable="true"/>
       </inputTables>
@@ -705,13 +704,14 @@
         <mapperTableEntries name="AttritionFlag" expression="PreviousYearList.CurrentYearFlag == 0 &amp;&amp; PreviousYearList.PreviousYearFlag == 1 ? 1 : 0 " type="id_Integer"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="PreviousYearList" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
-        <mapperTableEntries name="BK_Customer_CONO05_S21" type="id_String"/>
-        <mapperTableEntries name="BK_Customer_CUSN05_S21" type="id_String"/>
-        <mapperTableEntries name="BK_Customer_DSEQ05_S21" type="id_String"/>
+        <mapperTableEntries name="SK_Customer" type="id_Integer"/>
+        <mapperTableEntries name="ProductMajorCode" type="id_String"/>
         <mapperTableEntries name="FiscalYear" type="id_Integer"/>
         <mapperTableEntries name="FiscalPreviousYear" type="id_Integer"/>
         <mapperTableEntries name="CurrentYearFlag" type="id_Integer"/>
+        <mapperTableEntries name="CurrentYearSales" type="id_Float" nullable="true"/>
         <mapperTableEntries name="PreviousYearFlag" type="id_Integer"/>
+        <mapperTableEntries name="PreviousYearSales" type="id_Float" nullable="true"/>
       </inputTables>
     </nodeData>
   </node>
@@ -867,6 +867,12 @@
       <elementValue elementRef="TRACE_COLUMN" value="CurrentYearSales"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="SK_Customer"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="ProductMajorCode"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="CurrentYearList" show="false"/>
@@ -876,6 +882,20 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="CurrentYear" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="PreviousYearList" lineStyle="0" metaname="PreviousYearList" offsetLabelX="0" offsetLabelY="0" source="tMap_4" target="tMap_5">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="PreviousYearSales"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="SK_Customer"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="ProductMajorCode"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="CurrentYearSales"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="PreviousYearList" show="false"/>
   </connection>
