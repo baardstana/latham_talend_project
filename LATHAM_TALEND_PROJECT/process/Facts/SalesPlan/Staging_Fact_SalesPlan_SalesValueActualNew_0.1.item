@@ -383,6 +383,7 @@
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="NewCustomer">
       <column comment="" defaultValue="" key="false" length="4" name="FiscalYear" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="2" name="FiscalMonthNumber" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="2" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="11" name="SK_Date" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="11" name="SK_Product" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
@@ -402,6 +403,7 @@
       <varTables sizeState="INTERMEDIATE" name="Var"/>
       <outputTables sizeState="INTERMEDIATE" name="NewCustomer" activateExpressionFilter="true">
         <mapperTableEntries name="FiscalYear" expression="SalesValue.FiscalYear " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="FiscalMonthNumber" expression="SalesValue.FiscalMonthNumber " type="id_Integer" nullable="true"/>
         <mapperTableEntries name="SK_Date" expression="SalesValue.SK_Date " type="id_Integer"/>
         <mapperTableEntries name="SK_Customer" expression="SalesValue.SK_Customer " type="id_Integer"/>
         <mapperTableEntries name="SK_Product" expression="SalesValue.SK_Product " type="id_Integer"/>
@@ -539,6 +541,7 @@
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="NewCustomer" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="FiscalYear" type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="FiscalMonthNumber" type="id_Integer" nullable="true"/>
         <mapperTableEntries name="SK_Date" type="id_Integer"/>
         <mapperTableEntries name="SK_Customer" type="id_Integer"/>
         <mapperTableEntries name="SK_Product" type="id_Integer"/>
@@ -1970,6 +1973,9 @@
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
       <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineExtendedDirectLaborCostFunctionalCurrency"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="FiscalMonthNumber"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
