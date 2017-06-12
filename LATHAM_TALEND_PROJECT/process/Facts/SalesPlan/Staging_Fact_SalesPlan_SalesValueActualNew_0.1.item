@@ -532,18 +532,21 @@
       <column comment="" defaultValue="" key="true" length="11" name="SK_Currency_Functional" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="11" name="SK_Company" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="true" length="11" name="SK_Scenario" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineExtendedSalesValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineExtendedSalesValueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="16" name="InvoiceLineExtendedDirectMaterialCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="InvoiceLineExtendedDirectMaterialCostUSD" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="16" name="InvoiceLineExtendedDirectLaborCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="InvoiceLineExtendedDirectLaborCostUSD" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="16" name="InvoiceLineExtendedDirectOverheadCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="InvoiceLineExtendedDirectOverheadCostUSD" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var">
-        <mapperTableEntries name="SalesValue" expression="NewCustomer.FiscalMonthNumber > DimScenario.NumberMonthsActual ? null : NewCustomer.InvoiceLineExtendedSalesValueFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="KeepFlag" expression="NewCustomer.FiscalMonthNumber > DimScenario.NumberMonthsActual ? 0 : 1 " type="id_Float" nullable="true"/>
       </varTables>
-      <outputTables sizeState="INTERMEDIATE" name="WithScenario" expressionFilter="! Relational.ISNULL(Var.SalesValue)" activateExpressionFilter="true">
+      <outputTables sizeState="INTERMEDIATE" name="WithScenario" expressionFilter="Var.KeepFlag == 1" activateExpressionFilter="true">
         <mapperTableEntries name="SK_Date" expression="NewCustomer.SK_Date " type="id_Integer"/>
         <mapperTableEntries name="SK_Customer" expression="NewCustomer.SK_Customer " type="id_Integer"/>
         <mapperTableEntries name="SK_Product" expression="NewCustomer.SK_Product " type="id_Integer"/>
@@ -553,11 +556,14 @@
         <mapperTableEntries name="SK_Currency_Functional" expression="NewCustomer.SK_Currency_Functional " type="id_Integer"/>
         <mapperTableEntries name="SK_Company" expression="NewCustomer.SK_Company " type="id_Integer"/>
         <mapperTableEntries name="SK_SourceSystem" expression="NewCustomer.SK_SourceSystem " type="id_Integer"/>
-        <mapperTableEntries name="SK_Scenario" expression="DimScenario.SK_Scenario " type="id_Integer"/>
         <mapperTableEntries name="InvoiceLineExtendedSalesValueFunctionalCurrency" expression="NewCustomer.InvoiceLineExtendedSalesValueFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedSalesValueUSD" expression="NewCustomer.InvoiceLineExtendedSalesValueUSD " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedDirectMaterialCostFunctionalCurrency" expression="NewCustomer.InvoiceLineExtendedDirectMaterialCostFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedDirectMaterialCostUSD" expression="NewCustomer.InvoiceLineExtendedDirectMaterialCostUSD " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedDirectLaborCostFunctionalCurrency" expression="NewCustomer.InvoiceLineExtendedDirectLaborCostFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedDirectLaborCostUSD" expression="NewCustomer.InvoiceLineExtendedDirectLaborCostUSD " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedDirectOverheadCostFunctionalCurrency" expression="NewCustomer.InvoiceLineExtendedDirectOverheadCostFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedDirectOverheadCostUSD" expression="NewCustomer.InvoiceLineExtendedDirectOverheadCostUSD " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="NewCustomer" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="FiscalYear" type="id_Integer" nullable="true"/>
