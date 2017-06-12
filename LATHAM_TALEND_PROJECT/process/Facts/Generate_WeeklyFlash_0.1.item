@@ -286,6 +286,99 @@
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tSetGlobalVar_2"/>
   </node>
+  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="128" posY="192">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_1" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
+    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_2"/>
+    <elementParameter field="TEXT" name="HOST" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PORT" value="&quot;3306&quot;" show="false"/>
+    <elementParameter field="TEXT" name="DBNAME" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="TYPE" value="MySQL" show="false"/>
+    <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Fact_SalesInvoicingComponent&quot;"/>
+    <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
+    <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT C.CompanyCode&#xD;&#xA;    , D.FiscalMonthNumber&#xD;&#xA;    , D.FiscalWeekNumber&#xD;&#xA;    , Cu.System21CustomerNumber&#xD;&#xA;    , Cu.System21BranchNumber&#xD;&#xA;    , Cu.CustomerName&#xD;&#xA;    , Cu.CustomerBranchName&#xD;&#xA;    , Cu.CurrentCustomerRegion&#xD;&#xA;    , Cu.CurrentCustomerTerritory&#xD;&#xA;    , Cu.CurrentTerritorySalesManager&#xD;&#xA;    , Cu.CustomerClassName&#xD;&#xA;    , Cu.CustomerAffiliation&#xD;&#xA;    , Cu.CustomerMarket&#xD;&#xA;    , Cu.CustomerSegment&#xD;&#xA;    , P.ProductMajorName&#xD;&#xA;    , P.ProductClassName&#xD;&#xA;    , SIC.InvoiceLineExtendedSalesValueUSD&#xD;&#xA;    , SIC.InvoiceLineExtendedTotalDirectCostUSD&#xD;&#xA;    , SIC.InvoiceLineComponentUnits&#xD;&#xA;    , NULL AS InvoiceLineUnits&#xD;&#xA;    , NULL AS OrderLineExtendedValueUSD&#xD;&#xA;    , NULL AS OrderLineUnitsShipped&#xD;&#xA;    , SIC.InvoiceLineExtendedSalesValueFunctionalCurrency&#xD;&#xA;    , SIC.InvoiceLineExtendedTotalDirectCostFunctionalCurrency&#xD;&#xA;    , NULL AS OrderLineExtendedValueFunctionalCurrency&#xD;&#xA;    , D.FiscalYear&#xD;&#xA;    , D.Date&#xD;&#xA;    , Cu.CustomerShipToStateOrProvince&#xD;&#xA;    , Cu.CustomerShipToPostalCode5&#xD;&#xA;FROM Fact_SalesInvoicingComponent AS SIC&#xD;&#xA;INNER JOIN Dim_Company AS C&#xD;&#xA;&#x9;ON SIC.SK_Company = C.SK_Company&#xD;&#xA;INNER JOIN Dim_Date AS D&#xD;&#xA;&#x9;ON SIC.SK_Date_Invoiced = D.SK_Date&#xD;&#xA;INNER JOIN Dim_Customer AS Cu&#xD;&#xA;&#x9;ON SIC.SK_Customer = Cu.SK_Customer&#xD;&#xA;INNER JOIN Dim_Product AS P&#xD;&#xA;&#x9;ON SIC.SK_Product = P.SK_Product&#xD;&#xA;    &#xD;&#xA;UNION ALL&#xD;&#xA;&#xD;&#xA;SELECT C.CompanyCode&#xD;&#xA;    , D.FiscalMonthNumber&#xD;&#xA;    , D.FiscalWeekNumber&#xD;&#xA;    , Cu.System21CustomerNumber&#xD;&#xA;    , Cu.System21BranchNumber&#xD;&#xA;    , Cu.CustomerName&#xD;&#xA;    , Cu.CustomerBranchName&#xD;&#xA;    , Cu.CurrentCustomerRegion&#xD;&#xA;    , Cu.CurrentCustomerTerritory&#xD;&#xA;    , Cu.CurrentTerritorySalesManager&#xD;&#xA;    , Cu.CustomerClassName&#xD;&#xA;    , Cu.CustomerAffiliation&#xD;&#xA;    , Cu.CustomerMarket&#xD;&#xA;    , Cu.CustomerSegment&#xD;&#xA;    , P.ProductMajorName&#xD;&#xA;    , P.ProductClassName&#xD;&#xA;    , NULL AS InvoiceLineExtendedSalesValueUSD&#xD;&#xA;    , NULL AS InvoiceLineExtendedTotalDirectCostUSD&#xD;&#xA;    , NULL AS InvoiceLineComponentUnits&#xD;&#xA;    , SIC.InvoiceLineUnits&#xD;&#xA;    , NULL AS OrderLineExtendedValueUSD&#xD;&#xA;    , NULL AS OrderLineUnitsShipped&#xD;&#xA;    , NULL AS InvoiceLineExtendedSalesValueFunctionalCurrency&#xD;&#xA;    , NULL AS InvoiceLineExtendedTotalDirectCostFunctionalCurrency&#xD;&#xA;    , NULL AS OrderLineExtendedValueFunctionalCurrency&#xD;&#xA;    , D.FiscalYear&#xD;&#xA;    , D.Date&#xD;&#xA;    , Cu.CustomerShipToStateOrProvince&#xD;&#xA;    , Cu.CustomerShipToPostalCode5&#xD;&#xA;FROM Fact_SalesInvoicing AS SIC&#xD;&#xA;INNER JOIN Dim_Company AS C&#xD;&#xA;&#x9;ON SIC.SK_Company = C.SK_Company&#xD;&#xA;INNER JOIN Dim_Date AS D&#xD;&#xA;&#x9;ON SIC.SK_Date_Invoiced = D.SK_Date&#xD;&#xA;INNER JOIN Dim_Customer AS Cu&#xD;&#xA;&#x9;ON SIC.SK_Customer = Cu.SK_Customer&#xD;&#xA;INNER JOIN Dim_Product AS P&#xD;&#xA;&#x9;ON SIC.SK_Product = P.SK_Product&#xD;&#xA;&#xD;&#xA;UNION ALL&#xD;&#xA;&#xD;&#xA;SELECT C.CompanyCode&#xD;&#xA;    , D.FiscalMonthNumber&#xD;&#xA;    , D.FiscalWeekNumber&#xD;&#xA;    , Cu.System21CustomerNumber&#xD;&#xA;    , Cu.System21BranchNumber&#xD;&#xA;    , Cu.CustomerName&#xD;&#xA;    , Cu.CustomerBranchName&#xD;&#xA;    , Cu.CurrentCustomerRegion&#xD;&#xA;    , Cu.CurrentCustomerTerritory&#xD;&#xA;    , Cu.CurrentTerritorySalesManager&#xD;&#xA;    , Cu.CustomerClassName&#xD;&#xA;    , Cu.CustomerAffiliation&#xD;&#xA;    , Cu.CustomerMarket&#xD;&#xA;    , Cu.CustomerSegment&#xD;&#xA;    , P.ProductMajorName&#xD;&#xA;    , P.ProductClassName&#xD;&#xA;    , NULL AS InvoiceLineExtendedSalesValueUSD&#xD;&#xA;    , NULL AS InvoiceLineExtendedTotalDirectCostUSD&#xD;&#xA;    , NULL AS InvoiceLineComponentUnits&#xD;&#xA;    , NULL AS InvoiceLineUnits&#xD;&#xA;    , SIC.OrderLineExtendedValueUSD&#xD;&#xA;    , NULL AS OrderLineUnitsShipped&#xD;&#xA;    , NULL AS InvoiceLineExtendedSalesValueFunctionalCurrency&#xD;&#xA;    , NULL AS InvoiceLineExtendedTotalDirectCostFunctionalCurrency&#xD;&#xA;    , SIC.OrderLineExtendedValueFunctionalCurrency&#xD;&#xA;    , D.FiscalYear&#xD;&#xA;    , D.Date&#xD;&#xA;    , Cu.CustomerShipToStateOrProvince&#xD;&#xA;    , Cu.CustomerShipToPostalCode5&#xD;&#xA;FROM Fact_SalesOrders AS SIC&#xD;&#xA;INNER JOIN Dim_Company AS C&#xD;&#xA;&#x9;ON SIC.SK_Company = C.SK_Company&#xD;&#xA;INNER JOIN Dim_Date AS D&#xD;&#xA;&#x9;ON SIC.SK_Date_SystemEntered = D.SK_Date&#xD;&#xA;INNER JOIN Dim_Customer AS Cu&#xD;&#xA;&#x9;ON SIC.SK_Customer = Cu.SK_Customer&#xD;&#xA;INNER JOIN Dim_Product AS P&#xD;&#xA;&#x9;ON SIC.SK_Product = P.SK_Product&#xD;&#xA;    &#xD;&#xA;    &#xD;&#xA;LIMIT 5000&#xD;&#xA;&quot;"/>
+    <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
+    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
+    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
+    <elementParameter field="MAPPING_TYPE" name="MAPPING" value="mysql_id" show="false"/>
+    <elementParameter field="TEXT" name="PROPERTIES" value="&quot;noDatetimeStringSync=true&quot;" show="false"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter field="CHECK" name="ENABLE_STREAM" value="false"/>
+    <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="true"/>
+    <elementParameter field="TABLE" name="TRIM_COLUMN" show="false">
+      <elementValue elementRef="SCHEMA_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="FiscalMonthNumber"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CompanyCode"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CustomerMarket"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ThorPlantCode"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ModelID"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ProductMajorCode"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Date"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Customer"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Product"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Stockroom_ShippedFrom"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Geography_ShippedTo"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Currency_USD"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Currency_Functional"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Company"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SK_SourceSystem"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceLineExtendedSalesValueFunctionalCurrency"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceLineExtendedDirectMaterialCostFunctionalCurrency"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceLineExtendedDirectLaborCostFunctionalCurrency"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceLineExtendedDirectOverheadCostFunctionalCurrency"/>
+      <elementValue elementRef="TRIM" value="false"/>
+    </elementParameter>
+    <elementParameter field="TEXT" name="LABEL" value="Fact_SalesInvoicingComponent"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tMysqlInput_1">
+      <column comment="" defaultValue="" key="false" length="4" name="FiscalYear" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="2" name="FiscalMonthNumber" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="2" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="CompanyCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="255" name="CustomerMarket" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="ThorPlantCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="ModelID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="ProductMajorCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="8" name="SK_Date" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Product" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Stockroom_ShippedFrom" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Geography_ShippedTo" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Currency_USD" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Currency_Functional" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Company" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="true" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineExtendedSalesValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
+      <column comment="" key="false" length="16" name="InvoiceLineExtendedDirectMaterialCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" key="false" length="16" name="InvoiceLineExtendedDirectLaborCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" key="false" length="16" name="InvoiceLineExtendedDirectOverheadCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+    </metadata>
+  </node>
   <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tPrejob_1" offsetLabelX="0" offsetLabelY="0" source="tPrejob_1" target="tRunJob_1">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnComponentOk1" show="false"/>
   </connection>
@@ -336,6 +429,11 @@
   </subjob>
   <subjob>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tSetGlobalVar_2" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_1" show="false"/>
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
