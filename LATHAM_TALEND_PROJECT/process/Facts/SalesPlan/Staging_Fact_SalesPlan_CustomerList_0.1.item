@@ -921,7 +921,7 @@
         <mapperTableEntries name="PreviousYearSales" expression="PreviousYearUnit.PreviousYearSales " type="id_Float" nullable="true"/>
         <mapperTableEntries name="PreviousYearUnits" expression="PreviousYearUnit.PreviousYearUnits " type="id_Float" nullable="true"/>
         <mapperTableEntries name="PreviousYearASP" expression="Var.PY_ASP " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ASPChange" expression="Relational.ISNULL(Var.CY_ASP) || Relational.ISNULL(Var.PY_ASP) || Var.CY_ASP == 0 || Var.PY_ASP == 0 ? 0 : &#xD;&#xA;(Var.CY_ASP - Var.PY_ASP) / Var.PY_ASP " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ASPChange" expression="Relational.ISNULL(Var.CY_ASP) || Relational.ISNULL(Var.PY_ASP) || Var.CY_ASP == 0 || Var.PY_ASP == 0 ? null : &#xD;&#xA;(Var.CY_ASP - Var.PY_ASP) / Var.PY_ASP " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="PreviousYearUnit" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Customer" type="id_Integer"/>
