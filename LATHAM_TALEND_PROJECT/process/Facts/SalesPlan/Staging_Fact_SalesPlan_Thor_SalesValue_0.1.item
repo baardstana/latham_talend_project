@@ -328,7 +328,7 @@
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="ProductMajorCode"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Date_Invoiced"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Date"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="SK_Customer"/>
       <elementValue elementRef="TRIM" value="false"/>
@@ -359,7 +359,7 @@
       <column comment="" key="false" length="7" name="ThorPlantCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="ModelID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="7" name="ProductMajorCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="true" length="8" name="SK_Date_Invoiced" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="8" name="SK_Date" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="11" name="SK_Product" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="11" name="SK_Stockroom_ShippedFrom" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
@@ -393,7 +393,7 @@
       <column comment="" defaultValue="" key="false" length="11" name="ModelID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="7" name="ProductMajorCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="50" name="BK_Scenario_ScenarioName_FlatFiles" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="true" length="8" name="SK_Date_Invoiced" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="8" name="SK_Date" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="11" name="SK_Product" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="11" name="SK_Stockroom_ShippedFrom" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
@@ -419,7 +419,7 @@
         <mapperTableEntries name="ModelID" expression="SalesValue.ModelID " type="id_Integer" nullable="true"/>
         <mapperTableEntries name="ProductMajorCode" expression="SalesValue.ProductMajorCode " type="id_String"/>
         <mapperTableEntries name="BK_Scenario_ScenarioName_FlatFiles" expression="DimScenario.BK_Scenario_ScenarioName_FlatFiles " type="id_String" nullable="true"/>
-        <mapperTableEntries name="SK_Date_Invoiced" expression="SalesValue.SK_Date_Invoiced " type="id_Integer"/>
+        <mapperTableEntries name="SK_Date" expression="SalesValue.SK_Date " type="id_Integer"/>
         <mapperTableEntries name="SK_Customer" expression="SalesValue.SK_Customer " type="id_Integer"/>
         <mapperTableEntries name="SK_Product" expression="SalesValue.SK_Product " type="id_Integer"/>
         <mapperTableEntries name="SK_Stockroom_ShippedFrom" expression="SalesValue.SK_Stockroom_ShippedFrom " type="id_Integer"/>
@@ -439,7 +439,7 @@
         <mapperTableEntries name="ThorPlantCode" type="id_String"/>
         <mapperTableEntries name="ModelID" type="id_Integer" nullable="true"/>
         <mapperTableEntries name="ProductMajorCode" type="id_String"/>
-        <mapperTableEntries name="SK_Date_Invoiced" type="id_Integer"/>
+        <mapperTableEntries name="SK_Date" type="id_Integer"/>
         <mapperTableEntries name="SK_Customer" type="id_Integer"/>
         <mapperTableEntries name="SK_Product" type="id_Integer"/>
         <mapperTableEntries name="SK_Stockroom_ShippedFrom" type="id_Integer"/>
@@ -538,7 +538,7 @@
       <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var"/>
       <outputTables sizeState="INTERMEDIATE" name="Increases" expressionFilter="! Relational.ISNULL(PlanAssumptions.MarketGrowth) || &#xA;! Relational.ISNULL(PlanAssumptions.ExistingBusinessGrowth) || &#xA;! Relational.ISNULL(PlanAssumptions.NewBusinessGrowth) || &#xA;! Relational.ISNULL(PlanAssumptions.Attrition) || &#xA;! Relational.ISNULL(PlanAssumptions.SalesPriceGrowth)" activateExpressionFilter="true">
-        <mapperTableEntries name="SK_Date_Plan" expression="WithScenario.SK_Date_Invoiced" type="id_Integer"/>
+        <mapperTableEntries name="SK_Date_Plan" expression="WithScenario.SK_Date" type="id_Integer"/>
         <mapperTableEntries name="SK_Customer" expression="WithScenario.SK_Customer " type="id_Integer"/>
         <mapperTableEntries name="SK_Product" expression="WithScenario.SK_Product " type="id_Integer"/>
         <mapperTableEntries name="SK_Stockroom" expression="WithScenario.SK_Stockroom_ShippedFrom " type="id_Integer"/>
@@ -564,7 +564,7 @@
         <mapperTableEntries name="ModelID" type="id_Integer" nullable="true"/>
         <mapperTableEntries name="ProductMajorCode" type="id_String"/>
         <mapperTableEntries name="BK_Scenario_ScenarioName_FlatFiles" type="id_String" nullable="true"/>
-        <mapperTableEntries name="SK_Date_Invoiced" type="id_Integer"/>
+        <mapperTableEntries name="SK_Date" type="id_Integer"/>
         <mapperTableEntries name="SK_Customer" type="id_Integer"/>
         <mapperTableEntries name="SK_Product" type="id_Integer"/>
         <mapperTableEntries name="SK_Stockroom_ShippedFrom" type="id_Integer"/>
