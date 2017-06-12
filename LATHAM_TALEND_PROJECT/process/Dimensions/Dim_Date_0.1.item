@@ -139,6 +139,7 @@
     <routinesParameter id="_VVztECXTEeeTKeXwA7rjrQ" name="TalendDataGenerator"/>
     <routinesParameter id="_VV5zsCXTEeeTKeXwA7rjrQ" name="TalendDate"/>
     <routinesParameter id="_VWBIcCXTEeeTKeXwA7rjrQ" name="TalendString"/>
+    <routinesParameter id="_teGfMDG6EeeFDsR7LZ683g" name="CustomStringHandling"/>
   </parameters>
   <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="256" posY="320">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_1" show="false"/>
@@ -322,6 +323,7 @@
       <column comment="" defaultValue="" key="false" length="6" name="FiscalPreviousYearMonthNumber" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="6" name="FiscalPreviousYearWeekNumber" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="19" name="FiscalPreviousYearDate" nullable="true" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;" precision="0" sourceType="DATETIME" type="id_Date" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="8" name="FiscalPreviousYearKey" nullable="true" pattern="" precision="0" sourceType="" type="id_Integer" originalLength="8" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="4" name="SeasonalYear" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="1" name="SeasonalMonthNumber" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="2" name="SeasonalWeekNumber" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
@@ -334,7 +336,7 @@
       <column comment="" key="false" length="19" name="SeasonalPreviousYearDate" nullable="true" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;" precision="0" sourceType="DATETIME" type="id_Date" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="DimDate">
         <mapperTableEntries name="SK_Date" expression="MetaTime.SK_Date " type="id_Integer"/>
@@ -388,6 +390,7 @@
         <mapperTableEntries name="FiscalPreviousYearMonthNumber" expression="DimDateFlatFiles.Fiscal_Previous_Year_Month_Number " type="id_Integer" nullable="true"/>
         <mapperTableEntries name="FiscalPreviousYearWeekNumber" expression="DimDateFlatFiles.Fiscal_Previous_Year_Week_Number " type="id_Integer" nullable="true"/>
         <mapperTableEntries name="FiscalPreviousYearDate" expression="DimDateFlatFiles.Fiscal_Date_Previous_Year " type="id_Date" nullable="true"/>
+        <mapperTableEntries name="FiscalPreviousYearKey" expression="CustomStringHandling.transformDateToKey(DimDateFlatFiles.Fiscal_Date_Previous_Year) " type="id_Integer" nullable="true"/>
         <mapperTableEntries name="SeasonalYear" expression="DimDateFlatFiles.Seasonal_Year " type="id_Integer" nullable="true"/>
         <mapperTableEntries name="SeasonalMonthNumber" expression="DimDateFlatFiles.Seasonal_Month_Number " type="id_Integer" nullable="true"/>
         <mapperTableEntries name="SeasonalWeekNumber" expression="DimDateFlatFiles.Seasonal_Week_Number " type="id_Integer" nullable="true"/>
@@ -912,6 +915,11 @@
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="FiscalPreviousYearKey"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="SeasonalYear"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
@@ -1023,6 +1031,7 @@
       <column comment="" defaultValue="" key="false" length="6" name="FiscalPreviousYearMonthNumber" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="6" name="FiscalPreviousYearWeekNumber" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="19" name="FiscalPreviousYearDate" nullable="true" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;" precision="0" sourceType="DATETIME" type="id_Date" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="8" name="FiscalPreviousYearKey" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="8" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="4" name="SeasonalYear" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="1" name="SeasonalMonthNumber" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="2" name="SeasonalWeekNumber" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
@@ -1086,6 +1095,7 @@
       <column comment="" defaultValue="" key="false" length="6" name="FiscalPreviousYearMonthNumber" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="6" name="FiscalPreviousYearWeekNumber" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="19" name="FiscalPreviousYearDate" nullable="true" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;" precision="0" sourceType="DATETIME" type="id_Date" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="8" name="FiscalPreviousYearKey" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="8" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="4" name="SeasonalYear" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="1" name="SeasonalMonthNumber" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="2" name="SeasonalWeekNumber" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
@@ -1326,6 +1336,9 @@
   <connection connectorName="FLOW" label="DimDate" lineStyle="0" metaname="DimDate" offsetLabelX="-2" offsetLabelY="10" source="tMap_1" target="tMysqlOutput_1">
     <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
       <elementValue elementRef="TRACE_COLUMN" value="FiscalYYYYMM"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="FiscalPreviousYearKey"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
