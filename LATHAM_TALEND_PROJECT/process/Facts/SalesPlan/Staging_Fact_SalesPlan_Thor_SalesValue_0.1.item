@@ -413,9 +413,12 @@
       <column comment="" key="true" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="11" name="SK_Scenario" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="19" name="InvoiceLineExtendedSalesValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="16" name="InvoiceLineExtendedDirectMaterialCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" key="false" length="16" name="InvoiceLineExtendedDirectLaborCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" key="false" length="16" name="InvoiceLineExtendedDirectOverheadCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var">
         <mapperTableEntries name="SalesValue" expression="SalesValue.FiscalMonthNumber &lt;= DimScenario.NumberMonthsActual ? null : SalesValue.InvoiceLineExtendedSalesValueFunctionalCurrency " type="id_Float" nullable="true"/>
       </varTables>
@@ -439,6 +442,9 @@
         <mapperTableEntries name="SK_SourceSystem" expression="SalesValue.SK_SourceSystem " type="id_Integer"/>
         <mapperTableEntries name="SK_Scenario" expression="DimScenario.SK_Scenario " type="id_Integer"/>
         <mapperTableEntries name="InvoiceLineExtendedSalesValueFunctionalCurrency" expression=" Var.SalesValue " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedDirectMaterialCostFunctionalCurrency" expression="SalesValue.InvoiceLineExtendedDirectMaterialCostFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedDirectLaborCostFunctionalCurrency" expression="SalesValue.InvoiceLineExtendedDirectLaborCostFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedDirectOverheadCostFunctionalCurrency" expression="SalesValue.InvoiceLineExtendedDirectOverheadCostFunctionalCurrency " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="SalesValue" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="FiscalYear" type="id_Integer"/>
@@ -639,6 +645,9 @@
         <mapperTableEntries name="SK_SourceSystem" type="id_Integer"/>
         <mapperTableEntries name="SK_Scenario" type="id_Integer"/>
         <mapperTableEntries name="InvoiceLineExtendedSalesValueFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedDirectMaterialCostFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedDirectLaborCostFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedDirectOverheadCostFunctionalCurrency" type="id_Float" nullable="true"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="PlanAssumptions" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="Scenario" expression="WithScenario.BK_Scenario_ScenarioName_FlatFiles " type="id_String" nullable="true" operator="="/>
@@ -1466,6 +1475,17 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk9" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="WithScenario" lineStyle="0" metaname="WithScenario" offsetLabelX="0" offsetLabelY="0" source="tMap_5" target="tMap_11">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineExtendedDirectOverheadCostFunctionalCurrency"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineExtendedDirectMaterialCostFunctionalCurrency"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineExtendedDirectLaborCostFunctionalCurrency"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="WithScenario" show="false"/>
   </connection>
