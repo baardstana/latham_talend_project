@@ -416,7 +416,9 @@
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
-      <varTables sizeState="INTERMEDIATE" name="Var"/>
+      <varTables sizeState="INTERMEDIATE" name="Var">
+        <mapperTableEntries name="var1" expression="(float) -1" type="id_Float"/>
+      </varTables>
       <outputTables sizeState="INTERMEDIATE" name="AttritionCustomer" activateExpressionFilter="true">
         <mapperTableEntries name="FiscalYear" expression="SalesValue.FiscalYear " type="id_Integer" nullable="true"/>
         <mapperTableEntries name="FiscalMonthNumber" expression="SalesValue.FiscalMonthNumber " type="id_Integer" nullable="true"/>
@@ -429,14 +431,14 @@
         <mapperTableEntries name="SK_Currency_Functional" expression="SalesValue.SK_Currency_Functional " type="id_Integer"/>
         <mapperTableEntries name="SK_Company" expression="SalesValue.SK_Company " type="id_Integer"/>
         <mapperTableEntries name="SK_SourceSystem" expression="SalesValue.SK_SourceSystem " type="id_Integer"/>
-        <mapperTableEntries name="InvoiceLineExtendedSalesValueFunctionalCurrency" expression="-SalesValue.InvoiceLineExtendedSalesValueFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedSalesValueUSD" expression="-SalesValue.InvoiceLineExtendedSalesValueUSD " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectMaterialCostFunctionalCurrency" expression="-SalesValue.InvoiceLineExtendedDirectMaterialCostFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectMaterialCostUSD" expression="-SalesValue.InvoiceLineExtendedDirectMaterialCostUSD " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectLaborCostFunctionalCurrency" expression="-SalesValue.InvoiceLineExtendedDirectLaborCostFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectLaborCostUSD" expression="-SalesValue.InvoiceLineExtendedDirectLaborCostUSD " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectOverheadCostFunctionalCurrency" expression="-SalesValue.InvoiceLineExtendedDirectOverheadCostFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectOverheadCostUSD" expression="-SalesValue.InvoiceLineExtendedDirectOverheadCostUSD " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedSalesValueFunctionalCurrency" expression="CustomStringHandling.multiplyValues(Var.var1 ,SalesValue.InvoiceLineExtendedSalesValueFunctionalCurrency) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedSalesValueUSD" expression="CustomStringHandling.multiplyValues(Var.var1 ,SalesValue.InvoiceLineExtendedSalesValueUSD )" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedDirectMaterialCostFunctionalCurrency" expression="CustomStringHandling.multiplyValues(Var.var1 ,SalesValue.InvoiceLineExtendedDirectMaterialCostFunctionalCurrency )" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedDirectMaterialCostUSD" expression="CustomStringHandling.multiplyValues(Var.var1 ,SalesValue.InvoiceLineExtendedDirectMaterialCostUSD )" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedDirectLaborCostFunctionalCurrency" expression="CustomStringHandling.multiplyValues(Var.var1 ,SalesValue.InvoiceLineExtendedDirectLaborCostFunctionalCurrency )" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedDirectLaborCostUSD" expression="CustomStringHandling.multiplyValues(Var.var1 ,SalesValue.InvoiceLineExtendedDirectLaborCostUSD )" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedDirectOverheadCostFunctionalCurrency" expression="CustomStringHandling.multiplyValues(Var.var1 ,SalesValue.InvoiceLineExtendedDirectOverheadCostFunctionalCurrency )" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedDirectOverheadCostUSD" expression="CustomStringHandling.multiplyValues(Var.var1 ,SalesValue.InvoiceLineExtendedDirectOverheadCostUSD )" type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="SalesValue" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="FiscalYear" type="id_Integer" nullable="true"/>
