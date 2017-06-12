@@ -16,7 +16,7 @@
     <contextParameter comment="" name="parameter_LDW_Staging_Server" prompt="parameter_LDW_Staging_Server?" promptNeeded="false" repositoryContextId="_mmqXEC5pEeeaXuPQxSDjCQ" type="id_String" value="RAC-LIFERAYDBPROD02"/>
     <contextParameter comment="" name="parameter_PlanThor_Header" prompt="parameter_PlanThor_Header?" promptNeeded="false" repositoryContextId="_VtVOUC9tEeeR9-BTXzyxtQ" type="id_Integer" value="2"/>
     <contextParameter comment="" name="parameter_PlanThor_ThousandSeparator" prompt="parameter_PlanThor_ThousandSeparator?" promptNeeded="false" repositoryContextId="_VtVOUC9tEeeR9-BTXzyxtQ" type="id_String" value="','"/>
-    <contextParameter comment="" name="parameter_PlanThor_File" prompt="parameter_PlanThor_File?" promptNeeded="false" repositoryContextId="_VtVOUC9tEeeR9-BTXzyxtQ" type="id_String" value="C:/LDW/PlanThor_Template.xlsx"/>
+    <contextParameter comment="" name="parameter_PlanThor_File" prompt="parameter_PlanThor_File?" promptNeeded="false" repositoryContextId="_VtVOUC9tEeeR9-BTXzyxtQ" type="id_String" value="C:/LDW/PlanThor.xlsx"/>
     <contextParameter comment="" name="parameter_PlanThor_LastColumn" prompt="parameter_PlanThor_LastColumn?" promptNeeded="false" repositoryContextId="_VtVOUC9tEeeR9-BTXzyxtQ" type="id_Integer" value="28"/>
     <contextParameter comment="" name="parameter_PlanThor_Encoding" prompt="parameter_PlanThor_Encoding?" promptNeeded="false" repositoryContextId="_VtVOUC9tEeeR9-BTXzyxtQ" type="id_String" value="UTF-8"/>
     <contextParameter comment="" name="parameter_PlanThor_DecimalSeparator" prompt="parameter_PlanThor_DecimalSeparator?" promptNeeded="false" repositoryContextId="_VtVOUC9tEeeR9-BTXzyxtQ" type="id_String" value="'.'"/>
@@ -38,7 +38,7 @@
     <contextParameter comment="" name="parameter_LDW_Staging_Server" prompt="parameter_LDW_Staging_Server?" promptNeeded="false" repositoryContextId="_mmqXEC5pEeeaXuPQxSDjCQ" type="id_String" value="RAC-LIFERAYDBPROD02"/>
     <contextParameter comment="" name="parameter_PlanThor_Header" prompt="parameter_PlanThor_Header?" promptNeeded="false" repositoryContextId="_VtVOUC9tEeeR9-BTXzyxtQ" type="id_Integer" value="2"/>
     <contextParameter comment="" name="parameter_PlanThor_ThousandSeparator" prompt="parameter_PlanThor_ThousandSeparator?" promptNeeded="false" repositoryContextId="_VtVOUC9tEeeR9-BTXzyxtQ" type="id_String" value="','"/>
-    <contextParameter comment="" name="parameter_PlanThor_File" prompt="parameter_PlanThor_File?" promptNeeded="false" repositoryContextId="_VtVOUC9tEeeR9-BTXzyxtQ" type="id_String" value="C:/LDW/PlanThor_Template.xlsx"/>
+    <contextParameter comment="" name="parameter_PlanThor_File" prompt="parameter_PlanThor_File?" promptNeeded="false" repositoryContextId="_VtVOUC9tEeeR9-BTXzyxtQ" type="id_String" value="C:/LDW/PlanThor.xlsx"/>
     <contextParameter comment="" name="parameter_PlanThor_LastColumn" prompt="parameter_PlanThor_LastColumn?" promptNeeded="false" repositoryContextId="_VtVOUC9tEeeR9-BTXzyxtQ" type="id_Integer" value="28"/>
     <contextParameter comment="" name="parameter_PlanThor_Encoding" prompt="parameter_PlanThor_Encoding?" promptNeeded="false" repositoryContextId="_VtVOUC9tEeeR9-BTXzyxtQ" type="id_String" value="UTF-8"/>
     <contextParameter comment="" name="parameter_PlanThor_DecimalSeparator" prompt="parameter_PlanThor_DecimalSeparator?" promptNeeded="false" repositoryContextId="_VtVOUC9tEeeR9-BTXzyxtQ" type="id_String" value="'.'"/>
@@ -177,8 +177,8 @@
     <elementParameter field="CHECK" name="ADVANCED_SEPARATOR" value="false"/>
     <elementParameter field="TEXT" name="THOUSANDS_SEPARATOR" value="context.parameter_PlanThor_ThousandSeparator" show="false"/>
     <elementParameter field="TEXT" name="DECIMAL_SEPARATOR" value="context.parameter_PlanThor_DecimalSeparator" show="false"/>
-    <elementParameter field="CHECK" name="TRIMALL" value="false"/>
-    <elementParameter field="TABLE" name="TRIMSELECT">
+    <elementParameter field="CHECK" name="TRIMALL" value="true"/>
+    <elementParameter field="TABLE" name="TRIMSELECT" show="false">
       <elementValue elementRef="SCHEMA_COLUMN" value="Scenario"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="FiscalYear"/>
@@ -338,7 +338,7 @@
       <column comment="" key="false" length="2" name="FiscalMonth" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
       <column comment="" key="false" length="2" name="CompanyCode" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="25" name="CustomerMarket" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="StockroomCode" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="StockroomCode" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="25" name="Stockroom_Name" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="3" name="DepartmentCode" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
       <column comment="" key="false" length="50" name="DepartmentName" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
@@ -368,7 +368,7 @@
       <column comment="" key="false" length="2" name="FiscalMonth" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
       <column comment="" key="false" length="2" name="CompanyCode" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="25" name="CustomerMarket" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="StockroomCode" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="StockroomCode" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="25" name="Stockroom_Name" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="3" name="DepartmentCode" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
       <column comment="" key="false" length="50" name="DepartmentName" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
@@ -583,7 +583,7 @@
       <column comment="" key="false" length="2" name="FiscalMonth" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
       <column comment="" key="false" length="2" name="CompanyCode" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="25" name="CustomerMarket" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="StockroomCode" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="StockroomCode" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="25" name="Stockroom_Name" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="3" name="DepartmentCode" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
       <column comment="" key="false" length="50" name="DepartmentName" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
@@ -613,7 +613,7 @@
       <column comment="" key="false" length="2" name="FiscalMonth" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
       <column comment="" key="false" length="2" name="CompanyCode" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="25" name="CustomerMarket" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="StockroomCode" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="StockroomCode" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="25" name="Stockroom_Name" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="3" name="DepartmentCode" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
       <column comment="" key="false" length="50" name="DepartmentName" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
