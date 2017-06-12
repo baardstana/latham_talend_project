@@ -1017,20 +1017,12 @@
       <column comment="" key="false" length="16" name="ExtendedDirectLaborCostTotalGrowthFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
       <column comment="" key="false" length="16" name="ExtendedDirectOverheadCostTotalGrowthUSD" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
       <column comment="" key="false" length="16" name="ExtendedDirectOverheadCostTotalGrowthFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" key="false" length="16" name="ExtendedTotalDirectCostGrowthUSD" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" key="false" length="16" name="ExtendedTotalDirectCostVolumeGrowthFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var">
         <mapperTableEntries name="NetLathamFunctional" expression="CustomStringHandling.sumValues(CustomStringHandling.sumValues(USDIncreases.ExtendedSalesValueExistingBusinessGrowthFunctionalCurrency, USDIncreases.ExtendedSalesValueNewBusinessGrowthFunctionalCurrency), USDIncreases.ExtendedSalesValueAttritionFunctionalCurrency) " type="id_Float" nullable="true"/>
         <mapperTableEntries name="NetLathamUSD" expression="CustomStringHandling.sumValues(CustomStringHandling.sumValues(USDIncreases.ExtendedSalesValueExistingBusinessGrowthUSD, USDIncreases.ExtendedSalesValueNewBusinessGrowthUSD), USDIncreases.ExtendedSalesValueAttritionFunctionalUSD) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="MaterialUSD" expression="CustomStringHandling.sumValues(CustomStringHandling.sumValues(USDIncreases.ExtendedDirectMaterialCostVolumeGrowthUSD,  USDIncreases.ExtendedDirectMaterialCostInflationUSD),  USDIncreases.ExtendedDirectMaterialCostEfficiencyUSD ) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="MaterialFuntional" expression="CustomStringHandling.sumValues(CustomStringHandling.sumValues(USDIncreases.ExtendedDirectMaterialCostVolumeGrowthFunctionalCurrency,  USDIncreases.ExtendedDirectMaterialCostInflationFunctionalCurrency),  USDIncreases.ExtendedDirectMaterialCostEfficiencyFunctionalCurrency ) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="LaborUSD" expression="CustomStringHandling.sumValues(CustomStringHandling.sumValues(USDIncreases.ExtendedDirectLaborCostVolumeGrowthUSD,  USDIncreases.ExtendedDirectLaborCostInflationUSD),  USDIncreases.ExtendedDirectLaborCostEfficiencyUSD ) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="LaborFunctional" expression="CustomStringHandling.sumValues(CustomStringHandling.sumValues(USDIncreases.ExtendedDirectLaborCostVolumeGrowthFunctionalCurrency,  USDIncreases.ExtendedDirectLaborCostInflationFunctionalCurrency),  USDIncreases.ExtendedDirectLaborCostEfficiencyFunctionalCurrency) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OverheadUSD" expression="CustomStringHandling.sumValues(CustomStringHandling.sumValues(USDIncreases.ExtendedDirectOverheadCostVolumeGrowthUSD,  USDIncreases.ExtendedDirectOverheadCostInflationUSD),  USDIncreases.ExtendedDirectOverheadCostEfficiencyUSD ) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OverheadFuntional" expression="CustomStringHandling.sumValues(CustomStringHandling.sumValues(USDIncreases.ExtendedDirectOverheadCostVolumeGrowthFunctionalCurrency, USDIncreases.ExtendedDirectOverheadCostInflationFunctionalCurrency),  USDIncreases.ExtendedDirectOverheadCostEfficiencyFunctionalCurrency ) " type="id_Float" nullable="true"/>
       </varTables>
       <outputTables sizeState="INTERMEDIATE" name="TotalVolumeGrowth">
         <mapperTableEntries name="SK_Date_Plan" expression="USDIncreases.SK_Date_Plan " type="id_Integer"/>
@@ -1083,14 +1075,12 @@
         <mapperTableEntries name="ExtendedDirectLaborCostEfficiencyFunctionalCurrency" expression="USDIncreases.ExtendedDirectLaborCostEfficiencyFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedDirectOverheadCostEfficiencyUSD" expression="USDIncreases.ExtendedDirectOverheadCostEfficiencyUSD " type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedDirectOverheadCostEfficiencyFunctionalCurrency" expression="USDIncreases.ExtendedDirectOverheadCostEfficiencyFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectMaterialCostTotalGrowthUSD" expression="Var.MaterialUSD " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectMaterialCostTotalGrowthFunctionalCurrency" expression="Var.MaterialFuntional " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectLaborCostTotalGrowthUSD" expression="Var.LaborUSD " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectLaborCostTotalGrowthFunctionalCurrency" expression="Var.LaborFunctional " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectOverheadCostTotalGrowthUSD" expression="Var.OverheadUSD " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectOverheadCostTotalGrowthFunctionalCurrency" expression="Var.OverheadFuntional " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedTotalDirectCostGrowthUSD" expression="CustomStringHandling.sumValues(CustomStringHandling.sumValues(Var.MaterialUSD, Var.LaborUSD), Var.OverheadUSD) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedTotalDirectCostVolumeGrowthFunctionalCurrency" expression="CustomStringHandling.sumValues(CustomStringHandling.sumValues(Var.MaterialFuntional, Var.LaborFunctional), Var.OverheadFuntional) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedDirectMaterialCostTotalGrowthUSD" expression="CustomStringHandling.sumValues(CustomStringHandling.sumValues(USDIncreases.ExtendedDirectMaterialCostVolumeGrowthUSD,  USDIncreases.ExtendedDirectMaterialCostInflationUSD),  USDIncreases.ExtendedDirectMaterialCostEfficiencyUSD ) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedDirectMaterialCostTotalGrowthFunctionalCurrency" expression="CustomStringHandling.sumValues(CustomStringHandling.sumValues(USDIncreases.ExtendedDirectMaterialCostVolumeGrowthFunctionalCurrency,  USDIncreases.ExtendedDirectMaterialCostInflationFunctionalCurrency),  USDIncreases.ExtendedDirectMaterialCostEfficiencyFunctionalCurrency ) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedDirectLaborCostTotalGrowthUSD" expression="CustomStringHandling.sumValues(CustomStringHandling.sumValues(USDIncreases.ExtendedDirectLaborCostVolumeGrowthUSD,  USDIncreases.ExtendedDirectLaborCostInflationUSD),  USDIncreases.ExtendedDirectLaborCostEfficiencyUSD ) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedDirectLaborCostTotalGrowthFunctionalCurrency" expression="CustomStringHandling.sumValues(CustomStringHandling.sumValues(USDIncreases.ExtendedDirectLaborCostVolumeGrowthFunctionalCurrency,  USDIncreases.ExtendedDirectLaborCostInflationFunctionalCurrency),  USDIncreases.ExtendedDirectLaborCostEfficiencyFunctionalCurrency) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedDirectOverheadCostTotalGrowthUSD" expression="CustomStringHandling.sumValues(CustomStringHandling.sumValues(USDIncreases.ExtendedDirectOverheadCostVolumeGrowthUSD,  USDIncreases.ExtendedDirectOverheadCostInflationUSD),  USDIncreases.ExtendedDirectOverheadCostEfficiencyUSD ) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedDirectOverheadCostTotalGrowthFunctionalCurrency" expression="CustomStringHandling.sumValues(CustomStringHandling.sumValues(USDIncreases.ExtendedDirectOverheadCostVolumeGrowthFunctionalCurrency, USDIncreases.ExtendedDirectOverheadCostInflationFunctionalCurrency),  USDIncreases.ExtendedDirectOverheadCostEfficiencyFunctionalCurrency ) " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="USDIncreases" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Date_Plan" type="id_Integer"/>
@@ -1275,8 +1265,6 @@
         <mapperTableEntries name="ExtendedDirectLaborCostTotalGrowthFunctionalCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedDirectOverheadCostTotalGrowthUSD" type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedDirectOverheadCostTotalGrowthFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedTotalDirectCostGrowthUSD" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedTotalDirectCostVolumeGrowthFunctionalCurrency" type="id_Float" nullable="true"/>
       </inputTables>
     </nodeData>
   </node>
