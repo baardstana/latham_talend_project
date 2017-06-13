@@ -418,7 +418,7 @@
       <column comment="" key="false" length="16" name="InvoiceLineExtendedDirectOverheadCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var">
         <mapperTableEntries name="SalesValue" expression="SalesValue.FiscalMonthNumber &lt;= DimScenario.NumberMonthsActual ? null : SalesValue.InvoiceLineExtendedSalesValueFunctionalCurrency " type="id_Float" nullable="true"/>
       </varTables>
@@ -567,7 +567,7 @@
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var"/>
-      <outputTables sizeState="INTERMEDIATE" name="Increases" expressionFilter="! Relational.ISNULL(PlanAssumptions.MarketGrowth) || &#xA;! Relational.ISNULL(PlanAssumptions.ExistingBusinessGrowth) || &#xA;! Relational.ISNULL(PlanAssumptions.NewBusinessGrowth) || &#xA;! Relational.ISNULL(PlanAssumptions.Attrition) || &#xA;! Relational.ISNULL(PlanAssumptions.SalesPriceGrowth) || &#xA;! Relational.ISNULL(PlanAssumptions.DirectMaterialVolumeGrowth) || &#xA;! Relational.ISNULL(PlanAssumptions.DirectLaborVolumeGrowth) || &#xA;! Relational.ISNULL(PlanAssumptions.DirectOHVolumeGrowth) || &#xA;! Relational.ISNULL(PlanAssumptions.DirectMaterialInflation) || &#xA;! Relational.ISNULL(PlanAssumptions.DirectLaborInflation) || &#xA;! Relational.ISNULL(PlanAssumptions.DirectOHInflation) || &#xA;! Relational.ISNULL(PlanAssumptions.DirectMaterialEfficiency) || &#xA;! Relational.ISNULL(PlanAssumptions.DirectLaborEfficiency) || &#xA;! Relational.ISNULL(PlanAssumptions.DirectOHEfficiency)" activateExpressionFilter="true">
+      <outputTables sizeState="INTERMEDIATE" name="Increases" activateExpressionFilter="true">
         <mapperTableEntries name="SK_Date_Plan" expression="WithScenario.SK_Date" type="id_Integer"/>
         <mapperTableEntries name="SK_Customer" expression="WithScenario.SK_Customer " type="id_Integer"/>
         <mapperTableEntries name="SK_Product" expression="WithScenario.SK_Product " type="id_Integer"/>
@@ -621,7 +621,7 @@
         <mapperTableEntries name="InvoiceLineExtendedDirectLaborCostFunctionalCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedDirectOverheadCostFunctionalCurrency" type="id_Float" nullable="true"/>
       </inputTables>
-      <inputTables sizeState="INTERMEDIATE" name="PlanAssumptions" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
+      <inputTables sizeState="INTERMEDIATE" name="PlanAssumptions" activateCondensedTool="true" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE" innerJoin="true">
         <mapperTableEntries name="Scenario" expression="WithScenario.BK_Scenario_ScenarioName_FlatFiles " type="id_String" nullable="true" operator="="/>
         <mapperTableEntries name="FiscalYear" expression="WithScenario.FiscalYear " type="id_Integer" nullable="true" operator="="/>
         <mapperTableEntries name="FiscalMonth" expression="WithScenario.FiscalMonthNumber " type="id_Integer" nullable="true" operator="="/>
@@ -708,7 +708,7 @@
       <column comment="" key="false" length="16" name="ExtendedDirectOverheadCostEfficiencyFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var">
         <mapperTableEntries name="Rate" expression="USDConversionRate.ExchangeRate " type="id_Float" nullable="true"/>
       </varTables>
@@ -1019,7 +1019,7 @@
       <column comment="" key="false" length="16" name="ExtendedDirectOverheadCostTotalGrowthFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var">
         <mapperTableEntries name="NetLathamFunctional" expression="CustomStringHandling.sumValues(CustomStringHandling.sumValues(USDIncreases.ExtendedSalesValueExistingBusinessGrowthFunctionalCurrency, USDIncreases.ExtendedSalesValueNewBusinessGrowthFunctionalCurrency), USDIncreases.ExtendedSalesValueAttritionFunctionalCurrency) " type="id_Float" nullable="true"/>
         <mapperTableEntries name="NetLathamUSD" expression="CustomStringHandling.sumValues(CustomStringHandling.sumValues(USDIncreases.ExtendedSalesValueExistingBusinessGrowthUSD, USDIncreases.ExtendedSalesValueNewBusinessGrowthUSD), USDIncreases.ExtendedSalesValueAttritionFunctionalUSD) " type="id_Float" nullable="true"/>
@@ -1208,7 +1208,7 @@
       <column comment="" key="false" length="16" name="ExtendedTotalDirectCostGrowthFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="TotalGrowth">
         <mapperTableEntries name="SK_Date_Plan" expression="TotalVolumeGrowth.SK_Date_Plan " type="id_Integer"/>
@@ -1410,7 +1410,7 @@
       <column comment="" key="false" length="16" name="ExtendedTotalDirectCostUSD" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="PlannedValue">
         <mapperTableEntries name="SK_Date_Plan" expression="TotalGrowth.SK_Date_Plan " type="id_Integer"/>
