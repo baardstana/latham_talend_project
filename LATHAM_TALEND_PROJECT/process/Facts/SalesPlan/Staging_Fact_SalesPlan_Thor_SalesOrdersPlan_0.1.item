@@ -549,11 +549,11 @@
         <mapperTableEntries name="SK_SourceSystem" expression="WithScenario.SK_SourceSystem " type="id_Integer"/>
         <mapperTableEntries name="SK_Scenario" expression="WithScenario.SK_Scenario " type="id_Integer"/>
         <mapperTableEntries name="ActualOrderValueFunctional" expression="WithScenario.OrderLineExtendedValueFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedOrderValueMarketGrowthFunctionalCurrency" expression="CustomStringHandling.multiplyValues(WithScenario.InvoiceLineExtendedSalesValueFunctionalCurrency, PlanAssumptions.MarketGrowth) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedOrderValueExistingBusinessGrowthFunctionalCurrency" expression="CustomStringHandling.multiplyValues(WithScenario.InvoiceLineExtendedSalesValueFunctionalCurrency , PlanAssumptions.ExistingBusinessGrowth) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedOrderValueNewBusinessGrowthFunctionalCurrency" expression="CustomStringHandling.multiplyValues(WithScenario.InvoiceLineExtendedSalesValueFunctionalCurrency , PlanAssumptions.NewBusinessGrowth) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedOrderValueAttritionFunctionalCurrency" expression="CustomStringHandling.multiplyValues(WithScenario.InvoiceLineExtendedSalesValueFunctionalCurrency , PlanAssumptions.Attrition) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedOrderValueSalesPriceGrowthFunctionalCurrency" expression="CustomStringHandling.multiplyValues(WithScenario.InvoiceLineExtendedSalesValueFunctionalCurrency, PlanAssumptions.SalesPriceGrowth) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedOrderValueMarketGrowthFunctionalCurrency" expression="CustomStringHandling.multiplyValues(WithScenario.OrderLineExtendedValueFunctionalCurrency, PlanAssumptions.MarketGrowth) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedOrderValueExistingBusinessGrowthFunctionalCurrency" expression="CustomStringHandling.multiplyValues(WithScenario.OrderLineExtendedValueFunctionalCurrency , PlanAssumptions.ExistingBusinessGrowth) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedOrderValueNewBusinessGrowthFunctionalCurrency" expression="CustomStringHandling.multiplyValues(WithScenario.OrderLineExtendedValueFunctionalCurrency , PlanAssumptions.NewBusinessGrowth) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedOrderValueAttritionFunctionalCurrency" expression="CustomStringHandling.multiplyValues(WithScenario.OrderLineExtendedValueFunctionalCurrency , PlanAssumptions.Attrition) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedOrderValueSalesPriceGrowthFunctionalCurrency" expression="CustomStringHandling.multiplyValues(WithScenario.OrderLineExtendedValueFunctionalCurrency, PlanAssumptions.SalesPriceGrowth) " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="WithScenario" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="FiscalYear" type="id_Integer"/>
@@ -625,45 +625,21 @@
       <column comment="" defaultValue="" key="true" length="11" name="SK_Company" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="true" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="11" name="SK_Scenario" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="19" name="ActualSalesFunctional" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="19" name="ActualSalesUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="16" name="ActualMaterialCostFunctional" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" key="false" length="16" name="ActualMaterialCostUSD" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" key="false" length="16" name="ActualLaborCostFunctional" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" key="false" length="16" name="ActualLaborCostUSD" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" key="false" length="16" name="ActualOverheadCostFunctional" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" key="false" length="16" name="ActualOverheadCostUSD" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" key="false" length="19" name="ExtendedSalesValueMarketGrowthFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="19" usefulColumn="true"/>
-      <column comment="" key="false" length="19" name="ExtendedSalesValueMarketGrowthUSD" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="19" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="19" name="ExtendedSalesValueExistingBusinessGrowthFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="19" name="ExtendedSalesValueExistingBusinessGrowthUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="19" name="ExtendedSalesValueNewBusinessGrowthFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="19" name="ExtendedSalesValueNewBusinessGrowthUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="19" name="ExtendedSalesValueAttritionFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="19" name="ExtendedSalesValueAttritionFunctionalUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="19" name="ExtendedSalesValueSalesPriceGrowthFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="19" name="ExtendedSalesValueSalesPriceGrowthFunctionalUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="16" name="ExtendedDirectMaterialCostVolumeGrowthUSD" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" key="false" length="16" name="ExtendedDirectMaterialCostVolumeGrowthFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" key="false" length="16" name="ExtendedDirectLaborCostVolumeGrowthUSD" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" key="false" length="16" name="ExtendedDirectLaborCostVolumeGrowthFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" key="false" length="16" name="ExtendedDirectOverheadCostVolumeGrowthUSD" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" key="false" length="16" name="ExtendedDirectOverheadCostVolumeGrowthFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" key="false" length="16" name="ExtendedDirectMaterialCostInflationUSD" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" key="false" length="16" name="ExtendedDirectMaterialCostInflationFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" key="false" length="16" name="ExtendedDirectLaborCostInflationUSD" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" key="false" length="16" name="ExtendedDirectLaborCostInflationFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" key="false" length="16" name="ExtendedDirectOverheadCostInflationUSD" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" key="false" length="16" name="ExtendedDirectOverheadCostInflationFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" key="false" length="16" name="ExtendedDirectMaterialCostEfficiencyUSD" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" key="false" length="16" name="ExtendedDirectMaterialCostEfficiencyFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" key="false" length="16" name="ExtendedDirectLaborCostEfficiencyUSD" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" key="false" length="16" name="ExtendedDirectLaborCostEfficiencyFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" key="false" length="16" name="ExtendedDirectOverheadCostEfficiencyUSD" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" key="false" length="16" name="ExtendedDirectOverheadCostEfficiencyFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="ActualOrderValueFunctional" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="ActualOrderValueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
+      <column comment="" key="false" length="19" name="ExtendedOrderValueMarketGrowthFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="19" usefulColumn="true"/>
+      <column comment="" key="false" length="19" name="ExtendedOrderValueMarketGrowthUSD" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="19" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="19" name="ExtendedOrderValueExistingBusinessGrowthFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="19" name="ExtendedOrderValueExistingBusinessGrowthUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="19" name="ExtendedOrderValueNewBusinessGrowthFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="19" name="ExtendedOrderValueNewBusinessGrowthUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="19" name="ExtendedOrderValueAttritionFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="19" name="ExtendedOrderValueAttritionFunctionalUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="19" name="ExtendedOrderValueSalesPriceGrowthFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="19" name="ExtendedOrderValueSalesPriceGrowthFunctionalUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var">
         <mapperTableEntries name="Rate" expression="USDConversionRate.ExchangeRate " type="id_Float" nullable="true"/>
       </varTables>
@@ -678,42 +654,18 @@
         <mapperTableEntries name="SK_Company" expression="Increases.SK_Company " type="id_Integer"/>
         <mapperTableEntries name="SK_SourceSystem" expression="Increases.SK_SourceSystem " type="id_Integer"/>
         <mapperTableEntries name="SK_Scenario" expression="Increases.SK_Scenario " type="id_Integer"/>
-        <mapperTableEntries name="ActualSalesFunctional" expression="Increases.ActualSalesFunctional " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ActualSalesUSD" expression="CustomStringHandling.currencyConversion(Increases.ActualSalesFunctional, Var.Rate) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ActualMaterialCostFunctional" expression="Increases.ActualMaterialCostFunctional " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ActualMaterialCostUSD" expression="CustomStringHandling.currencyConversion(Increases.ActualMaterialCostFunctional , Var.Rate) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ActualLaborCostFunctional" expression="Increases.ActualLaborCostFunctional " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ActualLaborCostUSD" expression="CustomStringHandling.currencyConversion(Increases.ActualLaborCostFunctional , Var.Rate) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ActualOverheadCostFunctional" expression="Increases.ActualOverheadCostFunctional " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ActualOverheadCostUSD" expression="CustomStringHandling.currencyConversion(Increases.ActualOverheadCostFunctional , Var.Rate) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueMarketGrowthFunctionalCurrency" expression="Increases.ExtendedSalesValueMarketGrowthFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueMarketGrowthUSD" expression="CustomStringHandling.currencyConversion(Increases.ExtendedSalesValueMarketGrowthFunctionalCurrency , Var.Rate) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueExistingBusinessGrowthFunctionalCurrency" expression="Increases.ExtendedSalesValueExistingBusinessGrowthFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueExistingBusinessGrowthUSD" expression="CustomStringHandling.currencyConversion(Increases.ExtendedSalesValueExistingBusinessGrowthFunctionalCurrency , Var.Rate) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueNewBusinessGrowthFunctionalCurrency" expression="Increases.ExtendedSalesValueNewBusinessGrowthFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueNewBusinessGrowthUSD" expression="CustomStringHandling.currencyConversion(Increases.ExtendedSalesValueNewBusinessGrowthFunctionalCurrency , Var.Rate) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueAttritionFunctionalCurrency" expression="Increases.ExtendedSalesValueAttritionFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueAttritionFunctionalUSD" expression="CustomStringHandling.currencyConversion(Increases.ExtendedSalesValueAttritionFunctionalCurrency , Var.Rate) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueSalesPriceGrowthFunctionalCurrency" expression="Increases.ExtendedSalesValueSalesPriceGrowthFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueSalesPriceGrowthFunctionalUSD" expression="CustomStringHandling.currencyConversion(Increases.ExtendedSalesValueSalesPriceGrowthFunctionalCurrency , Var.Rate) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectMaterialCostVolumeGrowthUSD" expression="CustomStringHandling.currencyConversion(Increases.ExtendedDirectMaterialCostVolumeGrowthFunctionalCurrency , Var.Rate) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectMaterialCostVolumeGrowthFunctionalCurrency" expression="Increases.ExtendedDirectMaterialCostVolumeGrowthFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectLaborCostVolumeGrowthUSD" expression="CustomStringHandling.currencyConversion(Increases.ExtendedDirectLaborCostVolumeGrowthFunctionalCurrency , Var.Rate) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectLaborCostVolumeGrowthFunctionalCurrency" expression="Increases.ExtendedDirectLaborCostVolumeGrowthFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectOverheadCostVolumeGrowthUSD" expression="CustomStringHandling.currencyConversion(Increases.ExtendedDirectOverheadCostVolumeGrowthFunctionalCurrency , Var.Rate) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectOverheadCostVolumeGrowthFunctionalCurrency" expression="Increases.ExtendedDirectOverheadCostVolumeGrowthFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectMaterialCostInflationUSD" expression="CustomStringHandling.currencyConversion(Increases.ExtendedDirectMaterialCostInflationFunctionalCurrency , Var.Rate) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectMaterialCostInflationFunctionalCurrency" expression="Increases.ExtendedDirectMaterialCostInflationFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectLaborCostInflationUSD" expression="CustomStringHandling.currencyConversion(Increases.ExtendedDirectLaborCostInflationFunctionalCurrency , Var.Rate) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectLaborCostInflationFunctionalCurrency" expression="Increases.ExtendedDirectLaborCostInflationFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectOverheadCostInflationUSD" expression="CustomStringHandling.currencyConversion(Increases.ExtendedDirectOverheadCostInflationFunctionalCurrency , Var.Rate) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectOverheadCostInflationFunctionalCurrency" expression="Increases.ExtendedDirectOverheadCostInflationFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectMaterialCostEfficiencyUSD" expression="CustomStringHandling.currencyConversion(Increases.ExtendedDirectMaterialCostEfficiencyFunctionalCurrency , Var.Rate) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectMaterialCostEfficiencyFunctionalCurrency" expression="Increases.ExtendedDirectMaterialCostEfficiencyFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectLaborCostEfficiencyUSD" expression="CustomStringHandling.currencyConversion(Increases.ExtendedDirectLaborCostEfficiencyFunctionalCurrency , Var.Rate) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectLaborCostEfficiencyFunctionalCurrency" expression="Increases.ExtendedDirectLaborCostEfficiencyFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectOverheadCostEfficiencyUSD" expression="CustomStringHandling.currencyConversion(Increases.ExtendedDirectOverheadCostEfficiencyFunctionalCurrency , Var.Rate) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectOverheadCostEfficiencyFunctionalCurrency" expression="Increases.ExtendedDirectOverheadCostEfficiencyFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ActualOrderValueFunctional" expression="Increases.ActualOrderValueFunctional " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ActualOrderValueUSD" expression="CustomStringHandling.currencyConversion(Increases.ActualOrderValueFunctional, Var.Rate) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedOrderValueMarketGrowthFunctionalCurrency" expression="Increases.ExtendedOrderValueMarketGrowthFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedOrderValueMarketGrowthUSD" expression="CustomStringHandling.currencyConversion(Increases.ExtendedOrderValueMarketGrowthFunctionalCurrency , Var.Rate) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedOrderValueExistingBusinessGrowthFunctionalCurrency" expression="Increases.ExtendedOrderValueExistingBusinessGrowthFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedOrderValueExistingBusinessGrowthUSD" expression="CustomStringHandling.currencyConversion(Increases.ExtendedOrderValueExistingBusinessGrowthFunctionalCurrency , Var.Rate) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedOrderValueNewBusinessGrowthFunctionalCurrency" expression="Increases.ExtendedOrderValueNewBusinessGrowthFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedOrderValueNewBusinessGrowthUSD" expression="CustomStringHandling.currencyConversion(Increases.ExtendedOrderValueNewBusinessGrowthFunctionalCurrency , Var.Rate) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedOrderValueAttritionFunctionalCurrency" expression="Increases.ExtendedOrderValueAttritionFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedOrderValueAttritionFunctionalUSD" expression="CustomStringHandling.currencyConversion(Increases.ExtendedOrderValueAttritionFunctionalCurrency , Var.Rate) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedOrderValueSalesPriceGrowthFunctionalCurrency" expression="Increases.ExtendedOrderValueSalesPriceGrowthFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedOrderValueSalesPriceGrowthFunctionalUSD" expression="CustomStringHandling.currencyConversion(Increases.ExtendedOrderValueSalesPriceGrowthFunctionalCurrency , Var.Rate) " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="Increases" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Date_Plan" type="id_Integer"/>
@@ -1036,42 +988,18 @@
         <mapperTableEntries name="SK_Company" type="id_Integer"/>
         <mapperTableEntries name="SK_SourceSystem" type="id_Integer"/>
         <mapperTableEntries name="SK_Scenario" type="id_Integer"/>
-        <mapperTableEntries name="ActualSalesFunctional" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ActualSalesUSD" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ActualMaterialCostFunctional" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ActualMaterialCostUSD" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ActualLaborCostFunctional" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ActualLaborCostUSD" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ActualOverheadCostFunctional" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ActualOverheadCostUSD" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueMarketGrowthFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueMarketGrowthUSD" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueExistingBusinessGrowthFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueExistingBusinessGrowthUSD" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueNewBusinessGrowthFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueNewBusinessGrowthUSD" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueAttritionFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueAttritionFunctionalUSD" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueSalesPriceGrowthFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueSalesPriceGrowthFunctionalUSD" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectMaterialCostVolumeGrowthUSD" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectMaterialCostVolumeGrowthFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectLaborCostVolumeGrowthUSD" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectLaborCostVolumeGrowthFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectOverheadCostVolumeGrowthUSD" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectOverheadCostVolumeGrowthFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectMaterialCostInflationUSD" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectMaterialCostInflationFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectLaborCostInflationUSD" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectLaborCostInflationFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectOverheadCostInflationUSD" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectOverheadCostInflationFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectMaterialCostEfficiencyUSD" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectMaterialCostEfficiencyFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectLaborCostEfficiencyUSD" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectLaborCostEfficiencyFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectOverheadCostEfficiencyUSD" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectOverheadCostEfficiencyFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ActualOrderValueFunctional" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ActualOrderValueUSD" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedOrderValueMarketGrowthFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedOrderValueMarketGrowthUSD" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedOrderValueExistingBusinessGrowthFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedOrderValueExistingBusinessGrowthUSD" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedOrderValueNewBusinessGrowthFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedOrderValueNewBusinessGrowthUSD" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedOrderValueAttritionFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedOrderValueAttritionFunctionalUSD" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedOrderValueSalesPriceGrowthFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedOrderValueSalesPriceGrowthFunctionalUSD" type="id_Float" nullable="true"/>
       </inputTables>
     </nodeData>
   </node>
@@ -2170,6 +2098,39 @@
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
       <elementValue elementRef="TRACE_COLUMN" value="ActualMaterialCostUSD"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="ActualOrderValueUSD"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="ExtendedOrderValueMarketGrowthUSD"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="ExtendedOrderValueSalesPriceGrowthFunctionalCurrency"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="ExtendedOrderValueNewBusinessGrowthFunctionalCurrency"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="ExtendedOrderValueNewBusinessGrowthUSD"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="ExtendedOrderValueMarketGrowthFunctionalCurrency"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="ExtendedOrderValueAttritionFunctionalUSD"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="ActualOrderValueFunctional"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="ExtendedOrderValueExistingBusinessGrowthUSD"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="ExtendedOrderValueAttritionFunctionalCurrency"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="ExtendedOrderValueExistingBusinessGrowthFunctionalCurrency"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
