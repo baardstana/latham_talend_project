@@ -303,7 +303,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT D.FiscalYear&#xD;&#xA;&#x9;, D.FiscalMonthNumber&#xD;&#xA;&#x9;, D.SK_Date  &#xD;&#xA;    , P.ProductMajorCode&#xD;&#xA;    , SIC.SK_Customer&#xD;&#xA;    , SIC.SK_Product&#xD;&#xA;    , SIC.SK_Stockroom_ShippedFrom&#xD;&#xA;    , SIC.SK_Geography_ShippedTo&#xD;&#xA;    , SIC.SK_Currency_USD&#xD;&#xA;    , SIC.SK_Currency_Functional&#xD;&#xA;    , SIC.SK_Company&#xD;&#xA;&#x9;, SIC.SK_SourceSystem&#xD;&#xA;    , SUM(SIC.InvoiceLineExtendedSalesValueFunctionalCurrency) AS InvoiceLineExtendedSalesValueFunctionalCurrency&#xD;&#xA;    , SUM(SIC.InvoiceLineExtendedSalesValueUSD) AS InvoiceLineExtendedSalesValueUSD&#xD;&#xA;    , SUM(SIC.InvoiceLineExtendedDirectMaterialCostFunctionalCurrency) AS InvoiceLineExtendedDirectMaterialCostFunctionalCurrency   &#xD;&#xA;    , SUM(SIC.InvoiceLineExtendedDirectMaterialCostUSD) AS InvoiceLineExtendedDirectMaterialCostUSD&#xD;&#xA;    , SUM(SIC.InvoiceLineExtendedDirectLaborCostFunctionalCurrency) AS InvoiceLineExtendedDirectLaborCostFunctionalCurrency&#xD;&#xA;    , SUM(SIC.InvoiceLineExtendedDirectLaborCostUSD) AS InvoiceLineExtendedDirectLaborCostUSD&#xD;&#xA;    , SUM(SIC.InvoiceLineExtendedDirectOverheadCostFunctionalCurrency) AS InvoiceLineExtendedDirectOverheadCostFunctionalCurrency    &#xD;&#xA;    , SUM(SIC.InvoiceLineExtendedDirectOverheadCostUSD) AS InvoiceLineExtendedDirectOverheadCostUSD &#xD;&#xA;FROM Fact_SalesInvoicingComponent AS SIC&#xD;&#xA;INNER JOIN Dim_Date AS D&#xD;&#xA;&#x9;ON SIC.SK_Date_Invoiced = D.SK_Date&#xD;&#xA;INNER JOIN Dim_Customer AS C&#xD;&#xA;&#x9;ON SIC.SK_Customer = C.SK_Customer&#xD;&#xA;    AND C.CustomerType &lt;> 'Intercompany'&#xD;&#xA;INNER JOIN Dim_Product AS P&#xD;&#xA;&#x9;ON SIC.SK_Product = P.SK_Product&#xD;&#xA;GROUP BY D.FiscalYear&#xD;&#xA;&#x9;, D.FiscalMonthNumber&#xD;&#xA;&#x9;, D.SK_Date  &#xD;&#xA;    , P.ProductMajorCode&#xD;&#xA;    , SIC.SK_Customer&#xD;&#xA;    , SIC.SK_Product&#xD;&#xA;    , SIC.SK_Stockroom_ShippedFrom&#xD;&#xA;    , SIC.SK_Geography_ShippedTo&#xD;&#xA;    , SIC.SK_Currency_USD&#xD;&#xA;    , SIC.SK_Currency_Functional&#xD;&#xA;    , SIC.SK_Company&#xD;&#xA;&#x9;, SIC.SK_SourceSystem&#xD;&#xA;HAVING SUM(SIC.InvoiceLineExtendedSalesValueFunctionalCurrency) > 0&#xD;&#xA;&#x9;OR SUM(SIC.InvoiceLineExtendedSalesValueFunctionalCurrency) &lt; 0&#xD;&#xA;    OR SUM(SIC.InvoiceLineExtendedDirectMaterialCostFunctionalCurrency) > 0&#xD;&#xA;    OR SUM(SIC.InvoiceLineExtendedDirectMaterialCostFunctionalCurrency) &lt; 0&#xD;&#xA;    OR SUM(SIC.InvoiceLineExtendedDirectLaborCostFunctionalCurrency) > 0&#xD;&#xA;    OR SUM(SIC.InvoiceLineExtendedDirectLaborCostFunctionalCurrency) &lt; 0&#xD;&#xA;    OR SUM(SIC.InvoiceLineExtendedDirectOverheadCostFunctionalCurrency) > 0&#xD;&#xA;    OR SUM(SIC.InvoiceLineExtendedDirectOverheadCostFunctionalCurrency) &lt; 0    &#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT D.FiscalYear&#xD;&#xA;&#x9;, D.FiscalMonthNumber&#xD;&#xA;&#x9;, D.SK_Date  &#xD;&#xA;    , P.ProductMajorCode&#xD;&#xA;    , SIC.SK_Customer&#xD;&#xA;    , SIC.SK_Product&#xD;&#xA;    , SIC.SK_Stockroom_ShippedFrom&#xD;&#xA;    , SIC.SK_Geography_ShippedTo&#xD;&#xA;    , SIC.SK_Currency_USD&#xD;&#xA;    , SIC.SK_Currency_Functional&#xD;&#xA;    , SIC.SK_Company&#xD;&#xA;&#x9;, SIC.SK_SourceSystem&#xD;&#xA;    , SUM(SIC.InvoiceLineExtendedSalesValueFunctionalCurrency) AS SalesFunctional_Current&#xD;&#xA;    , NULL AS SalesFunctional_Last&#xD;&#xA;    , SUM(SIC.InvoiceLineExtendedSalesValueUSD) AS SalesUSD_Current&#xD;&#xA;    , NULL AS SalesUSD_Last&#xD;&#xA;    , SUM(SIC.InvoiceLineExtendedDirectMaterialCostFunctionalCurrency) AS MaterialCostFunctional_Current&#xD;&#xA;    , NULL AS MaterialCostFunctional_Last&#xD;&#xA;    , SUM(SIC.InvoiceLineExtendedDirectMaterialCostUSD) AS MaterialCostUSD_Current&#xD;&#xA;    , NULL AS MaterialCostUSD_Last&#xD;&#xA;    , SUM(SIC.InvoiceLineExtendedDirectLaborCostFunctionalCurrency) AS LaborCostFunctional_Current&#xD;&#xA;    , NULL AS LaborCostFunctional_Last&#xD;&#xA;    , SUM(SIC.InvoiceLineExtendedDirectLaborCostUSD) AS LaborCostUSD_Current&#xD;&#xA;    , NULL AS LaborCostUSD_Last&#xD;&#xA;    , SUM(SIC.InvoiceLineExtendedDirectOverheadCostFunctionalCurrency) AS OverheadCostFunctional_Current&#xD;&#xA;    , NULL AS OverheadCostFunctional_Last  &#xD;&#xA;    , SUM(SIC.InvoiceLineExtendedDirectOverheadCostUSD) AS OverheadCostUSD_Current&#xD;&#xA;    , NULL AS OverheadCostUSD_Last&#xD;&#xA;FROM Fact_SalesInvoicingComponent AS SIC&#xD;&#xA;INNER JOIN Dim_Date AS D&#xD;&#xA;&#x9;ON SIC.SK_Date_Invoiced = D.SK_Date&#xD;&#xA;INNER JOIN Dim_Customer AS C&#xD;&#xA;&#x9;ON SIC.SK_Customer = C.SK_Customer&#xD;&#xA;    AND C.CustomerType &lt;> 'Intercompany'&#xD;&#xA;INNER JOIN Dim_Product AS P&#xD;&#xA;&#x9;ON SIC.SK_Product = P.SK_Product&#xD;&#xA;GROUP BY D.FiscalYear&#xD;&#xA;&#x9;, D.FiscalMonthNumber&#xD;&#xA;&#x9;, D.SK_Date  &#xD;&#xA;    , P.ProductMajorCode&#xD;&#xA;    , SIC.SK_Customer&#xD;&#xA;    , SIC.SK_Product&#xD;&#xA;    , SIC.SK_Stockroom_ShippedFrom&#xD;&#xA;    , SIC.SK_Geography_ShippedTo&#xD;&#xA;    , SIC.SK_Currency_USD&#xD;&#xA;    , SIC.SK_Currency_Functional&#xD;&#xA;    , SIC.SK_Company&#xD;&#xA;&#x9;, SIC.SK_SourceSystem&#xD;&#xA;HAVING SUM(SIC.InvoiceLineExtendedSalesValueFunctionalCurrency) > 0&#xD;&#xA;&#x9;OR SUM(SIC.InvoiceLineExtendedSalesValueFunctionalCurrency) &lt; 0&#xD;&#xA;    OR SUM(SIC.InvoiceLineExtendedDirectMaterialCostFunctionalCurrency) > 0&#xD;&#xA;    OR SUM(SIC.InvoiceLineExtendedDirectMaterialCostFunctionalCurrency) &lt; 0&#xD;&#xA;    OR SUM(SIC.InvoiceLineExtendedDirectLaborCostFunctionalCurrency) > 0&#xD;&#xA;    OR SUM(SIC.InvoiceLineExtendedDirectLaborCostFunctionalCurrency) &lt; 0&#xD;&#xA;    OR SUM(SIC.InvoiceLineExtendedDirectOverheadCostFunctionalCurrency) > 0&#xD;&#xA;    OR SUM(SIC.InvoiceLineExtendedDirectOverheadCostFunctionalCurrency) &lt; 0   &#xD;&#xA;    &#xD;&#xA;UNION ALL&#xD;&#xA;&#xD;&#xA;SELECT D.FiscalYear&#xD;&#xA;&#x9;, D.FiscalMonthNumber&#xD;&#xA;&#x9;, D.SK_Date  &#xD;&#xA;    , P.ProductMajorCode&#xD;&#xA;    , SIC.SK_Customer&#xD;&#xA;    , SIC.SK_Product&#xD;&#xA;    , SIC.SK_Stockroom_ShippedFrom&#xD;&#xA;    , SIC.SK_Geography_ShippedTo&#xD;&#xA;    , SIC.SK_Currency_USD&#xD;&#xA;    , SIC.SK_Currency_Functional&#xD;&#xA;    , SIC.SK_Company&#xD;&#xA;&#x9;, SIC.SK_SourceSystem&#xD;&#xA;    , NULL AS SalesFunctional_Current&#xD;&#xA;    , SUM(SIC.InvoiceLineExtendedSalesValueFunctionalCurrency) AS SalesFunctional_Last&#xD;&#xA;    , NULL AS SalesUSD_Current&#xD;&#xA;    , SUM(SIC.InvoiceLineExtendedSalesValueUSD) AS SalesUSD_Last&#xD;&#xA;    , NULL AS MaterialCostFunctional_Current&#xD;&#xA;    , SUM(SIC.InvoiceLineExtendedDirectMaterialCostFunctionalCurrency) AS MaterialCostFunctional_Last&#xD;&#xA;    , NULL AS MaterialCostUSD_Current&#xD;&#xA;    , SUM(SIC.InvoiceLineExtendedDirectMaterialCostUSD) AS MaterialCostUSD_Last&#xD;&#xA;    , NULL AS LaborCostFunctional_Current&#xD;&#xA;    , SUM(SIC.InvoiceLineExtendedDirectLaborCostFunctionalCurrency) AS LaborCostFunctional_Last&#xD;&#xA;    , NULL AS LaborCostUSD_Current&#xD;&#xA;    , SUM(SIC.InvoiceLineExtendedDirectLaborCostUSD) AS LaborCostUSD_Last&#xD;&#xA;    , NULL AS OverheadCostFunctional_Current&#xD;&#xA;    , SUM(SIC.InvoiceLineExtendedDirectOverheadCostFunctionalCurrency) AS OverheadCostFunctional_Last  &#xD;&#xA;    , NULL AS OverheadCostUSD_Current&#xD;&#xA;    , SUM(SIC.InvoiceLineExtendedDirectOverheadCostUSD) AS OverheadCostUSD_Last&#xD;&#xA;FROM Fact_SalesInvoicingComponent AS SIC&#xD;&#xA;INNER JOIN Dim_Date AS D&#xD;&#xA;&#x9;ON SIC.SK_Date_Invoiced = D.FiscalPreviousYearKey&#xD;&#xA;INNER JOIN Dim_Customer AS C&#xD;&#xA;&#x9;ON SIC.SK_Customer = C.SK_Customer&#xD;&#xA;    AND C.CustomerType &lt;> 'Intercompany'&#xD;&#xA;INNER JOIN Dim_Product AS P&#xD;&#xA;&#x9;ON SIC.SK_Product = P.SK_Product&#xD;&#xA;GROUP BY D.FiscalYear&#xD;&#xA;&#x9;, D.FiscalMonthNumber&#xD;&#xA;&#x9;, D.SK_Date  &#xD;&#xA;    , P.ProductMajorCode&#xD;&#xA;    , SIC.SK_Customer&#xD;&#xA;    , SIC.SK_Product&#xD;&#xA;    , SIC.SK_Stockroom_ShippedFrom&#xD;&#xA;    , SIC.SK_Geography_ShippedTo&#xD;&#xA;    , SIC.SK_Currency_USD&#xD;&#xA;    , SIC.SK_Currency_Functional&#xD;&#xA;    , SIC.SK_Company&#xD;&#xA;&#x9;, SIC.SK_SourceSystem&#xD;&#xA;HAVING SUM(SIC.InvoiceLineExtendedSalesValueFunctionalCurrency) > 0&#xD;&#xA;&#x9;OR SUM(SIC.InvoiceLineExtendedSalesValueFunctionalCurrency) &lt; 0&#xD;&#xA;    OR SUM(SIC.InvoiceLineExtendedDirectMaterialCostFunctionalCurrency) > 0&#xD;&#xA;    OR SUM(SIC.InvoiceLineExtendedDirectMaterialCostFunctionalCurrency) &lt; 0&#xD;&#xA;    OR SUM(SIC.InvoiceLineExtendedDirectLaborCostFunctionalCurrency) > 0&#xD;&#xA;    OR SUM(SIC.InvoiceLineExtendedDirectLaborCostFunctionalCurrency) &lt; 0&#xD;&#xA;    OR SUM(SIC.InvoiceLineExtendedDirectOverheadCostFunctionalCurrency) > 0&#xD;&#xA;    OR SUM(SIC.InvoiceLineExtendedDirectOverheadCostFunctionalCurrency) &lt; 0 &#xD;&#xA;&#xD;&#xA;&#xD;&#xA;limit 5000&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -338,28 +338,44 @@
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="SK_SourceSystem"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceLineExtendedSalesValueFunctionalCurrency"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SalesFunctional_Current"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceLineExtendedSalesValueUSD"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SalesFunctional_Last"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceLineExtendedDirectMaterialCostFunctionalCurrency"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SalesUSD_Current"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceLineExtendedDirectMaterialCostUSD"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SalesUSD_Last"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceLineExtendedDirectLaborCostFunctionalCurrency"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="MaterialCostFunctional_Current"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceLineExtendedDirectLaborCostUSD"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="MaterialCostFunctional_Last"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceLineExtendedDirectOverheadCostFunctionalCurrency"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="MaterialCostUSD_Current"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceLineExtendedDirectOverheadCostUSD"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="MaterialCostUSD_Last"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="LaborCostFunctional_Current"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="LaborCostFunctional_Last"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="LaborCostUSD_Current"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="LaborCostUSD_Last"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="OverheadCostFunctional_Current"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="OverheadCostFunctional_Last"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="OverheadCostUSD_Current"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="OverheadCostUSD_Last"/>
       <elementValue elementRef="TRIM" value="false"/>
     </elementParameter>
     <elementParameter field="TEXT" name="LABEL" value="Fact_SalesInvoicingComponent"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tMysqlInput_1">
-      <column comment="" defaultValue="" key="false" length="4" name="FiscalYear" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="1" name="FiscalMonthNumber" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="FiscalYear" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="FiscalMonthNumber" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="11" name="SK_Date" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="7" name="ProductMajorCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
@@ -370,14 +386,22 @@
       <column comment="" defaultValue="" key="true" length="11" name="SK_Currency_Functional" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="11" name="SK_Company" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineExtendedSalesValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineExtendedSalesValueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="16" name="InvoiceLineExtendedDirectMaterialCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="16" name="InvoiceLineExtendedDirectMaterialCostUSD" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="16" name="InvoiceLineExtendedDirectLaborCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="16" name="InvoiceLineExtendedDirectLaborCostUSD" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="16" name="InvoiceLineExtendedDirectOverheadCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="16" name="InvoiceLineExtendedDirectOverheadCostUSD" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="SalesFunctional_Current" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="SalesFunctional_Last" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="SalesUSD_Current" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="SalesUSD_Last" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="MaterialCostFunctional_Current" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="MaterialCostFunctional_Last" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="MaterialCostUSD_Current" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="MaterialCostUSD_Last" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="LaborCostFunctional_Current" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="LaborCostFunctional_Last" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="LaborCostUSD_Current" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="LaborCostUSD_Last" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="OverheadCostFunctional_Current" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="OverheadCostFunctional_Last" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="OverheadCostUSD_Current" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="OverheadCostUSD_Last" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="384" posY="192">
@@ -385,18 +409,19 @@
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="_j3YaIE-WEeeNsaOuRu6DsA-tMap_11-PREVIEW.bmp"/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_rgtIsE-mEeeNsaOuRu6DsA-tMap_11-PREVIEW.bmp"/>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
     <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
     <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
     <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
     <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="false"/>
-    <elementParameter field="TEXT" name="LABEL" value="GetNewCustomers"/>
+    <elementParameter field="TEXT" name="LABEL" value="GetExistingCustomers"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="NewCustomer">
-      <column comment="" defaultValue="" key="false" length="4" name="FiscalYear" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="FiscalMonthNumber" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="2" usefulColumn="true"/>
+    <metadata connector="FLOW" name="ExistingCustomer">
+      <column comment="" defaultValue="" key="false" length="11" name="FiscalYear" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="FiscalMonthNumber" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="11" name="SK_Date" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="ProductMajorCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="11" name="SK_Product" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="11" name="SK_Stockroom_ShippedFrom" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
@@ -405,22 +430,32 @@
       <column comment="" defaultValue="" key="true" length="11" name="SK_Currency_Functional" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="11" name="SK_Company" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineExtendedSalesValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineExtendedSalesValueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="16" name="InvoiceLineExtendedDirectMaterialCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="16" name="InvoiceLineExtendedDirectMaterialCostUSD" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="16" name="InvoiceLineExtendedDirectLaborCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="16" name="InvoiceLineExtendedDirectLaborCostUSD" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="16" name="InvoiceLineExtendedDirectOverheadCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="16" name="InvoiceLineExtendedDirectOverheadCostUSD" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="SalesFunctional_Current" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="SalesFunctional_Last" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="SalesUSD_Current" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="SalesUSD_Last" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="MaterialCostFunctional_Current" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="MaterialCostFunctional_Last" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="MaterialCostUSD_Current" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="MaterialCostUSD_Last" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="LaborCostFunctional_Current" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="LaborCostFunctional_Last" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="LaborCostUSD_Current" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="LaborCostUSD_Last" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="OverheadCostFunctional_Current" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="OverheadCostFunctional_Last" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="OverheadCostUSD_Current" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="OverheadCostUSD_Last" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="ASPChange" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var"/>
-      <outputTables sizeState="INTERMEDIATE" name="NewCustomer" activateExpressionFilter="true">
+      <outputTables sizeState="INTERMEDIATE" name="ExistingCustomer" activateExpressionFilter="true">
         <mapperTableEntries name="FiscalYear" expression="SalesValue.FiscalYear " type="id_Integer" nullable="true"/>
         <mapperTableEntries name="FiscalMonthNumber" expression="SalesValue.FiscalMonthNumber " type="id_Integer" nullable="true"/>
         <mapperTableEntries name="SK_Date" expression="SalesValue.SK_Date " type="id_Integer"/>
+        <mapperTableEntries name="ProductMajorCode" expression="SalesValue.ProductMajorCode " type="id_String"/>
         <mapperTableEntries name="SK_Customer" expression="SalesValue.SK_Customer " type="id_Integer"/>
         <mapperTableEntries name="SK_Product" expression="SalesValue.SK_Product " type="id_Integer"/>
         <mapperTableEntries name="SK_Stockroom_ShippedFrom" expression="SalesValue.SK_Stockroom_ShippedFrom " type="id_Integer"/>
@@ -429,14 +464,23 @@
         <mapperTableEntries name="SK_Currency_Functional" expression="SalesValue.SK_Currency_Functional " type="id_Integer"/>
         <mapperTableEntries name="SK_Company" expression="SalesValue.SK_Company " type="id_Integer"/>
         <mapperTableEntries name="SK_SourceSystem" expression="SalesValue.SK_SourceSystem " type="id_Integer"/>
-        <mapperTableEntries name="InvoiceLineExtendedSalesValueFunctionalCurrency" expression="SalesValue.InvoiceLineExtendedSalesValueFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedSalesValueUSD" expression="SalesValue.InvoiceLineExtendedSalesValueUSD " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectMaterialCostFunctionalCurrency" expression="SalesValue.InvoiceLineExtendedDirectMaterialCostFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectMaterialCostUSD" expression="SalesValue.InvoiceLineExtendedDirectMaterialCostUSD " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectLaborCostFunctionalCurrency" expression="SalesValue.InvoiceLineExtendedDirectLaborCostFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectLaborCostUSD" expression="SalesValue.InvoiceLineExtendedDirectLaborCostUSD " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectOverheadCostFunctionalCurrency" expression="SalesValue.InvoiceLineExtendedDirectOverheadCostFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectOverheadCostUSD" expression="SalesValue.InvoiceLineExtendedDirectOverheadCostUSD " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="SalesFunctional_Current" expression="SalesValue.SalesFunctional_Current " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="SalesFunctional_Last" expression="SalesValue.SalesFunctional_Last " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="SalesUSD_Current" expression="SalesValue.SalesUSD_Current " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="SalesUSD_Last" expression="SalesValue.SalesUSD_Last " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="MaterialCostFunctional_Current" expression="SalesValue.MaterialCostFunctional_Current " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="MaterialCostFunctional_Last" expression="SalesValue.MaterialCostFunctional_Last " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="MaterialCostUSD_Current" expression="SalesValue.MaterialCostUSD_Current " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="MaterialCostUSD_Last" expression="SalesValue.MaterialCostUSD_Last " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="LaborCostFunctional_Current" expression="SalesValue.LaborCostFunctional_Current " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="LaborCostFunctional_Last" expression="SalesValue.LaborCostFunctional_Last " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="LaborCostUSD_Current" expression="SalesValue.LaborCostUSD_Current " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="LaborCostUSD_Last" expression="SalesValue.LaborCostUSD_Last " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OverheadCostFunctional_Current" expression="SalesValue.OverheadCostFunctional_Current " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OverheadCostFunctional_Last" expression="SalesValue.OverheadCostFunctional_Last " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OverheadCostUSD_Current" expression="SalesValue.OverheadCostUSD_Current " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OverheadCostUSD_Last" expression="SalesValue.OverheadCostUSD_Last " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ASPChange" expression="ExistingCustomers.ASPChange " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="SalesValue" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="FiscalYear" type="id_Integer" nullable="true"/>
@@ -451,19 +495,28 @@
         <mapperTableEntries name="SK_Currency_Functional" type="id_Integer"/>
         <mapperTableEntries name="SK_Company" type="id_Integer"/>
         <mapperTableEntries name="SK_SourceSystem" type="id_Integer"/>
-        <mapperTableEntries name="InvoiceLineExtendedSalesValueFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedSalesValueUSD" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectMaterialCostFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectMaterialCostUSD" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectLaborCostFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectLaborCostUSD" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectOverheadCostFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectOverheadCostUSD" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="SalesFunctional_Current" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="SalesFunctional_Last" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="SalesUSD_Current" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="SalesUSD_Last" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="MaterialCostFunctional_Current" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="MaterialCostFunctional_Last" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="MaterialCostUSD_Current" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="MaterialCostUSD_Last" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="LaborCostFunctional_Current" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="LaborCostFunctional_Last" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="LaborCostUSD_Current" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="LaborCostUSD_Last" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OverheadCostFunctional_Current" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OverheadCostFunctional_Last" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OverheadCostUSD_Current" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OverheadCostUSD_Last" type="id_Float" nullable="true"/>
       </inputTables>
-      <inputTables sizeState="INTERMEDIATE" name="NewCustomers" activateCondensedTool="true" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE" innerJoin="true">
+      <inputTables sizeState="INTERMEDIATE" name="ExistingCustomers" activateCondensedTool="true" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE" innerJoin="true">
         <mapperTableEntries name="SK_Customer" expression="SalesValue.SK_Customer " type="id_Integer" operator="="/>
         <mapperTableEntries name="ProductMajorCode" expression="SalesValue.ProductMajorCode " type="id_String" operator="="/>
         <mapperTableEntries name="FiscalYear" expression="SalesValue.FiscalYear " type="id_Integer" operator="="/>
+        <mapperTableEntries name="ASPChange" type="id_Float" nullable="true"/>
       </inputTables>
     </nodeData>
   </node>
@@ -483,7 +536,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT SK_Customer&#xD;&#xA;&#x9;, ProductMajorCode&#xD;&#xA;    , FiscalYear&#xD;&#xA;FROM Staging_Fact_SalesPlan_CustomerList&#xD;&#xA;WHERE NewCustomerFlag = 1&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT SK_Customer&#xD;&#xA;&#x9;, ProductMajorCode&#xD;&#xA;    , FiscalYear&#xD;&#xA;    , ASPChange&#xD;&#xA;FROM Staging_Fact_SalesPlan_CustomerList&#xD;&#xA;WHERE ExistingCustomerFlag = 1&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -500,13 +553,16 @@
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="FiscalYear"/>
       <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ASPChange"/>
+      <elementValue elementRef="TRIM" value="false"/>
     </elementParameter>
-    <elementParameter field="TEXT" name="LABEL" value="NewCustomers"/>
+    <elementParameter field="TEXT" name="LABEL" value="ExistingCustomers"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tMysqlInput_12">
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="7" name="ProductMajorCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="4" name="FiscalYear" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="true" length="7" name="ProductMajorCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="4" name="FiscalYear" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="ASPChange" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="608" posY="192">
@@ -514,7 +570,7 @@
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="_j3YaIE-WEeeNsaOuRu6DsA-tMap_5-PREVIEW.bmp"/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_rgtIsE-mEeeNsaOuRu6DsA-tMap_5-PREVIEW.bmp"/>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
     <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
     <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
@@ -587,45 +643,45 @@
       <column comment="" key="false" length="16" name="ExtendedTotalDirectCostUSD" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var">
-        <mapperTableEntries name="KeepFlag" expression="NewCustomer.FiscalMonthNumber > DimScenario.NumberMonthsActual ? 0 : 1 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="KeepFlag" expression="ExistingCustomer.FiscalMonthNumber > DimScenario.NumberMonthsActual ? 0 : 1 " type="id_Integer" nullable="true"/>
       </varTables>
       <outputTables sizeState="INTERMEDIATE" name="WithScenario" expressionFilter="Var.KeepFlag == 1" activateExpressionFilter="true">
-        <mapperTableEntries name="SK_Date_Plan" expression="NewCustomer.SK_Date " type="id_Integer"/>
-        <mapperTableEntries name="SK_Customer" expression="NewCustomer.SK_Customer " type="id_Integer"/>
-        <mapperTableEntries name="SK_Product" expression="NewCustomer.SK_Product " type="id_Integer"/>
-        <mapperTableEntries name="SK_Stockroom" expression="NewCustomer.SK_Stockroom_ShippedFrom " type="id_Integer"/>
-        <mapperTableEntries name="SK_Geography" expression="NewCustomer.SK_Geography_ShippedTo " type="id_Integer"/>
-        <mapperTableEntries name="SK_Currency_USD" expression="NewCustomer.SK_Currency_USD " type="id_Integer"/>
-        <mapperTableEntries name="SK_Currency_Functional" expression="NewCustomer.SK_Currency_Functional " type="id_Integer"/>
-        <mapperTableEntries name="SK_Company" expression="NewCustomer.SK_Company " type="id_Integer"/>
+        <mapperTableEntries name="SK_Date_Plan" expression="ExistingCustomer.SK_Date " type="id_Integer"/>
+        <mapperTableEntries name="SK_Customer" expression="ExistingCustomer.SK_Customer " type="id_Integer"/>
+        <mapperTableEntries name="SK_Product" expression="ExistingCustomer.SK_Product " type="id_Integer"/>
+        <mapperTableEntries name="SK_Stockroom" expression="ExistingCustomer.SK_Stockroom_ShippedFrom " type="id_Integer"/>
+        <mapperTableEntries name="SK_Geography" expression="ExistingCustomer.SK_Geography_ShippedTo " type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_USD" expression="ExistingCustomer.SK_Currency_USD " type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_Functional" expression="ExistingCustomer.SK_Currency_Functional " type="id_Integer"/>
+        <mapperTableEntries name="SK_Company" expression="ExistingCustomer.SK_Company " type="id_Integer"/>
         <mapperTableEntries name="SK_Scenario" expression="DimScenario.SK_Scenario " type="id_Integer"/>
-        <mapperTableEntries name="SK_SourceSystem" expression="NewCustomer.SK_SourceSystem " type="id_Integer"/>
+        <mapperTableEntries name="SK_SourceSystem" expression="ExistingCustomer.SK_SourceSystem " type="id_Integer"/>
         <mapperTableEntries name="ExtendedSalesValueMarketGrowthFunctionalCurrency" expression="null" type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedSalesValueMarketGrowthUSD" expression="null" type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedSalesValueExistingBusinessGrowthFunctionalCurrency" expression="null" type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedSalesValueExistingBusinessGrowthUSD" expression="null" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueNewBusinessGrowthFunctionalCurrency" expression="NewCustomer.InvoiceLineExtendedSalesValueFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueNewBusinessGrowthUSD" expression="NewCustomer.InvoiceLineExtendedSalesValueUSD " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedSalesValueNewBusinessGrowthFunctionalCurrency" expression="ExistingCustomer.InvoiceLineExtendedSalesValueFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedSalesValueNewBusinessGrowthUSD" expression="ExistingCustomer.InvoiceLineExtendedSalesValueUSD " type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedSalesValueAttritionFunctionalCurrency" expression="null" type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedSalesValueAttritionFunctionalUSD" expression="null" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueNetLathamGrowthFunctionalCurrency" expression="NewCustomer.InvoiceLineExtendedSalesValueFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueNetLathamGrowthFunctionalUSD" expression="NewCustomer.InvoiceLineExtendedSalesValueUSD " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueTotalVolumeGrowthFunctionalCurrency" expression="NewCustomer.InvoiceLineExtendedSalesValueFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueTotalVolumeGrowthUSD" expression="NewCustomer.InvoiceLineExtendedSalesValueUSD " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedSalesValueNetLathamGrowthFunctionalCurrency" expression="ExistingCustomer.InvoiceLineExtendedSalesValueFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedSalesValueNetLathamGrowthFunctionalUSD" expression="ExistingCustomer.InvoiceLineExtendedSalesValueUSD " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedSalesValueTotalVolumeGrowthFunctionalCurrency" expression="ExistingCustomer.InvoiceLineExtendedSalesValueFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedSalesValueTotalVolumeGrowthUSD" expression="ExistingCustomer.InvoiceLineExtendedSalesValueUSD " type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedSalesValueSalesPriceGrowthFunctionalCurrency" expression="null" type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedSalesValueSalesPriceGrowthFunctionalUSD" expression="null" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueTotalSalesGrowthFunctionalCurrency" expression="NewCustomer.InvoiceLineExtendedSalesValueFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueTotalSalesGrowthUSD" expression="NewCustomer.InvoiceLineExtendedSalesValueFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueFunctionalCurrency" expression="NewCustomer.InvoiceLineExtendedSalesValueFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueUSD" expression="NewCustomer.InvoiceLineExtendedSalesValueFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectMaterialCostVolumeGrowthUSD" expression="NewCustomer.InvoiceLineExtendedDirectMaterialCostUSD " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectMaterialCostVolumeGrowthFunctionalCurrency" expression="NewCustomer.InvoiceLineExtendedDirectMaterialCostFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectLaborCostVolumeGrowthUSD" expression="NewCustomer.InvoiceLineExtendedDirectLaborCostUSD " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectLaborCostVolumeGrowthFunctionalCurrency" expression="NewCustomer.InvoiceLineExtendedDirectLaborCostFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectOverheadCostVolumeGrowthUSD" expression="NewCustomer.InvoiceLineExtendedDirectOverheadCostUSD " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectOverheadCostVolumeGrowthFunctionalCurrency" expression="NewCustomer.InvoiceLineExtendedDirectOverheadCostFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedSalesValueTotalSalesGrowthFunctionalCurrency" expression="ExistingCustomer.InvoiceLineExtendedSalesValueFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedSalesValueTotalSalesGrowthUSD" expression="ExistingCustomer.InvoiceLineExtendedSalesValueFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedSalesValueFunctionalCurrency" expression="ExistingCustomer.InvoiceLineExtendedSalesValueFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedSalesValueUSD" expression="ExistingCustomer.InvoiceLineExtendedSalesValueFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedDirectMaterialCostVolumeGrowthUSD" expression="ExistingCustomer.InvoiceLineExtendedDirectMaterialCostUSD " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedDirectMaterialCostVolumeGrowthFunctionalCurrency" expression="ExistingCustomer.InvoiceLineExtendedDirectMaterialCostFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedDirectLaborCostVolumeGrowthUSD" expression="ExistingCustomer.InvoiceLineExtendedDirectLaborCostUSD " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedDirectLaborCostVolumeGrowthFunctionalCurrency" expression="ExistingCustomer.InvoiceLineExtendedDirectLaborCostFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedDirectOverheadCostVolumeGrowthUSD" expression="ExistingCustomer.InvoiceLineExtendedDirectOverheadCostUSD " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedDirectOverheadCostVolumeGrowthFunctionalCurrency" expression="ExistingCustomer.InvoiceLineExtendedDirectOverheadCostFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedDirectMaterialCostInflationUSD" expression="null" type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedDirectMaterialCostInflationFunctionalCurrency" expression="null" type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedDirectLaborCostInflationUSD" expression="null" type="id_Float" nullable="true"/>
@@ -638,27 +694,28 @@
         <mapperTableEntries name="ExtendedDirectLaborCostEfficiencyFunctionalCurrency" expression="null" type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedDirectOverheadCostEfficiencyUSD" expression="null" type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedDirectOverheadCostEfficiencyFunctionalCurrency" expression="null" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectMaterialCostTotalGrowthUSD" expression="NewCustomer.InvoiceLineExtendedDirectMaterialCostUSD " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectMaterialCostTotalGrowthFunctionalCurrency" expression="NewCustomer.InvoiceLineExtendedDirectMaterialCostFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectLaborCostTotalGrowthUSD" expression="NewCustomer.InvoiceLineExtendedDirectLaborCostUSD " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectLaborCostTotalGrowthFunctionalCurrency" expression="NewCustomer.InvoiceLineExtendedDirectLaborCostFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectOverheadCostTotalGrowthUSD" expression="NewCustomer.InvoiceLineExtendedDirectOverheadCostUSD " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectOverheadCostTotalGrowthFunctionalCurrency" expression="NewCustomer.InvoiceLineExtendedDirectOverheadCostFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedTotalDirectCostGrowthUSD" expression="CustomStringHandling.sumValues(CustomStringHandling.sumValues(NewCustomer.InvoiceLineExtendedDirectMaterialCostUSD, NewCustomer.InvoiceLineExtendedDirectLaborCostUSD), NewCustomer.InvoiceLineExtendedDirectOverheadCostUSD ) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedTotalDirectCostGrowthFunctionalCurrency" expression="CustomStringHandling.sumValues(CustomStringHandling.sumValues(NewCustomer.InvoiceLineExtendedDirectMaterialCostFunctionalCurrency, NewCustomer.InvoiceLineExtendedDirectLaborCostFunctionalCurrency),NewCustomer.InvoiceLineExtendedDirectOverheadCostFunctionalCurrency) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectMaterialCostFunctionalCurrency" expression="NewCustomer.InvoiceLineExtendedDirectMaterialCostFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectMaterialCostUSD" expression="NewCustomer.InvoiceLineExtendedDirectMaterialCostUSD " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectLaborCostFunctionalCurrency" expression="NewCustomer.InvoiceLineExtendedDirectLaborCostFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectLaborCostUSD" expression="NewCustomer.InvoiceLineExtendedDirectLaborCostUSD " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectOverheadCostFunctionalCurrency" expression="NewCustomer.InvoiceLineExtendedDirectOverheadCostFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedDirectOverheadCostUSD" expression="NewCustomer.InvoiceLineExtendedDirectOverheadCostUSD " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedDirectMaterialCostTotalGrowthUSD" expression="ExistingCustomer.InvoiceLineExtendedDirectMaterialCostUSD " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedDirectMaterialCostTotalGrowthFunctionalCurrency" expression="ExistingCustomer.InvoiceLineExtendedDirectMaterialCostFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedDirectLaborCostTotalGrowthUSD" expression="ExistingCustomer.InvoiceLineExtendedDirectLaborCostUSD " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedDirectLaborCostTotalGrowthFunctionalCurrency" expression="ExistingCustomer.InvoiceLineExtendedDirectLaborCostFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedDirectOverheadCostTotalGrowthUSD" expression="ExistingCustomer.InvoiceLineExtendedDirectOverheadCostUSD " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedDirectOverheadCostTotalGrowthFunctionalCurrency" expression="ExistingCustomer.InvoiceLineExtendedDirectOverheadCostFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedTotalDirectCostGrowthUSD" expression="CustomStringHandling.sumValues(CustomStringHandling.sumValues(ExistingCustomer.InvoiceLineExtendedDirectMaterialCostUSD, ExistingCustomer.InvoiceLineExtendedDirectLaborCostUSD), ExistingCustomer.InvoiceLineExtendedDirectOverheadCostUSD ) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedTotalDirectCostGrowthFunctionalCurrency" expression="CustomStringHandling.sumValues(CustomStringHandling.sumValues(ExistingCustomer.InvoiceLineExtendedDirectMaterialCostFunctionalCurrency, ExistingCustomer.InvoiceLineExtendedDirectLaborCostFunctionalCurrency),ExistingCustomer.InvoiceLineExtendedDirectOverheadCostFunctionalCurrency) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedDirectMaterialCostFunctionalCurrency" expression="ExistingCustomer.InvoiceLineExtendedDirectMaterialCostFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedDirectMaterialCostUSD" expression="ExistingCustomer.InvoiceLineExtendedDirectMaterialCostUSD " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedDirectLaborCostFunctionalCurrency" expression="ExistingCustomer.InvoiceLineExtendedDirectLaborCostFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedDirectLaborCostUSD" expression="ExistingCustomer.InvoiceLineExtendedDirectLaborCostUSD " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedDirectOverheadCostFunctionalCurrency" expression="ExistingCustomer.InvoiceLineExtendedDirectOverheadCostFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedDirectOverheadCostUSD" expression="ExistingCustomer.InvoiceLineExtendedDirectOverheadCostUSD " type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedTotalDirectCostFunctionalCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedTotalDirectCostUSD" type="id_Float" nullable="true"/>
       </outputTables>
-      <inputTables sizeState="INTERMEDIATE" name="NewCustomer" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
+      <inputTables sizeState="INTERMEDIATE" name="ExistingCustomer" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="FiscalYear" type="id_Integer" nullable="true"/>
         <mapperTableEntries name="FiscalMonthNumber" type="id_Integer" nullable="true"/>
         <mapperTableEntries name="SK_Date" type="id_Integer"/>
+        <mapperTableEntries name="ProductMajorCode" type="id_String"/>
         <mapperTableEntries name="SK_Customer" type="id_Integer"/>
         <mapperTableEntries name="SK_Product" type="id_Integer"/>
         <mapperTableEntries name="SK_Stockroom_ShippedFrom" type="id_Integer"/>
@@ -667,19 +724,28 @@
         <mapperTableEntries name="SK_Currency_Functional" type="id_Integer"/>
         <mapperTableEntries name="SK_Company" type="id_Integer"/>
         <mapperTableEntries name="SK_SourceSystem" type="id_Integer"/>
-        <mapperTableEntries name="InvoiceLineExtendedSalesValueFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedSalesValueUSD" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectMaterialCostFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectMaterialCostUSD" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectLaborCostFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectLaborCostUSD" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectOverheadCostFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectOverheadCostUSD" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="SalesFunctional_Current" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="SalesFunctional_Last" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="SalesUSD_Current" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="SalesUSD_Last" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="MaterialCostFunctional_Current" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="MaterialCostFunctional_Last" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="MaterialCostUSD_Current" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="MaterialCostUSD_Last" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="LaborCostFunctional_Current" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="LaborCostFunctional_Last" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="LaborCostUSD_Current" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="LaborCostUSD_Last" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OverheadCostFunctional_Current" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OverheadCostFunctional_Last" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OverheadCostUSD_Current" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OverheadCostUSD_Last" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ASPChange" type="id_Float" nullable="true"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="DimScenario" activateCondensedTool="true" matchingMode="ALL_MATCHES" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Scenario" type="id_Integer"/>
         <mapperTableEntries name="BK_Scenario_ScenarioName_FlatFiles" type="id_String" nullable="true"/>
-        <mapperTableEntries name="ScenarioYear" expression="NewCustomer.FiscalYear " type="id_Integer" operator="="/>
+        <mapperTableEntries name="ScenarioYear" expression="ExistingCustomer.FiscalYear " type="id_Integer" operator="="/>
         <mapperTableEntries name="NumberMonthsActual" type="id_Integer"/>
       </inputTables>
     </nodeData>
@@ -1250,7 +1316,7 @@
   <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlInput_1" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_1" target="tSetGlobalVar_1">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk9" show="false"/>
   </connection>
-  <connection connectorName="FLOW" label="NewCustomer" lineStyle="0" metaname="NewCustomer" offsetLabelX="0" offsetLabelY="0" source="tMap_11" target="tMap_5">
+  <connection connectorName="FLOW" label="ExistingCustomer" lineStyle="0" metaname="ExistingCustomer" offsetLabelX="0" offsetLabelY="0" source="tMap_11" target="tMap_5">
     <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
       <elementValue elementRef="TRACE_COLUMN" value="SK_Scenario"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
@@ -1342,13 +1408,67 @@
       <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineExtendedDirectOverheadCostUSD"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="SalesFunctional_Current"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="OverheadCostUSD_Last"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="MaterialCostUSD_Current"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="LaborCostUSD_Current"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="LaborCostUSD_Last"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="OverheadCostFunctional_Last"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="SalesFunctional_Last"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="MaterialCostFunctional_Current"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="MaterialCostFunctional_Last"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="SalesUSD_Current"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="OverheadCostFunctional_Current"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="ProductMajorCode"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="LaborCostFunctional_Last"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="OverheadCostUSD_Current"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="SalesUSD_Last"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="LaborCostFunctional_Current"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="MaterialCostUSD_Last"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="ASPChange"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="NewCustomer" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="ExistingCustomer" show="false"/>
   </connection>
-  <connection connectorName="FLOW" label="NewCustomers" lineStyle="8" metaname="tMysqlInput_12" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_12" target="tMap_11">
+  <connection connectorName="FLOW" label="ExistingCustomers" lineStyle="8" metaname="tMysqlInput_12" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_12" target="tMap_11">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="NewCustomers" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="ExistingCustomers" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="WithScenario" lineStyle="0" metaname="WithScenario" offsetLabelX="0" offsetLabelY="0" source="tMap_5" target="tMysqlOutput_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
