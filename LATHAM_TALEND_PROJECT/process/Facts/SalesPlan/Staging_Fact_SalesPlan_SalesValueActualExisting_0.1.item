@@ -565,7 +565,137 @@
       <column comment="" defaultValue="" key="false" length="11" name="ASPChange" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="608" posY="192">
+  <node componentName="tAggregateRow" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="608" posY="192">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tAggregateRow_1" show="false"/>
+    <elementParameter field="TABLE" name="GROUPBYS">
+      <elementValue elementRef="OUTPUT_COLUMN" value="SK_Date"/>
+      <elementValue elementRef="INPUT_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="SK_Customer"/>
+      <elementValue elementRef="INPUT_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="SK_Product"/>
+      <elementValue elementRef="INPUT_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="SK_Stockroom_ShippedFrom"/>
+      <elementValue elementRef="INPUT_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="SK_Geography_ShippedTo"/>
+      <elementValue elementRef="INPUT_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="SK_Currency_USD"/>
+      <elementValue elementRef="INPUT_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="SK_Currency_Functional"/>
+      <elementValue elementRef="INPUT_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="SK_Company"/>
+      <elementValue elementRef="INPUT_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="SK_SourceSystem"/>
+      <elementValue elementRef="INPUT_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="INPUT_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="ASPChange"/>
+      <elementValue elementRef="INPUT_COLUMN" value="FiscalYear"/>
+    </elementParameter>
+    <elementParameter field="TABLE" name="OPERATIONS">
+      <elementValue elementRef="OUTPUT_COLUMN" value="SalesFunctional_Current"/>
+      <elementValue elementRef="FUNCTION" value="sum"/>
+      <elementValue elementRef="INPUT_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="IGNORE_NULL" value="true"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="SalesFunctional_Last"/>
+      <elementValue elementRef="FUNCTION" value="sum"/>
+      <elementValue elementRef="INPUT_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="IGNORE_NULL" value="true"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="SalesUSD_Current"/>
+      <elementValue elementRef="FUNCTION" value="sum"/>
+      <elementValue elementRef="INPUT_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="IGNORE_NULL" value="true"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="SalesUSD_Last"/>
+      <elementValue elementRef="FUNCTION" value="sum"/>
+      <elementValue elementRef="INPUT_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="IGNORE_NULL" value="true"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="MaterialCostFunctional_Current"/>
+      <elementValue elementRef="FUNCTION" value="sum"/>
+      <elementValue elementRef="INPUT_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="IGNORE_NULL" value="true"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="MaterialCostFunctional_Last"/>
+      <elementValue elementRef="FUNCTION" value="sum"/>
+      <elementValue elementRef="INPUT_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="IGNORE_NULL" value="true"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="MaterialCostUSD_Current"/>
+      <elementValue elementRef="FUNCTION" value="sum"/>
+      <elementValue elementRef="INPUT_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="IGNORE_NULL" value="true"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="MaterialCostUSD_Last"/>
+      <elementValue elementRef="FUNCTION" value="sum"/>
+      <elementValue elementRef="INPUT_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="IGNORE_NULL" value="true"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="LaborCostFunctional_Current"/>
+      <elementValue elementRef="FUNCTION" value="sum"/>
+      <elementValue elementRef="INPUT_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="IGNORE_NULL" value="true"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="LaborCostFunctional_Last"/>
+      <elementValue elementRef="FUNCTION" value="sum"/>
+      <elementValue elementRef="INPUT_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="IGNORE_NULL" value="true"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="LaborCostUSD_Current"/>
+      <elementValue elementRef="FUNCTION" value="sum"/>
+      <elementValue elementRef="INPUT_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="IGNORE_NULL" value="true"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="LaborCostUSD_Last"/>
+      <elementValue elementRef="FUNCTION" value="sum"/>
+      <elementValue elementRef="INPUT_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="IGNORE_NULL" value="true"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="OverheadCostFunctional_Current"/>
+      <elementValue elementRef="FUNCTION" value="sum"/>
+      <elementValue elementRef="INPUT_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="IGNORE_NULL" value="true"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="OverheadCostFunctional_Last"/>
+      <elementValue elementRef="FUNCTION" value="sum"/>
+      <elementValue elementRef="INPUT_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="IGNORE_NULL" value="true"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="OverheadCostUSD_Current"/>
+      <elementValue elementRef="FUNCTION" value="sum"/>
+      <elementValue elementRef="INPUT_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="IGNORE_NULL" value="true"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="OverheadCostUSD_Last"/>
+      <elementValue elementRef="FUNCTION" value="sum"/>
+      <elementValue elementRef="INPUT_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="IGNORE_NULL" value="true"/>
+    </elementParameter>
+    <elementParameter field="TEXT" name="LIST_DELIMITER" value="&quot;,&quot;"/>
+    <elementParameter field="CHECK" name="USE_FINANCIAL_PRECISION" value="true"/>
+    <elementParameter field="CHECK" name="CHECK_TYPE_OVERFLOW" value="false"/>
+    <elementParameter field="CHECK" name="CHECK_ULP" value="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="GroupCurrentAndLast"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tAggregateRow_1">
+      <column comment="" defaultValue="" key="false" length="11" name="FiscalYear" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="FiscalMonthNumber" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Date" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="ProductMajorCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Product" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Stockroom_ShippedFrom" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Geography_ShippedTo" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Currency_USD" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Currency_Functional" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Company" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="SalesFunctional_Current" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="SalesFunctional_Last" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="SalesUSD_Current" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="SalesUSD_Last" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="MaterialCostFunctional_Current" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="MaterialCostFunctional_Last" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="MaterialCostUSD_Current" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="MaterialCostUSD_Last" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="LaborCostFunctional_Current" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="LaborCostFunctional_Last" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="LaborCostUSD_Current" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="LaborCostUSD_Last" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="OverheadCostFunctional_Current" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="OverheadCostFunctional_Last" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="OverheadCostUSD_Current" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="16" name="OverheadCostUSD_Last" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="ASPChange" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="832" posY="192">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMap_5" show="false"/>
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
@@ -610,38 +740,38 @@
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var">
-        <mapperTableEntries name="KeepFlag" expression="ExistingCustomer.FiscalMonthNumber > DimScenario.NumberMonthsActual ? 0 : 1 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="KeepFlag" expression="GroupedValues.FiscalMonthNumber > DimScenario.NumberMonthsActual ? 0 : 1 " type="id_Integer" nullable="true"/>
       </varTables>
       <outputTables sizeState="INTERMEDIATE" name="WithScenario" expressionFilter="Var.KeepFlag == 1" activateExpressionFilter="true">
-        <mapperTableEntries name="SK_Date" expression="ExistingCustomer.SK_Date " type="id_Integer"/>
-        <mapperTableEntries name="SK_Customer" expression="ExistingCustomer.SK_Customer " type="id_Integer"/>
-        <mapperTableEntries name="SK_Product" expression="ExistingCustomer.SK_Product " type="id_Integer"/>
-        <mapperTableEntries name="SK_Stockroom_ShippedFrom" expression="ExistingCustomer.SK_Stockroom_ShippedFrom " type="id_Integer"/>
-        <mapperTableEntries name="SK_Geography_ShippedTo" expression="ExistingCustomer.SK_Geography_ShippedTo " type="id_Integer"/>
-        <mapperTableEntries name="SK_Currency_USD" expression="ExistingCustomer.SK_Currency_USD " type="id_Integer"/>
-        <mapperTableEntries name="SK_Currency_Functional" expression="ExistingCustomer.SK_Currency_Functional " type="id_Integer"/>
-        <mapperTableEntries name="SK_Company" expression="ExistingCustomer.SK_Company " type="id_Integer"/>
-        <mapperTableEntries name="SK_SourceSystem" expression="ExistingCustomer.SK_SourceSystem " type="id_Integer"/>
+        <mapperTableEntries name="SK_Date" expression="GroupedValues.SK_Date " type="id_Integer"/>
+        <mapperTableEntries name="SK_Customer" expression="GroupedValues.SK_Customer " type="id_Integer"/>
+        <mapperTableEntries name="SK_Product" expression="GroupedValues.SK_Product " type="id_Integer"/>
+        <mapperTableEntries name="SK_Stockroom_ShippedFrom" expression="GroupedValues.SK_Stockroom_ShippedFrom " type="id_Integer"/>
+        <mapperTableEntries name="SK_Geography_ShippedTo" expression="GroupedValues.SK_Geography_ShippedTo " type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_USD" expression="GroupedValues.SK_Currency_USD " type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_Functional" expression="GroupedValues.SK_Currency_Functional " type="id_Integer"/>
+        <mapperTableEntries name="SK_Company" expression="GroupedValues.SK_Company " type="id_Integer"/>
+        <mapperTableEntries name="SK_SourceSystem" expression="GroupedValues.SK_SourceSystem " type="id_Integer"/>
         <mapperTableEntries name="SK_Scenario" expression="DimScenario.SK_Scenario " type="id_Integer"/>
-        <mapperTableEntries name="SalesFunctional_Current" expression="ExistingCustomer.SalesFunctional_Current " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="SalesFunctional_Last" expression="ExistingCustomer.SalesFunctional_Last " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="SalesUSD_Current" expression="ExistingCustomer.SalesUSD_Current " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="SalesUSD_Last" expression="ExistingCustomer.SalesUSD_Last " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="MaterialCostFunctional_Current" expression="ExistingCustomer.MaterialCostFunctional_Current " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="MaterialCostFunctional_Last" expression="ExistingCustomer.MaterialCostFunctional_Last " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="MaterialCostUSD_Current" expression="ExistingCustomer.MaterialCostUSD_Current " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="MaterialCostUSD_Last" expression="ExistingCustomer.MaterialCostUSD_Last " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="LaborCostFunctional_Current" expression="ExistingCustomer.LaborCostFunctional_Current " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="LaborCostFunctional_Last" expression="ExistingCustomer.LaborCostFunctional_Last " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="LaborCostUSD_Current" expression="ExistingCustomer.LaborCostUSD_Current " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="SalesFunctional_Current" expression="GroupedValues.SalesFunctional_Current " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="SalesFunctional_Last" expression="GroupedValues.SalesFunctional_Last " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="SalesUSD_Current" expression="GroupedValues.SalesUSD_Current " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="SalesUSD_Last" expression="GroupedValues.SalesUSD_Last " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="MaterialCostFunctional_Current" expression="GroupedValues.MaterialCostFunctional_Current " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="MaterialCostFunctional_Last" expression="GroupedValues.MaterialCostFunctional_Last " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="MaterialCostUSD_Current" expression="GroupedValues.MaterialCostUSD_Current " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="MaterialCostUSD_Last" expression="GroupedValues.MaterialCostUSD_Last " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="LaborCostFunctional_Current" expression="GroupedValues.LaborCostFunctional_Current " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="LaborCostFunctional_Last" expression="GroupedValues.LaborCostFunctional_Last " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="LaborCostUSD_Current" expression="GroupedValues.LaborCostUSD_Current " type="id_Float" nullable="true"/>
         <mapperTableEntries name="LaborCostUSD_Last" expression="ExistingCustomer.LaborCostUSD_Last " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OverheadCostFunctional_Current" expression="ExistingCustomer.OverheadCostFunctional_Current " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OverheadCostFunctional_Last" expression="ExistingCustomer.OverheadCostFunctional_Last " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OverheadCostUSD_Current" expression="ExistingCustomer.OverheadCostUSD_Current " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OverheadCostUSD_Last" expression="ExistingCustomer.OverheadCostUSD_Last " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ASPChange" expression="ExistingCustomer.ASPChange " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OverheadCostFunctional_Current" expression="GroupedValues.OverheadCostFunctional_Current " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OverheadCostFunctional_Last" expression="GroupedValues.OverheadCostFunctional_Last " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OverheadCostUSD_Current" expression="GroupedValues.OverheadCostUSD_Current " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OverheadCostUSD_Last" expression="GroupedValues.OverheadCostUSD_Last " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ASPChange" expression="GroupedValues.ASPChange " type="id_Float" nullable="true"/>
       </outputTables>
-      <inputTables sizeState="INTERMEDIATE" name="ExistingCustomer" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
+      <inputTables sizeState="INTERMEDIATE" name="GroupedValues" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="FiscalYear" type="id_Integer" nullable="true"/>
         <mapperTableEntries name="FiscalMonthNumber" type="id_Integer" nullable="true"/>
         <mapperTableEntries name="SK_Date" type="id_Integer"/>
@@ -675,12 +805,12 @@
       <inputTables sizeState="INTERMEDIATE" name="DimScenario" activateCondensedTool="true" matchingMode="ALL_MATCHES" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Scenario" type="id_Integer"/>
         <mapperTableEntries name="BK_Scenario_ScenarioName_FlatFiles" type="id_String" nullable="true"/>
-        <mapperTableEntries name="ScenarioYear" expression="ExistingCustomer.FiscalYear " type="id_Integer" operator="="/>
+        <mapperTableEntries name="ScenarioYear" expression="GroupedValues.FiscalYear " type="id_Integer" operator="="/>
         <mapperTableEntries name="NumberMonthsActual" type="id_Integer"/>
       </inputTables>
     </nodeData>
   </node>
-  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="608" posY="64">
+  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="832" posY="64">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_3" show="false"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
@@ -723,134 +853,6 @@
       <column comment="" key="false" length="50" name="BK_Scenario_ScenarioName_FlatFiles" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="4" name="ScenarioYear" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="10" name="NumberMonthsActual" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-    </metadata>
-  </node>
-  <node componentName="tAggregateRow" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="832" posY="192">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tAggregateRow_1" show="false"/>
-    <elementParameter field="TABLE" name="GROUPBYS">
-      <elementValue elementRef="OUTPUT_COLUMN" value="SK_Date"/>
-      <elementValue elementRef="INPUT_COLUMN" value="SK_Date"/>
-      <elementValue elementRef="OUTPUT_COLUMN" value="SK_Customer"/>
-      <elementValue elementRef="INPUT_COLUMN" value="SK_Customer"/>
-      <elementValue elementRef="OUTPUT_COLUMN" value="SK_Product"/>
-      <elementValue elementRef="INPUT_COLUMN" value="SK_Product"/>
-      <elementValue elementRef="OUTPUT_COLUMN" value="SK_Stockroom_ShippedFrom"/>
-      <elementValue elementRef="INPUT_COLUMN" value="SK_Stockroom_ShippedFrom"/>
-      <elementValue elementRef="OUTPUT_COLUMN" value="SK_Geography_ShippedTo"/>
-      <elementValue elementRef="INPUT_COLUMN" value="SK_Geography_ShippedTo"/>
-      <elementValue elementRef="OUTPUT_COLUMN" value="SK_Currency_USD"/>
-      <elementValue elementRef="INPUT_COLUMN" value="SK_Currency_USD"/>
-      <elementValue elementRef="OUTPUT_COLUMN" value="SK_Currency_Functional"/>
-      <elementValue elementRef="INPUT_COLUMN" value="SK_Currency_Functional"/>
-      <elementValue elementRef="OUTPUT_COLUMN" value="SK_Company"/>
-      <elementValue elementRef="INPUT_COLUMN" value="SK_Company"/>
-      <elementValue elementRef="OUTPUT_COLUMN" value="SK_SourceSystem"/>
-      <elementValue elementRef="INPUT_COLUMN" value="SK_SourceSystem"/>
-      <elementValue elementRef="OUTPUT_COLUMN" value="SK_Scenario"/>
-      <elementValue elementRef="INPUT_COLUMN" value="SK_Scenario"/>
-      <elementValue elementRef="OUTPUT_COLUMN" value="ASPChange"/>
-      <elementValue elementRef="INPUT_COLUMN" value="ASPChange"/>
-    </elementParameter>
-    <elementParameter field="TABLE" name="OPERATIONS">
-      <elementValue elementRef="OUTPUT_COLUMN" value="SalesFunctional_Current"/>
-      <elementValue elementRef="FUNCTION" value="sum"/>
-      <elementValue elementRef="INPUT_COLUMN" value="SalesFunctional_Current"/>
-      <elementValue elementRef="IGNORE_NULL" value="true"/>
-      <elementValue elementRef="OUTPUT_COLUMN" value="SalesFunctional_Last"/>
-      <elementValue elementRef="FUNCTION" value="sum"/>
-      <elementValue elementRef="INPUT_COLUMN" value="SalesFunctional_Last"/>
-      <elementValue elementRef="IGNORE_NULL" value="true"/>
-      <elementValue elementRef="OUTPUT_COLUMN" value="SalesUSD_Current"/>
-      <elementValue elementRef="FUNCTION" value="sum"/>
-      <elementValue elementRef="INPUT_COLUMN" value="SalesUSD_Current"/>
-      <elementValue elementRef="IGNORE_NULL" value="true"/>
-      <elementValue elementRef="OUTPUT_COLUMN" value="SalesUSD_Last"/>
-      <elementValue elementRef="FUNCTION" value="sum"/>
-      <elementValue elementRef="INPUT_COLUMN" value="SalesUSD_Last"/>
-      <elementValue elementRef="IGNORE_NULL" value="true"/>
-      <elementValue elementRef="OUTPUT_COLUMN" value="MaterialCostFunctional_Current"/>
-      <elementValue elementRef="FUNCTION" value="sum"/>
-      <elementValue elementRef="INPUT_COLUMN" value="MaterialCostFunctional_Current"/>
-      <elementValue elementRef="IGNORE_NULL" value="true"/>
-      <elementValue elementRef="OUTPUT_COLUMN" value="MaterialCostFunctional_Last"/>
-      <elementValue elementRef="FUNCTION" value="sum"/>
-      <elementValue elementRef="INPUT_COLUMN" value="MaterialCostFunctional_Last"/>
-      <elementValue elementRef="IGNORE_NULL" value="true"/>
-      <elementValue elementRef="OUTPUT_COLUMN" value="MaterialCostUSD_Current"/>
-      <elementValue elementRef="FUNCTION" value="sum"/>
-      <elementValue elementRef="INPUT_COLUMN" value="MaterialCostUSD_Current"/>
-      <elementValue elementRef="IGNORE_NULL" value="true"/>
-      <elementValue elementRef="OUTPUT_COLUMN" value="MaterialCostUSD_Last"/>
-      <elementValue elementRef="FUNCTION" value="sum"/>
-      <elementValue elementRef="INPUT_COLUMN" value="MaterialCostUSD_Last"/>
-      <elementValue elementRef="IGNORE_NULL" value="true"/>
-      <elementValue elementRef="OUTPUT_COLUMN" value="LaborCostFunctional_Current"/>
-      <elementValue elementRef="FUNCTION" value="sum"/>
-      <elementValue elementRef="INPUT_COLUMN" value="LaborCostFunctional_Current"/>
-      <elementValue elementRef="IGNORE_NULL" value="true"/>
-      <elementValue elementRef="OUTPUT_COLUMN" value="LaborCostFunctional_Last"/>
-      <elementValue elementRef="FUNCTION" value="sum"/>
-      <elementValue elementRef="INPUT_COLUMN" value="LaborCostFunctional_Last"/>
-      <elementValue elementRef="IGNORE_NULL" value="true"/>
-      <elementValue elementRef="OUTPUT_COLUMN" value="LaborCostUSD_Current"/>
-      <elementValue elementRef="FUNCTION" value="sum"/>
-      <elementValue elementRef="INPUT_COLUMN" value="LaborCostUSD_Current"/>
-      <elementValue elementRef="IGNORE_NULL" value="true"/>
-      <elementValue elementRef="OUTPUT_COLUMN" value="LaborCostUSD_Last"/>
-      <elementValue elementRef="FUNCTION" value="sum"/>
-      <elementValue elementRef="INPUT_COLUMN" value="LaborCostUSD_Last"/>
-      <elementValue elementRef="IGNORE_NULL" value="true"/>
-      <elementValue elementRef="OUTPUT_COLUMN" value="OverheadCostFunctional_Current"/>
-      <elementValue elementRef="FUNCTION" value="sum"/>
-      <elementValue elementRef="INPUT_COLUMN" value="OverheadCostFunctional_Current"/>
-      <elementValue elementRef="IGNORE_NULL" value="true"/>
-      <elementValue elementRef="OUTPUT_COLUMN" value="OverheadCostFunctional_Last"/>
-      <elementValue elementRef="FUNCTION" value="sum"/>
-      <elementValue elementRef="INPUT_COLUMN" value="OverheadCostFunctional_Last"/>
-      <elementValue elementRef="IGNORE_NULL" value="true"/>
-      <elementValue elementRef="OUTPUT_COLUMN" value="OverheadCostUSD_Current"/>
-      <elementValue elementRef="FUNCTION" value="sum"/>
-      <elementValue elementRef="INPUT_COLUMN" value="OverheadCostUSD_Current"/>
-      <elementValue elementRef="IGNORE_NULL" value="true"/>
-      <elementValue elementRef="OUTPUT_COLUMN" value="OverheadCostUSD_Last"/>
-      <elementValue elementRef="FUNCTION" value="sum"/>
-      <elementValue elementRef="INPUT_COLUMN" value="OverheadCostUSD_Last"/>
-      <elementValue elementRef="IGNORE_NULL" value="true"/>
-    </elementParameter>
-    <elementParameter field="TEXT" name="LIST_DELIMITER" value="&quot;,&quot;"/>
-    <elementParameter field="CHECK" name="USE_FINANCIAL_PRECISION" value="true"/>
-    <elementParameter field="CHECK" name="CHECK_TYPE_OVERFLOW" value="false"/>
-    <elementParameter field="CHECK" name="CHECK_ULP" value="false"/>
-    <elementParameter field="TEXT" name="LABEL" value="GroupCurrentAndLast"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" label="PlannedValue" name="tAggregateRow_1">
-      <column comment="" defaultValue="" key="true" length="11" name="SK_Date" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="true" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="true" length="11" name="SK_Product" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="true" length="11" name="SK_Stockroom_ShippedFrom" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="true" length="11" name="SK_Geography_ShippedTo" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="true" length="11" name="SK_Currency_USD" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="true" length="11" name="SK_Currency_Functional" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="true" length="11" name="SK_Company" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="true" length="11" name="SK_Scenario" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="true" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="SalesFunctional_Current" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="SalesFunctional_Last" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="SalesUSD_Current" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="SalesUSD_Last" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="16" name="MaterialCostFunctional_Current" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="16" name="MaterialCostFunctional_Last" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="16" name="MaterialCostUSD_Current" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="16" name="MaterialCostUSD_Last" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="16" name="LaborCostFunctional_Current" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="16" name="LaborCostFunctional_Last" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="16" name="LaborCostUSD_Current" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="16" name="LaborCostUSD_Last" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="16" name="OverheadCostFunctional_Current" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="16" name="OverheadCostFunctional_Last" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="16" name="OverheadCostUSD_Current" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="16" name="OverheadCostUSD_Last" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="ASPChange" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="1088" posY="192">
@@ -1002,7 +1004,7 @@
         <mapperTableEntries name="ExtendedTotalDirectCostFunctionalCurrency" expression="CustomStringHandling.sumValues(CustomStringHandling.sumValues(GroupedValues.MaterialCostFunctional_Current, GroupedValues.LaborCostFunctional_Current), GroupedValues.OverheadCostFunctional_Current) " type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedTotalDirectCostUSD" expression="CustomStringHandling.sumValues(CustomStringHandling.sumValues(GroupedValues.MaterialCostUSD_Current, GroupedValues.LaborCostUSD_Current), GroupedValues.OverheadCostUSD_Current) " type="id_Float" nullable="true"/>
       </outputTables>
-      <inputTables sizeState="INTERMEDIATE" name="GroupedValues" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
+      <inputTables sizeState="INTERMEDIATE" name="WithScenario" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Date" type="id_Integer"/>
         <mapperTableEntries name="SK_Customer" type="id_Integer"/>
         <mapperTableEntries name="SK_Product" type="id_Integer"/>
@@ -1011,8 +1013,8 @@
         <mapperTableEntries name="SK_Currency_USD" type="id_Integer"/>
         <mapperTableEntries name="SK_Currency_Functional" type="id_Integer"/>
         <mapperTableEntries name="SK_Company" type="id_Integer"/>
-        <mapperTableEntries name="SK_Scenario" type="id_Integer"/>
         <mapperTableEntries name="SK_SourceSystem" type="id_Integer"/>
+        <mapperTableEntries name="SK_Scenario" type="id_Integer"/>
         <mapperTableEntries name="SalesFunctional_Current" type="id_Float" nullable="true"/>
         <mapperTableEntries name="SalesFunctional_Last" type="id_Float" nullable="true"/>
         <mapperTableEntries name="SalesUSD_Current" type="id_Float" nullable="true"/>
@@ -1554,153 +1556,7 @@
   <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlInput_1" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_1" target="tSetGlobalVar_1">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk9" show="false"/>
   </connection>
-  <connection connectorName="FLOW" label="ExistingCustomer" lineStyle="0" metaname="ExistingCustomer" offsetLabelX="0" offsetLabelY="0" source="tMap_11" target="tMap_5">
-    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
-      <elementValue elementRef="TRACE_COLUMN" value="SK_Scenario"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="ExtendedSalesValueAttritionFunctionalCurrency"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="ExtendedSalesValueExistingBusinessGrowthFunctionalCurrency"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="ExtendedSalesValueNewBusinessGrowthFunctionalCurrency"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="ExtendedSalesValueMarketGrowthFunctionalCurrency"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="ExtendedDirectLaborCostVolumeGrowthFunctionalCurrency"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="ExtendedDirectOverheadCostEfficiencyFunctionalCurrency"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="ExtendedDirectLaborCostEfficiencyFunctionalCurrency"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="ExtendedDirectOverheadCostVolumeGrowthFunctionalCurrency"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="ExtendedDirectLaborCostInflationFunctionalCurrency"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="ExtendedDirectMaterialCostInflationFunctionalCurrency"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="ExtendedDirectMaterialCostVolumeGrowthFunctionalCurrency"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="ExtendedDirectOverheadCostInflationFunctionalCurrency"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="ExtendedDirectMaterialCostEfficiencyFunctionalCurrency"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="ActualLaborCostFunctional"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="ActualMaterialCostFunctional"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="ActualOverheadCostFunctional"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineExtendedDirectOverheadCostFunctionalCurrency"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="FiscalYear"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineExtendedSalesValueFunctionalCurrency"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="SK_Stockroom_ShippedFrom"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineExtendedDirectMaterialCostFunctionalCurrency"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="SK_Geography_ShippedTo"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="SK_Date"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineExtendedDirectLaborCostFunctionalCurrency"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="FiscalMonthNumber"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineExtendedDirectLaborCostUSD"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineExtendedSalesValueUSD"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineExtendedDirectMaterialCostUSD"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineExtendedDirectOverheadCostUSD"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="SalesFunctional_Current"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="OverheadCostUSD_Last"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="MaterialCostUSD_Current"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="LaborCostUSD_Current"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="LaborCostUSD_Last"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="OverheadCostFunctional_Last"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="SalesFunctional_Last"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="MaterialCostFunctional_Current"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="MaterialCostFunctional_Last"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="SalesUSD_Current"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="OverheadCostFunctional_Current"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="ProductMajorCode"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="LaborCostFunctional_Last"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="OverheadCostUSD_Current"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="SalesUSD_Last"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="LaborCostFunctional_Current"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="MaterialCostUSD_Last"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="ASPChange"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-    </elementParameter>
+  <connection connectorName="FLOW" label="ExistingCustomer" lineStyle="0" metaname="ExistingCustomer" offsetLabelX="0" offsetLabelY="0" source="tMap_11" target="tAggregateRow_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="ExistingCustomer" show="false"/>
   </connection>
@@ -1708,17 +1564,17 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="ExistingCustomers" show="false"/>
   </connection>
-  <connection connectorName="FLOW" label="WithScenario" lineStyle="0" metaname="WithScenario" offsetLabelX="0" offsetLabelY="0" source="tMap_5" target="tAggregateRow_1">
+  <connection connectorName="FLOW" label="GroupedValues" lineStyle="0" metaname="tAggregateRow_1" offsetLabelX="0" offsetLabelY="0" source="tAggregateRow_1" target="tMap_5">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="GroupedValues" show="false"/>
+  </connection>
+  <connection connectorName="FLOW" label="WithScenario" lineStyle="0" metaname="WithScenario" offsetLabelX="0" offsetLabelY="0" source="tMap_5" target="tMap_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="WithScenario" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="DimScenario" lineStyle="8" metaname="tMysqlInput_3" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_3" target="tMap_5">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="DimScenario" show="false"/>
-  </connection>
-  <connection connectorName="FLOW" label="GroupedValues" lineStyle="0" metaname="tAggregateRow_1" offsetLabelX="0" offsetLabelY="0" source="tAggregateRow_1" target="tMap_1">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="GroupedValues" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="Growth" lineStyle="0" metaname="Growth" offsetLabelX="0" offsetLabelY="0" source="tMap_1" target="tMysqlOutput_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
