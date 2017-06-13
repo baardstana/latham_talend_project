@@ -298,12 +298,12 @@
     <elementParameter field="TEXT" name="TYPE" value="MySQL" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
     <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Fact_SalesInvoicingComponent&quot;"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Fact_SalesInvoicing&quot;"/>
     <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT D.FiscalYear&#xD;&#xA;&#x9;, D.FiscalMonthNumber&#xD;&#xA;    , Co.CompanyCode&#xD;&#xA;    , C.CustomerMarket&#xD;&#xA;    , S.ThorPlantCode&#xD;&#xA;    , P.ModelID&#xD;&#xA;    , P.ProductMajorCode&#xD;&#xA;&#x9;, D.SK_Date&#xD;&#xA;    , SIC.SK_Customer&#xD;&#xA;    , SIC.SK_Product&#xD;&#xA;    , SIC.SK_Stockroom_ShippedFrom&#xD;&#xA;    , SIC.SK_Geography_ShippedTo&#xD;&#xA;    , SIC.SK_Currency_USD&#xD;&#xA;    , SIC.SK_Currency_Functional&#xD;&#xA;    , SIC.SK_Company&#xD;&#xA;&#x9;, SIC.SK_SourceSystem&#xD;&#xA;    , SUM(SIC.InvoiceLineExtendedSalesValueFunctionalCurrency) AS InvoiceLineExtendedSalesValueFunctionalCurrency&#xD;&#xA;    , SUM(SIC.InvoiceLineExtendedDirectMaterialCostFunctionalCurrency) AS InvoiceLineExtendedDirectMaterialCostFunctionalCurrency    &#xD;&#xA;    , SUM(SIC.InvoiceLineExtendedDirectLaborCostFunctionalCurrency) AS InvoiceLineExtendedDirectLaborCostFunctionalCurrency&#xD;&#xA;    , SUM(SIC.InvoiceLineExtendedDirectOverheadCostFunctionalCurrency) AS InvoiceLineExtendedDirectOverheadCostFunctionalCurrency    &#xD;&#xA;FROM Fact_SalesInvoicingComponent AS SIC&#xD;&#xA;INNER JOIN Meta_SourceSystemDimension AS SSD&#xD;&#xA;&#x9;ON SIC.SK_SourceSystem = SSD.SK_SourceSystem&#xD;&#xA;    AND SSD.SourceSystemShortName = 'Thor'&#xD;&#xA;INNER JOIN Dim_Date AS D&#xD;&#xA;&#x9;ON SIC.SK_Date_Invoiced = D.FiscalPreviousYearKey&#xD;&#xA;INNER JOIN Dim_Customer AS C&#xD;&#xA;&#x9;ON SIC.SK_Customer = C.SK_Customer&#xD;&#xA;    AND C.CustomerType &lt;> 'Intercompany'&#xD;&#xA;INNER JOIN Dim_Product AS P&#xD;&#xA;&#x9;ON SIC.SK_Product = P.SK_Product&#xD;&#xA;INNER JOIN Dim_Company AS Co&#xD;&#xA;&#x9;ON SIC.SK_Company = Co.SK_Company&#xD;&#xA;INNER JOIN Dim_Stockroom AS S&#xD;&#xA;&#x9;ON SIC.SK_Stockroom_ShippedFrom = S.SK_Stockroom&#xD;&#xA;GROUP BY D.FiscalYear&#xD;&#xA;&#x9;, D.FiscalMonthNumber&#xD;&#xA;    , Co.CompanyCode&#xD;&#xA;    , C.CustomerMarket&#xD;&#xA;    , S.ThorPlantCode&#xD;&#xA;    , P.ModelID&#xD;&#xA;    , P.ProductMajorCode&#xD;&#xA;&#x9;, D.SK_Date&#xD;&#xA;    , SIC.SK_Customer&#xD;&#xA;    , SIC.SK_Product&#xD;&#xA;    , SIC.SK_Stockroom_ShippedFrom&#xD;&#xA;    , SIC.SK_Geography_ShippedTo&#xD;&#xA;    , SIC.SK_Currency_USD&#xD;&#xA;    , SIC.SK_Currency_Functional&#xD;&#xA;    , SIC.SK_Company    &#xD;&#xA;&#x9;, SIC.SK_SourceSystem&#xD;&#xA;HAVING SUM(SIC.InvoiceLineExtendedSalesValueFunctionalCurrency) > 0&#xD;&#xA;&#x9;OR SUM(SIC.InvoiceLineExtendedSalesValueFunctionalCurrency) &lt; 0&#xD;&#xA;    OR SUM(SIC.InvoiceLineExtendedDirectMaterialCostFunctionalCurrency) > 0&#xD;&#xA;    OR SUM(SIC.InvoiceLineExtendedDirectMaterialCostFunctionalCurrency) &lt; 0&#xD;&#xA;    OR SUM(SIC.InvoiceLineExtendedDirectLaborCostFunctionalCurrency) > 0&#xD;&#xA;    OR SUM(SIC.InvoiceLineExtendedDirectLaborCostFunctionalCurrency) &lt; 0&#xD;&#xA;    OR SUM(SIC.InvoiceLineExtendedDirectOverheadCostFunctionalCurrency) > 0&#xD;&#xA;    OR SUM(SIC.InvoiceLineExtendedDirectOverheadCostFunctionalCurrency) &lt; 0    &#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT D.FiscalYear&#xD;&#xA;&#x9;, D.FiscalMonthNumber&#xD;&#xA;    , Co.CompanyCode&#xD;&#xA;    , C.CustomerMarket&#xD;&#xA;    , S.ThorPlantCode&#xD;&#xA;    , P.ModelID&#xD;&#xA;    , P.ProductMajorCode&#xD;&#xA;&#x9;, D.SK_Date&#xD;&#xA;    , SIC.SK_Customer&#xD;&#xA;    , SIC.SK_Product&#xD;&#xA;    , SIC.SK_Stockroom_ShippedFrom&#xD;&#xA;    , SIC.SK_Geography_ShippedTo&#xD;&#xA;    , SIC.SK_Currency_USD&#xD;&#xA;    , SIC.SK_Currency_Functional&#xD;&#xA;    , SIC.SK_Company&#xD;&#xA;&#x9;, SIC.SK_SourceSystem&#xD;&#xA;    , SUM(SIC.InvoiceLineUnits) AS InvoiceLineUnits  &#xD;&#xA;FROM Fact_SalesInvoicing AS SIC&#xD;&#xA;INNER JOIN Meta_SourceSystemDimension AS SSD&#xD;&#xA;&#x9;ON SIC.SK_SourceSystem = SSD.SK_SourceSystem&#xD;&#xA;    AND SSD.SourceSystemShortName = 'Thor'&#xD;&#xA;INNER JOIN Dim_Date AS D&#xD;&#xA;&#x9;ON SIC.SK_Date_Invoiced = D.FiscalPreviousYearKey&#xD;&#xA;INNER JOIN Dim_Customer AS C&#xD;&#xA;&#x9;ON SIC.SK_Customer = C.SK_Customer&#xD;&#xA;    AND C.CustomerType &lt;> 'Intercompany'&#xD;&#xA;INNER JOIN Dim_Product AS P&#xD;&#xA;&#x9;ON SIC.SK_Product = P.SK_Product&#xD;&#xA;INNER JOIN Dim_Company AS Co&#xD;&#xA;&#x9;ON SIC.SK_Company = Co.SK_Company&#xD;&#xA;INNER JOIN Dim_Stockroom AS S&#xD;&#xA;&#x9;ON SIC.SK_Stockroom_ShippedFrom = S.SK_Stockroom&#xD;&#xA;GROUP BY D.FiscalYear&#xD;&#xA;&#x9;, D.FiscalMonthNumber&#xD;&#xA;    , Co.CompanyCode&#xD;&#xA;    , C.CustomerMarket&#xD;&#xA;    , S.ThorPlantCode&#xD;&#xA;    , P.ModelID&#xD;&#xA;    , P.ProductMajorCode&#xD;&#xA;&#x9;, D.SK_Date&#xD;&#xA;    , SIC.SK_Customer&#xD;&#xA;    , SIC.SK_Product&#xD;&#xA;    , SIC.SK_Stockroom_ShippedFrom&#xD;&#xA;    , SIC.SK_Geography_ShippedTo&#xD;&#xA;    , SIC.SK_Currency_USD&#xD;&#xA;    , SIC.SK_Currency_Functional&#xD;&#xA;    , SIC.SK_Company    &#xD;&#xA;&#x9;, SIC.SK_SourceSystem&#xD;&#xA;HAVING SUM(SIC.InvoiceLineUnits) > 0&#xD;&#xA;&#x9;OR SUM(SIC.InvoiceLineUnits) &lt; 0  &#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -346,16 +346,10 @@
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="SK_SourceSystem"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceLineExtendedSalesValueFunctionalCurrency"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceLineExtendedDirectMaterialCostFunctionalCurrency"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceLineExtendedDirectLaborCostFunctionalCurrency"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceLineExtendedDirectOverheadCostFunctionalCurrency"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="InvoiceLineUnits"/>
       <elementValue elementRef="TRIM" value="false"/>
     </elementParameter>
-    <elementParameter field="TEXT" name="LABEL" value="Fact_SalesInvoicingComponent"/>
+    <elementParameter field="TEXT" name="LABEL" value="Fact_SalesInvoicing"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tMysqlInput_1">
       <column comment="" defaultValue="" key="false" length="4" name="FiscalYear" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
@@ -374,10 +368,7 @@
       <column comment="" defaultValue="" key="true" length="11" name="SK_Currency_Functional" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="11" name="SK_Company" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="true" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineExtendedSalesValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
-      <column comment="" key="false" length="16" name="InvoiceLineExtendedDirectMaterialCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" key="false" length="16" name="InvoiceLineExtendedDirectLaborCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" key="false" length="16" name="InvoiceLineExtendedDirectOverheadCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="InvoiceLineUnits" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="352" posY="192">
@@ -385,7 +376,7 @@
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="_Ho3QwE03EeedmaYu-yXBlQ-tMap_5-PREVIEW.bmp"/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_-YzM0FBmEeeQId-vmtzWOQ-tMap_5-PREVIEW.bmp"/>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
     <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
     <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
@@ -412,17 +403,14 @@
       <column comment="" defaultValue="" key="true" length="11" name="SK_Company" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="true" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="11" name="SK_Scenario" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="19" name="InvoiceLineExtendedSalesValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="16" name="InvoiceLineExtendedDirectMaterialCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" key="false" length="16" name="InvoiceLineExtendedDirectLaborCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
-      <column comment="" key="false" length="16" name="InvoiceLineExtendedDirectOverheadCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="InvoiceLineUnits" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var">
-        <mapperTableEntries name="SalesValue" expression="SalesValue.FiscalMonthNumber &lt;= DimScenario.NumberMonthsActual ? null : SalesValue.InvoiceLineExtendedSalesValueFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="Keep" expression="SalesValue.FiscalMonthNumber &lt;= DimScenario.NumberMonthsActual ? 0 : 1 " type="id_Float" nullable="true"/>
       </varTables>
-      <outputTables sizeState="INTERMEDIATE" name="WithScenario" expressionFilter="! Relational.ISNULL(Var.SalesValue)" activateExpressionFilter="true">
+      <outputTables sizeState="INTERMEDIATE" name="WithScenario" expressionFilter="Var.Keep == 1" activateExpressionFilter="true">
         <mapperTableEntries name="FiscalYear" expression="SalesValue.FiscalYear " type="id_Integer"/>
         <mapperTableEntries name="FiscalMonthNumber" expression="SalesValue.FiscalMonthNumber " type="id_Integer"/>
         <mapperTableEntries name="CompanyCode" expression="SalesValue.CompanyCode " type="id_String"/>
@@ -441,10 +429,7 @@
         <mapperTableEntries name="SK_Company" expression="SalesValue.SK_Company " type="id_Integer"/>
         <mapperTableEntries name="SK_SourceSystem" expression="SalesValue.SK_SourceSystem " type="id_Integer"/>
         <mapperTableEntries name="SK_Scenario" expression="DimScenario.SK_Scenario " type="id_Integer"/>
-        <mapperTableEntries name="InvoiceLineExtendedSalesValueFunctionalCurrency" expression=" Var.SalesValue " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectMaterialCostFunctionalCurrency" expression="SalesValue.InvoiceLineExtendedDirectMaterialCostFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectLaborCostFunctionalCurrency" expression="SalesValue.InvoiceLineExtendedDirectLaborCostFunctionalCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectOverheadCostFunctionalCurrency" expression="SalesValue.InvoiceLineExtendedDirectOverheadCostFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineUnits" expression="SalesValue.InvoiceLineUnits " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="SalesValue" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="FiscalYear" type="id_Integer"/>
@@ -463,10 +448,7 @@
         <mapperTableEntries name="SK_Currency_Functional" type="id_Integer"/>
         <mapperTableEntries name="SK_Company" type="id_Integer"/>
         <mapperTableEntries name="SK_SourceSystem" type="id_Integer"/>
-        <mapperTableEntries name="InvoiceLineExtendedSalesValueFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectMaterialCostFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectLaborCostFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectOverheadCostFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineUnits" type="id_Float" nullable="true"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="DimScenario" activateCondensedTool="true" matchingMode="ALL_MATCHES" lookupMode="LOAD_ONCE" innerJoin="true">
         <mapperTableEntries name="SK_Scenario" type="id_Integer"/>
@@ -526,7 +508,7 @@
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="_Ho3QwE03EeedmaYu-yXBlQ-tMap_11-PREVIEW.bmp"/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_-YzM0FBmEeeQId-vmtzWOQ-tMap_11-PREVIEW.bmp"/>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
     <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
     <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
@@ -616,10 +598,7 @@
         <mapperTableEntries name="SK_Company" type="id_Integer"/>
         <mapperTableEntries name="SK_SourceSystem" type="id_Integer"/>
         <mapperTableEntries name="SK_Scenario" type="id_Integer"/>
-        <mapperTableEntries name="InvoiceLineExtendedSalesValueFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectMaterialCostFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectLaborCostFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDirectOverheadCostFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineUnits" type="id_Float" nullable="true"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="PlanAssumptions" activateCondensedTool="true" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE" innerJoin="true">
         <mapperTableEntries name="Scenario" expression="WithScenario.BK_Scenario_ScenarioName_FlatFiles " type="id_String" nullable="true" operator="="/>
@@ -634,15 +613,6 @@
         <mapperTableEntries name="NewBusinessGrowth" type="id_Float" nullable="true"/>
         <mapperTableEntries name="Attrition" type="id_Float" nullable="true"/>
         <mapperTableEntries name="SalesPriceGrowth" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="DirectMaterialVolumeGrowth" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="DirectLaborVolumeGrowth" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="DirectOHVolumeGrowth" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="DirectMaterialInflation" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="DirectLaborInflation" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="DirectOHInflation" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="DirectMaterialEfficiency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="DirectLaborEfficiency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="DirectOHEfficiency" type="id_Float" nullable="true"/>
       </inputTables>
     </nodeData>
   </node>
@@ -651,7 +621,7 @@
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="_Ho3QwE03EeedmaYu-yXBlQ-tMap_1-PREVIEW.bmp"/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_-YzM0FBmEeeQId-vmtzWOQ-tMap_1-PREVIEW.bmp"/>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
     <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
     <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
@@ -867,7 +837,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT Scenario&#xD;&#xA;&#x9;, FiscalYear&#xD;&#xA;    , FiscalMonth&#xD;&#xA;    , CompanyCode&#xD;&#xA;    , CustomerMarket&#xD;&#xA;    , StockroomCode&#xD;&#xA;    , ModelId&#xD;&#xA;    , MarketGrowth&#xD;&#xA;    , ExistingBusinessGrowth&#xD;&#xA;    , NewBusinessGrowth&#xD;&#xA;    , Attrition&#xD;&#xA;    , SalesPriceGrowth&#xD;&#xA;    , DirectMaterialVolumeGrowth&#xD;&#xA;    , DirectLaborVolumeGrowth&#xD;&#xA;    , DirectOHVolumeGrowth&#xD;&#xA;    , DirectMaterialInflation&#xD;&#xA;    , DirectLaborInflation&#xD;&#xA;    , DirectOHInflation&#xD;&#xA;    , DirectMaterialEfficiency&#xD;&#xA;    , DirectLaborEfficiency&#xD;&#xA;    , DirectOHEfficiency&#xD;&#xA;FROM Extract_PlanThor_FlatFiles &#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT Scenario&#xD;&#xA;&#x9;, FiscalYear&#xD;&#xA;    , FiscalMonth&#xD;&#xA;    , CompanyCode&#xD;&#xA;    , CustomerMarket&#xD;&#xA;    , StockroomCode&#xD;&#xA;    , ModelId&#xD;&#xA;    , MarketGrowth&#xD;&#xA;    , ExistingBusinessGrowth&#xD;&#xA;    , NewBusinessGrowth&#xD;&#xA;    , Attrition&#xD;&#xA;    , SalesPriceGrowth&#xD;&#xA;FROM Extract_PlanThor_FlatFiles &#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -902,24 +872,6 @@
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="SalesPriceGrowth"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="DirectMaterialVolumeGrowth"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="DirectLaborVolumeGrowth"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="DirectOHVolumeGrowth"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="DirectMaterialInflation"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="DirectLaborInflation"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="DirectOHInflation"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="DirectMaterialEfficiency"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="DirectLaborEfficiency"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="DirectOHEfficiency"/>
-      <elementValue elementRef="TRIM" value="false"/>
     </elementParameter>
     <elementParameter field="TEXT" name="LABEL" value="PlanAssumptions"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
@@ -936,15 +888,6 @@
       <column comment="" defaultValue="" key="false" length="5" name="NewBusinessGrowth" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="5" name="Attrition" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="5" name="SalesPriceGrowth" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="5" name="DirectMaterialVolumeGrowth" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="5" name="DirectLaborVolumeGrowth" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="5" name="DirectOHVolumeGrowth" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="5" name="DirectMaterialInflation" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="5" name="DirectLaborInflation" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="5" name="DirectOHInflation" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="5" name="DirectMaterialEfficiency" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="5" name="DirectLaborEfficiency" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="5" name="DirectOHEfficiency" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="1152" posY="192">
@@ -952,7 +895,7 @@
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="_Ho3QwE03EeedmaYu-yXBlQ-tMap_2-PREVIEW.bmp"/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_-YzM0FBmEeeQId-vmtzWOQ-tMap_2-PREVIEW.bmp"/>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
     <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
     <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
@@ -1137,7 +1080,7 @@
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="_Ho3QwE03EeedmaYu-yXBlQ-tMap_3-PREVIEW.bmp"/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_-YzM0FBmEeeQId-vmtzWOQ-tMap_3-PREVIEW.bmp"/>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
     <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
     <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
@@ -1337,7 +1280,7 @@
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="_Ho3QwE03EeedmaYu-yXBlQ-tMap_4-PREVIEW.bmp"/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_-YzM0FBmEeeQId-vmtzWOQ-tMap_4-PREVIEW.bmp"/>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
     <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
     <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
@@ -2067,6 +2010,9 @@
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
       <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineExtendedDirectLaborCostFunctionalCurrency"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineUnits"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
