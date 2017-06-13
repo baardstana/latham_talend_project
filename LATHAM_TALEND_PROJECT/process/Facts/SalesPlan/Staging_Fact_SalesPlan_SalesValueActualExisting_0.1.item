@@ -958,8 +958,8 @@
         <mapperTableEntries name="ExtendedSalesValueTotalVolumeGrowthUSD" type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedSalesValueSalesPriceGrowthFunctionalCurrency" expression="" type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedSalesValueSalesPriceGrowthFunctionalUSD" expression="" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueTotalSalesGrowthFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueTotalSalesGrowthUSD" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedSalesValueTotalSalesGrowthFunctionalCurrency" expression="CustomStringHandling.subtractValues(GroupedValues.SalesFunctional_Current, GroupedValues.SalesFunctional_Last) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedSalesValueTotalSalesGrowthUSD" expression="CustomStringHandling.subtractValues(GroupedValues.SalesUSD_Current, GroupedValues.SalesUSD_Last)" type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedSalesValueFunctionalCurrency" expression="GroupedValues.SalesFunctional_Current " type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedSalesValueUSD" expression="GroupedValues.SalesUSD_Current " type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedDirectMaterialCostVolumeGrowthUSD" type="id_Float" nullable="true"/>
@@ -986,8 +986,8 @@
         <mapperTableEntries name="ExtendedDirectLaborCostTotalGrowthFunctionalCurrency" expression="" type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedDirectOverheadCostTotalGrowthUSD" type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedDirectOverheadCostTotalGrowthFunctionalCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedTotalDirectCostGrowthUSD" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedTotalDirectCostGrowthFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedTotalDirectCostGrowthUSD" expression="CustomStringHandling.subtractValues(&#xD;&#xA;&#xD;&#xA;CustomStringHandling.sumValues(CustomStringHandling.sumValues(GroupedValues.MaterialCostFunctional_Current, GroupedValues.LaborCostFunctional_Current), GroupedValues.OverheadCostFunctional_Current) &#xD;&#xA;&#xD;&#xA;,&#xD;&#xA;&#xD;&#xA;CustomStringHandling.sumValues(CustomStringHandling.sumValues(GroupedValues.MaterialCostFunctional_Last, GroupedValues.LaborCostFunctional_Last), GroupedValues.OverheadCostFunctional_Last)&#xD;&#xA;&#xD;&#xA;) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedTotalDirectCostGrowthFunctionalCurrency" expression="CustomStringHandling.subtractValues(&#xD;&#xA;&#xD;&#xA;CustomStringHandling.sumValues(CustomStringHandling.sumValues(GroupedValues.MaterialCostUSD_Current, GroupedValues.LaborCostUSD_Current), GroupedValues.OverheadCostUSD_Current) &#xD;&#xA;&#xD;&#xA;,&#xD;&#xA;&#xD;&#xA;CustomStringHandling.sumValues(CustomStringHandling.sumValues(GroupedValues.MaterialCostUSD_Last, GroupedValues.LaborCostUSD_Last), GroupedValues.OverheadCostUSD_Last)&#xD;&#xA;&#xD;&#xA;) " type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedDirectMaterialCostFunctionalCurrency" expression="GroupedValues.MaterialCostFunctional_Current " type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedDirectMaterialCostUSD" expression="GroupedValues.MaterialCostUSD_Current " type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedDirectLaborCostFunctionalCurrency" expression="GroupedValues.LaborCostFunctional_Current " type="id_Float" nullable="true"/>
