@@ -341,14 +341,16 @@
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="CustomerYears">
       <column comment="" defaultValue="" key="true" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="SK_Customer_Current" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="4" name="FiscalYear" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="4" name="FiscalPreviousYear" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="CustomerYears">
         <mapperTableEntries name="SK_Customer" expression="Customers.SK_Customer " type="id_Integer"/>
+        <mapperTableEntries name="SK_Customer_Current" expression="Customers.SK_Customer_Current " type="id_Integer"/>
         <mapperTableEntries name="FiscalYear" expression="FiscalYears.FiscalYear " type="id_Integer"/>
         <mapperTableEntries name="FiscalPreviousYear" expression="FiscalYears.FiscalPreviousYear " type="id_Integer"/>
       </outputTables>
@@ -416,21 +418,24 @@
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="CustomerProductMajor">
       <column comment="" defaultValue="" key="true" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="SK_Customer_Current" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
       <column comment="" key="true" length="7" name="ProductMajorCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="4" name="FiscalYear" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="4" name="FiscalPreviousYear" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="CustomerProductMajor">
         <mapperTableEntries name="SK_Customer" expression="CustomerYears.SK_Customer " type="id_Integer"/>
+        <mapperTableEntries name="SK_Customer_Current" expression="CustomerYears.SK_Customer_Current " type="id_Integer"/>
         <mapperTableEntries name="ProductMajorCode" expression="ProductMajor.ProductMajorCode " type="id_String"/>
         <mapperTableEntries name="FiscalYear" expression="CustomerYears.FiscalYear " type="id_Integer"/>
         <mapperTableEntries name="FiscalPreviousYear" expression="CustomerYears.FiscalPreviousYear " type="id_Integer"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="CustomerYears" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Customer" type="id_Integer"/>
+        <mapperTableEntries name="SK_Customer_Current" type="id_Integer"/>
         <mapperTableEntries name="FiscalYear" type="id_Integer"/>
         <mapperTableEntries name="FiscalPreviousYear" type="id_Integer"/>
       </inputTables>
@@ -490,6 +495,7 @@
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="CurrentYearList">
       <column comment="" defaultValue="" key="true" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="SK_Customer_Current" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
       <column comment="" key="true" length="7" name="ProductMajorCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="4" name="FiscalYear" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="4" name="FiscalPreviousYear" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
@@ -497,10 +503,11 @@
       <column comment="" defaultValue="" key="false" length="15" name="CurrentYearSales" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="CurrentYearList">
         <mapperTableEntries name="SK_Customer" expression="CustomerProductMajor.SK_Customer " type="id_Integer"/>
+        <mapperTableEntries name="SK_Customer_Current" expression="CustomerProductMajor.SK_Customer_Current " type="id_Integer"/>
         <mapperTableEntries name="ProductMajorCode" expression="CustomerProductMajor.ProductMajorCode " type="id_String"/>
         <mapperTableEntries name="FiscalYear" expression="CustomerYears.FiscalYear " type="id_Integer"/>
         <mapperTableEntries name="FiscalPreviousYear" expression="CustomerYears.FiscalPreviousYear " type="id_Integer"/>
@@ -509,6 +516,7 @@
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="CustomerProductMajor" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Customer" type="id_Integer"/>
+        <mapperTableEntries name="SK_Customer_Current" type="id_Integer"/>
         <mapperTableEntries name="ProductMajorCode" type="id_String"/>
         <mapperTableEntries name="FiscalYear" type="id_Integer"/>
         <mapperTableEntries name="FiscalPreviousYear" type="id_Integer"/>
@@ -585,6 +593,7 @@
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="PreviousYearList">
       <column comment="" defaultValue="" key="true" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="SK_Customer_Current" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
       <column comment="" key="true" length="7" name="ProductMajorCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="4" name="FiscalYear" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="4" name="FiscalPreviousYear" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
@@ -594,10 +603,11 @@
       <column comment="" defaultValue="" key="false" length="15" name="PreviousYearSales" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="PreviousYearList">
         <mapperTableEntries name="SK_Customer" expression="CurrentYearList.SK_Customer " type="id_Integer"/>
+        <mapperTableEntries name="SK_Customer_Current" expression="CurrentYearList.SK_Customer_Current " type="id_Integer"/>
         <mapperTableEntries name="ProductMajorCode" expression="CurrentYearList.ProductMajorCode " type="id_String"/>
         <mapperTableEntries name="FiscalYear" expression="CurrentYearList.FiscalYear " type="id_Integer"/>
         <mapperTableEntries name="FiscalPreviousYear" expression="CurrentYearList.FiscalPreviousYear " type="id_Integer"/>
@@ -608,6 +618,7 @@
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="CurrentYearList" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Customer" type="id_Integer"/>
+        <mapperTableEntries name="SK_Customer_Current" type="id_Integer"/>
         <mapperTableEntries name="ProductMajorCode" type="id_String"/>
         <mapperTableEntries name="FiscalYear" type="id_Integer"/>
         <mapperTableEntries name="FiscalPreviousYear" type="id_Integer"/>
@@ -686,6 +697,7 @@
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="CurrentYearUnit">
       <column comment="" defaultValue="" key="true" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="SK_Customer_Current" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
       <column comment="" key="true" length="7" name="ProductMajorCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="4" name="FiscalYear" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="4" name="FiscalPreviousYear" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
@@ -696,10 +708,11 @@
       <column comment="" defaultValue="" key="false" length="11" name="CurrentYearUnits" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="11" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="CurrentYearUnit">
         <mapperTableEntries name="SK_Customer" expression="PreviousYearList.SK_Customer " type="id_Integer"/>
+        <mapperTableEntries name="SK_Customer_Current" expression="PreviousYearList.SK_Customer_Current " type="id_Integer"/>
         <mapperTableEntries name="ProductMajorCode" expression="PreviousYearList.ProductMajorCode " type="id_String"/>
         <mapperTableEntries name="FiscalYear" expression="PreviousYearList.FiscalYear " type="id_Integer"/>
         <mapperTableEntries name="FiscalPreviousYear" expression="PreviousYearList.FiscalPreviousYear " type="id_Integer"/>
@@ -711,6 +724,7 @@
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="PreviousYearList" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Customer" type="id_Integer"/>
+        <mapperTableEntries name="SK_Customer_Current" type="id_Integer"/>
         <mapperTableEntries name="ProductMajorCode" type="id_String"/>
         <mapperTableEntries name="FiscalYear" type="id_Integer"/>
         <mapperTableEntries name="FiscalPreviousYear" type="id_Integer"/>
@@ -787,6 +801,7 @@
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="WithPreviousYearUnit">
       <column comment="" defaultValue="" key="true" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="SK_Customer_Current" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
       <column comment="" key="true" length="7" name="ProductMajorCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="4" name="FiscalYear" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="4" name="FiscalPreviousYear" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
@@ -798,10 +813,11 @@
       <column comment="" defaultValue="" key="false" length="11" name="PreviousYearUnits" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="11" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="WithPreviousYearUnit">
         <mapperTableEntries name="SK_Customer" expression="CurrentYearUnit.SK_Customer " type="id_Integer"/>
+        <mapperTableEntries name="SK_Customer_Current" expression="CurrentYearUnit.SK_Customer_Current " type="id_Integer"/>
         <mapperTableEntries name="ProductMajorCode" expression="CurrentYearUnit.ProductMajorCode " type="id_String"/>
         <mapperTableEntries name="FiscalYear" expression="CurrentYearUnit.FiscalYear " type="id_Integer"/>
         <mapperTableEntries name="FiscalPreviousYear" expression="CurrentYearUnit.FiscalPreviousYear " type="id_Integer"/>
@@ -814,6 +830,7 @@
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="CurrentYearUnit" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Customer" type="id_Integer"/>
+        <mapperTableEntries name="SK_Customer_Current" type="id_Integer"/>
         <mapperTableEntries name="ProductMajorCode" type="id_String"/>
         <mapperTableEntries name="FiscalYear" type="id_Integer"/>
         <mapperTableEntries name="FiscalPreviousYear" type="id_Integer"/>
@@ -878,8 +895,38 @@
   </node>
   <node componentName="tAggregateRow" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1888" posY="192">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tAggregateRow_1" show="false"/>
-    <elementParameter field="TABLE" name="GROUPBYS"/>
-    <elementParameter field="TABLE" name="OPERATIONS"/>
+    <elementParameter field="TABLE" name="GROUPBYS">
+      <elementValue elementRef="OUTPUT_COLUMN" value="ProductMajorCode"/>
+      <elementValue elementRef="INPUT_COLUMN" value="ProductMajorCode"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="SK_Customer"/>
+      <elementValue elementRef="INPUT_COLUMN" value="SK_Customer_Current"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="INPUT_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="FiscalPreviousYear"/>
+      <elementValue elementRef="INPUT_COLUMN" value="FiscalPreviousYear"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="CurrentYearFlag"/>
+      <elementValue elementRef="INPUT_COLUMN" value="CurrentYearFlag"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="PreviousYearFlag"/>
+      <elementValue elementRef="INPUT_COLUMN" value="PreviousYearFlag"/>
+    </elementParameter>
+    <elementParameter field="TABLE" name="OPERATIONS">
+      <elementValue elementRef="OUTPUT_COLUMN" value="CurrentYearSales"/>
+      <elementValue elementRef="FUNCTION" value="count"/>
+      <elementValue elementRef="INPUT_COLUMN" value="CurrentYearSales"/>
+      <elementValue elementRef="IGNORE_NULL" value="false"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="PreviousYearSales"/>
+      <elementValue elementRef="FUNCTION" value="count"/>
+      <elementValue elementRef="INPUT_COLUMN" value="PreviousYearSales"/>
+      <elementValue elementRef="IGNORE_NULL" value="false"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="CurrentYearUnits"/>
+      <elementValue elementRef="FUNCTION" value="count"/>
+      <elementValue elementRef="INPUT_COLUMN" value="CurrentYearUnits"/>
+      <elementValue elementRef="IGNORE_NULL" value="false"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="PreviousYearUnits"/>
+      <elementValue elementRef="FUNCTION" value="count"/>
+      <elementValue elementRef="INPUT_COLUMN" value="PreviousYearUnits"/>
+      <elementValue elementRef="IGNORE_NULL" value="false"/>
+    </elementParameter>
     <elementParameter field="TEXT" name="LIST_DELIMITER" value="&quot;,&quot;"/>
     <elementParameter field="CHECK" name="USE_FINANCIAL_PRECISION" value="true"/>
     <elementParameter field="CHECK" name="CHECK_TYPE_OVERFLOW" value="false"/>
@@ -888,6 +935,7 @@
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tAggregateRow_1">
       <column comment="" defaultValue="" key="true" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="SK_Customer_Current" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
       <column comment="" key="true" length="7" name="ProductMajorCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="4" name="FiscalYear" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="4" name="FiscalPreviousYear" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
@@ -952,6 +1000,7 @@
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="PreviousYearUnit" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Customer" type="id_Integer"/>
+        <mapperTableEntries name="SK_Customer_Current" type="id_Integer"/>
         <mapperTableEntries name="ProductMajorCode" type="id_String"/>
         <mapperTableEntries name="FiscalYear" type="id_Integer"/>
         <mapperTableEntries name="FiscalPreviousYear" type="id_Integer"/>
@@ -1142,6 +1191,9 @@
       <elementValue elementRef="TRACE_COLUMN" value="SK_Customer"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="SK_Customer_Current"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="CustomerYears" show="false"/>
@@ -1151,6 +1203,11 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="FiscalYears" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="CustomerProductMajor" lineStyle="0" metaname="CustomerProductMajor" offsetLabelX="0" offsetLabelY="0" source="tMap_1" target="tMap_3">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="SK_Customer_Current"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="CustomerProductMajor" show="false"/>
   </connection>
@@ -1167,6 +1224,9 @@
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
       <elementValue elementRef="TRACE_COLUMN" value="ProductMajorCode"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="SK_Customer_Current"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
@@ -1191,6 +1251,9 @@
       <elementValue elementRef="TRACE_COLUMN" value="CurrentYearSales"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="SK_Customer_Current"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="PreviousYearList" show="false"/>
@@ -1200,6 +1263,11 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="PreviousYear" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="CurrentYearUnit" lineStyle="0" metaname="CurrentYearUnit" offsetLabelX="0" offsetLabelY="0" source="tMap_6" target="tMap_7">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="SK_Customer_Current"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="CurrentYearUnit" show="false"/>
   </connection>
@@ -1208,6 +1276,11 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="CurrentYearUnits" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="WithPreviousYearUnit" lineStyle="0" metaname="WithPreviousYearUnit" offsetLabelX="-2" offsetLabelY="4" source="tMap_7" target="tAggregateRow_1">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="SK_Customer_Current"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="WithPreviousYearUnit" show="false"/>
   </connection>
