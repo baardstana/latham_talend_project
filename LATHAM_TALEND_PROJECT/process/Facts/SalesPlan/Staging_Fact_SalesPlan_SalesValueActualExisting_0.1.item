@@ -932,7 +932,12 @@
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
-      <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
+      <varTables sizeState="INTERMEDIATE" name="Var">
+        <mapperTableEntries name="TotalGrowthFunctional" expression="CustomStringHandling.subtractValues(GroupedValues.SalesFunctional_Current, GroupedValues.SalesFunctional_Last) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="TotalGrowthUSD" expression="CustomStringHandling.subtractValues(GroupedValues.SalesUSD_Current, GroupedValues.SalesUSD_Last)" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="SalesPriceIncreaseFunctional" expression="CustomStringHandling.multiplyValues(GroupedValues.SalesFunctional_Last, GroupedValues.ASPChange) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="SalesPriceIncreaseUSD" expression="CustomStringHandling.multiplyValues(GroupedValues.SalesUSD_Last, GroupedValues.ASPChange) " type="id_Float" nullable="true"/>
+      </varTables>
       <outputTables sizeState="INTERMEDIATE" name="Growth">
         <mapperTableEntries name="SK_Date_Plan" expression="GroupedValues.SK_Date " type="id_Integer"/>
         <mapperTableEntries name="SK_Customer" expression="GroupedValues.SK_Customer " type="id_Integer"/>
@@ -946,20 +951,20 @@
         <mapperTableEntries name="SK_SourceSystem" expression="GroupedValues.SK_SourceSystem " type="id_Integer"/>
         <mapperTableEntries name="ExtendedSalesValueMarketGrowthFunctionalCurrency" expression="null" type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedSalesValueMarketGrowthUSD" expression="null" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueExistingBusinessGrowthFunctionalCurrency" expression="" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueExistingBusinessGrowthUSD" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedSalesValueExistingBusinessGrowthFunctionalCurrency" expression="CustomStringHandling.subtractValues(Var.TotalGrowthFunctional, Var.SalesPriceIncreaseFunctional) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedSalesValueExistingBusinessGrowthUSD" expression="CustomStringHandling.subtractValues(Var.TotalGrowthUSD, Var.SalesPriceIncreaseUSD)" type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedSalesValueNewBusinessGrowthFunctionalCurrency" expression="null" type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedSalesValueNewBusinessGrowthUSD" expression="null" type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedSalesValueAttritionFunctionalCurrency" expression="null" type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedSalesValueAttritionFunctionalUSD" expression="null" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueNetLathamGrowthFunctionalCurrency" expression="" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueNetLathamGrowthFunctionalUSD" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueTotalVolumeGrowthFunctionalCurrency" expression="" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueTotalVolumeGrowthUSD" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueSalesPriceGrowthFunctionalCurrency" expression="" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueSalesPriceGrowthFunctionalUSD" expression="" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueTotalSalesGrowthFunctionalCurrency" expression="CustomStringHandling.subtractValues(GroupedValues.SalesFunctional_Current, GroupedValues.SalesFunctional_Last) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="ExtendedSalesValueTotalSalesGrowthUSD" expression="CustomStringHandling.subtractValues(GroupedValues.SalesUSD_Current, GroupedValues.SalesUSD_Last)" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedSalesValueNetLathamGrowthFunctionalCurrency" expression="CustomStringHandling.subtractValues(Var.TotalGrowthFunctional, Var.SalesPriceIncreaseFunctional) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedSalesValueNetLathamGrowthFunctionalUSD" expression="CustomStringHandling.subtractValues(Var.TotalGrowthUSD, Var.SalesPriceIncreaseUSD)" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedSalesValueTotalVolumeGrowthFunctionalCurrency" expression="CustomStringHandling.subtractValues(Var.TotalGrowthFunctional, Var.SalesPriceIncreaseFunctional) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedSalesValueTotalVolumeGrowthUSD" expression="CustomStringHandling.subtractValues(Var.TotalGrowthUSD, Var.SalesPriceIncreaseUSD)" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedSalesValueSalesPriceGrowthFunctionalCurrency" expression="Var.SalesPriceIncreaseFunctional " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedSalesValueSalesPriceGrowthFunctionalUSD" expression="Var.SalesPriceIncreaseUSD " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedSalesValueTotalSalesGrowthFunctionalCurrency" expression="Var.TotalGrowthFunctional " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedSalesValueTotalSalesGrowthUSD" expression="Var.TotalGrowthUSD " type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedSalesValueFunctionalCurrency" expression="GroupedValues.SalesFunctional_Current " type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedSalesValueUSD" expression="GroupedValues.SalesUSD_Current " type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedDirectMaterialCostVolumeGrowthUSD" expression="CustomStringHandling.subtractValues(GroupedValues.MaterialCostUSD_Current, GroupedValues.MaterialCostUSD_Last) " type="id_Float" nullable="true"/>
@@ -1028,7 +1033,7 @@
       </inputTables>
     </nodeData>
   </node>
-  <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1536" posY="192">
+  <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1312" posY="192">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlOutput_1" show="false"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
@@ -1715,6 +1720,10 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="GroupedValues" show="false"/>
   </connection>
+  <connection connectorName="FLOW" label="Growth" lineStyle="0" metaname="Growth" offsetLabelX="0" offsetLabelY="0" source="tMap_1" target="tMysqlOutput_1">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="Growth" show="false"/>
+  </connection>
   <subjob>
     <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" value="true" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPrejob_1" show="false"/>
@@ -1754,11 +1763,6 @@
   </subjob>
   <subjob>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_1" show="false"/>
-    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>
-    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
-  </subjob>
-  <subjob>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlOutput_1" show="false"/>
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
