@@ -976,19 +976,19 @@
       <column comment="" key="false" length="11" name="ASPChange" nullable="true" pattern="" precision="3" sourceType="" type="id_Float" originalLength="11" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var">
         <mapperTableEntries name="CY_ASP" expression="CustomStringHandling.divideValues(PreviousYearUnit.CurrentYearSales, PreviousYearUnit.CurrentYearUnits) " type="id_Float" nullable="true"/>
         <mapperTableEntries name="PY_ASP" expression="CustomStringHandling.divideValues(PreviousYearUnit.PreviousYearSales, PreviousYearUnit.PreviousYearUnits) " type="id_Float" nullable="true"/>
       </varTables>
-      <outputTables sizeState="INTERMEDIATE" name="CustomerCases" expressionFilter="PreviousYearList.CurrentYearFlag + PreviousYearList.PreviousYearFlag > 0" activateExpressionFilter="true">
+      <outputTables sizeState="INTERMEDIATE" name="CustomerCases" expressionFilter="PreviousYearUnit.CurrentYearFlag + PreviousYearUnit.PreviousYearFlag > 0" activateExpressionFilter="true">
         <mapperTableEntries name="SK_Customer" expression="PreviousYearUnit.SK_Customer " type="id_Integer"/>
         <mapperTableEntries name="ProductMajorCode" expression="PreviousYearUnit.ProductMajorCode " type="id_String"/>
-        <mapperTableEntries name="FiscalYear" expression="PreviousYearList.FiscalYear " type="id_Integer"/>
-        <mapperTableEntries name="FiscalPreviousYear" expression="PreviousYearList.FiscalPreviousYear " type="id_Integer"/>
-        <mapperTableEntries name="ExistingCustomerFlag" expression="PreviousYearList.CurrentYearFlag == 1 &amp;&amp; PreviousYearList.PreviousYearFlag == 1 ? 1 : 0 " type="id_Integer"/>
-        <mapperTableEntries name="NewCustomerFlag" expression="PreviousYearList.CurrentYearFlag == 1 &amp;&amp; PreviousYearList.PreviousYearFlag == 0 ? 1 : 0 " type="id_Integer"/>
-        <mapperTableEntries name="AttritionFlag" expression="PreviousYearList.CurrentYearFlag == 0 &amp;&amp; PreviousYearList.PreviousYearFlag == 1 ? 1 : 0 " type="id_Integer"/>
+        <mapperTableEntries name="FiscalYear" expression="PreviousYearUnit.FiscalYear " type="id_Integer"/>
+        <mapperTableEntries name="FiscalPreviousYear" expression="PreviousYearUnit.FiscalPreviousYear " type="id_Integer"/>
+        <mapperTableEntries name="ExistingCustomerFlag" expression="PreviousYearUnit.CurrentYearFlag == 1 &amp;&amp; PreviousYearUnit.PreviousYearFlag == 1 ? 1 : 0 " type="id_Integer"/>
+        <mapperTableEntries name="NewCustomerFlag" expression="PreviousYearUnit.CurrentYearFlag == 1 &amp;&amp; PreviousYearUnit.PreviousYearFlag == 0 ? 1 : 0 " type="id_Integer"/>
+        <mapperTableEntries name="AttritionFlag" expression="PreviousYearUnit.CurrentYearFlag == 0 &amp;&amp; PreviousYearUnit.PreviousYearFlag == 1 ? 1 : 0 " type="id_Integer"/>
         <mapperTableEntries name="CurrentYearSales" expression="PreviousYearUnit.CurrentYearSales " type="id_Float" nullable="true"/>
         <mapperTableEntries name="CurrentYearUnits" expression="PreviousYearUnit.CurrentYearUnits " type="id_Float" nullable="true"/>
         <mapperTableEntries name="CurrentYearASP" expression="Var.CY_ASP " type="id_Float" nullable="true"/>
