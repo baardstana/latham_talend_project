@@ -800,7 +800,7 @@
     <elementParameter field="TEXT" name="LABEL" value="GetPreviousYearUnits"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="WithPreviousYearUnit">
-      <column comment="" defaultValue="" key="true" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
       <column comment="" key="false" length="11" name="SK_Customer_Current" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
       <column comment="" key="true" length="7" name="ProductMajorCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="4" name="FiscalYear" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
@@ -898,7 +898,7 @@
     <elementParameter field="TABLE" name="GROUPBYS">
       <elementValue elementRef="OUTPUT_COLUMN" value="ProductMajorCode"/>
       <elementValue elementRef="INPUT_COLUMN" value="ProductMajorCode"/>
-      <elementValue elementRef="OUTPUT_COLUMN" value="SK_Customer_Current"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="SK_Customer"/>
       <elementValue elementRef="INPUT_COLUMN" value="SK_Customer_Current"/>
       <elementValue elementRef="OUTPUT_COLUMN" value="FiscalYear"/>
       <elementValue elementRef="INPUT_COLUMN" value="FiscalYear"/>
@@ -938,7 +938,7 @@
     <elementParameter field="TEXT" name="LABEL" value="AggregateCustomer"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tAggregateRow_1">
-      <column comment="" key="true" length="11" name="SK_Customer_Current" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
+      <column comment="" key="true" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
       <column comment="" key="true" length="7" name="ProductMajorCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="4" name="FiscalYear" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="4" name="FiscalPreviousYear" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
@@ -1002,7 +1002,7 @@
         <mapperTableEntries name="ASPChange" expression="Relational.ISNULL(Var.CY_ASP) || Relational.ISNULL(Var.PY_ASP) || Var.CY_ASP == 0 || Var.PY_ASP == 0 ? null : &#xD;&#xA;(Var.CY_ASP - Var.PY_ASP) / Var.PY_ASP " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="PreviousYearUnit" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
-        <mapperTableEntries name="SK_Customer_Current" type="id_Integer"/>
+        <mapperTableEntries name="SK_Customer" type="id_Integer"/>
         <mapperTableEntries name="ProductMajorCode" type="id_String"/>
         <mapperTableEntries name="FiscalYear" type="id_Integer"/>
         <mapperTableEntries name="FiscalPreviousYear" type="id_Integer"/>
