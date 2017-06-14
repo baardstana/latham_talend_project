@@ -303,7 +303,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT D.FiscalYear&#xD;&#xA;&#x9;, D.FiscalMonthNumber&#xD;&#xA;    , Co.CompanyCode&#xD;&#xA;    , C.CustomerMarket&#xD;&#xA;    , S.ThorPlantCode&#xD;&#xA;    , P.ModelID&#xD;&#xA;    , P.ProductMajorCode&#xD;&#xA;&#x9;, D.SK_Date&#xD;&#xA;    , SIC.SK_Customer&#xD;&#xA;    , SIC.SK_Product&#xD;&#xA;    , SIC.SK_Stockroom&#xD;&#xA;    , SIC.SK_Geography_ShipDestination&#xD;&#xA;    , SIC.SK_Currency_USD&#xD;&#xA;    , SIC.SK_Currency_Functional&#xD;&#xA;    , SIC.SK_Company&#xD;&#xA;&#x9;, SIC.SK_SourceSystem&#xD;&#xA;    , SUM(SIC.OrderLineExtendedValueFunctionalCurrency) AS OrderLineExtendedValueFunctionalCurrency&#xD;&#xA;FROM Fact_SalesOrders AS SIC&#xD;&#xA;INNER JOIN Meta_SourceSystemDimension AS SSD&#xD;&#xA;&#x9;ON SIC.SK_SourceSystem = SSD.SK_SourceSystem&#xD;&#xA;    AND SSD.SourceSystemShortName = 'Thor'&#xD;&#xA;INNER JOIN Dim_Date AS D&#xD;&#xA;&#x9;ON SIC.SK_Date_SystemEntered = D.FiscalPreviousYearKey&#xD;&#xA;INNER JOIN Dim_Customer AS C&#xD;&#xA;&#x9;ON SIC.SK_Customer = C.SK_Customer&#xD;&#xA;    AND C.CustomerType &lt;> 'Intercompany'&#xD;&#xA;INNER JOIN Dim_Product AS P&#xD;&#xA;&#x9;ON SIC.SK_Product = P.SK_Product&#xD;&#xA;INNER JOIN Dim_Company AS Co&#xD;&#xA;&#x9;ON SIC.SK_Company = Co.SK_Company&#xD;&#xA;INNER JOIN Dim_Stockroom AS S&#xD;&#xA;&#x9;ON SIC.SK_Stockroom = S.SK_Stockroom&#xD;&#xA;GROUP BY D.FiscalYear&#xD;&#xA;&#x9;, D.FiscalMonthNumber&#xD;&#xA;    , Co.CompanyCode&#xD;&#xA;    , C.CustomerMarket&#xD;&#xA;    , S.ThorPlantCode&#xD;&#xA;    , P.ModelID&#xD;&#xA;    , P.ProductMajorCode&#xD;&#xA;&#x9;, D.SK_Date&#xD;&#xA;    , SIC.SK_Customer&#xD;&#xA;    , SIC.SK_Product&#xD;&#xA;    , SIC.SK_Stockroom&#xD;&#xA;    , SIC.SK_Geography_ShipDestination&#xD;&#xA;    , SIC.SK_Currency_USD&#xD;&#xA;    , SIC.SK_Currency_Functional&#xD;&#xA;    , SIC.SK_Company&#xD;&#xA;&#x9;, SIC.SK_SourceSystem&#xD;&#xA;HAVING SUM(SIC.OrderLineExtendedValueFunctionalCurrency) > 0&#xD;&#xA;&#x9;OR SUM(SIC.OrderLineExtendedValueFunctionalCurrency) &lt; 0   &#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT D.FiscalYear&#xD;&#xA;&#x9;, D.FiscalMonthNumber&#xD;&#xA;    , Co.CompanyCode&#xD;&#xA;    , C.CustomerMarket&#xD;&#xA;    , P.ProductMajorCode&#xD;&#xA;&#x9;, D.SK_Date&#xD;&#xA;    , SIC.SK_Customer&#xD;&#xA;    , SIC.SK_Product&#xD;&#xA;    , SIC.SK_Stockroom&#xD;&#xA;    , SIC.SK_Geography_ShipDestination&#xD;&#xA;    , SIC.SK_Currency_USD&#xD;&#xA;    , SIC.SK_Currency_Functional&#xD;&#xA;    , SIC.SK_Company&#xD;&#xA;&#x9;, SIC.SK_SourceSystem&#xD;&#xA;    , SUM(SIC.OrderLineExtendedValueFunctionalCurrency) AS OrderLineExtendedValueFunctionalCurrency&#xD;&#xA;FROM Fact_SalesOrders AS SIC&#xD;&#xA;INNER JOIN Meta_SourceSystemDimension AS SSD&#xD;&#xA;&#x9;ON SIC.SK_SourceSystem = SSD.SK_SourceSystem&#xD;&#xA;    AND SSD.SourceSystemShortName &lt;> 'Thor'&#xD;&#xA;INNER JOIN Dim_Date AS D&#xD;&#xA;&#x9;ON SIC.SK_Date_SystemEntered = D.FiscalPreviousYearKey&#xD;&#xA;INNER JOIN Dim_Customer AS C&#xD;&#xA;&#x9;ON SIC.SK_Customer = C.SK_Customer&#xD;&#xA;    AND C.CustomerType &lt;> 'Intercompany'&#xD;&#xA;INNER JOIN Dim_Product AS P&#xD;&#xA;&#x9;ON SIC.SK_Product = P.SK_Product&#xD;&#xA;INNER JOIN Dim_Company AS Co&#xD;&#xA;&#x9;ON SIC.SK_Company = Co.SK_Company&#xD;&#xA;INNER JOIN Dim_Stockroom AS S&#xD;&#xA;&#x9;ON SIC.SK_Stockroom = S.SK_Stockroom&#xD;&#xA;GROUP BY D.FiscalYear&#xD;&#xA;&#x9;, D.FiscalMonthNumber&#xD;&#xA;    , Co.CompanyCode&#xD;&#xA;    , C.CustomerMarket&#xD;&#xA;    , P.ProductMajorCode&#xD;&#xA;&#x9;, D.SK_Date&#xD;&#xA;    , SIC.SK_Customer&#xD;&#xA;    , SIC.SK_Product&#xD;&#xA;    , SIC.SK_Stockroom&#xD;&#xA;    , SIC.SK_Geography_ShipDestination&#xD;&#xA;    , SIC.SK_Currency_USD&#xD;&#xA;    , SIC.SK_Currency_Functional&#xD;&#xA;    , SIC.SK_Company&#xD;&#xA;&#x9;, SIC.SK_SourceSystem&#xD;&#xA;HAVING SUM(SIC.OrderLineExtendedValueFunctionalCurrency) > 0&#xD;&#xA;&#x9;OR SUM(SIC.OrderLineExtendedValueFunctionalCurrency) &lt; 0   &#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -321,10 +321,6 @@
       <elementValue elementRef="SCHEMA_COLUMN" value="CompanyCode"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="CustomerMarket"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ThorPlantCode"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ModelID"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="ProductMajorCode"/>
       <elementValue elementRef="TRIM" value="false"/>
@@ -356,8 +352,6 @@
       <column comment="" defaultValue="" key="false" length="2" name="FiscalMonthNumber" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="2" usefulColumn="true"/>
       <column comment="" key="false" length="7" name="CompanyCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="255" name="CustomerMarket" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="7" name="ThorPlantCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="ModelID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="7" name="ProductMajorCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="8" name="SK_Date" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
@@ -376,7 +370,7 @@
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="_QsvW4FBqEeeQId-vmtzWOQ-tMap_5-PREVIEW.bmp"/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_Bo8EoFEnEeeQId-vmtzWOQ-tMap_5-PREVIEW.bmp"/>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
     <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
     <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
@@ -389,8 +383,6 @@
       <column comment="" defaultValue="" key="false" length="2" name="FiscalMonthNumber" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="2" usefulColumn="true"/>
       <column comment="" key="false" length="7" name="CompanyCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="255" name="CustomerMarket" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="7" name="ThorPlantCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="ModelID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="7" name="ProductMajorCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="50" name="BK_Scenario_ScenarioName_FlatFiles" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="true" length="8" name="SK_Date" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
@@ -406,7 +398,7 @@
       <column comment="" defaultValue="" key="false" length="15" name="OrderLineExtendedValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var">
         <mapperTableEntries name="SalesValue" expression="SalesValue.FiscalMonthNumber &lt;= DimScenario.NumberMonthsActual ? 0 : 1 " type="id_Integer" nullable="true"/>
       </varTables>
@@ -415,8 +407,6 @@
         <mapperTableEntries name="FiscalMonthNumber" expression="SalesValue.FiscalMonthNumber " type="id_Integer"/>
         <mapperTableEntries name="CompanyCode" expression="SalesValue.CompanyCode " type="id_String"/>
         <mapperTableEntries name="CustomerMarket" expression="SalesValue.CustomerMarket " type="id_String"/>
-        <mapperTableEntries name="ThorPlantCode" expression="SalesValue.ThorPlantCode " type="id_String"/>
-        <mapperTableEntries name="ModelID" expression="SalesValue.ModelID " type="id_Integer" nullable="true"/>
         <mapperTableEntries name="ProductMajorCode" expression="SalesValue.ProductMajorCode " type="id_String"/>
         <mapperTableEntries name="BK_Scenario_ScenarioName_FlatFiles" expression="DimScenario.BK_Scenario_ScenarioName_FlatFiles " type="id_String" nullable="true"/>
         <mapperTableEntries name="SK_Date" expression="SalesValue.SK_Date " type="id_Integer"/>
@@ -436,8 +426,6 @@
         <mapperTableEntries name="FiscalMonthNumber" type="id_Integer"/>
         <mapperTableEntries name="CompanyCode" type="id_String"/>
         <mapperTableEntries name="CustomerMarket" type="id_String"/>
-        <mapperTableEntries name="ThorPlantCode" type="id_String"/>
-        <mapperTableEntries name="ModelID" type="id_Integer" nullable="true"/>
         <mapperTableEntries name="ProductMajorCode" type="id_String"/>
         <mapperTableEntries name="SK_Date" type="id_Integer"/>
         <mapperTableEntries name="SK_Customer" type="id_Integer"/>
@@ -508,7 +496,7 @@
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="_QsvW4FBqEeeQId-vmtzWOQ-tMap_11-PREVIEW.bmp"/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_Bo8EoFEnEeeQId-vmtzWOQ-tMap_11-PREVIEW.bmp"/>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
     <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
     <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
@@ -560,8 +548,6 @@
         <mapperTableEntries name="FiscalMonthNumber" type="id_Integer"/>
         <mapperTableEntries name="CompanyCode" type="id_String"/>
         <mapperTableEntries name="CustomerMarket" type="id_String"/>
-        <mapperTableEntries name="ThorPlantCode" type="id_String"/>
-        <mapperTableEntries name="ModelID" type="id_Integer" nullable="true"/>
         <mapperTableEntries name="ProductMajorCode" type="id_String"/>
         <mapperTableEntries name="BK_Scenario_ScenarioName_FlatFiles" type="id_String" nullable="true"/>
         <mapperTableEntries name="SK_Date" type="id_Integer"/>
@@ -582,8 +568,7 @@
         <mapperTableEntries name="FiscalMonth" expression="WithScenario.FiscalMonthNumber " type="id_Integer" nullable="true" operator="="/>
         <mapperTableEntries name="CompanyCode" expression="WithScenario.CompanyCode " type="id_String" nullable="true" operator="="/>
         <mapperTableEntries name="CustomerMarket" expression="WithScenario.CustomerMarket " type="id_String" nullable="true" operator="="/>
-        <mapperTableEntries name="ThorPlantCode" expression="WithScenario.ThorPlantCode " type="id_String" nullable="true" operator="="/>
-        <mapperTableEntries name="ModelId" expression="WithScenario.ModelID " type="id_Integer" nullable="true" operator="="/>
+        <mapperTableEntries name="Product_MajorCode" expression="WithScenario.ProductMajorCode " type="id_String" nullable="true" operator="="/>
         <mapperTableEntries name="MarketGrowth" expression="" type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExistingBusinessGrowth" type="id_Float" nullable="true"/>
         <mapperTableEntries name="NewBusinessGrowth" type="id_Float" nullable="true"/>
@@ -606,7 +591,7 @@
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="_QsvW4FBqEeeQId-vmtzWOQ-tMap_1-PREVIEW.bmp"/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_Bo8EoFEnEeeQId-vmtzWOQ-tMap_1-PREVIEW.bmp"/>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
     <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
     <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
@@ -757,12 +742,12 @@
     <elementParameter field="TEXT" name="TYPE" value="MySQL" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
     <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Extract_PlanThor_FlatFiles&quot;"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Extract_PlanNonThor_FlatFiles&quot;"/>
     <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT Scenario&#xD;&#xA;&#x9;, FiscalYear&#xD;&#xA;    , FiscalMonth&#xD;&#xA;    , CompanyCode&#xD;&#xA;    , CustomerMarket&#xD;&#xA;    , ThorPlantCode&#xD;&#xA;    , ModelId&#xD;&#xA;    , MarketGrowth&#xD;&#xA;    , ExistingBusinessGrowth&#xD;&#xA;    , NewBusinessGrowth&#xD;&#xA;    , Attrition&#xD;&#xA;    , SalesPriceGrowth&#xD;&#xA;    , DirectMaterialVolumeGrowth&#xD;&#xA;    , DirectLaborVolumeGrowth&#xD;&#xA;    , DirectOHVolumeGrowth&#xD;&#xA;    , DirectMaterialInflation&#xD;&#xA;    , DirectLaborInflation&#xD;&#xA;    , DirectOHInflation&#xD;&#xA;    , DirectMaterialEfficiency&#xD;&#xA;    , DirectLaborEfficiency&#xD;&#xA;    , DirectOHEfficiency&#xD;&#xA;FROM Extract_PlanThor_FlatFiles &#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT Scenario&#xD;&#xA;&#x9;, FiscalYear&#xD;&#xA;    , FiscalMonth&#xD;&#xA;    , CompanyCode&#xD;&#xA;    , CustomerMarket&#xD;&#xA;&#x9;, Product_MajorCode&#xD;&#xA;    , MarketGrowth&#xD;&#xA;    , ExistingBusinessGrowth&#xD;&#xA;    , NewBusinessGrowth&#xD;&#xA;    , Attrition&#xD;&#xA;    , SalesPriceGrowth&#xD;&#xA;    , DirectMaterialVolumeGrowth&#xD;&#xA;    , DirectLaborVolumeGrowth&#xD;&#xA;    , DirectOHVolumeGrowth&#xD;&#xA;    , DirectMaterialInflation&#xD;&#xA;    , DirectLaborInflation&#xD;&#xA;    , DirectOHInflation&#xD;&#xA;    , DirectMaterialEfficiency&#xD;&#xA;    , DirectLaborEfficiency&#xD;&#xA;    , DirectOHEfficiency&#xD;&#xA;FROM Extract_PlanNonThor_FlatFiles &#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -783,9 +768,7 @@
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="CustomerMarket"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ThorPlantCode"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ModelId"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Product_MajorCode"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="MarketGrowth"/>
       <elementValue elementRef="TRIM" value="false"/>
@@ -824,22 +807,21 @@
       <column comment="" defaultValue="" key="false" length="2" name="FiscalMonth" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="2" name="CompanyCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="25" name="CustomerMarket" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="7" name="ThorPlantCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="3" name="ModelId" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="5" name="MarketGrowth" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="5" name="ExistingBusinessGrowth" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="5" name="NewBusinessGrowth" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="5" name="Attrition" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="5" name="SalesPriceGrowth" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="5" name="DirectMaterialVolumeGrowth" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="5" name="DirectLaborVolumeGrowth" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="5" name="DirectOHVolumeGrowth" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="5" name="DirectMaterialInflation" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="5" name="DirectLaborInflation" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="5" name="DirectOHInflation" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="5" name="DirectMaterialEfficiency" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="5" name="DirectLaborEfficiency" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="5" name="DirectOHEfficiency" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="3" name="Product_MajorCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="6" name="MarketGrowth" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="6" name="ExistingBusinessGrowth" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="6" name="NewBusinessGrowth" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="6" name="Attrition" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="6" name="SalesPriceGrowth" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="6" name="DirectMaterialVolumeGrowth" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="6" name="DirectLaborVolumeGrowth" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="6" name="DirectOHVolumeGrowth" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="6" name="DirectMaterialInflation" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="6" name="DirectLaborInflation" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="6" name="DirectOHInflation" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="6" name="DirectMaterialEfficiency" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="6" name="DirectLaborEfficiency" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="6" name="DirectOHEfficiency" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="1152" posY="192">
@@ -847,7 +829,7 @@
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="_QsvW4FBqEeeQId-vmtzWOQ-tMap_2-PREVIEW.bmp"/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_Bo8EoFEnEeeQId-vmtzWOQ-tMap_2-PREVIEW.bmp"/>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
     <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
     <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
@@ -948,7 +930,7 @@
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="_QsvW4FBqEeeQId-vmtzWOQ-tMap_3-PREVIEW.bmp"/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_Bo8EoFEnEeeQId-vmtzWOQ-tMap_3-PREVIEW.bmp"/>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
     <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
     <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
@@ -1054,7 +1036,7 @@
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="_QsvW4FBqEeeQId-vmtzWOQ-tMap_4-PREVIEW.bmp"/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_Bo8EoFEnEeeQId-vmtzWOQ-tMap_4-PREVIEW.bmp"/>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
     <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
     <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
