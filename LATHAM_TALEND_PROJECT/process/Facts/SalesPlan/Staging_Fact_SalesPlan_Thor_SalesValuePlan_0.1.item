@@ -418,7 +418,7 @@
       <column comment="" key="false" length="16" name="InvoiceLineExtendedDirectOverheadCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var">
         <mapperTableEntries name="SalesValue" expression="SalesValue.FiscalMonthNumber &lt;= DimScenario.NumberMonthsActual ? null : SalesValue.InvoiceLineExtendedSalesValueFunctionalCurrency " type="id_Float" nullable="true"/>
       </varTables>
@@ -565,7 +565,7 @@
       <column comment="" key="false" length="16" name="ExtendedDirectOverheadCostEfficiencyFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="16" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var"/>
       <outputTables sizeState="INTERMEDIATE" name="Increases" activateExpressionFilter="true">
         <mapperTableEntries name="SK_Date_Plan" expression="WithScenario.SK_Date" type="id_Integer"/>
@@ -627,7 +627,7 @@
         <mapperTableEntries name="FiscalMonth" expression="WithScenario.FiscalMonthNumber " type="id_Integer" nullable="true" operator="="/>
         <mapperTableEntries name="CompanyCode" expression="WithScenario.CompanyCode " type="id_String" nullable="true" operator="="/>
         <mapperTableEntries name="CustomerMarket" expression="WithScenario.CustomerMarket " type="id_String" nullable="true" operator="="/>
-        <mapperTableEntries name="StockroomCode" expression="WithScenario.ThorPlantCode " type="id_String" nullable="true" operator="="/>
+        <mapperTableEntries name="ThorPlantCode" type="id_String" nullable="true"/>
         <mapperTableEntries name="ModelId" expression="WithScenario.ModelID " type="id_Integer" nullable="true" operator="="/>
         <mapperTableEntries name="MarketGrowth" expression="" type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExistingBusinessGrowth" type="id_Float" nullable="true"/>
@@ -867,7 +867,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT Scenario&#xD;&#xA;&#x9;, FiscalYear&#xD;&#xA;    , FiscalMonth&#xD;&#xA;    , CompanyCode&#xD;&#xA;    , CustomerMarket&#xD;&#xA;    , StockroomCode&#xD;&#xA;    , ModelId&#xD;&#xA;    , MarketGrowth&#xD;&#xA;    , ExistingBusinessGrowth&#xD;&#xA;    , NewBusinessGrowth&#xD;&#xA;    , Attrition&#xD;&#xA;    , SalesPriceGrowth&#xD;&#xA;    , DirectMaterialVolumeGrowth&#xD;&#xA;    , DirectLaborVolumeGrowth&#xD;&#xA;    , DirectOHVolumeGrowth&#xD;&#xA;    , DirectMaterialInflation&#xD;&#xA;    , DirectLaborInflation&#xD;&#xA;    , DirectOHInflation&#xD;&#xA;    , DirectMaterialEfficiency&#xD;&#xA;    , DirectLaborEfficiency&#xD;&#xA;    , DirectOHEfficiency&#xD;&#xA;FROM Extract_PlanThor_FlatFiles &#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT Scenario&#xD;&#xA;&#x9;, FiscalYear&#xD;&#xA;    , FiscalMonth&#xD;&#xA;    , CompanyCode&#xD;&#xA;    , CustomerMarket&#xD;&#xA;    , ThorPlantCode&#xD;&#xA;    , ModelId&#xD;&#xA;    , MarketGrowth&#xD;&#xA;    , ExistingBusinessGrowth&#xD;&#xA;    , NewBusinessGrowth&#xD;&#xA;    , Attrition&#xD;&#xA;    , SalesPriceGrowth&#xD;&#xA;    , DirectMaterialVolumeGrowth&#xD;&#xA;    , DirectLaborVolumeGrowth&#xD;&#xA;    , DirectOHVolumeGrowth&#xD;&#xA;    , DirectMaterialInflation&#xD;&#xA;    , DirectLaborInflation&#xD;&#xA;    , DirectOHInflation&#xD;&#xA;    , DirectMaterialEfficiency&#xD;&#xA;    , DirectLaborEfficiency&#xD;&#xA;    , DirectOHEfficiency&#xD;&#xA;FROM Extract_PlanThor_FlatFiles &#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -888,7 +888,7 @@
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="CustomerMarket"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="StockroomCode"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ThorPlantCode"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="ModelId"/>
       <elementValue elementRef="TRIM" value="false"/>
@@ -929,7 +929,7 @@
       <column comment="" defaultValue="" key="false" length="2" name="FiscalMonth" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="2" name="CompanyCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="25" name="CustomerMarket" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="7" name="StockroomCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="ThorPlantCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="3" name="ModelId" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="5" name="MarketGrowth" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="5" name="ExistingBusinessGrowth" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
