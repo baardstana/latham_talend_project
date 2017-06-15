@@ -1800,6 +1800,12 @@
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="SK_SourceSystem"/>
       <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ModelID"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ModelCode"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ModelName"/>
+      <elementValue elementRef="TRIM" value="false"/>
     </elementParameter>
     <elementParameter field="TEXT" name="LABEL" value="Kits"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
@@ -1898,6 +1904,9 @@
       <column comment="" defaultValue="" key="false" length="15" name="CurrentStandardTotalOverheadCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="25" name="LDWGeneratedFlag" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ModelID" nullable="true" pattern="" precision="-1" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="20" name="ModelCode" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="20" usefulColumn="true"/>
+      <column comment="" key="false" length="50" name="ModelName" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="50" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="448" posY="864">
@@ -2110,9 +2119,9 @@
         <mapperTableEntries name="CurrentStandardTotalOverheadCostFunctionalCurrency" expression="" type="id_Float" nullable="true"/>
         <mapperTableEntries name="LDWGeneratedFlag" expression="&quot;Row Generated in LDW&quot;" type="id_String"/>
         <mapperTableEntries name="SK_SourceSystem" expression="SourceSystem2.SK_SourceSystem " type="id_Integer"/>
-        <mapperTableEntries name="ModelID" expression="null" type="id_Integer" nullable="true"/>
-        <mapperTableEntries name="ModelCode" expression="&quot;N/A&quot;" type="id_String"/>
-        <mapperTableEntries name="ModelName" expression="&quot;N/A&quot;" type="id_String"/>
+        <mapperTableEntries name="ModelID" expression="Kits.ModelID " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="ModelCode" expression="Kits.ModelCode " type="id_String"/>
+        <mapperTableEntries name="ModelName" expression="Kits.ModelName " type="id_String"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="Kits" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="BK_Product_CONO35_S21" type="id_String"/>
@@ -2209,6 +2218,9 @@
         <mapperTableEntries name="CurrentStandardTotalOverheadCostFunctionalCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="LDWGeneratedFlag" type="id_String"/>
         <mapperTableEntries name="SK_SourceSystem" type="id_Integer"/>
+        <mapperTableEntries name="ModelID" type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="ModelCode" type="id_String"/>
+        <mapperTableEntries name="ModelName" type="id_String"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="SourceSystem2" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_SourceSystem" type="id_Integer"/>
@@ -3319,6 +3331,15 @@
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
       <elementValue elementRef="TRACE_COLUMN" value="ProductLine"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="ModelName"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="ModelCode"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="ModelID"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
