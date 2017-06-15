@@ -1636,6 +1636,14 @@
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="ProductMajorName"/>
       <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="GLProductMajorCode"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="GLProductMajorName"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ProductSegment"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ProductLine"/>
+      <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="UnitOfMeasure"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="SalesUnit"/>
@@ -1808,6 +1816,10 @@
       <column comment="" key="false" length="30" name="ProductClassName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="7" name="ProductMajorCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="30" name="ProductMajorName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="15" name="GLProductMajorCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="15" usefulColumn="true"/>
+      <column comment="" key="false" length="50" name="GLProductMajorName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="50" usefulColumn="true"/>
+      <column comment="" key="false" length="50" name="ProductSegment" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="50" usefulColumn="true"/>
+      <column comment="" key="false" length="50" name="ProductLine" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="50" usefulColumn="true"/>
       <column comment="" key="false" length="30" name="UnitOfMeasure" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="false" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="25" name="UnitOverrideFlag" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
@@ -2107,6 +2119,10 @@
         <mapperTableEntries name="ProductClassName" type="id_String"/>
         <mapperTableEntries name="ProductMajorCode" type="id_String"/>
         <mapperTableEntries name="ProductMajorName" type="id_String"/>
+        <mapperTableEntries name="GLProductMajorCode" type="id_String"/>
+        <mapperTableEntries name="GLProductMajorName" type="id_String"/>
+        <mapperTableEntries name="ProductSegment" type="id_String"/>
+        <mapperTableEntries name="ProductLine" type="id_String"/>
         <mapperTableEntries name="UnitOfMeasure" type="id_String"/>
         <mapperTableEntries name="SalesUnit" type="id_Float"/>
         <mapperTableEntries name="UnitOverrideFlag" type="id_String"/>
@@ -3256,6 +3272,20 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="SourceSystem" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="Kits" lineStyle="0" metaname="tMysqlInput_31" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_31" target="tMap_26">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="GLProductMajorCode"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="ProductSegment"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="GLProductMajorName"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="ProductLine"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="Kits" show="false"/>
   </connection>
