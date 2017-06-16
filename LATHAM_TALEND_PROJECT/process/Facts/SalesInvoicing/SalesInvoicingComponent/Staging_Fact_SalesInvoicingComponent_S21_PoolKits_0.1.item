@@ -303,7 +303,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT SalesInvoicing.SK_Customer&#xD;&#xA;&#x9;, SalesInvoicing.SK_Product&#xD;&#xA;    , Product.SK_Product AS SK_Product_Component&#xD;&#xA;&#x9;, SalesInvoicing.SK_Stockroom_ShippedFrom&#xD;&#xA;&#x9;, SalesInvoicing.SK_Geography_ShippedTo&#xD;&#xA;&#x9;, SalesInvoicing.SK_Currency_USD&#xD;&#xA;&#x9;, SalesInvoicing.SK_Currency_Functional&#xD;&#xA;&#x9;, SalesInvoicing.SK_Currency_Transaction&#xD;&#xA;&#x9;, SalesInvoicing.SK_Company&#xD;&#xA;&#x9;, SalesInvoicing.SK_SalesOrderDetail&#xD;&#xA;&#x9;, SalesInvoicing.SK_SalesInvoicingDetail&#xD;&#xA;&#x9;, SalesInvoicing.SK_Date_CustomerOrdered&#xD;&#xA;&#x9;, SalesInvoicing.SK_Date_SystemEntered&#xD;&#xA;&#x9;, SalesInvoicing.SK_Date_CurrentPromisedShip&#xD;&#xA;&#x9;, SalesInvoicing.SK_Date_Invoiced&#xD;&#xA;    , MSP40.SK_Date_ActualBuild&#xD;&#xA;&#x9;, SalesInvoicing.DD_OrderNumber&#xD;&#xA;&#x9;, SalesInvoicing.DD_OrderLineNumber&#xD;&#xA;&#x9;, SalesInvoicing.DD_InvoiceNumber&#xD;&#xA;    , TORDERBOMS.DD_QuoteNumber&#xD;&#xA;    , SalesInvoicing.DD_CustomerPurchaseOrderNumber&#xD;&#xA;    , TORDERBOMS.DD_CustomerTagName&#xD;&#xA;    , TORDERBOMS.DD_ComponentIdentifier&#xD;&#xA;    , TORDERBOMS.QUANTITY&#xD;&#xA;    , Product.SalesUnit&#xD;&#xA;    , Product.UnitOverrideFlag&#xD;&#xA;    , TORDERBOMS.LISTPRICE&#xD;&#xA;    , TORDERBOMS.DISCOUNTAMOUNT&#xD;&#xA;    , OEP50.FreightRevenueFunctionalCurrency&#xD;&#xA;    , OEP50.FreightRevenueTransactionCurrency&#xD;&#xA;    , OEP70.CVAL70&#xD;&#xA;    , INP95.MOVC95&#xD;&#xA;    , PCP59.AssemblyCost&#xD;&#xA;    , AllocationRev.BasisInvoice&#xD;&#xA;    , AllocationRev.BasisInvoiceLine&#xD;&#xA;    , AllocationCost.BasisInvoiceLineCost&#xD;&#xA;    , Product.CurrentStandardTotalCostFunctionalCurrency&#xD;&#xA;    , Product.CurrentStandardTotalMaterialCostFunctionalCurrency&#xD;&#xA;    , Product.CurrentStandardTotalLaborCostFunctionalCurrency&#xD;&#xA;    , Product.CurrentStandardTotalOverheadCostFunctionalCurrency&#xD;&#xA;    , LIOEP056.InvoiceLineExtendedPromotionValueTransactionCurrency&#xD;&#xA;    , OEP65.BIVT65&#xD;&#xA;    , OEP50.FreightSalesTaxFunctionalCurrency&#xD;&#xA;    , OEP65.INVV65&#xD;&#xA;    , OEP50.FreightSalesTaxTransactionCurrency&#xD;&#xA;FROM Staging_Fact_SalesInvoicingComponent_S21_PoolKitList AS PoolKits&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_S21 AS SalesInvoicing&#xD;&#xA;&#x9;ON PoolKits.CONO70 = SalesInvoicing.CONO70&#xD;&#xA;&#x9;AND PoolKits.INVN70 = SalesInvoicing.INVN70&#xD;&#xA;    AND PoolKits.ORDL70 = SalesInvoicing.ORDL70&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_S21_OEP65 AS OEP65&#xD;&#xA;&#x9;ON PoolKits.CONO70 = OEP65.CONO65&#xD;&#xA;&#x9;AND PoolKits.INVN70 = OEP65.INVN65&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_S21_OEP70 AS OEP70&#xD;&#xA;&#x9;ON PoolKits.CONO70 = OEP70.CONO70&#xD;&#xA;&#x9;AND PoolKits.INVN70 = OEP70.INVN70&#xD;&#xA;    AND PoolKits.ORDL70 = OEP70.ORDL70&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_TORDERBOMS AS TORDERBOMS&#xD;&#xA;&#x9;ON PoolKits.CONO70 = TORDERBOMS.CONO70&#xD;&#xA;&#x9;AND PoolKits.INVN70 = TORDERBOMS.INVN70&#xD;&#xA;    AND PoolKits.ORDL70 = TORDERBOMS.ORDL70&#xD;&#xA;LEFT JOIN LDW_&quot; + context.parameter_LDW_DWH_environment + &quot;.Dim_Product AS Product&#xD;&#xA;&#x9;ON TORDERBOMS.MapProductComponentCONO35 = Product.BK_Product_CONO35_S21&#xD;&#xA;    AND TORDERBOMS.MapProductComponentPNUM35 = Product.BK_Product_PNUM35_S21&#xD;&#xA;    AND Product.BK_Product_CONO35_S21 IS NOT NULL&#xD;&#xA;    AND Product.BK_Product_PNUM35_S21 IS NOT NULL&#xD;&#xA;    AND Product.IsCurrent = 1&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_MSP40 AS MSP40&#xD;&#xA;&#x9;ON PoolKits.CONO70 = MSP40.CONO70&#xD;&#xA;&#x9;AND PoolKits.INVN70 = MSP40.INVN70&#xD;&#xA;    AND PoolKits.ORDL70 = MSP40.ORDL70&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_OEP50 AS OEP50&#xD;&#xA;&#x9;ON PoolKits.CONO70 = OEP50.CONO65&#xD;&#xA;&#x9;AND PoolKits.INVN70 = OEP50.INVN65    &#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_PCP59 AS PCP59 &#xD;&#xA; &#x9;ON PoolKits.CONO70 = PCP59.CONO70&#xD;&#xA;&#x9;AND PoolKits.INVN70 = PCP59.INVN70&#xD;&#xA;    AND PoolKits.ORDL70 = PCP59.ORDL70&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_INP95 AS INP95 &#xD;&#xA; &#x9;ON TORDERBOMS.CONO70 = INP95.CONO70&#xD;&#xA;&#x9;AND TORDERBOMS.INVN70 = INP95.INVN70&#xD;&#xA;    AND TORDERBOMS.ORDL70 = INP95.ORDL70&#xD;&#xA;    AND TORDERBOMS.BOMID = INP95.BOMID&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_PoolKitAllocationRev AS AllocationRev &#xD;&#xA; &#x9;ON PoolKits.CONO70 = AllocationRev.CONO70&#xD;&#xA;&#x9;AND PoolKits.INVN70 = AllocationRev.INVN70&#xD;&#xA;    AND PoolKits.ORDL70 = AllocationRev.ORDL70&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_PoolKitAllocationCost AS AllocationCost&#xD;&#xA; &#x9;ON PoolKits.CONO70 = AllocationCost.CONO70&#xD;&#xA;&#x9;AND PoolKits.INVN70 = AllocationCost.INVN70&#xD;&#xA;    AND PoolKits.ORDL70 = AllocationCost.ORDL70    &#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_LIOEP056 AS LIOEP056&#xD;&#xA;&#x9;ON PoolKits.CONO70 = LIOEP056.CONO70&#xD;&#xA;&#x9;AND PoolKits.INVN70 = LIOEP056.INVN70&#xD;&#xA;    AND PoolKits.ORDL70 = LIOEP056.ORDL70      &#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT SalesInvoicing.SK_Customer&#xD;&#xA;&#x9;, SalesInvoicing.SK_Product&#xD;&#xA;    , Product.SK_Product AS SK_Product_Component&#xD;&#xA;&#x9;, SalesInvoicing.SK_Stockroom_ShippedFrom&#xD;&#xA;&#x9;, SalesInvoicing.SK_Geography_ShippedTo&#xD;&#xA;&#x9;, SalesInvoicing.SK_Currency_USD&#xD;&#xA;&#x9;, SalesInvoicing.SK_Currency_Functional&#xD;&#xA;&#x9;, SalesInvoicing.SK_Currency_Transaction&#xD;&#xA;&#x9;, SalesInvoicing.SK_Company&#xD;&#xA;&#x9;, SalesInvoicing.SK_SalesOrderDetail&#xD;&#xA;&#x9;, SalesInvoicing.SK_SalesInvoicingDetail&#xD;&#xA;&#x9;, SalesInvoicing.SK_Date_CustomerOrdered&#xD;&#xA;&#x9;, SalesInvoicing.SK_Date_SystemEntered&#xD;&#xA;&#x9;, SalesInvoicing.SK_Date_CurrentPromisedShip&#xD;&#xA;&#x9;, SalesInvoicing.SK_Date_Invoiced&#xD;&#xA;    , MSP40.SK_Date_ActualBuild&#xD;&#xA;&#x9;, SalesInvoicing.DD_OrderNumber&#xD;&#xA;&#x9;, SalesInvoicing.DD_OrderLineNumber&#xD;&#xA;&#x9;, SalesInvoicing.DD_InvoiceNumber&#xD;&#xA;    , TORDERBOMS.DD_QuoteNumber&#xD;&#xA;    , SalesInvoicing.DD_CustomerPurchaseOrderNumber&#xD;&#xA;    , TORDERBOMS.DD_CustomerTagName&#xD;&#xA;    , TORDERBOMS.DD_ComponentIdentifier&#xD;&#xA;    , TORDERBOMS.QUANTITY&#xD;&#xA;    , Product.SalesUnit&#xD;&#xA;    , Product.UnitOverrideFlag&#xD;&#xA;    , TORDERBOMS.LISTPRICE&#xD;&#xA;    , TORDERBOMS.DISCOUNTAMOUNT&#xD;&#xA;    , OEP50.FreightRevenueFunctionalCurrency&#xD;&#xA;    , OEP50.FreightRevenueTransactionCurrency&#xD;&#xA;    , OEP70.CVAL70&#xD;&#xA;    , INP95.MOVC95&#xD;&#xA;    , PCP59.AssemblyCost&#xD;&#xA;    , AllocationRev.BasisInvoice&#xD;&#xA;    , AllocationRev.BasisInvoiceLine&#xD;&#xA;    , AllocationCost.BasisInvoiceLineCost&#xD;&#xA;    , Product.CurrentStandardTotalCostFunctionalCurrency&#xD;&#xA;    , Product.CurrentStandardTotalMaterialCostFunctionalCurrency&#xD;&#xA;    , Product.CurrentStandardTotalLaborCostFunctionalCurrency&#xD;&#xA;    , Product.CurrentStandardTotalOverheadCostFunctionalCurrency&#xD;&#xA;    , LIOEP056.InvoiceLineExtendedPromotionValueTransactionCurrency&#xD;&#xA;    , OEP65.BIVT65&#xD;&#xA;    , OEP50.FreightSalesTaxFunctionalCurrency&#xD;&#xA;    , OEP65.INVV65&#xD;&#xA;    , OEP50.FreightSalesTaxTransactionCurrency&#xD;&#xA;    , OEP70.BLIV70&#xD;&#xA;FROM Staging_Fact_SalesInvoicingComponent_S21_PoolKitList AS PoolKits&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_S21 AS SalesInvoicing&#xD;&#xA;&#x9;ON PoolKits.CONO70 = SalesInvoicing.CONO70&#xD;&#xA;&#x9;AND PoolKits.INVN70 = SalesInvoicing.INVN70&#xD;&#xA;    AND PoolKits.ORDL70 = SalesInvoicing.ORDL70&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_S21_OEP65 AS OEP65&#xD;&#xA;&#x9;ON PoolKits.CONO70 = OEP65.CONO65&#xD;&#xA;&#x9;AND PoolKits.INVN70 = OEP65.INVN65&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_S21_OEP70 AS OEP70&#xD;&#xA;&#x9;ON PoolKits.CONO70 = OEP70.CONO70&#xD;&#xA;&#x9;AND PoolKits.INVN70 = OEP70.INVN70&#xD;&#xA;    AND PoolKits.ORDL70 = OEP70.ORDL70&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_TORDERBOMS AS TORDERBOMS&#xD;&#xA;&#x9;ON PoolKits.CONO70 = TORDERBOMS.CONO70&#xD;&#xA;&#x9;AND PoolKits.INVN70 = TORDERBOMS.INVN70&#xD;&#xA;    AND PoolKits.ORDL70 = TORDERBOMS.ORDL70&#xD;&#xA;LEFT JOIN LDW_&quot; + context.parameter_LDW_DWH_environment + &quot;.Dim_Product AS Product&#xD;&#xA;&#x9;ON TORDERBOMS.MapProductComponentCONO35 = Product.BK_Product_CONO35_S21&#xD;&#xA;    AND TORDERBOMS.MapProductComponentPNUM35 = Product.BK_Product_PNUM35_S21&#xD;&#xA;    AND Product.BK_Product_CONO35_S21 IS NOT NULL&#xD;&#xA;    AND Product.BK_Product_PNUM35_S21 IS NOT NULL&#xD;&#xA;    AND Product.IsCurrent = 1&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_MSP40 AS MSP40&#xD;&#xA;&#x9;ON PoolKits.CONO70 = MSP40.CONO70&#xD;&#xA;&#x9;AND PoolKits.INVN70 = MSP40.INVN70&#xD;&#xA;    AND PoolKits.ORDL70 = MSP40.ORDL70&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_OEP50 AS OEP50&#xD;&#xA;&#x9;ON PoolKits.CONO70 = OEP50.CONO65&#xD;&#xA;&#x9;AND PoolKits.INVN70 = OEP50.INVN65    &#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_PCP59 AS PCP59 &#xD;&#xA; &#x9;ON PoolKits.CONO70 = PCP59.CONO70&#xD;&#xA;&#x9;AND PoolKits.INVN70 = PCP59.INVN70&#xD;&#xA;    AND PoolKits.ORDL70 = PCP59.ORDL70&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_INP95 AS INP95 &#xD;&#xA; &#x9;ON TORDERBOMS.CONO70 = INP95.CONO70&#xD;&#xA;&#x9;AND TORDERBOMS.INVN70 = INP95.INVN70&#xD;&#xA;    AND TORDERBOMS.ORDL70 = INP95.ORDL70&#xD;&#xA;    AND TORDERBOMS.BOMID = INP95.BOMID&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_PoolKitAllocationRev AS AllocationRev &#xD;&#xA; &#x9;ON PoolKits.CONO70 = AllocationRev.CONO70&#xD;&#xA;&#x9;AND PoolKits.INVN70 = AllocationRev.INVN70&#xD;&#xA;    AND PoolKits.ORDL70 = AllocationRev.ORDL70&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_PoolKitAllocationCost AS AllocationCost&#xD;&#xA; &#x9;ON PoolKits.CONO70 = AllocationCost.CONO70&#xD;&#xA;&#x9;AND PoolKits.INVN70 = AllocationCost.INVN70&#xD;&#xA;    AND PoolKits.ORDL70 = AllocationCost.ORDL70    &#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_LIOEP056 AS LIOEP056&#xD;&#xA;&#x9;ON PoolKits.CONO70 = LIOEP056.CONO70&#xD;&#xA;&#x9;AND PoolKits.INVN70 = LIOEP056.INVN70&#xD;&#xA;    AND PoolKits.ORDL70 = LIOEP056.ORDL70      &#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -404,6 +404,8 @@
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="FreightSalesTaxTransactionCurrency"/>
       <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="BLIV70"/>
+      <elementValue elementRef="TRIM" value="false"/>
     </elementParameter>
     <elementParameter field="TEXT" name="LABEL" value="PoolKits"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
@@ -453,6 +455,7 @@
       <column comment="" defaultValue="" key="false" length="15" name="FreightSalesTaxFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="INVV65" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="FreightSalesTaxTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="15" name="BLIV70" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="320" posY="576">
@@ -494,8 +497,7 @@
       <column comment="" key="true" length="25" name="DD_ComponentIdentifier" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="InvoiceLineComponentQuantity" nullable="true" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="InvoiceLineComponentUnits" nullable="true" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="10" name="InvoiceLineExtendedSalesValueTransactionCurrency" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="10" name="InvoiceLineExtendedDiscountValueTransactionCurrency" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="10" name="ExtendedComponentNetValueTransaction" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="10" name="InvoiceLineExtendedListValueTransactionCurrency" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="FreightRevenueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="FreightRevenueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
@@ -511,12 +513,10 @@
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineExtendedPromotionValueTransactionCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineAllocatedSalesTaxValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineAllocatedSalesTaxValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="10" name="InvoiceLineNetUnitPriceTransactionCurrency" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="10" name="InvoiceLineListUnitPriceTransactionCurrency" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="10" name="InvoiceLineUnitDiscountValueTransactionCurrency" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="RenamedColumns">
         <mapperTableEntries name="SK_Customer" expression="PoolKits.SK_Customer " type="id_Integer"/>
@@ -544,8 +544,7 @@
         <mapperTableEntries name="DD_ComponentIdentifier" expression="CustomStringHandling.replaceNullAndBlank(PoolKits.DD_ComponentIdentifier) " type="id_String"/>
         <mapperTableEntries name="InvoiceLineComponentQuantity" expression="PoolKits.QUANTITY " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineComponentUnits" expression="Relational.ISNULL(PoolKits.QUANTITY) || Relational.ISNULL(PoolKits.SalesUnit) ? null :&#xD;&#xA;&quot;Unit Override&quot;.equals(PoolKits.UnitOverrideFlag) ? PoolKits.QUANTITY : PoolKits.QUANTITY * PoolKits.SalesUnit " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedSalesValueTransactionCurrency" expression="CustomStringHandling.multiplyValues(CustomStringHandling.subtractValues(PoolKits.LISTPRICE,PoolKits.DISCOUNTAMOUNT)&#xD;&#xA;,PoolKits.QUANTITY ) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDiscountValueTransactionCurrency" expression="CustomStringHandling.multiplyValues(PoolKits.DISCOUNTAMOUNT,PoolKits.QUANTITY ) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedComponentNetValueTransaction" expression="CustomStringHandling.multiplyValues(CustomStringHandling.subtractValues(PoolKits.LISTPRICE,PoolKits.DISCOUNTAMOUNT)&#xD;&#xA;,PoolKits.QUANTITY ) " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedListValueTransactionCurrency" expression="CustomStringHandling.multiplyValues(PoolKits.LISTPRICE,PoolKits.QUANTITY )" type="id_Float" nullable="true"/>
         <mapperTableEntries name="FreightRevenueFunctionalCurrency" expression="PoolKits.FreightRevenueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="FreightRevenueTransactionCurrency" expression="PoolKits.FreightRevenueTransactionCurrency " type="id_Float" nullable="true"/>
@@ -561,9 +560,7 @@
         <mapperTableEntries name="InvoiceLineExtendedPromotionValueTransactionCurrency" expression="PoolKits.InvoiceLineExtendedPromotionValueTransactionCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineAllocatedSalesTaxValueFunctionalCurrency" expression="CustomStringHandling.sumValues(PoolKits.BIVT65, PoolKits.FreightSalesTaxFunctionalCurrency) " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineAllocatedSalesTaxValueTransactionCurrency" expression="CustomStringHandling.sumValues(PoolKits.INVV65, PoolKits.FreightSalesTaxTransactionCurrency) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineNetUnitPriceTransactionCurrency" expression="CustomStringHandling.subtractValues(PoolKits.LISTPRICE, PoolKits.DISCOUNTAMOUNT )" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineListUnitPriceTransactionCurrency" expression="PoolKits.LISTPRICE " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineUnitDiscountValueTransactionCurrency" expression="PoolKits.DISCOUNTAMOUNT " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="PoolKits" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Customer" type="id_Integer"/>
@@ -611,6 +608,7 @@
         <mapperTableEntries name="FreightSalesTaxFunctionalCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="INVV65" type="id_Float" nullable="true"/>
         <mapperTableEntries name="FreightSalesTaxTransactionCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="BLIV70" type="id_Float" nullable="true"/>
       </inputTables>
     </nodeData>
   </node>
@@ -653,8 +651,7 @@
       <column comment="" key="true" length="25" name="DD_ComponentIdentifier" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="InvoiceLineComponentQuantity" nullable="true" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="InvoiceLineComponentUnits" nullable="true" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="10" name="InvoiceLineExtendedSalesValueTransactionCurrency" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="10" name="InvoiceLineExtendedDiscountValueTransactionCurrency" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="10" name="ExtendedComponentNetValueTransaction" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="10" name="InvoiceLineExtendedListValueTransactionCurrency" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="FreightRevenueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="FreightRevenueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
@@ -671,12 +668,10 @@
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineExtendedPromotionValueTransactionCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineAllocatedSalesTaxValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineAllocatedSalesTaxValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="10" name="InvoiceLineNetUnitPriceTransactionCurrency" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="10" name="InvoiceLineListUnitPriceTransactionCurrency" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="10" name="InvoiceLineUnitDiscountValueTransactionCurrency" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var">
         <mapperTableEntries name="Rate" expression="TransactionRate.ExchangeRate " type="id_Float" nullable="true"/>
       </varTables>
@@ -706,8 +701,7 @@
         <mapperTableEntries name="DD_ComponentIdentifier" expression="RenamedColumns.DD_ComponentIdentifier " type="id_String"/>
         <mapperTableEntries name="InvoiceLineComponentQuantity" expression="RenamedColumns.InvoiceLineComponentQuantity " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineComponentUnits" expression="RenamedColumns.InvoiceLineComponentUnits " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedSalesValueTransactionCurrency" expression="RenamedColumns.InvoiceLineExtendedSalesValueTransactionCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDiscountValueTransactionCurrency" expression="RenamedColumns.InvoiceLineExtendedDiscountValueTransactionCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedComponentNetValueTransaction" expression="RenamedColumns.ExtendedComponentNetValueTransaction " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedListValueTransactionCurrency" expression="RenamedColumns.InvoiceLineExtendedListValueTransactionCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="FreightRevenueFunctionalCurrency" expression="RenamedColumns.FreightRevenueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="FreightRevenueTransactionCurrency" expression="RenamedColumns.FreightRevenueTransactionCurrency " type="id_Float" nullable="true"/>
@@ -724,9 +718,7 @@
         <mapperTableEntries name="InvoiceLineExtendedPromotionValueTransactionCurrency" expression="RenamedColumns.InvoiceLineExtendedPromotionValueTransactionCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineAllocatedSalesTaxValueFunctionalCurrency" expression="RenamedColumns.InvoiceLineAllocatedSalesTaxValueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineAllocatedSalesTaxValueTransactionCurrency" expression="RenamedColumns.InvoiceLineAllocatedSalesTaxValueTransactionCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineNetUnitPriceTransactionCurrency" expression="RenamedColumns.InvoiceLineNetUnitPriceTransactionCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineListUnitPriceTransactionCurrency" expression="RenamedColumns.InvoiceLineListUnitPriceTransactionCurrency " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineUnitDiscountValueTransactionCurrency" expression="RenamedColumns.InvoiceLineUnitDiscountValueTransactionCurrency " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="RenamedColumns" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Customer" type="id_Integer"/>
@@ -754,8 +746,7 @@
         <mapperTableEntries name="DD_ComponentIdentifier" type="id_String"/>
         <mapperTableEntries name="InvoiceLineComponentQuantity" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineComponentUnits" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedSalesValueTransactionCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDiscountValueTransactionCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedComponentNetValueTransaction" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedListValueTransactionCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="FreightRevenueFunctionalCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="FreightRevenueTransactionCurrency" type="id_Float" nullable="true"/>
@@ -771,9 +762,7 @@
         <mapperTableEntries name="InvoiceLineExtendedPromotionValueTransactionCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineAllocatedSalesTaxValueFunctionalCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineAllocatedSalesTaxValueTransactionCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineNetUnitPriceTransactionCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineListUnitPriceTransactionCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineUnitDiscountValueTransactionCurrency" type="id_Float" nullable="true"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="TransactionRate" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="Scenario" expression="&quot;Actual&quot;" type="id_String"/>
@@ -990,8 +979,7 @@
         <mapperTableEntries name="DD_ComponentIdentifier" type="id_String"/>
         <mapperTableEntries name="InvoiceLineComponentQuantity" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineComponentUnits" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedSalesValueTransactionCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineExtendedDiscountValueTransactionCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ExtendedComponentNetValueTransaction" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedListValueTransactionCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="FreightRevenueFunctionalCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="FreightRevenueTransactionCurrency" type="id_Float" nullable="true"/>
@@ -1008,9 +996,7 @@
         <mapperTableEntries name="InvoiceLineExtendedPromotionValueTransactionCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineAllocatedSalesTaxValueFunctionalCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineAllocatedSalesTaxValueTransactionCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineNetUnitPriceTransactionCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineListUnitPriceTransactionCurrency" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineUnitDiscountValueTransactionCurrency" type="id_Float" nullable="true"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="FunctionalRate" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="Scenario" expression="&quot;Actual&quot;" type="id_String"/>
@@ -4004,6 +3990,11 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnComponentOk2" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="PoolKits" lineStyle="0" metaname="tMysqlInput_4" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_4" target="tMap_1">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="BLIV70"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="PoolKits" show="false"/>
   </connection>
@@ -4067,6 +4058,9 @@
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
       <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineUnitDiscountValueTransactionCurrency"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="ExtendedComponentNetValueTransaction"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
