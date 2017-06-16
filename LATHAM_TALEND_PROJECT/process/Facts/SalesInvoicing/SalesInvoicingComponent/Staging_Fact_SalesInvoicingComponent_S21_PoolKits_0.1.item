@@ -894,6 +894,8 @@
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineAllocatedSalesTaxValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="10" name="InvoiceLineListUnitPriceFunctionalCurrency" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="10" name="InvoiceLineListUnitPriceTransactionCurrency" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineNetUnitPriceFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="15" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineUnitDiscountValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="15" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
@@ -948,6 +950,8 @@
         <mapperTableEntries name="InvoiceLineAllocatedSalesTaxValueTransactionCurrency" expression="WithFunctionalRate.InvoiceLineAllocatedSalesTaxValueTransactionCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineListUnitPriceFunctionalCurrency" expression="WithFunctionalRate.InvoiceLineListUnitPriceFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineListUnitPriceTransactionCurrency" expression="WithFunctionalRate.InvoiceLineListUnitPriceTransactionCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineNetUnitPriceFunctionalCurrency" expression="CustomStringHandling.divideValues(Var.ExtendedNetSalesFunctional, WithFunctionalRate.InvoiceLineComponentQuantity) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineUnitDiscountValueFunctionalCurrency" expression="CustomStringHandling.divideValues(Var.ExtendedDiscountFunctional, WithFunctionalRate.InvoiceLineComponentQuantity) " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="WithFunctionalRate" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Customer" type="id_Integer"/>
