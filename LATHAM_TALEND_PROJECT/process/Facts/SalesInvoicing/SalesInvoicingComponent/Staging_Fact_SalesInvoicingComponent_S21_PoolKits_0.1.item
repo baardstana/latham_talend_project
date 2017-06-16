@@ -667,6 +667,7 @@
       <column comment="" defaultValue="" key="false" length="15" name="CurrentStandardTotalMaterialCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="CurrentStandardTotalLaborCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="CurrentStandardTotalOverheadCostFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineExtendedPromotionValueFunctionalCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineExtendedPromotionValueTransactionCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineAllocatedSalesTaxValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineAllocatedSalesTaxValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
@@ -719,6 +720,7 @@
         <mapperTableEntries name="CurrentStandardTotalMaterialCostFunctionalCurrency" expression="RenamedColumns.CurrentStandardTotalMaterialCostFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="CurrentStandardTotalLaborCostFunctionalCurrency" expression="RenamedColumns.CurrentStandardTotalLaborCostFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="CurrentStandardTotalOverheadCostFunctionalCurrency" expression="RenamedColumns.CurrentStandardTotalOverheadCostFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedPromotionValueFunctionalCurrency" expression="CustomStringHandling.currencyConversion(RenamedColumns.InvoiceLineExtendedPromotionValueTransactionCurrency , Var.Rate) " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedPromotionValueTransactionCurrency" expression="RenamedColumns.InvoiceLineExtendedPromotionValueTransactionCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineAllocatedSalesTaxValueFunctionalCurrency" expression="RenamedColumns.InvoiceLineAllocatedSalesTaxValueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineAllocatedSalesTaxValueTransactionCurrency" expression="RenamedColumns.InvoiceLineAllocatedSalesTaxValueTransactionCurrency " type="id_Float" nullable="true"/>
@@ -896,7 +898,7 @@
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineUnitDiscountValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="15" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var">
         <mapperTableEntries name="ExtendedNetSalesFunctional" expression="CustomStringHandling.allocateValue(WithFunctionalRate.BLIV70, WithFunctionalRate.ExtendedComponentNetValueFunctional, WithFunctionalRate.BasisInvoiceLine)" type="id_Float" nullable="true"/>
         <mapperTableEntries name="ExtendedDiscountFunctional" expression="CustomStringHandling.subtractValues(Var.ExtendedNetSalesFunctional, WithFunctionalRate.InvoiceLineExtendedListValueFunctionalCurrency) " type="id_Float" nullable="true"/>
@@ -991,6 +993,7 @@
         <mapperTableEntries name="CurrentStandardTotalMaterialCostFunctionalCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="CurrentStandardTotalLaborCostFunctionalCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="CurrentStandardTotalOverheadCostFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineExtendedPromotionValueFunctionalCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedPromotionValueTransactionCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineAllocatedSalesTaxValueFunctionalCurrency" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineAllocatedSalesTaxValueTransactionCurrency" type="id_Float" nullable="true"/>
@@ -4186,6 +4189,11 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="RenamedColumns" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="WithFunctionalRate" lineStyle="0" metaname="WithFunctionalRate" offsetLabelX="0" offsetLabelY="0" source="tMap_3" target="tMap_12">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineExtendedPromotionValueFunctionalCurrency"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="WithFunctionalRate" show="false"/>
   </connection>
