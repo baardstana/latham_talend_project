@@ -371,7 +371,7 @@
         <mapperTableEntries name="CONO70" expression="SalesKitAllocationBasis.CONO70 " type="id_String"/>
         <mapperTableEntries name="INVN70" expression="SalesKitAllocationBasis.INVN70 " type="id_String"/>
         <mapperTableEntries name="ORDL70" expression="SalesKitAllocationBasis.ORDL70 " type="id_Float"/>
-        <mapperTableEntries name="AllocationBasisComponent" expression="Relational.ISNULL(SalesKitAllocationBasis.CVAL70_Parent) || SalesKitAllocationBasis.CVAL70_Parent == 0 ?  CustomStringHandling.multiplyValues(SalesKitAllocationBasis.NOFF65, SalesKitAllocationBasis.SCSU60) :  SalesKitAllocationBasis.CVAL70_Parent " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="AllocationBasisComponent" expression="Relational.ISNULL(SalesKitAllocationBasis.CVAL70_Parent) || SalesKitAllocationBasis.CVAL70_Parent == 0 ?  CustomStringHandling.multiplyValues(SalesKitAllocationBasis.NOFF65, SalesKitAllocationBasis.SCSU60) :  SalesKitAllocationBasis.CVAL70_Component " type="id_Float" nullable="true"/>
         <mapperTableEntries name="AllocationBasisInvoiceLine" expression="Relational.ISNULL(SalesKitAllocationBasis.CVAL70_Parent) || SalesKitAllocationBasis.CVAL70_Parent == 0 ?  SalesKitAllocationBasis.TotalCost : SalesKitAllocationBasis.CVAL70_Parent " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="SalesKitAllocationBasis" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
