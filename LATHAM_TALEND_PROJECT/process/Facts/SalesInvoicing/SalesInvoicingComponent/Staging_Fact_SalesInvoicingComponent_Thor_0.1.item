@@ -34,7 +34,7 @@
   </context>
   <parameters>
     <elementParameter field="TEXT" name="SCREEN_OFFSET_X" value="0" show="false"/>
-    <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" value="171" show="false"/>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" value="128" show="false"/>
     <elementParameter field="TEXT" name="REPOSITORY_CONNECTION_ID" value="" show="false"/>
     <elementParameter field="TEXT" name="OOZIE_PROPERTY_TYPENAME" value="" show="false"/>
     <elementParameter field="TEXT" name="OOZIE_HADOOP_DISTRIBUTION" value="" show="false"/>
@@ -303,7 +303,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT Dimensions.SK_Customer&#xD;&#xA;&#x9;, Dimensions.SK_Product&#xD;&#xA;&#x9;, Dimensions.SK_Stockroom_Manufactured&#xD;&#xA;&#x9;, Dimensions.SK_Stockroom_ShippedFrom&#xD;&#xA;&#x9;, Dimensions.SK_Geography_ShippedTo&#xD;&#xA;&#x9;, Dimensions.SK_Company&#xD;&#xA;&#x9;, Dimensions.SK_Currency_USD&#xD;&#xA;&#x9;, Dimensions.SK_Currency_Functional&#xD;&#xA;&#x9;, Dimensions.SK_Currency_Transaction&#xD;&#xA;&#x9;, Dimensions.SK_SalesOrderDetail&#xD;&#xA;&#x9;, Dimensions.SK_SalesInvoicingDetail&#xD;&#xA;    , productorder.SK_Date_CustomerOrdered&#xD;&#xA;    , productorder.SK_Date_SystemEntered&#xD;&#xA;    , productorder.SK_Date_CurrentPromisedShip&#xD;&#xA;    , invoice.SK_Date_Invoiced&#xD;&#xA;    , invoice.SK_Date_ActualBuild&#xD;&#xA;    , invoice.DD_OrderNumber&#xD;&#xA;    , orderitem.DD_OrderLineNumber&#xD;&#xA;    , invoice.DD_InvoiceNumber&#xD;&#xA;    , invoice.DD_QuoteNumber&#xD;&#xA;    , invoice.DD_Serialnumber&#xD;&#xA;    , productorder.DD_CustomerPurchaseOrderNumber&#xD;&#xA;    , invoice.DD_CustomerTagName&#xD;&#xA;    , invoiceItem.InvoiceLineQuantity&#xD;&#xA;    , Dimensions.SalesUnit&#xD;&#xA;&#x9;, Dimensions.SK_SourceSystem&#xD;&#xA;    , Allocation.AllocationBasis&#xD;&#xA;    , invoiceItem.itemSubTotal&#xD;&#xA;    , invoiceItem.discountAmount&#xD;&#xA;    , invoiceItem.listPrice&#xD;&#xA;    , invoice.shippingSubTotal&#xD;&#xA;    , invoice.taxSubTotal&#xD;&#xA;    , invoiceItem.pricePerUnit&#xD;&#xA;FROM Staging_Fact_SalesInvoicing_Thor_invoice AS invoice&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_Thor_invoiceItem AS invoiceItem&#xD;&#xA;&#x9;ON invoice.invoiceID = invoiceItem.invoiceID&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicing_Thor_productorder AS productorder&#xD;&#xA;&#x9;ON invoice.invoiceID = productorder.invoiceID&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicing_Thor_orderitem AS orderitem&#xD;&#xA;&#x9;ON invoiceItem.invoiceID = orderitem.invoiceID&#xD;&#xA;    AND invoiceItem.invoiceItemID = orderitem.invoiceItemID&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_Thor_Dimensions AS Dimensions&#xD;&#xA;&#x9;ON invoiceItem.invoiceID = Dimensions.invoiceID&#xD;&#xA;    AND invoiceItem.invoiceItemID = Dimensions.invoiceItemID&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_Thor_Allocation AS Allocation&#xD;&#xA;&#x9;ON invoice.invoiceID = Allocation.invoiceID&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT Dimensions.SK_Customer&#xD;&#xA;&#x9;, Dimensions.SK_Product&#xD;&#xA;&#x9;, Dimensions.SK_Stockroom_Manufactured&#xD;&#xA;&#x9;, Dimensions.SK_Stockroom_ShippedFrom&#xD;&#xA;&#x9;, Dimensions.SK_Geography_ShippedTo&#xD;&#xA;&#x9;, Dimensions.SK_Company&#xD;&#xA;&#x9;, Dimensions.SK_Currency_USD&#xD;&#xA;&#x9;, Dimensions.SK_Currency_Functional&#xD;&#xA;&#x9;, Dimensions.SK_Currency_Transaction&#xD;&#xA;&#x9;, Dimensions.SK_SalesOrderDetail&#xD;&#xA;&#x9;, Dimensions.SK_SalesInvoicingDetail&#xD;&#xA;    , productorder.SK_Date_CustomerOrdered&#xD;&#xA;    , productorder.SK_Date_SystemEntered&#xD;&#xA;    , productorder.SK_Date_CurrentPromisedShip&#xD;&#xA;    , invoice.SK_Date_Invoiced&#xD;&#xA;    , invoice.SK_Date_ActualBuild&#xD;&#xA;    , invoice.DD_OrderNumber&#xD;&#xA;    , orderitem.DD_OrderLineNumber&#xD;&#xA;    , invoice.DD_InvoiceNumber&#xD;&#xA;    , invoice.DD_QuoteNumber&#xD;&#xA;    , invoice.DD_Serialnumber&#xD;&#xA;    , productorder.DD_CustomerPurchaseOrderNumber&#xD;&#xA;    , invoice.DD_CustomerTagName&#xD;&#xA;    , invoiceItem.InvoiceLineQuantity&#xD;&#xA;    , Dimensions.SalesUnit&#xD;&#xA;&#x9;, Dimensions.SK_SourceSystem&#xD;&#xA;    , Allocation.AllocationBasis&#xD;&#xA;    , invoiceItem.itemSubTotal&#xD;&#xA;    , invoiceItem.discountAmount&#xD;&#xA;    , invoiceItem.listPrice&#xD;&#xA;    , invoice.shippingSubTotal&#xD;&#xA;    , invoice.taxSubTotal&#xD;&#xA;    , invoiceItem.pricePerUnit&#xD;&#xA;    , DimDate.FiscalYear&#xD;&#xA;    , DimDate.FiscalMonthNumber&#xD;&#xA;    , DimCompany.CompanyCode&#xD;&#xA;    , DimCustomer.CustomerMarket&#xD;&#xA;    , DimStockroom.ThorPlantCode&#xD;&#xA;    , DimProduct.ModelID&#xD;&#xA;FROM Staging_Fact_SalesInvoicing_Thor_invoice AS invoice&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_Thor_invoiceItem AS invoiceItem&#xD;&#xA;&#x9;ON invoice.invoiceID = invoiceItem.invoiceID&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicing_Thor_productorder AS productorder&#xD;&#xA;&#x9;ON invoice.invoiceID = productorder.invoiceID&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicing_Thor_orderitem AS orderitem&#xD;&#xA;&#x9;ON invoiceItem.invoiceID = orderitem.invoiceID&#xD;&#xA;    AND invoiceItem.invoiceItemID = orderitem.invoiceItemID&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_Thor_Dimensions AS Dimensions&#xD;&#xA;&#x9;ON invoiceItem.invoiceID = Dimensions.invoiceID&#xD;&#xA;    AND invoiceItem.invoiceItemID = Dimensions.invoiceItemID&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_Thor_Allocation AS Allocation&#xD;&#xA;&#x9;ON invoice.invoiceID = Allocation.invoiceID&#xD;&#xA;INNER JOIN LDW_dev.Dim_Date AS DimDate&#xD;&#xA;&#x9;ON invoice.SK_Date_Invoiced = DimDate.SK_Date&#xD;&#xA;INNER JOIN LDW_dev.Dim_Company AS DimCompany&#xD;&#xA;&#x9;ON Dimensions.SK_Company = DimCompany.SK_Company&#xD;&#xA;INNER JOIN LDW_dev.Dim_Customer AS DimCustomer&#xD;&#xA;&#x9;ON Dimensions.SK_Customer = DimCustomer.SK_Customer&#xD;&#xA;INNER JOIN LDW_dev.Dim_Stockroom AS DimStockroom&#xD;&#xA;&#x9;ON Dimensions.SK_Stockroom_ShippedFrom = DimStockroom.SK_Stockroom&#xD;&#xA;INNER JOIN LDW_dev.Dim_Product AS DimProduct&#xD;&#xA;&#x9;ON Dimensions.SK_Product = DimProduct.SK_Product&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -380,6 +380,18 @@
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="pricePerUnit"/>
       <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="FiscalMonthNumber"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CompanyCode"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CustomerMarket"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ThorPlantCode"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ModelID"/>
+      <elementValue elementRef="TRIM" value="false"/>
     </elementParameter>
     <elementParameter field="TEXT" name="LABEL" value="JoinTables"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
@@ -417,6 +429,12 @@
       <column comment="" defaultValue="" key="false" length="18" name="shippingSubtotal" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="18" name="taxSubtotal" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="18" name="pricePerUnit" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="4" name="FiscalYear" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="4" usefulColumn="true"/>
+      <column comment="" key="false" length="2" name="FiscalMonthNumber" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="2" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="CompanyCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
+      <column comment="" key="false" length="255" name="CustomerMarket" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="255" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="ThorPlantCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="ModelID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="288" posY="320">
@@ -504,6 +522,12 @@
       <column comment="" defaultValue="" key="false" length="18" name="InvoiceLineUnitDiscountValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="18" name="InvoiceLineUnitDiscountValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
+      <column comment="" key="false" length="4" name="FiscalYear" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="4" usefulColumn="true"/>
+      <column comment="" key="false" length="2" name="FiscalMonthNumber" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="2" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="CompanyCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
+      <column comment="" key="false" length="255" name="CustomerMarket" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="255" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="ThorPlantCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="ModelID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
@@ -580,6 +604,12 @@
         <mapperTableEntries name="InvoiceLineUnitDiscountValueFunctionalCurrency" expression="JoinedValues.discountAmount " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineUnitDiscountValueTransactionCurrency" expression="JoinedValues.discountAmount " type="id_Float" nullable="true"/>
         <mapperTableEntries name="SK_SourceSystem" expression="JoinedValues.SK_SourceSystem " type="id_Integer"/>
+        <mapperTableEntries name="FiscalYear" expression="JoinedValues.FiscalYear " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="FiscalMonthNumber" expression="JoinedValues.FiscalMonthNumber " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="CompanyCode" expression="JoinedValues.CompanyCode " type="id_String" nullable="true"/>
+        <mapperTableEntries name="CustomerMarket" expression="JoinedValues.CustomerMarket " type="id_String" nullable="true"/>
+        <mapperTableEntries name="ThorPlantCode" expression="JoinedValues.ThorPlantCode " type="id_String" nullable="true"/>
+        <mapperTableEntries name="ModelID" expression="JoinedValues.ModelID " type="id_Integer" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="JoinedValues" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Customer" type="id_Integer"/>
@@ -615,6 +645,12 @@
         <mapperTableEntries name="shippingSubtotal" type="id_Float" nullable="true"/>
         <mapperTableEntries name="taxSubtotal" type="id_Float" nullable="true"/>
         <mapperTableEntries name="pricePerUnit" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="FiscalYear" type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="FiscalMonthNumber" type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="CompanyCode" type="id_String" nullable="true"/>
+        <mapperTableEntries name="CustomerMarket" type="id_String" nullable="true"/>
+        <mapperTableEntries name="ThorPlantCode" type="id_String" nullable="true"/>
+        <mapperTableEntries name="ModelID" type="id_Integer" nullable="true"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="SalesInvoicingComponentDetail" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_SalesInvoicingComponentDetail" type="id_Integer"/>
@@ -718,6 +754,18 @@
       <elementValue elementRef="INPUT_COLUMN" value="SK_SourceSystem"/>
       <elementValue elementRef="OUTPUT_COLUMN" value="SK_Product_Component"/>
       <elementValue elementRef="INPUT_COLUMN" value="SK_Product_Component"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="INPUT_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="FiscalMonthNumber"/>
+      <elementValue elementRef="INPUT_COLUMN" value="FiscalMonthNumber"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="CompanyCode"/>
+      <elementValue elementRef="INPUT_COLUMN" value="CompanyCode"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="CustomerMarket"/>
+      <elementValue elementRef="INPUT_COLUMN" value="CustomerMarket"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="ThorPlantCode"/>
+      <elementValue elementRef="INPUT_COLUMN" value="ThorPlantCode"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="ModelID"/>
+      <elementValue elementRef="INPUT_COLUMN" value="ModelID"/>
     </elementParameter>
     <elementParameter field="TABLE" name="OPERATIONS">
       <elementValue elementRef="OUTPUT_COLUMN" value="InvoiceLineComponentQuantity"/>
@@ -975,6 +1023,12 @@
       <column comment="" defaultValue="" key="false" length="18" name="InvoiceLineUnitDiscountValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="18" name="InvoiceLineUnitDiscountValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
+      <column comment="" key="false" length="4" name="FiscalYear" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="4" usefulColumn="true"/>
+      <column comment="" key="false" length="2" name="FiscalMonthNumber" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="2" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="CompanyCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
+      <column comment="" key="false" length="255" name="CustomerMarket" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="255" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="ThorPlantCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="ModelID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="800" posY="320">
@@ -1363,6 +1417,36 @@
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="FiscalMonthNumber"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CompanyCode"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CustomerMarket"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ThorPlantCode"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ModelID"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
     </elementParameter>
     <elementParameter field="CHECK" name="USE_HINT_OPTIONS" value="false"/>
     <elementParameter field="TABLE" name="HINT_OPTIONS" show="false"/>
@@ -1444,6 +1528,12 @@
       <column comment="" defaultValue="" key="false" length="18" name="InvoiceLineUnitDiscountValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="18" name="InvoiceLineUnitDiscountValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
+      <column comment="" key="false" length="4" name="FiscalYear" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="4" usefulColumn="true"/>
+      <column comment="" key="false" length="2" name="FiscalMonthNumber" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="2" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="CompanyCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
+      <column comment="" key="false" length="255" name="CustomerMarket" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="255" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="ThorPlantCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="ModelID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
     </metadata>
     <metadata connector="REJECT" name="REJECT">
       <column comment="" defaultValue="" key="false" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
@@ -1517,6 +1607,12 @@
       <column comment="" defaultValue="" key="false" length="18" name="InvoiceLineUnitDiscountValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="18" name="InvoiceLineUnitDiscountValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
+      <column comment="" key="false" length="4" name="FiscalYear" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="4" usefulColumn="true"/>
+      <column comment="" key="false" length="2" name="FiscalMonthNumber" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="2" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="CompanyCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
+      <column comment="" key="false" length="255" name="CustomerMarket" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="255" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="ThorPlantCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="ModelID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
@@ -1566,6 +1662,24 @@
   <connection connectorName="FLOW" label="JoinedValues" lineStyle="0" metaname="tMysqlInput_7" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_7" target="tMap_7">
     <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
       <elementValue elementRef="TRACE_COLUMN" value="SK_SourceSystem"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="FiscalMonthNumber"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="ThorPlantCode"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="CompanyCode"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="ModelID"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="CustomerMarket"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
@@ -1713,6 +1827,24 @@
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
       <elementValue elementRef="TRACE_COLUMN" value="InvoiceLineComponentQuantity"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="FiscalMonthNumber"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="ThorPlantCode"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="CompanyCode"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="ModelID"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="CustomerMarket"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
