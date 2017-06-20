@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<talendfile:ProcessType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.talend.org/mapper" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" defaultContext="Default" jobType="Standard">
+<talendfile:ProcessType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" defaultContext="Default" jobType="Standard">
   <context confirmationNeeded="false" name="Default">
     <contextParameter comment="" name="SK_Batch_Parent" prompt="SK_Batch_Parent?" promptNeeded="false" type="id_Integer" value="-1"/>
     <contextParameter comment="" name="parameter_LDW_DWH_environment" prompt="parameter_LDW_DWH_environment?" promptNeeded="false" repositoryContextId="_8iMKUDDGEee86NR65JQFlA" type="id_String" value="dev"/>
@@ -239,7 +239,7 @@
     <elementParameter field="TEXT" name="LABEL" value="OpenConnectionLDW"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
   </node>
-  <node componentName="tSetGlobalVar" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="64" posY="352">
+  <node componentName="tSetGlobalVar" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="96" posY="192">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tSetGlobalVar_1" show="false"/>
     <elementParameter field="TABLE" name="VARIABLES">
       <elementValue elementRef="KEY" value="&quot;loadOutcome&quot;"/>
@@ -251,12 +251,12 @@
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tSetGlobalVar_1"/>
   </node>
-  <node componentName="tPostjob" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="704" posY="352">
+  <node componentName="tPostjob" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="320" posY="192">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPostjob_1" show="false"/>
     <elementParameter field="TEXT" name="LABEL" value="PostJob"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
   </node>
-  <node componentName="tRunJob" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="864" posY="352">
+  <node componentName="tRunJob" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="480" posY="192">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRunJob_2" show="false"/>
     <elementParameter field="CHECK" name="USE_DYNAMIC_JOB" value="false"/>
     <elementParameter field="TEXT" name="CONTEXT_JOB" value="" show="false"/>
@@ -287,23 +287,23 @@
       </column>
     </metadata>
   </node>
-  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="64" posY="224">
+  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="96" posY="64">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_4" show="false"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
-    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_1"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_2"/>
     <elementParameter field="TEXT" name="HOST" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="PORT" value="&quot;3306&quot;" show="false"/>
     <elementParameter field="TEXT" name="DBNAME" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="TYPE" value="MySQL" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
     <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;&quot;"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Fact_SalesOrders&quot;"/>
     <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT OEP55.CONO55&#xD;&#xA;&#x9;, OEP55.ORDN55&#xD;&#xA;    , OEP55.ORDL55&#xD;&#xA;&#x9;, DimProduct.SK_product&#xD;&#xA;&#x9;, OEP40.MapCustomerCONO05&#xD;&#xA;    , OEP40.MapCustomerCUSN05&#xD;&#xA;    , OEP40.MapCustomerDSEQ05&#xD;&#xA;    , OEP55.MapStockroomCONO20&#xD;&#xA;    , OEP55.MapStockroomSTRC20&#xD;&#xA;    , OEP40V02.MapGeographyCompanyCode&#xD;&#xA;    , OEP40V02.MapGeographyPostalCode&#xD;&#xA;    , OEP40.MapCurrencyCURN83_Transaction&#xD;&#xA;    , OEP40.MapCompanyCONO&#xD;&#xA;    , OEP40.OrderSourceCode&#xD;&#xA;&#x9;, OEP55.OrderLineTypeCode&#xD;&#xA;&#x9;, OEP40.OrderStatusCode&#xD;&#xA;&#x9;, OEP55.OrderCancellationReasonCode&#xD;&#xA;&#x9;, OEP40.OrderTypeCode&#xD;&#xA;&#x9;, OEP40.OrderSuspenseCode&#xD;&#xA;&#x9;, LIP05U.CustomProductHoldCode&#xD;&#xA;&#x9;, LIP05U.CustomProductHoldDescription&#xD;&#xA;    , DimProduct.SalesUnit&#xD;&#xA;&#x9;, DimProduct.UnitOverrideFlag    &#xD;&#xA;FROM Staging_Fact_SalesOrders_S21_OEP40 AS OEP40&#xD;&#xA;INNER JOIN Staging_Fact_SalesOrders_S21_OEP55 AS OEP55&#xD;&#xA;&#x9;ON OEP40.CONO40 = OEP55.CONO55&#xD;&#xA;&#x9;AND OEP40.ORDN40 = OEP55.ORDN55&#xD;&#xA;INNER JOIN Staging_Fact_SalesOrders_S21_LIP05U AS LIP05U&#xD;&#xA;&#x9;ON OEP40.CONO40 = LIP05U.CONO40 &#xD;&#xA;&#x9;AND OEP40.ORDN40 = LIP05U.ORDN40&#xD;&#xA;INNER JOIN Staging_Fact_SalesOrders_S21_OEP40V02 AS OEP40V02&#xD;&#xA;&#x9;ON OEP40.CONO40 = OEP40V02.CONO40 &#xD;&#xA;&#x9;AND OEP40.ORDN40 = OEP40V02.ORDN40&#xD;&#xA;LEFT JOIN LDW_&quot; + context.parameter_LDW_DWH_environment + &quot;.Dim_Product AS DimProduct&#xD;&#xA;&#x9;ON OEP55.MapProductCONO35 = DimProduct.BK_Product_CONO35_S21&#xD;&#xA;    AND OEP55.MapProductPNUM35 = DimProduct.BK_Product_PNUM35_S21&#xD;&#xA;&#x9;AND DimProduct.IsCurrent = 1   &#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT SO.SK_Company&#xD;&#xA;&#x9;, SO.DD_OrderNumber&#xD;&#xA;    , SO.DD_OrderLineNumber&#xD;&#xA;    , SO.SK_Date_SystemEntered&#xD;&#xA;    , C.BK_Customer_CONO05_S21&#xD;&#xA;    , C.BK_Customer_CUSN05_S21&#xD;&#xA;    , C.BK_Customer_DSEQ05_S21&#xD;&#xA;FROM Fact_SalesOrders AS SO&#xD;&#xA;JOIN Dim_Customer AS C&#xD;&#xA;&#x9;ON SO.SK_Customer = C.SK_Customer&#xD;&#xA;    AND (SO.SK_Date_SystemEntered &lt; C.ValidFromKey&#xD;&#xA;&#x9;&#x9;OR SO.SK_Date_SystemEntered >= C.ValidToKey)&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -314,202 +314,13 @@
     <elementParameter field="CHECK" name="ENABLE_STREAM" value="false"/>
     <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="false"/>
     <elementParameter field="TABLE" name="TRIM_COLUMN">
-      <elementValue elementRef="SCHEMA_COLUMN" value="CONO55"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Company"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ORDN55"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="DD_OrderNumber"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ORDL55"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="DD_OrderLineNumber"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Product"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="MapCustomerCONO05"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="MapCustomerCUSN05"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="MapCustomerDSEQ05"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="MapStockroomCONO20"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="MapStockroomSTRC20"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="MapGeographyCompanyCode"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="MapGeographyPostalCode"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="MapCurrencyCURN83_Transaction"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="MapCompanyCONO"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="OrderSourceCode"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="OrderLineTypeCode"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="OrderStatusCode"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="OrderCancellationReasonCode"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="OrderTypeCode"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="OrderSuspenseCode"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="CustomProductHoldCode"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="CustomProductHoldDescription"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SalesUnit"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="UnitOverrideFlag"/>
-      <elementValue elementRef="TRIM" value="false"/>
-    </elementParameter>
-    <elementParameter field="TEXT" name="LABEL" value="GetProduct"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tMysqlInput_4">
-      <column comment="" key="true" length="2" name="CONO55" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="true" length="7" name="ORDN55" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="true" length="4" name="ORDL55" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Product" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="MapCustomerCONO05" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="8" name="MapCustomerCUSN05" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="3" name="MapCustomerDSEQ05" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="MapStockroomCONO20" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="MapStockroomSTRC20" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="MapGeographyCompanyCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="25" name="MapGeographyPostalCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="3" name="MapCurrencyCURN83_Transaction" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="MapCompanyCONO" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="OrderSourceCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="OrderLineTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="OrderStatusCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="OrderCancellationReasonCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="OrderTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="OrderSuspenseCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="7" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="60" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="25" name="UnitOverrideFlag" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-    </metadata>
-  </node>
-  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="288" posY="224">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMap_15" show="false"/>
-    <elementParameter field="EXTERNAL" name="MAP" value=""/>
-    <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
-    <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="_lKwwIEFJEeeRoenzfjJKUQ-tMap_15-PREVIEW.bmp"/>
-    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
-    <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
-    <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
-    <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
-    <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="false"/>
-    <elementParameter field="TEXT" name="LABEL" value="GetCustomer"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="WithCustomer">
-      <column comment="" key="true" length="2" name="CONO55" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="true" length="7" name="ORDN55" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="true" length="4" name="ORDL55" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Product" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="MapStockroomCONO20" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="MapStockroomSTRC20" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="MapGeographyCompanyCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="25" name="MapGeographyPostalCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="3" name="MapCurrencyCURN83_Transaction" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="MapCompanyCONO" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="OrderSourceCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="OrderLineTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="OrderStatusCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="OrderCancellationReasonCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="OrderTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="OrderSuspenseCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="7" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="60" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-    </metadata>
-    <nodeData xsi:type="MapperData">
-      <uiProperties/>
-      <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
-      <outputTables sizeState="INTERMEDIATE" name="WithCustomer">
-        <mapperTableEntries name="CONO55" expression="Product.CONO55 " type="id_String"/>
-        <mapperTableEntries name="ORDN55" expression="Product.ORDN55 " type="id_String"/>
-        <mapperTableEntries name="ORDL55" expression="Product.ORDL55 " type="id_Float"/>
-        <mapperTableEntries name="SK_Customer" expression="CustomStringHandling.dimensionKeyHandling(Customer.SK_Customer) " type="id_Integer"/>
-        <mapperTableEntries name="SK_Product" expression="CustomStringHandling.dimensionKeyHandling(Product.SK_Product) " type="id_Integer"/>
-        <mapperTableEntries name="MapStockroomCONO20" expression="Product.MapStockroomCONO20 " type="id_String"/>
-        <mapperTableEntries name="MapStockroomSTRC20" expression="Product.MapStockroomSTRC20 " type="id_String"/>
-        <mapperTableEntries name="MapGeographyCompanyCode" expression="Product.MapGeographyCompanyCode " type="id_String"/>
-        <mapperTableEntries name="MapGeographyPostalCode" expression="Product.MapGeographyPostalCode " type="id_String"/>
-        <mapperTableEntries name="MapCurrencyCURN83_Transaction" expression="Product.MapCurrencyCURN83_Transaction " type="id_String"/>
-        <mapperTableEntries name="MapCompanyCONO" expression="Product.MapCompanyCONO " type="id_String"/>
-        <mapperTableEntries name="OrderSourceCode" expression="Product.OrderSourceCode " type="id_String"/>
-        <mapperTableEntries name="OrderLineTypeCode" expression="Product.OrderLineTypeCode " type="id_String"/>
-        <mapperTableEntries name="OrderStatusCode" expression="Product.OrderStatusCode " type="id_String"/>
-        <mapperTableEntries name="OrderCancellationReasonCode" expression="Product.OrderCancellationReasonCode " type="id_String"/>
-        <mapperTableEntries name="OrderTypeCode" expression="Product.OrderTypeCode " type="id_String"/>
-        <mapperTableEntries name="OrderSuspenseCode" expression="Product.OrderSuspenseCode " type="id_String"/>
-        <mapperTableEntries name="CustomProductHoldCode" expression="Product.CustomProductHoldCode " type="id_String"/>
-        <mapperTableEntries name="CustomProductHoldDescription" expression="Product.CustomProductHoldDescription " type="id_String"/>
-        <mapperTableEntries name="SalesUnit" expression="Relational.ISNULL(Product.UnitOverrideFlag) ? null :&#xD;&#xA;&quot;Unit Override&quot;.equals(Product.UnitOverrideFlag) ? 1 : Product.SalesUnit " type="id_Float" nullable="true"/>
-      </outputTables>
-      <inputTables sizeState="INTERMEDIATE" name="Product" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
-        <mapperTableEntries name="CONO55" type="id_String"/>
-        <mapperTableEntries name="ORDN55" type="id_String"/>
-        <mapperTableEntries name="ORDL55" type="id_Float"/>
-        <mapperTableEntries name="SK_Product" type="id_Integer" nullable="true"/>
-        <mapperTableEntries name="MapCustomerCONO05" type="id_String"/>
-        <mapperTableEntries name="MapCustomerCUSN05" type="id_String"/>
-        <mapperTableEntries name="MapCustomerDSEQ05" type="id_String"/>
-        <mapperTableEntries name="MapStockroomCONO20" type="id_String"/>
-        <mapperTableEntries name="MapStockroomSTRC20" type="id_String"/>
-        <mapperTableEntries name="MapGeographyCompanyCode" type="id_String"/>
-        <mapperTableEntries name="MapGeographyPostalCode" type="id_String"/>
-        <mapperTableEntries name="MapCurrencyCURN83_Transaction" type="id_String"/>
-        <mapperTableEntries name="MapCompanyCONO" type="id_String"/>
-        <mapperTableEntries name="OrderSourceCode" type="id_String"/>
-        <mapperTableEntries name="OrderLineTypeCode" type="id_String"/>
-        <mapperTableEntries name="OrderStatusCode" type="id_String"/>
-        <mapperTableEntries name="OrderCancellationReasonCode" type="id_String"/>
-        <mapperTableEntries name="OrderTypeCode" type="id_String"/>
-        <mapperTableEntries name="OrderSuspenseCode" type="id_String"/>
-        <mapperTableEntries name="CustomProductHoldCode" type="id_String"/>
-        <mapperTableEntries name="CustomProductHoldDescription" type="id_String"/>
-        <mapperTableEntries name="SalesUnit" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="UnitOverrideFlag" type="id_String" nullable="true"/>
-      </inputTables>
-      <inputTables sizeState="INTERMEDIATE" name="Customer" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
-        <mapperTableEntries name="SK_Customer" type="id_Integer"/>
-        <mapperTableEntries name="BK_Customer_CONO05_S21" expression="Product.MapCustomerCONO05 " type="id_String" operator="="/>
-        <mapperTableEntries name="BK_Customer_CUSN05_S21" expression="Product.MapCustomerCUSN05 " type="id_String" operator="="/>
-        <mapperTableEntries name="BK_Customer_DSEQ05_S21" expression="Product.MapCustomerDSEQ05 " type="id_String" operator="="/>
-      </inputTables>
-    </nodeData>
-  </node>
-  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="288" posY="64">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_19" show="false"/>
-    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
-    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
-    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_2"/>
-    <elementParameter field="TEXT" name="HOST" value="&quot;&quot;" show="false"/>
-    <elementParameter field="TEXT" name="PORT" value="&quot;3306&quot;" show="false"/>
-    <elementParameter field="TEXT" name="DBNAME" value="&quot;&quot;" show="false"/>
-    <elementParameter field="TEXT" name="TYPE" value="MySQL" show="false"/>
-    <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Dim_Customer&quot;"/>
-    <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
-    <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
-    <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
-    <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT SK_Customer, BK_Customer_CONO05_S21, BK_Customer_CUSN05_S21, BK_Customer_DSEQ05_S21&#xD;&#xA;FROM Dim_Customer&#xD;&#xA;WHERE SK_Customer > 0&#xD;&#xA;&#x9;AND BK_Customer_CONO05_S21 IS NOT NULL&#xD;&#xA;&#x9;AND BK_Customer_CUSN05_S21 IS NOT NULL&#xD;&#xA;&#x9;AND BK_Customer_DSEQ05_S21 IS NOT NULL&#xD;&#xA;&#x9;AND IsCurrent = 1&#xD;&#xA;&quot;"/>
-    <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
-    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
-    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
-    <elementParameter field="MAPPING_TYPE" name="MAPPING" value="mysql_id" show="false"/>
-    <elementParameter field="TEXT" name="PROPERTIES" value="&quot;noDatetimeStringSync=true&quot;" show="false"/>
-    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
-    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
-    <elementParameter field="CHECK" name="ENABLE_STREAM" value="false"/>
-    <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="true"/>
-    <elementParameter field="TABLE" name="TRIM_COLUMN" show="false">
-      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Customer"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Date_SystemEntered"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="BK_Customer_CONO05_S21"/>
       <elementValue elementRef="TRIM" value="false"/>
@@ -518,827 +329,19 @@
       <elementValue elementRef="SCHEMA_COLUMN" value="BK_Customer_DSEQ05_S21"/>
       <elementValue elementRef="TRIM" value="false"/>
     </elementParameter>
-    <elementParameter field="TEXT" name="LABEL" value="Dim_Customer"/>
+    <elementParameter field="TEXT" name="LABEL" value="GetWrongCustomerKeys"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tMysqlInput_19">
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+    <metadata connector="FLOW" name="tMysqlInput_4">
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Company" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="true" length="50" name="DD_OrderNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="DD_OrderLineNumber" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="SK_Date_SystemEntered" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="2" name="BK_Customer_CONO05_S21" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="8" name="BK_Customer_CUSN05_S21" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="3" name="BK_Customer_DSEQ05_S21" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="512" posY="224">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMap_9" show="false"/>
-    <elementParameter field="EXTERNAL" name="MAP" value=""/>
-    <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
-    <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="_lKwwIEFJEeeRoenzfjJKUQ-tMap_9-PREVIEW.bmp"/>
-    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
-    <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
-    <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
-    <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
-    <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="false"/>
-    <elementParameter field="TEXT" name="LABEL" value="GetStockroom"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="Stockroom">
-      <column comment="" key="true" length="2" name="CONO55" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="true" length="7" name="ORDN55" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="true" length="4" name="ORDL55" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Product" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Stockroom" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="MapGeographyCompanyCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="25" name="MapGeographyPostalCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="3" name="MapCurrencyCURN83_Transaction" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="MapCompanyCONO" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="OrderSourceCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="OrderLineTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="OrderStatusCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="OrderCancellationReasonCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="OrderTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="OrderSuspenseCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="7" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="60" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-    </metadata>
-    <nodeData xsi:type="MapperData">
-      <uiProperties/>
-      <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
-      <outputTables sizeState="INTERMEDIATE" name="Stockroom">
-        <mapperTableEntries name="CONO55" expression="WithCustomer.CONO55 " type="id_String"/>
-        <mapperTableEntries name="ORDN55" expression="WithCustomer.ORDN55 " type="id_String"/>
-        <mapperTableEntries name="ORDL55" expression="WithCustomer.ORDL55 " type="id_Float"/>
-        <mapperTableEntries name="SK_Customer" expression="WithCustomer.SK_Customer " type="id_Integer"/>
-        <mapperTableEntries name="SK_Product" expression="WithCustomer.SK_Product " type="id_Integer"/>
-        <mapperTableEntries name="SK_Stockroom" expression="CustomStringHandling.dimensionKeyHandling(DimStockroom.SK_Stockroom ) " type="id_Integer"/>
-        <mapperTableEntries name="MapGeographyCompanyCode" expression="WithCustomer.MapGeographyCompanyCode " type="id_String"/>
-        <mapperTableEntries name="MapGeographyPostalCode" expression="WithCustomer.MapGeographyPostalCode " type="id_String"/>
-        <mapperTableEntries name="MapCurrencyCURN83_Transaction" expression="WithCustomer.MapCurrencyCURN83_Transaction " type="id_String"/>
-        <mapperTableEntries name="MapCompanyCONO" expression="WithCustomer.MapCompanyCONO " type="id_String"/>
-        <mapperTableEntries name="OrderSourceCode" expression="WithCustomer.OrderSourceCode " type="id_String"/>
-        <mapperTableEntries name="OrderLineTypeCode" expression="WithCustomer.OrderLineTypeCode " type="id_String"/>
-        <mapperTableEntries name="OrderStatusCode" expression="WithCustomer.OrderStatusCode " type="id_String"/>
-        <mapperTableEntries name="OrderCancellationReasonCode" expression="WithCustomer.OrderCancellationReasonCode " type="id_String"/>
-        <mapperTableEntries name="OrderTypeCode" expression="WithCustomer.OrderTypeCode " type="id_String"/>
-        <mapperTableEntries name="OrderSuspenseCode" expression="WithCustomer.OrderSuspenseCode " type="id_String"/>
-        <mapperTableEntries name="CustomProductHoldCode" expression="WithCustomer.CustomProductHoldCode " type="id_String"/>
-        <mapperTableEntries name="CustomProductHoldDescription" expression="WithCustomer.CustomProductHoldDescription " type="id_String"/>
-        <mapperTableEntries name="SalesUnit" expression="WithCustomer.SalesUnit " type="id_Float" nullable="true"/>
-      </outputTables>
-      <inputTables sizeState="INTERMEDIATE" name="WithCustomer" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
-        <mapperTableEntries name="CONO55" type="id_String"/>
-        <mapperTableEntries name="ORDN55" type="id_String"/>
-        <mapperTableEntries name="ORDL55" type="id_Float"/>
-        <mapperTableEntries name="SK_Customer" type="id_Integer"/>
-        <mapperTableEntries name="SK_Product" type="id_Integer"/>
-        <mapperTableEntries name="MapStockroomCONO20" type="id_String"/>
-        <mapperTableEntries name="MapStockroomSTRC20" type="id_String"/>
-        <mapperTableEntries name="MapGeographyCompanyCode" type="id_String"/>
-        <mapperTableEntries name="MapGeographyPostalCode" type="id_String"/>
-        <mapperTableEntries name="MapCurrencyCURN83_Transaction" type="id_String"/>
-        <mapperTableEntries name="MapCompanyCONO" type="id_String"/>
-        <mapperTableEntries name="OrderSourceCode" type="id_String"/>
-        <mapperTableEntries name="OrderLineTypeCode" type="id_String"/>
-        <mapperTableEntries name="OrderStatusCode" type="id_String"/>
-        <mapperTableEntries name="OrderCancellationReasonCode" type="id_String"/>
-        <mapperTableEntries name="OrderTypeCode" type="id_String"/>
-        <mapperTableEntries name="OrderSuspenseCode" type="id_String"/>
-        <mapperTableEntries name="CustomProductHoldCode" type="id_String"/>
-        <mapperTableEntries name="CustomProductHoldDescription" type="id_String"/>
-        <mapperTableEntries name="SalesUnit" type="id_Float" nullable="true"/>
-      </inputTables>
-      <inputTables sizeState="INTERMEDIATE" name="DimStockroom" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
-        <mapperTableEntries name="SK_Stockroom" type="id_Integer"/>
-        <mapperTableEntries name="BK_Stockroom_CONO20_S21" expression="WithCustomer.MapStockroomCONO20 " type="id_String" operator="="/>
-        <mapperTableEntries name="BK_Stockroom_STRC20_S21" expression="WithCustomer.MapStockroomSTRC20 " type="id_String" operator="="/>
-      </inputTables>
-    </nodeData>
-  </node>
-  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="512" posY="64">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_11" show="false"/>
-    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
-    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
-    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_2"/>
-    <elementParameter field="TEXT" name="HOST" value="&quot;&quot;" show="false"/>
-    <elementParameter field="TEXT" name="PORT" value="&quot;3306&quot;" show="false"/>
-    <elementParameter field="TEXT" name="DBNAME" value="&quot;&quot;" show="false"/>
-    <elementParameter field="TEXT" name="TYPE" value="MySQL" show="false"/>
-    <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Dim_Stockroom&quot;"/>
-    <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
-    <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
-    <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
-    <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT SK_Stockroom, BK_Stockroom_CONO20_S21, BK_Stockroom_STRC20_S21&#xD;&#xA;FROM Dim_Stockroom&#xD;&#xA;WHERE BK_Stockroom_CONO20_S21 IS NOT NULL&#xD;&#xA;&#x9;AND BK_Stockroom_STRC20_S21 IS NOT NULL&#xD;&#xA;&#x9;AND SK_Stockroom > 0&#xD;&#xA;&#x9;AND IsCurrent = 1&#xD;&#xA;&quot;"/>
-    <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
-    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
-    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
-    <elementParameter field="MAPPING_TYPE" name="MAPPING" value="mysql_id" show="false"/>
-    <elementParameter field="TEXT" name="PROPERTIES" value="&quot;noDatetimeStringSync=true&quot;" show="false"/>
-    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
-    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
-    <elementParameter field="CHECK" name="ENABLE_STREAM" value="false"/>
-    <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="true"/>
-    <elementParameter field="TABLE" name="TRIM_COLUMN" show="false">
-      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Stockroom"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="BK_Stockroom_CONO20_S21"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="BK_Stockroom_STRC20_S21"/>
-      <elementValue elementRef="TRIM" value="false"/>
-    </elementParameter>
-    <elementParameter field="TEXT" name="LABEL" value="DimStockroom"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tMysqlInput_11">
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Stockroom" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="BK_Stockroom_CONO20_S21" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="BK_Stockroom_STRC20_S21" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-    </metadata>
-  </node>
-  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="736" posY="224">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMap_14" show="false"/>
-    <elementParameter field="EXTERNAL" name="MAP" value=""/>
-    <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
-    <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="_lKwwIEFJEeeRoenzfjJKUQ-tMap_14-PREVIEW.bmp"/>
-    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
-    <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
-    <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
-    <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
-    <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="false"/>
-    <elementParameter field="TEXT" name="LABEL" value="GetGeography"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="WithGeography">
-      <column comment="" key="true" length="2" name="CONO55" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="true" length="7" name="ORDN55" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="true" length="4" name="ORDL55" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Product" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Stockroom" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Geography_ShipDestination" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="3" name="MapCurrencyCURN83_Transaction" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="3" name="MapCurrencyCURN83_USD" nullable="false" pattern="" precision="-1" sourceType="" type="id_String" originalLength="3" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="MapCompanyCONO" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="OrderSourceCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="OrderLineTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="OrderStatusCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="OrderCancellationReasonCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="OrderTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="OrderSuspenseCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="7" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="60" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-    </metadata>
-    <nodeData xsi:type="MapperData">
-      <uiProperties/>
-      <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
-      <outputTables sizeState="INTERMEDIATE" name="WithGeography">
-        <mapperTableEntries name="CONO55" expression="Stockroom.CONO55 " type="id_String"/>
-        <mapperTableEntries name="ORDN55" expression="Stockroom.ORDN55 " type="id_String"/>
-        <mapperTableEntries name="ORDL55" expression="Stockroom.ORDL55 " type="id_Float"/>
-        <mapperTableEntries name="SK_Customer" expression="Stockroom.SK_Customer " type="id_Integer"/>
-        <mapperTableEntries name="SK_Product" expression="Stockroom.SK_Product " type="id_Integer"/>
-        <mapperTableEntries name="SK_Stockroom" expression="Stockroom.SK_Stockroom " type="id_Integer"/>
-        <mapperTableEntries name="SK_Geography_ShipDestination" expression="CustomStringHandling.dimensionKeyHandling(Geography.SK_Geography) " type="id_Integer"/>
-        <mapperTableEntries name="MapCurrencyCURN83_Transaction" expression="Stockroom.MapCurrencyCURN83_Transaction " type="id_String"/>
-        <mapperTableEntries name="MapCurrencyCURN83_USD" expression="&quot;USD&quot;" type="id_String"/>
-        <mapperTableEntries name="MapCompanyCONO" expression="Stockroom.MapCompanyCONO " type="id_String"/>
-        <mapperTableEntries name="OrderSourceCode" expression="Stockroom.OrderSourceCode " type="id_String"/>
-        <mapperTableEntries name="OrderLineTypeCode" expression="Stockroom.OrderLineTypeCode " type="id_String"/>
-        <mapperTableEntries name="OrderStatusCode" expression="Stockroom.OrderStatusCode " type="id_String"/>
-        <mapperTableEntries name="OrderCancellationReasonCode" expression="Stockroom.OrderCancellationReasonCode " type="id_String"/>
-        <mapperTableEntries name="OrderTypeCode" expression="Stockroom.OrderTypeCode " type="id_String"/>
-        <mapperTableEntries name="OrderSuspenseCode" expression="Stockroom.OrderSuspenseCode " type="id_String"/>
-        <mapperTableEntries name="CustomProductHoldCode" expression="Stockroom.CustomProductHoldCode " type="id_String"/>
-        <mapperTableEntries name="CustomProductHoldDescription" expression="Stockroom.CustomProductHoldDescription " type="id_String"/>
-        <mapperTableEntries name="SalesUnit" expression="Stockroom.SalesUnit " type="id_Float" nullable="true"/>
-      </outputTables>
-      <inputTables sizeState="INTERMEDIATE" name="Stockroom" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
-        <mapperTableEntries name="CONO55" type="id_String"/>
-        <mapperTableEntries name="ORDN55" type="id_String"/>
-        <mapperTableEntries name="ORDL55" type="id_Float"/>
-        <mapperTableEntries name="SK_Customer" type="id_Integer"/>
-        <mapperTableEntries name="SK_Product" type="id_Integer"/>
-        <mapperTableEntries name="SK_Stockroom" type="id_Integer"/>
-        <mapperTableEntries name="MapGeographyCompanyCode" type="id_String"/>
-        <mapperTableEntries name="MapGeographyPostalCode" type="id_String"/>
-        <mapperTableEntries name="MapCurrencyCURN83_Transaction" type="id_String"/>
-        <mapperTableEntries name="MapCompanyCONO" type="id_String"/>
-        <mapperTableEntries name="OrderSourceCode" type="id_String"/>
-        <mapperTableEntries name="OrderLineTypeCode" type="id_String"/>
-        <mapperTableEntries name="OrderStatusCode" type="id_String"/>
-        <mapperTableEntries name="OrderCancellationReasonCode" type="id_String"/>
-        <mapperTableEntries name="OrderTypeCode" type="id_String"/>
-        <mapperTableEntries name="OrderSuspenseCode" type="id_String"/>
-        <mapperTableEntries name="CustomProductHoldCode" type="id_String"/>
-        <mapperTableEntries name="CustomProductHoldDescription" type="id_String"/>
-        <mapperTableEntries name="SalesUnit" type="id_Float" nullable="true"/>
-      </inputTables>
-      <inputTables sizeState="INTERMEDIATE" name="Geography" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
-        <mapperTableEntries name="SK_Geography" type="id_Integer"/>
-        <mapperTableEntries name="BK_Geography_CompanyCode_FlatFiles" expression="Stockroom.MapGeographyCompanyCode " type="id_String" operator="="/>
-        <mapperTableEntries name="BK_Geography_PostalCode_FlatFiles" expression="Stockroom.MapGeographyPostalCode " type="id_String" operator="="/>
-      </inputTables>
-    </nodeData>
-  </node>
-  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="736" posY="64">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_20" show="false"/>
-    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
-    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
-    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_2"/>
-    <elementParameter field="TEXT" name="HOST" value="&quot;&quot;" show="false"/>
-    <elementParameter field="TEXT" name="PORT" value="&quot;3306&quot;" show="false"/>
-    <elementParameter field="TEXT" name="DBNAME" value="&quot;&quot;" show="false"/>
-    <elementParameter field="TEXT" name="TYPE" value="MySQL" show="false"/>
-    <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Dim_Geography&quot;"/>
-    <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
-    <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
-    <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
-    <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT SK_Geography, BK_Geography_CompanyCode_FlatFiles, BK_Geography_PostalCode_FlatFiles&#xD;&#xA;FROM Dim_Geography&#xD;&#xA;WHERE SK_Geography > 0&#xD;&#xA;&#x9;AND BK_Geography_CompanyCode_FlatFiles IS NOT NULL&#xD;&#xA;&#x9;AND BK_Geography_PostalCode_FlatFiles IS NOT NULL&#xD;&#xA;&#x9;AND IsCurrent = 1&#xD;&#xA;&quot;"/>
-    <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
-    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
-    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
-    <elementParameter field="MAPPING_TYPE" name="MAPPING" value="mysql_id" show="false"/>
-    <elementParameter field="TEXT" name="PROPERTIES" value="&quot;noDatetimeStringSync=true&quot;" show="false"/>
-    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
-    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
-    <elementParameter field="CHECK" name="ENABLE_STREAM" value="false"/>
-    <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="true"/>
-    <elementParameter field="TABLE" name="TRIM_COLUMN" show="false">
-      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Geography"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="BK_Geography_CompanyCode_FlatFiles"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="BK_Geography_PostalCode_FlatFiles"/>
-      <elementValue elementRef="TRIM" value="false"/>
-    </elementParameter>
-    <elementParameter field="TEXT" name="LABEL" value="Dim_Geography"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tMysqlInput_20">
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Geography" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="BK_Geography_CompanyCode_FlatFiles" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="5" name="BK_Geography_PostalCode_FlatFiles" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-    </metadata>
-  </node>
-  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="1056" posY="224">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMap_8" show="false"/>
-    <elementParameter field="EXTERNAL" name="MAP" value=""/>
-    <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
-    <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="_lKwwIEFJEeeRoenzfjJKUQ-tMap_8-PREVIEW.bmp"/>
-    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
-    <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
-    <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
-    <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
-    <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="false"/>
-    <elementParameter field="TEXT" name="LABEL" value="GetCurrency"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="Currency">
-      <column comment="" key="true" length="2" name="CONO55" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="true" length="7" name="ORDN55" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="true" length="4" name="ORDL55" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Product" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Stockroom" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Geography_ShipDestination" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_Transaction" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_USD" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="MapCompanyCONO" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="OrderSourceCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="OrderLineTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="OrderStatusCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="OrderCancellationReasonCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="OrderTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="OrderSuspenseCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="7" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="60" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-    </metadata>
-    <nodeData xsi:type="MapperData">
-      <uiProperties/>
-      <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
-      <outputTables sizeState="INTERMEDIATE" name="Currency">
-        <mapperTableEntries name="CONO55" expression="WithGeography.CONO55 " type="id_String"/>
-        <mapperTableEntries name="ORDN55" expression="WithGeography.ORDN55 " type="id_String"/>
-        <mapperTableEntries name="ORDL55" expression="WithGeography.ORDL55 " type="id_Float"/>
-        <mapperTableEntries name="SK_Customer" expression="WithGeography.SK_Customer " type="id_Integer"/>
-        <mapperTableEntries name="SK_Product" expression="WithGeography.SK_Product " type="id_Integer"/>
-        <mapperTableEntries name="SK_Stockroom" expression="WithGeography.SK_Stockroom " type="id_Integer"/>
-        <mapperTableEntries name="SK_Geography_ShipDestination" expression="WithGeography.SK_Geography_ShipDestination " type="id_Integer"/>
-        <mapperTableEntries name="SK_Currency_Transaction" expression="CustomStringHandling.dimensionKeyHandling(DimCurrencyTransaction.SK_Currency) " type="id_Integer"/>
-        <mapperTableEntries name="SK_Currency_USD" expression="CustomStringHandling.dimensionKeyHandling(DimCurrencyUSD.SK_Currency) " type="id_Integer"/>
-        <mapperTableEntries name="MapCompanyCONO" expression="WithGeography.MapCompanyCONO " type="id_String"/>
-        <mapperTableEntries name="OrderSourceCode" expression="WithGeography.OrderSourceCode " type="id_String"/>
-        <mapperTableEntries name="OrderLineTypeCode" expression="WithGeography.OrderLineTypeCode " type="id_String"/>
-        <mapperTableEntries name="OrderStatusCode" expression="WithGeography.OrderStatusCode " type="id_String"/>
-        <mapperTableEntries name="OrderCancellationReasonCode" expression="WithGeography.OrderCancellationReasonCode " type="id_String"/>
-        <mapperTableEntries name="OrderTypeCode" expression="WithGeography.OrderTypeCode " type="id_String"/>
-        <mapperTableEntries name="OrderSuspenseCode" expression="WithGeography.OrderSuspenseCode " type="id_String"/>
-        <mapperTableEntries name="CustomProductHoldCode" expression="WithGeography.CustomProductHoldCode " type="id_String"/>
-        <mapperTableEntries name="CustomProductHoldDescription" expression="WithGeography.CustomProductHoldDescription " type="id_String"/>
-        <mapperTableEntries name="SalesUnit" expression="WithGeography.SalesUnit " type="id_Float" nullable="true"/>
-      </outputTables>
-      <inputTables sizeState="INTERMEDIATE" name="WithGeography" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
-        <mapperTableEntries name="CONO55" type="id_String"/>
-        <mapperTableEntries name="ORDN55" type="id_String"/>
-        <mapperTableEntries name="ORDL55" type="id_Float"/>
-        <mapperTableEntries name="SK_Customer" type="id_Integer"/>
-        <mapperTableEntries name="SK_Product" type="id_Integer"/>
-        <mapperTableEntries name="SK_Stockroom" type="id_Integer"/>
-        <mapperTableEntries name="SK_Geography_ShipDestination" type="id_Integer"/>
-        <mapperTableEntries name="MapCurrencyCURN83_Transaction" type="id_String"/>
-        <mapperTableEntries name="MapCurrencyCURN83_USD" type="id_String"/>
-        <mapperTableEntries name="MapCompanyCONO" type="id_String"/>
-        <mapperTableEntries name="OrderSourceCode" type="id_String"/>
-        <mapperTableEntries name="OrderLineTypeCode" type="id_String"/>
-        <mapperTableEntries name="OrderStatusCode" type="id_String"/>
-        <mapperTableEntries name="OrderCancellationReasonCode" type="id_String"/>
-        <mapperTableEntries name="OrderTypeCode" type="id_String"/>
-        <mapperTableEntries name="OrderSuspenseCode" type="id_String"/>
-        <mapperTableEntries name="CustomProductHoldCode" type="id_String"/>
-        <mapperTableEntries name="CustomProductHoldDescription" type="id_String"/>
-        <mapperTableEntries name="SalesUnit" type="id_Float" nullable="true"/>
-      </inputTables>
-      <inputTables sizeState="INTERMEDIATE" name="DimCurrencyTransaction" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
-        <mapperTableEntries name="SK_Currency" type="id_Integer"/>
-        <mapperTableEntries name="BK_Currency_CURN83_S21" expression="WithGeography.MapCurrencyCURN83_Transaction " type="id_String" operator="="/>
-      </inputTables>
-      <inputTables sizeState="INTERMEDIATE" name="DimCurrencyUSD" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
-        <mapperTableEntries name="SK_Currency" type="id_Integer"/>
-        <mapperTableEntries name="BK_Currency_CURN83_S21" expression="WithGeography.MapCurrencyCURN83_USD " type="id_String" operator="="/>
-      </inputTables>
-    </nodeData>
-  </node>
-  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="928" posY="64">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_10" show="false"/>
-    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
-    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
-    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_2"/>
-    <elementParameter field="TEXT" name="HOST" value="&quot;&quot;" show="false"/>
-    <elementParameter field="TEXT" name="PORT" value="&quot;3306&quot;" show="false"/>
-    <elementParameter field="TEXT" name="DBNAME" value="&quot;&quot;" show="false"/>
-    <elementParameter field="TEXT" name="TYPE" value="MySQL" show="false"/>
-    <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Dim_Currency&quot;"/>
-    <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
-    <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
-    <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
-    <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT SK_Currency, BK_Currency_CURN83_S21&#xD;&#xA;FROM Dim_Currency&#xD;&#xA;WHERE BK_Currency_CURN83_S21 IS NOT NULL&#xD;&#xA;&#x9;AND SK_Currency > 0&#xD;&#xA;&#x9;AND IsCurrent = 1&#xD;&#xA;&quot;"/>
-    <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
-    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
-    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
-    <elementParameter field="MAPPING_TYPE" name="MAPPING" value="mysql_id" show="false"/>
-    <elementParameter field="TEXT" name="PROPERTIES" value="&quot;noDatetimeStringSync=true&quot;" show="false"/>
-    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
-    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
-    <elementParameter field="CHECK" name="ENABLE_STREAM" value="false"/>
-    <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="true"/>
-    <elementParameter field="TABLE" name="TRIM_COLUMN" show="false">
-      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Currency"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="BK_Currency_CURN83_S21"/>
-      <elementValue elementRef="TRIM" value="false"/>
-    </elementParameter>
-    <elementParameter field="TEXT" name="LABEL" value="DimCurrencyTransaction"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tMysqlInput_10">
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Currency" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="3" name="BK_Currency_CURN83_S21" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-    </metadata>
-  </node>
-  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1184" posY="64">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_13" show="false"/>
-    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
-    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
-    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_2"/>
-    <elementParameter field="TEXT" name="HOST" value="&quot;&quot;" show="false"/>
-    <elementParameter field="TEXT" name="PORT" value="&quot;3306&quot;" show="false"/>
-    <elementParameter field="TEXT" name="DBNAME" value="&quot;&quot;" show="false"/>
-    <elementParameter field="TEXT" name="TYPE" value="MySQL" show="false"/>
-    <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Dim_Currency&quot;"/>
-    <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
-    <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
-    <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
-    <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT SK_Currency, BK_Currency_CURN83_S21&#xD;&#xA;FROM Dim_Currency&#xD;&#xA;WHERE BK_Currency_CURN83_S21 IS NOT NULL&#xD;&#xA;&#x9;AND SK_Currency > 0&#xD;&#xA;&#x9;AND IsCurrent = 1&#xD;&#xA;&quot;"/>
-    <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
-    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
-    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
-    <elementParameter field="MAPPING_TYPE" name="MAPPING" value="mysql_id" show="false"/>
-    <elementParameter field="TEXT" name="PROPERTIES" value="&quot;noDatetimeStringSync=true&quot;" show="false"/>
-    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
-    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
-    <elementParameter field="CHECK" name="ENABLE_STREAM" value="false"/>
-    <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="true"/>
-    <elementParameter field="TABLE" name="TRIM_COLUMN" show="false">
-      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Currency"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="BK_Currency_CURN83_S21"/>
-      <elementValue elementRef="TRIM" value="false"/>
-    </elementParameter>
-    <elementParameter field="TEXT" name="LABEL" value="DimCurrencyUSD"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tMysqlInput_13">
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Currency" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="3" name="BK_Currency_CURN83_S21" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-    </metadata>
-  </node>
-  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="1376" posY="224">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMap_2" show="false"/>
-    <elementParameter field="EXTERNAL" name="MAP" value=""/>
-    <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
-    <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="_lKwwIEFJEeeRoenzfjJKUQ-tMap_2-PREVIEW.bmp"/>
-    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
-    <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
-    <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
-    <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
-    <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="false"/>
-    <elementParameter field="TEXT" name="LABEL" value="GetCompany"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="Company">
-      <column comment="" key="true" length="2" name="CONO55" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="true" length="7" name="ORDN55" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="true" length="4" name="ORDL55" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Product" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Stockroom" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Geography_ShipDestination" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_Transaction" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_USD" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_Functional" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Company" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="3" name="OrderSourceCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="3" usefulColumn="true"/>
-      <column comment="" key="false" length="3" name="OrderLineTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="3" usefulColumn="true"/>
-      <column comment="" key="false" length="3" name="OrderStatusCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="3" usefulColumn="true"/>
-      <column comment="" key="false" length="3" name="OrderCancellationReasonCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="3" usefulColumn="true"/>
-      <column comment="" key="false" length="3" name="OrderTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="3" usefulColumn="true"/>
-      <column comment="" key="false" length="3" name="OrderSuspenseCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="3" usefulColumn="true"/>
-      <column comment="" key="false" length="7" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="60" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-    </metadata>
-    <nodeData xsi:type="MapperData">
-      <uiProperties/>
-      <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
-      <outputTables sizeState="INTERMEDIATE" name="Company">
-        <mapperTableEntries name="CONO55" expression="Currency.CONO55 " type="id_String"/>
-        <mapperTableEntries name="ORDN55" expression="Currency.ORDN55 " type="id_String"/>
-        <mapperTableEntries name="ORDL55" expression="Currency.ORDL55 " type="id_Float"/>
-        <mapperTableEntries name="SK_Customer" expression="Currency.SK_Customer " type="id_Integer"/>
-        <mapperTableEntries name="SK_Product" expression="Currency.SK_Product " type="id_Integer"/>
-        <mapperTableEntries name="SK_Stockroom" expression="Currency.SK_Stockroom " type="id_Integer"/>
-        <mapperTableEntries name="SK_Geography_ShipDestination" expression="Currency.SK_Geography_ShipDestination " type="id_Integer"/>
-        <mapperTableEntries name="SK_Currency_Transaction" expression="Currency.SK_Currency_Transaction " type="id_Integer"/>
-        <mapperTableEntries name="SK_Currency_USD" expression="Currency.SK_Currency_USD " type="id_Integer"/>
-        <mapperTableEntries name="SK_Currency_Functional" expression="CustomStringHandling.dimensionKeyHandling(DimCompany.SK_Currency) " type="id_Integer"/>
-        <mapperTableEntries name="SK_Company" expression="CustomStringHandling.dimensionKeyHandling(DimCompany.SK_Company) " type="id_Integer"/>
-        <mapperTableEntries name="OrderSourceCode" expression="Currency.OrderSourceCode " type="id_String"/>
-        <mapperTableEntries name="OrderLineTypeCode" expression="Currency.OrderLineTypeCode " type="id_String"/>
-        <mapperTableEntries name="OrderStatusCode" expression="Currency.OrderStatusCode " type="id_String"/>
-        <mapperTableEntries name="OrderCancellationReasonCode" expression="Currency.OrderCancellationReasonCode " type="id_String"/>
-        <mapperTableEntries name="OrderTypeCode" expression="Currency.OrderTypeCode " type="id_String"/>
-        <mapperTableEntries name="OrderSuspenseCode" expression="Currency.OrderSuspenseCode " type="id_String"/>
-        <mapperTableEntries name="CustomProductHoldCode" expression="Currency.CustomProductHoldCode " type="id_String"/>
-        <mapperTableEntries name="CustomProductHoldDescription" expression="Currency.CustomProductHoldDescription " type="id_String"/>
-        <mapperTableEntries name="SalesUnit" expression="Currency.SalesUnit " type="id_Float" nullable="true"/>
-      </outputTables>
-      <inputTables sizeState="INTERMEDIATE" name="Currency" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
-        <mapperTableEntries name="CONO55" type="id_String"/>
-        <mapperTableEntries name="ORDN55" type="id_String"/>
-        <mapperTableEntries name="ORDL55" type="id_Float"/>
-        <mapperTableEntries name="SK_Customer" type="id_Integer"/>
-        <mapperTableEntries name="SK_Product" type="id_Integer"/>
-        <mapperTableEntries name="SK_Stockroom" type="id_Integer"/>
-        <mapperTableEntries name="SK_Geography_ShipDestination" type="id_Integer"/>
-        <mapperTableEntries name="SK_Currency_Transaction" type="id_Integer"/>
-        <mapperTableEntries name="SK_Currency_USD" type="id_Integer"/>
-        <mapperTableEntries name="MapCompanyCONO" type="id_String"/>
-        <mapperTableEntries name="OrderSourceCode" type="id_String"/>
-        <mapperTableEntries name="OrderLineTypeCode" type="id_String"/>
-        <mapperTableEntries name="OrderStatusCode" type="id_String"/>
-        <mapperTableEntries name="OrderCancellationReasonCode" type="id_String"/>
-        <mapperTableEntries name="OrderTypeCode" type="id_String"/>
-        <mapperTableEntries name="OrderSuspenseCode" type="id_String"/>
-        <mapperTableEntries name="CustomProductHoldCode" type="id_String"/>
-        <mapperTableEntries name="CustomProductHoldDescription" type="id_String"/>
-        <mapperTableEntries name="SalesUnit" type="id_Float" nullable="true"/>
-      </inputTables>
-      <inputTables sizeState="INTERMEDIATE" name="DimCompany" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
-        <mapperTableEntries name="SK_Company" type="id_Integer"/>
-        <mapperTableEntries name="BK_Company_CONO_S21" expression="Currency.MapCompanyCONO " type="id_String" operator="="/>
-        <mapperTableEntries name="SK_Currency" type="id_Integer"/>
-      </inputTables>
-    </nodeData>
-  </node>
-  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1376" posY="64">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_5" show="false"/>
-    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
-    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
-    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_2"/>
-    <elementParameter field="TEXT" name="HOST" value="&quot;&quot;" show="false"/>
-    <elementParameter field="TEXT" name="PORT" value="&quot;3306&quot;" show="false"/>
-    <elementParameter field="TEXT" name="DBNAME" value="&quot;&quot;" show="false"/>
-    <elementParameter field="TEXT" name="TYPE" value="MySQL" show="false"/>
-    <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Dim_Company&quot;"/>
-    <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
-    <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
-    <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
-    <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT SK_Company, BK_Company_CONO_S21, SK_Currency&#xD;&#xA;FROM Dim_Company&#xD;&#xA;WHERE BK_Company_CONO_S21 IS NOT NULL&#xD;&#xA;&#x9;AND SK_Company > 0&#xD;&#xA;&#x9;AND IsCurrent = 1&#xD;&#xA;&quot;"/>
-    <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
-    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
-    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
-    <elementParameter field="MAPPING_TYPE" name="MAPPING" value="mysql_id" show="false"/>
-    <elementParameter field="TEXT" name="PROPERTIES" value="&quot;noDatetimeStringSync=true&quot;" show="false"/>
-    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
-    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
-    <elementParameter field="CHECK" name="ENABLE_STREAM" value="false"/>
-    <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="true"/>
-    <elementParameter field="TABLE" name="TRIM_COLUMN" show="false">
-      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Company"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="BK_Company_CONO_S21"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Currency"/>
-      <elementValue elementRef="TRIM" value="false"/>
-    </elementParameter>
-    <elementParameter field="TEXT" name="LABEL" value="DimCompany"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tMysqlInput_5">
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Company" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="BK_Company_CONO_S21" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Currency" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-    </metadata>
-  </node>
-  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="1568" posY="224">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMap_16" show="false"/>
-    <elementParameter field="EXTERNAL" name="MAP" value=""/>
-    <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
-    <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="_lKwwIEFJEeeRoenzfjJKUQ-tMap_16-PREVIEW.bmp"/>
-    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
-    <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
-    <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
-    <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
-    <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="false"/>
-    <elementParameter field="TEXT" name="LABEL" value="GetSalesOrderDetail"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="WithSalesOrderDetail">
-      <column comment="" key="true" length="2" name="CONO55" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="true" length="7" name="ORDN55" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="true" length="4" name="ORDL55" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Product" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Stockroom" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Geography_ShipDestination" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_Transaction" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_USD" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_Functional" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Company" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_SalesOrderDetail" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-    </metadata>
-    <nodeData xsi:type="MapperData">
-      <uiProperties/>
-      <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
-      <outputTables sizeState="INTERMEDIATE" name="WithSalesOrderDetail">
-        <mapperTableEntries name="CONO55" expression="Company.CONO55 " type="id_String"/>
-        <mapperTableEntries name="ORDN55" expression="Company.ORDN55 " type="id_String"/>
-        <mapperTableEntries name="ORDL55" expression="Company.ORDL55 " type="id_Float"/>
-        <mapperTableEntries name="SK_Customer" expression="Company.SK_Customer " type="id_Integer"/>
-        <mapperTableEntries name="SK_Product" expression="Company.SK_Product " type="id_Integer"/>
-        <mapperTableEntries name="SK_Stockroom" expression="Company.SK_Stockroom " type="id_Integer"/>
-        <mapperTableEntries name="SK_Geography_ShipDestination" expression="Company.SK_Geography_ShipDestination " type="id_Integer"/>
-        <mapperTableEntries name="SK_Currency_Transaction" expression="Company.SK_Currency_Transaction " type="id_Integer"/>
-        <mapperTableEntries name="SK_Currency_USD" expression="Company.SK_Currency_USD " type="id_Integer"/>
-        <mapperTableEntries name="SK_Currency_Functional" expression="Company.SK_Currency_Functional" type="id_Integer"/>
-        <mapperTableEntries name="SK_Company" expression="Company.SK_Company " type="id_Integer"/>
-        <mapperTableEntries name="SK_SalesOrderDetail" expression="DimSalesOrderDetail.SK_SalesOrderDetail " type="id_Integer"/>
-        <mapperTableEntries name="SalesUnit" expression="Company.SalesUnit " type="id_Float" nullable="true"/>
-      </outputTables>
-      <inputTables sizeState="INTERMEDIATE" name="Company" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
-        <mapperTableEntries name="CONO55" type="id_String"/>
-        <mapperTableEntries name="ORDN55" type="id_String"/>
-        <mapperTableEntries name="ORDL55" type="id_Float"/>
-        <mapperTableEntries name="SK_Customer" type="id_Integer"/>
-        <mapperTableEntries name="SK_Product" type="id_Integer"/>
-        <mapperTableEntries name="SK_Stockroom" type="id_Integer"/>
-        <mapperTableEntries name="SK_Geography_ShipDestination" type="id_Integer"/>
-        <mapperTableEntries name="SK_Currency_Transaction" type="id_Integer"/>
-        <mapperTableEntries name="SK_Currency_USD" type="id_Integer"/>
-        <mapperTableEntries name="SK_Currency_Functional" type="id_Integer"/>
-        <mapperTableEntries name="SK_Company" type="id_Integer"/>
-        <mapperTableEntries name="OrderSourceCode" type="id_String"/>
-        <mapperTableEntries name="OrderLineTypeCode" type="id_String"/>
-        <mapperTableEntries name="OrderStatusCode" type="id_String"/>
-        <mapperTableEntries name="OrderCancellationReasonCode" type="id_String"/>
-        <mapperTableEntries name="OrderTypeCode" type="id_String"/>
-        <mapperTableEntries name="OrderSuspenseCode" type="id_String"/>
-        <mapperTableEntries name="CustomProductHoldCode" type="id_String"/>
-        <mapperTableEntries name="CustomProductHoldDescription" type="id_String"/>
-        <mapperTableEntries name="SalesUnit" type="id_Float" nullable="true"/>
-      </inputTables>
-      <inputTables sizeState="INTERMEDIATE" name="DimSalesOrderDetail" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
-        <mapperTableEntries name="SK_SalesOrderDetail" type="id_Integer"/>
-        <mapperTableEntries name="OrderSourceCode" expression="Company.OrderSourceCode " type="id_String" operator="="/>
-        <mapperTableEntries name="OrderLineTypeCode" expression="Company.OrderLineTypeCode " type="id_String" operator="="/>
-        <mapperTableEntries name="OrderStatusCode" expression="Company.OrderStatusCode " type="id_String" operator="="/>
-        <mapperTableEntries name="OrderCancellationReasonCode" expression="Company.OrderCancellationReasonCode " type="id_String" operator="="/>
-        <mapperTableEntries name="OrderTypeCode" expression="Company.OrderTypeCode " type="id_String" operator="="/>
-        <mapperTableEntries name="OrderSuspenseCode" expression="Company.OrderSuspenseCode " type="id_String" operator="="/>
-        <mapperTableEntries name="CustomProductHoldCode" expression="Company.CustomProductHoldCode " type="id_String" operator="="/>
-        <mapperTableEntries name="CustomProductHoldDescription" expression="Company.CustomProductHoldDescription " type="id_String" operator="="/>
-        <mapperTableEntries name="CONO" expression="Company.CONO55 " type="id_String" operator="="/>
-      </inputTables>
-    </nodeData>
-  </node>
-  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1568" posY="64">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_21" show="false"/>
-    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
-    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
-    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_2"/>
-    <elementParameter field="TEXT" name="HOST" value="&quot;&quot;" show="false"/>
-    <elementParameter field="TEXT" name="PORT" value="&quot;3306&quot;" show="false"/>
-    <elementParameter field="TEXT" name="DBNAME" value="&quot;&quot;" show="false"/>
-    <elementParameter field="TEXT" name="TYPE" value="MySQL" show="false"/>
-    <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Dim_SalesOrderDetail&quot;"/>
-    <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
-    <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
-    <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
-    <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT SK_SalesOrderDetail, OrderSourceCode, OrderLineTypeCode, OrderStatusCode, OrderCancellationReasonCode, OrderTypeCode, OrderSuspenseCode, CustomProductHoldCode, CustomProductHoldDescription, CONO&#xD;&#xA;FROM Dim_SalesOrderDetail&#xD;&#xA;&quot;"/>
-    <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
-    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
-    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
-    <elementParameter field="MAPPING_TYPE" name="MAPPING" value="mysql_id" show="false"/>
-    <elementParameter field="TEXT" name="PROPERTIES" value="&quot;noDatetimeStringSync=true&quot;" show="false"/>
-    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
-    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
-    <elementParameter field="CHECK" name="ENABLE_STREAM" value="false"/>
-    <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="true"/>
-    <elementParameter field="TABLE" name="TRIM_COLUMN" show="false">
-      <elementValue elementRef="SCHEMA_COLUMN" value="SK_SalesOrderDetail"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="OrderSourceCode"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="OrderLineTypeCode"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="OrderStatusCode"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="OrderCancellationReasonCode"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="OrderTypeCode"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="OrderSuspenseCode"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="CustomProductHoldCode"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="CustomProductHoldDescription"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="CONO"/>
-      <elementValue elementRef="TRIM" value="false"/>
-    </elementParameter>
-    <elementParameter field="TEXT" name="LABEL" value="Dim_SalesOrderDetail"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tMysqlInput_21">
-      <column comment="" defaultValue="" key="false" length="11" name="SK_SalesOrderDetail" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="OrderSourceCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="OrderLineTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="OrderStatusCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="OrderCancellationReasonCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="OrderTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="OrderSuspenseCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="7" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="60" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="CONO" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-    </metadata>
-  </node>
-  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="1792" posY="224">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMap_17" show="false"/>
-    <elementParameter field="EXTERNAL" name="MAP" value=""/>
-    <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
-    <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="_lKwwIEFJEeeRoenzfjJKUQ-tMap_17-PREVIEW.bmp"/>
-    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
-    <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
-    <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
-    <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
-    <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="false"/>
-    <elementParameter field="TEXT" name="LABEL" value="GetSourceSystem"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="WithSourceSystem">
-      <column comment="" key="true" length="2" name="CONO55" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="true" length="7" name="ORDN55" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="true" length="4" name="ORDL55" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Product" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Stockroom" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Geography_ShipDestination" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_Transaction" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_USD" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_Functional" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Company" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_SalesOrderDetail" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-    </metadata>
-    <nodeData xsi:type="MapperData">
-      <uiProperties/>
-      <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
-      <outputTables sizeState="INTERMEDIATE" name="WithSourceSystem">
-        <mapperTableEntries name="CONO55" expression="WithSalesOrderDetail.CONO55 " type="id_String"/>
-        <mapperTableEntries name="ORDN55" expression="WithSalesOrderDetail.ORDN55 " type="id_String"/>
-        <mapperTableEntries name="ORDL55" expression="WithSalesOrderDetail.ORDL55 " type="id_Float"/>
-        <mapperTableEntries name="SK_Customer" expression="WithSalesOrderDetail.SK_Customer " type="id_Integer"/>
-        <mapperTableEntries name="SK_Product" expression="WithSalesOrderDetail.SK_Product " type="id_Integer"/>
-        <mapperTableEntries name="SK_Stockroom" expression="WithSalesOrderDetail.SK_Stockroom " type="id_Integer"/>
-        <mapperTableEntries name="SK_Geography_ShipDestination" expression="WithSalesOrderDetail.SK_Geography_ShipDestination " type="id_Integer"/>
-        <mapperTableEntries name="SK_Currency_Transaction" expression="WithSalesOrderDetail.SK_Currency_Transaction " type="id_Integer"/>
-        <mapperTableEntries name="SK_Currency_USD" expression="WithSalesOrderDetail.SK_Currency_USD " type="id_Integer"/>
-        <mapperTableEntries name="SK_Currency_Functional" expression="WithSalesOrderDetail.SK_Currency_Functional" type="id_Integer"/>
-        <mapperTableEntries name="SK_Company" expression="WithSalesOrderDetail.SK_Company " type="id_Integer"/>
-        <mapperTableEntries name="SK_SalesOrderDetail" expression="WithSalesOrderDetail.SK_SalesOrderDetail " type="id_Integer"/>
-        <mapperTableEntries name="SalesUnit" expression="WithSalesOrderDetail.SalesUnit " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="SK_SourceSystem" expression="SourceSystem.SK_SourceSystem " type="id_Integer"/>
-      </outputTables>
-      <inputTables sizeState="INTERMEDIATE" name="WithSalesOrderDetail" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
-        <mapperTableEntries name="CONO55" type="id_String"/>
-        <mapperTableEntries name="ORDN55" type="id_String"/>
-        <mapperTableEntries name="ORDL55" type="id_Float"/>
-        <mapperTableEntries name="SK_Customer" type="id_Integer"/>
-        <mapperTableEntries name="SK_Product" type="id_Integer"/>
-        <mapperTableEntries name="SK_Stockroom" type="id_Integer"/>
-        <mapperTableEntries name="SK_Geography_ShipDestination" type="id_Integer"/>
-        <mapperTableEntries name="SK_Currency_Transaction" type="id_Integer"/>
-        <mapperTableEntries name="SK_Currency_USD" type="id_Integer"/>
-        <mapperTableEntries name="SK_Currency_Functional" type="id_Integer"/>
-        <mapperTableEntries name="SK_Company" type="id_Integer"/>
-        <mapperTableEntries name="SK_SalesOrderDetail" type="id_Integer"/>
-        <mapperTableEntries name="SalesUnit" type="id_Float" nullable="true"/>
-      </inputTables>
-      <inputTables sizeState="INTERMEDIATE" name="SourceSystem" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
-        <mapperTableEntries name="SK_SourceSystem" type="id_Integer"/>
-        <mapperTableEntries name="SourceSystemName" type="id_String" nullable="true"/>
-        <mapperTableEntries name="SourceSystemShortName" expression="&quot;S21&quot;" type="id_String" nullable="true"/>
-      </inputTables>
-    </nodeData>
-  </node>
-  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1792" posY="64">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_18" show="false"/>
-    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
-    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
-    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_2"/>
-    <elementParameter field="TEXT" name="HOST" value="&quot;&quot;" show="false"/>
-    <elementParameter field="TEXT" name="PORT" value="&quot;3306&quot;" show="false"/>
-    <elementParameter field="TEXT" name="DBNAME" value="&quot;&quot;" show="false"/>
-    <elementParameter field="TEXT" name="TYPE" value="MySQL" show="false"/>
-    <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Meta_SourceSystemDimension&quot;"/>
-    <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
-    <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
-    <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
-    <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT * FROM Meta_SourceSystemDimension&quot;"/>
-    <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
-    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
-    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
-    <elementParameter field="MAPPING_TYPE" name="MAPPING" value="mysql_id" show="false"/>
-    <elementParameter field="TEXT" name="PROPERTIES" value="&quot;noDatetimeStringSync=true&quot;" show="false"/>
-    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
-    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
-    <elementParameter field="CHECK" name="ENABLE_STREAM" value="false"/>
-    <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="false"/>
-    <elementParameter field="TABLE" name="TRIM_COLUMN">
-      <elementValue elementRef="SCHEMA_COLUMN" value="SK_SourceSystem"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SourceSystemName"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SourceSystemShortName"/>
-      <elementValue elementRef="TRIM" value="false"/>
-    </elementParameter>
-    <elementParameter field="TEXT" name="LABEL" value="MetaSourceSystemDimension"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tMysqlInput_18">
-      <column comment="" defaultValue="" key="true" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="100" name="SourceSystemName" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="10" name="SourceSystemShortName" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-    </metadata>
-  </node>
-  <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="2048" posY="224">
+  <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="448" posY="64">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlOutput_9" show="false"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
@@ -1369,72 +372,37 @@
     <elementParameter field="TABLE" name="ADD_COLS"/>
     <elementParameter field="CHECK" name="USE_FIELD_OPTIONS" value="false"/>
     <elementParameter field="TABLE" name="FIELD_OPTIONS" show="false">
-      <elementValue elementRef="SCHEMA_COLUMN" value="CONO55"/>
-      <elementValue elementRef="UPDATE_KEY" value="false"/>
-      <elementValue elementRef="DELETE_KEY" value="false"/>
-      <elementValue elementRef="UPDATABLE" value="true"/>
-      <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ORDN55"/>
-      <elementValue elementRef="UPDATE_KEY" value="false"/>
-      <elementValue elementRef="DELETE_KEY" value="false"/>
-      <elementValue elementRef="UPDATABLE" value="true"/>
-      <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ORDL55"/>
-      <elementValue elementRef="UPDATE_KEY" value="false"/>
-      <elementValue elementRef="DELETE_KEY" value="false"/>
-      <elementValue elementRef="UPDATABLE" value="true"/>
-      <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Customer"/>
-      <elementValue elementRef="UPDATE_KEY" value="false"/>
-      <elementValue elementRef="DELETE_KEY" value="false"/>
-      <elementValue elementRef="UPDATABLE" value="true"/>
-      <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Product"/>
-      <elementValue elementRef="UPDATE_KEY" value="false"/>
-      <elementValue elementRef="DELETE_KEY" value="false"/>
-      <elementValue elementRef="UPDATABLE" value="true"/>
-      <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Stockroom"/>
-      <elementValue elementRef="UPDATE_KEY" value="false"/>
-      <elementValue elementRef="DELETE_KEY" value="false"/>
-      <elementValue elementRef="UPDATABLE" value="true"/>
-      <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Geography_ShipDestination"/>
-      <elementValue elementRef="UPDATE_KEY" value="false"/>
-      <elementValue elementRef="DELETE_KEY" value="false"/>
-      <elementValue elementRef="UPDATABLE" value="true"/>
-      <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Currency_Transaction"/>
-      <elementValue elementRef="UPDATE_KEY" value="false"/>
-      <elementValue elementRef="DELETE_KEY" value="false"/>
-      <elementValue elementRef="UPDATABLE" value="true"/>
-      <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Currency_USD"/>
-      <elementValue elementRef="UPDATE_KEY" value="false"/>
-      <elementValue elementRef="DELETE_KEY" value="false"/>
-      <elementValue elementRef="UPDATABLE" value="true"/>
-      <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Currency_Functional"/>
-      <elementValue elementRef="UPDATE_KEY" value="false"/>
-      <elementValue elementRef="DELETE_KEY" value="false"/>
-      <elementValue elementRef="UPDATABLE" value="true"/>
-      <elementValue elementRef="INSERTABLE" value="true"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="SK_Company"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SK_SalesOrderDetail"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="DD_OrderNumber"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SalesUnit"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="DD_OrderLineNumber"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SK_SourceSystem"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Date_SystemEntered"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="BK_Customer_CONO05_S21"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="BK_Customer_CUSN05_S21"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="BK_Customer_DSEQ05_S21"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
@@ -1449,36 +417,22 @@
     <elementParameter field="TEXT" name="LABEL" value="Staging"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tMysqlOutput_9">
-      <column comment="" key="true" length="2" name="CONO55" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="true" length="7" name="ORDN55" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="true" length="4" name="ORDL55" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Product" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Stockroom" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Geography_ShipDestination" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_Transaction" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_USD" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_Functional" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Company" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_SalesOrderDetail" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Company" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="true" length="50" name="DD_OrderNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="DD_OrderLineNumber" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="SK_Date_SystemEntered" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="2" name="BK_Customer_CONO05_S21" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="8" name="BK_Customer_CUSN05_S21" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="3" name="BK_Customer_DSEQ05_S21" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <metadata connector="REJECT" name="REJECT">
-      <column comment="" key="true" length="2" name="CONO55" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="true" length="7" name="ORDN55" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="true" length="4" name="ORDL55" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Product" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Stockroom" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Geography_ShipDestination" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_Transaction" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_USD" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_Functional" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_Company" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_SalesOrderDetail" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Company" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="true" length="50" name="DD_OrderNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="DD_OrderLineNumber" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="SK_Date_SystemEntered" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="2" name="BK_Customer_CONO05_S21" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="8" name="BK_Customer_CUSN05_S21" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="3" name="BK_Customer_DSEQ05_S21" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
@@ -1499,111 +453,12 @@
   <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tPostjob_1" offsetLabelX="0" offsetLabelY="0" source="tPostjob_1" target="tRunJob_2">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnComponentOk2" show="false"/>
   </connection>
-  <connection connectorName="FLOW" label="Product" lineStyle="0" metaname="tMysqlInput_4" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_4" target="tMap_15">
+  <connection connectorName="FLOW" label="WrongCustomerKeys" lineStyle="0" metaname="tMysqlInput_4" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_4" target="tMysqlOutput_9">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="Product" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="WrongCustomerKeys" show="false"/>
   </connection>
   <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlInput_4" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_4" target="tSetGlobalVar_1">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk7" show="false"/>
-  </connection>
-  <connection connectorName="FLOW" label="WithCustomer" lineStyle="0" metaname="WithCustomer" offsetLabelX="0" offsetLabelY="0" source="tMap_15" target="tMap_9">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="WithCustomer" show="false"/>
-  </connection>
-  <connection connectorName="FLOW" label="Customer" lineStyle="8" metaname="tMysqlInput_19" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_19" target="tMap_15">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="Customer" show="false"/>
-  </connection>
-  <connection connectorName="FLOW" label="Stockroom" lineStyle="0" metaname="Stockroom" offsetLabelX="0" offsetLabelY="0" source="tMap_9" target="tMap_14">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="Stockroom" show="false"/>
-  </connection>
-  <connection connectorName="FLOW" label="DimStockroom" lineStyle="8" metaname="tMysqlInput_11" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_11" target="tMap_9">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="DimStockroom" show="false"/>
-  </connection>
-  <connection connectorName="FLOW" label="WithGeography" lineStyle="0" metaname="WithGeography" offsetLabelX="0" offsetLabelY="0" source="tMap_14" target="tMap_8">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="WithGeography" show="false"/>
-  </connection>
-  <connection connectorName="FLOW" label="Geography" lineStyle="8" metaname="tMysqlInput_20" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_20" target="tMap_14">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="Geography" show="false"/>
-  </connection>
-  <connection connectorName="FLOW" label="Currency" lineStyle="0" metaname="Currency" offsetLabelX="0" offsetLabelY="0" source="tMap_8" target="tMap_2">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="Currency" show="false"/>
-  </connection>
-  <connection connectorName="FLOW" label="DimCurrencyTransaction" lineStyle="8" metaname="tMysqlInput_10" offsetLabelX="-50" offsetLabelY="-1" source="tMysqlInput_10" target="tMap_8">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="DimCurrencyTransaction" show="false"/>
-  </connection>
-  <connection connectorName="FLOW" label="DimCurrencyUSD" lineStyle="8" metaname="tMysqlInput_13" offsetLabelX="42" offsetLabelY="1" source="tMysqlInput_13" target="tMap_8">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="DimCurrencyUSD" show="false"/>
-  </connection>
-  <connection connectorName="FLOW" label="Company" lineStyle="0" metaname="Company" offsetLabelX="0" offsetLabelY="0" source="tMap_2" target="tMap_16">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="Company" show="false"/>
-  </connection>
-  <connection connectorName="FLOW" label="DimCompany" lineStyle="8" metaname="tMysqlInput_5" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_5" target="tMap_2">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="DimCompany" show="false"/>
-  </connection>
-  <connection connectorName="FLOW" label="WithSalesOrderDetail" lineStyle="0" metaname="WithSalesOrderDetail" offsetLabelX="0" offsetLabelY="0" source="tMap_16" target="tMap_17">
-    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
-      <elementValue elementRef="TRACE_COLUMN" value="ORDL55"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="SalesUnit"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="SK_Currency_Functional"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="CONO55"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="ORDN55"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-    </elementParameter>
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="WithSalesOrderDetail" show="false"/>
-  </connection>
-  <connection connectorName="FLOW" label="DimSalesOrderDetail" lineStyle="8" metaname="tMysqlInput_21" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_21" target="tMap_16">
-    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
-      <elementValue elementRef="TRACE_COLUMN" value="CONO"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-    </elementParameter>
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="DimSalesOrderDetail" show="false"/>
-  </connection>
-  <connection connectorName="FLOW" label="WithSourceSystem" lineStyle="0" metaname="WithSourceSystem" offsetLabelX="0" offsetLabelY="0" source="tMap_17" target="tMysqlOutput_9">
-    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
-      <elementValue elementRef="TRACE_COLUMN" value="ORDL55"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="SalesUnit"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="SK_Currency_Functional"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="CONO55"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="ORDN55"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-    </elementParameter>
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="WithSourceSystem" show="false"/>
-  </connection>
-  <connection connectorName="FLOW" label="SourceSystem" lineStyle="8" metaname="tMysqlInput_18" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_18" target="tMap_17">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="SourceSystem" show="false"/>
   </connection>
   <subjob>
     <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" value="true" show="false"/>
