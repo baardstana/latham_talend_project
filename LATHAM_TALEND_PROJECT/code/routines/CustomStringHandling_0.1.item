@@ -89,7 +89,7 @@ public class CustomStringHandling {
      * {example} transformDateToKey('2016-03-02') # 20160302
      */
     public static int transformDateToKey(Date dateToTransform) {
-        return (dateToTransform == null || TalendDate.getPartOfDate("YEAR",dateToTransform) == 1969) ? 99990101 : 
+        return (dateToTransform == null || TalendDate.getPartOfDate("YEAR",dateToTransform) == 1969 || TalendDate.getPartOfDate("YEAR",dateToTransform) == 1900) ? 99990101 : 
         	10000 * TalendDate.getPartOfDate("YEAR",dateToTransform) 
         	+ 100 * TalendDate.getPartOfDate("MONTH",dateToTransform) + 100
         	+ TalendDate.getPartOfDate("DAY_OF_MONTH",dateToTransform);
