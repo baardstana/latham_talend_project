@@ -980,7 +980,7 @@
       <column comment="" key="false" length="11" name="ASPChange" nullable="true" pattern="" precision="3" sourceType="" type="id_Float" originalLength="11" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var">
         <mapperTableEntries name="CY_ASP" expression="CustomStringHandling.divideValues(PreviousYearUnit.CurrentYearSales, PreviousYearUnit.CurrentYearUnits) " type="id_Float" nullable="true"/>
         <mapperTableEntries name="PY_ASP" expression="CustomStringHandling.divideValues(PreviousYearUnit.PreviousYearSales, PreviousYearUnit.PreviousYearUnits) " type="id_Float" nullable="true"/>
@@ -1176,7 +1176,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT DISTINCT d.SK_Customer&#xD;&#xA;&#x9;, d2.SK_Customer AS SK_Customer_Current&#xD;&#xA;FROM Dim_Customer AS d&#xD;&#xA;INNER JOIN Dim_Customer AS d2&#xD;&#xA;&#x9;ON d.BK_Customer_CONO05_S21 = d2.BK_Customer_CONO05_S21&#xD;&#xA;    AND d.BK_Customer_CUSN05_S21 =d2.BK_Customer_CUSN05_S21&#xD;&#xA;    AND d.BK_Customer_DSEQ05_S21 = d2.BK_Customer_DSEQ05_S21&#xD;&#xA;    AND d2.IsCurrent = 1&#xD;&#xA;    AND d.SK_Customer &lt;> d2.SK_Customer&#xD;&#xA;WHERE d.BK_Customer_CONO05_S21 IS NOT NULL&#xD;&#xA;&#x9;AND d.CustomerType &lt;> 'Intercompany'&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT DISTINCT d.SK_Customer&#xD;&#xA;&#x9;, d2.SK_Customer AS SK_Customer_Current&#xD;&#xA;FROM Dim_Customer AS d&#xD;&#xA;INNER JOIN Dim_Customer AS d2&#xD;&#xA;&#x9;ON d.BK_Customer_CONO05_S21 = d2.BK_Customer_CONO05_S21&#xD;&#xA;    AND d.BK_Customer_CUSN05_S21 =d2.BK_Customer_CUSN05_S21&#xD;&#xA;    AND d.BK_Customer_DSEQ05_S21 = d2.BK_Customer_DSEQ05_S21&#xD;&#xA;    AND d2.IsCurrent = 1&#xD;&#xA;    AND d.SK_Customer &lt;> d2.SK_Customer&#xD;&#xA;WHERE d.BK_Customer_CONO05_S21 IS NOT NULL&#xD;&#xA;&#x9;AND d.CustomerType &lt;> 'Intercompany'&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;and d.SK_Customer = 25&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -1229,7 +1229,7 @@
       <column comment="" defaultValue="" key="false" length="11" name="ASPChange" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="11" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="OldCases">
         <mapperTableEntries name="SK_Customer" expression="OldCustomers.SK_Customer " type="id_Integer"/>
@@ -1251,7 +1251,7 @@
         <mapperTableEntries name="SK_Customer" type="id_Integer"/>
         <mapperTableEntries name="SK_Customer_Current" type="id_Integer"/>
       </inputTables>
-      <inputTables sizeState="INTERMEDIATE" name="CurrentCases" activateCondensedTool="true" matchingMode="FIRST_MATCH" lookupMode="LOAD_ONCE" innerJoin="true">
+      <inputTables sizeState="INTERMEDIATE" name="CurrentCases" activateCondensedTool="true" matchingMode="ALL_MATCHES" lookupMode="LOAD_ONCE" innerJoin="true">
         <mapperTableEntries name="SK_Customer" expression="OldCustomers.SK_Customer_Current " type="id_Integer" operator="="/>
         <mapperTableEntries name="ProductMajorCode" type="id_String"/>
         <mapperTableEntries name="FiscalYear" type="id_Integer"/>
