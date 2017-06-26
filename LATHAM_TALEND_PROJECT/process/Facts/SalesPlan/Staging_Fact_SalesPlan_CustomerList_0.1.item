@@ -979,8 +979,24 @@
       <column comment="" defaultValue="" key="false" length="15" name="PreviousYearASP" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
       <column comment="" key="false" length="11" name="ASPChange" nullable="true" pattern="" precision="3" sourceType="" type="id_Float" originalLength="11" usefulColumn="true"/>
     </metadata>
+    <metadata connector="FLOW" name="out1">
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="true" length="7" name="ProductMajorCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="4" name="FiscalYear" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="4" name="FiscalPreviousYear" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="1" name="ExistingCustomerFlag" nullable="false" pattern="" precision="0" sourceType="BIGINT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="1" name="NewCustomerFlag" nullable="false" pattern="" precision="0" sourceType="BIGINT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="1" name="AttritionFlag" nullable="false" pattern="" precision="0" sourceType="BIGINT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="CurrentYearSales" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="CurrentYearUnits" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="11" usefulColumn="true"/>
+      <column comment="" key="false" length="15" name="CurrentYearASP" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="15" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="PreviousYearSales" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="PreviousYearUnits" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="11" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="PreviousYearASP" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="ASPChange" nullable="true" pattern="" precision="3" sourceType="" type="id_Float" originalLength="11" usefulColumn="true"/>
+    </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var">
         <mapperTableEntries name="CY_ASP" expression="CustomStringHandling.divideValues(PreviousYearUnit.CurrentYearSales, PreviousYearUnit.CurrentYearUnits) " type="id_Float" nullable="true"/>
         <mapperTableEntries name="PY_ASP" expression="CustomStringHandling.divideValues(PreviousYearUnit.PreviousYearSales, PreviousYearUnit.PreviousYearUnits) " type="id_Float" nullable="true"/>
@@ -1000,6 +1016,22 @@
         <mapperTableEntries name="PreviousYearUnits" expression="PreviousYearUnit.PreviousYearUnits " type="id_Float" nullable="true"/>
         <mapperTableEntries name="PreviousYearASP" expression="Var.PY_ASP " type="id_Float" nullable="true"/>
         <mapperTableEntries name="ASPChange" expression="Relational.ISNULL(Var.CY_ASP) || Relational.ISNULL(Var.PY_ASP) || Var.CY_ASP == 0 || Var.PY_ASP == 0 ? null : &#xD;&#xA;(Var.CY_ASP - Var.PY_ASP) / Var.PY_ASP " type="id_Float" nullable="true"/>
+      </outputTables>
+      <outputTables sizeState="INTERMEDIATE" name="out1" activateExpressionFilter="true" activateCondensedTool="true" reject="true">
+        <mapperTableEntries name="SK_Customer" expression="PreviousYearUnit.SK_Customer  " type="id_Integer"/>
+        <mapperTableEntries name="ProductMajorCode" expression="PreviousYearUnit.ProductMajorCode  " type="id_String"/>
+        <mapperTableEntries name="FiscalYear" expression="PreviousYearUnit.FiscalYear  " type="id_Integer"/>
+        <mapperTableEntries name="FiscalPreviousYear" expression="PreviousYearUnit.FiscalPreviousYear  " type="id_Integer"/>
+        <mapperTableEntries name="ExistingCustomerFlag" expression="PreviousYearUnit.CurrentYearFlag == 1 &amp;&amp; PreviousYearUnit.PreviousYearFlag == 1 ? 1 : 0  " type="id_Integer"/>
+        <mapperTableEntries name="NewCustomerFlag" expression="PreviousYearUnit.CurrentYearFlag == 1 &amp;&amp; PreviousYearUnit.PreviousYearFlag == 0 ? 1 : 0  " type="id_Integer"/>
+        <mapperTableEntries name="AttritionFlag" expression="PreviousYearUnit.CurrentYearFlag == 0 &amp;&amp; PreviousYearUnit.PreviousYearFlag == 1 ? 1 : 0  " type="id_Integer"/>
+        <mapperTableEntries name="CurrentYearSales" expression="PreviousYearUnit.CurrentYearSales  " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="CurrentYearUnits" expression="PreviousYearUnit.CurrentYearUnits  " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="CurrentYearASP" expression="Var.CY_ASP  " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="PreviousYearSales" expression="PreviousYearUnit.PreviousYearSales  " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="PreviousYearUnits" expression="PreviousYearUnit.PreviousYearUnits  " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="PreviousYearASP" expression="Var.PY_ASP  " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="ASPChange" expression="Relational.ISNULL(Var.CY_ASP) || Relational.ISNULL(Var.PY_ASP) || Var.CY_ASP == 0 || Var.PY_ASP == 0 ? null : &#xD;&#xA;(Var.CY_ASP - Var.PY_ASP) / Var.PY_ASP  " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="PreviousYearUnit" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Customer" type="id_Integer"/>
@@ -1158,6 +1190,69 @@
       <column comment="" key="false" length="11" name="ASPChange" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="11" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="2240" posY="352">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tLogRow_1" show="false"/>
+    <elementParameter field="RADIO" name="BASIC_MODE" value="true"/>
+    <elementParameter field="RADIO" name="TABLE_PRINT" value="false"/>
+    <elementParameter field="RADIO" name="VERTICAL" value="false"/>
+    <elementParameter field="RADIO" name="PRINT_UNIQUE" value="true" show="false"/>
+    <elementParameter field="RADIO" name="PRINT_LABEL" value="false" show="false"/>
+    <elementParameter field="RADIO" name="PRINT_UNIQUE_LABEL" value="false" show="false"/>
+    <elementParameter field="TEXT" name="FIELDSEPARATOR" value="&quot;|&quot;"/>
+    <elementParameter field="CHECK" name="PRINT_HEADER" value="false"/>
+    <elementParameter field="CHECK" name="PRINT_UNIQUE_NAME" value="false"/>
+    <elementParameter field="CHECK" name="PRINT_COLNAMES" value="false"/>
+    <elementParameter field="CHECK" name="USE_FIXED_LENGTH" value="false"/>
+    <elementParameter field="TABLE" name="LENGTHS" show="false">
+      <elementValue elementRef="SCHEMA_COLUMN" value="SK_Customer"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ProductMajorCode"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="FiscalYear"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="FiscalPreviousYear"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ExistingCustomerFlag"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="NewCustomerFlag"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="AttritionFlag"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CurrentYearSales"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CurrentYearUnits"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CurrentYearASP"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="PreviousYearSales"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="PreviousYearUnits"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="PreviousYearASP"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ASPChange"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="PRINT_CONTENT_WITH_LOG4J" value="true"/>
+    <elementParameter field="TEXT" name="SCHEMA_OPT_NUM" value="100" show="false"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tLogRow_1">
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="true" length="7" name="ProductMajorCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="4" name="FiscalYear" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="4" name="FiscalPreviousYear" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="1" name="ExistingCustomerFlag" nullable="false" pattern="" precision="0" sourceType="BIGINT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="1" name="NewCustomerFlag" nullable="false" pattern="" precision="0" sourceType="BIGINT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="1" name="AttritionFlag" nullable="false" pattern="" precision="0" sourceType="BIGINT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="CurrentYearSales" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="CurrentYearUnits" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="11" usefulColumn="true"/>
+      <column comment="" key="false" length="15" name="CurrentYearASP" nullable="true" pattern="" precision="2" sourceType="" type="id_Float" originalLength="15" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="PreviousYearSales" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="PreviousYearUnits" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="11" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="PreviousYearASP" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="15" usefulColumn="true"/>
+      <column comment="" key="false" length="11" name="ASPChange" nullable="true" pattern="" precision="3" sourceType="" type="id_Float" originalLength="11" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="128" posY="416">
@@ -1623,7 +1718,7 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="PreviousYearUnit" show="false"/>
   </connection>
-  <connection connectorName="FLOW" label="CustomerCases" lineStyle="0" metaname="CustomerCases" offsetLabelX="0" offsetLabelY="0" source="tMap_5" target="tMysqlOutput_1">
+  <connection connectorName="FLOW" label="CustomerCases" lineStyle="0" metaname="CustomerCases" offsetLabelX="0" offsetLabelY="0" outputId="1" source="tMap_5" target="tMysqlOutput_1">
     <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
       <elementValue elementRef="TRACE_COLUMN" value="PreviousYearASP"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
@@ -1655,6 +1750,10 @@
     </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="CustomerCases" show="false"/>
+  </connection>
+  <connection connectorName="FLOW" label="out1" lineStyle="0" metaname="out1" offsetLabelX="0" offsetLabelY="0" outputId="2" source="tMap_5" target="tLogRow_1">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="out1" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="OldCustomers" lineStyle="0" metaname="tMysqlInput_8" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_8" target="tMap_8">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
