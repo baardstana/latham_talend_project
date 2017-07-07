@@ -157,7 +157,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT i20.CONO20, i20.STRC20, i20.STRN20, i20.DOCG20&#xD;&#xA;&#x9;,i13.GRPN13&#xD;&#xA;    ,ila.ACTVLA, ila.LOC1LA&#xD;&#xA;    ,o90.WNAM90, o90.WAD190, o90.WAD290, o90.WAD390, o90.WPC190, o90.WPC290, o90.WAD490, o90.WAD590, o90.PHON90&#xD;&#xA;    ,m78.MODN78&#xD;&#xA;    ,m91.PRMD91&#xD;&#xA;    ,i15.VATC15, i15.PRMD15&#xD;&#xA;    ,'S21' AS SourceSystemShortName&#xD;&#xA;FROM Extract_INP20_S21 AS i20&#xD;&#xA;LEFT JOIN Extract_INP13_S21 AS i13&#xD;&#xA;&#x9;ON i20.CONO20 = i13.CONO13&#xD;&#xA;    AND i20.DOCG20 = i13.DOCG13&#xD;&#xA;LEFT JOIN Extract_INPLA_S21 AS ila&#xD;&#xA;&#x9;ON i20.CONO20 = ila.CONOLA&#xD;&#xA;    AND i20.STRC20 = ila.STRCLA&#xD;&#xA;LEFT JOIN Extract_OEP90_S21 AS o90&#xD;&#xA;&#x9;ON i20.CONO20 = o90.CONO90&#xD;&#xA;    AND i20.STRC20 = o90.LOCD90&#xD;&#xA;LEFT JOIN Extract_MSP78_S21 AS m78&#xD;&#xA;&#x9;ON i20.CONO20 = m78.CONO78&#xD;&#xA;    AND i20.STRC20 = m78.PSTR78&#xD;&#xA;    AND m78.MTYP78 = '2'&#xD;&#xA;    AND m78.ITEM78 = ''&#xD;&#xA;LEFT JOIN Extract_MSP91_S21 AS m91&#xD;&#xA;&#x9;ON m78.CONO78 = m91.CONO91&#xD;&#xA;    AND m91.PRMT91 = 'MODN'&#xD;&#xA;    AND CONCAT(MODN78,'      MP') = m91.PRMK91&#xD;&#xA;LEFT JOIN Extract_INP15_PPR_S21 AS i15&#xD;&#xA;&#x9;ON m78.CONO78 = i15.CONO15&#xD;&#xA;    AND m78.MODN78 = i15.PSAR15&#xD;&#xA;    AND i15.PRMT15 = '#PPR'&#xD;&#xA;WHERE BINARY i20.CONO20 IN ('LO','TI')&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT i20.CONO20, i20.STRC20, i20.STRN20, i20.DOCG20, i20.DEPC20&#xD;&#xA;&#x9;,i13.GRPN13&#xD;&#xA;    ,ila.ACTVLA, ila.LOC1LA&#xD;&#xA;    ,o90.WNAM90, o90.WAD190, o90.WAD290, o90.WAD390, o90.WPC190, o90.WPC290, o90.WAD490, o90.WAD590, o90.PHON90&#xD;&#xA;    ,m78.MODN78&#xD;&#xA;    ,m91.PRMD91&#xD;&#xA;    ,i15.VATC15, i15.PRMD15, i15dept.PRMD15&#xD;&#xA;    ,'S21' AS SourceSystemShortName&#xD;&#xA;FROM Extract_INP20_S21 AS i20&#xD;&#xA;LEFT JOIN Extract_INP13_S21 AS i13&#xD;&#xA;&#x9;ON i20.CONO20 = i13.CONO13&#xD;&#xA;    AND i20.DOCG20 = i13.DOCG13&#xD;&#xA;LEFT JOIN Extract_INPLA_S21 AS ila&#xD;&#xA;&#x9;ON i20.CONO20 = ila.CONOLA&#xD;&#xA;    AND i20.STRC20 = ila.STRCLA&#xD;&#xA;LEFT JOIN Extract_OEP90_S21 AS o90&#xD;&#xA;&#x9;ON i20.CONO20 = o90.CONO90&#xD;&#xA;    AND i20.STRC20 = o90.LOCD90&#xD;&#xA;LEFT JOIN Extract_MSP78_S21 AS m78&#xD;&#xA;&#x9;ON i20.CONO20 = m78.CONO78&#xD;&#xA;    AND i20.STRC20 = m78.PSTR78&#xD;&#xA;    AND m78.MTYP78 = '2'&#xD;&#xA;    AND m78.ITEM78 = ''&#xD;&#xA;LEFT JOIN Extract_MSP91_S21 AS m91&#xD;&#xA;&#x9;ON m78.CONO78 = m91.CONO91&#xD;&#xA;    AND m91.PRMT91 = 'MODN'&#xD;&#xA;    AND CONCAT(MODN78,'      MP') = m91.PRMK91&#xD;&#xA;LEFT JOIN Extract_INP15_PPR_S21 AS i15&#xD;&#xA;&#x9;ON m78.CONO78 = i15.CONO15&#xD;&#xA;    AND m78.MODN78 = i15.PSAR15&#xD;&#xA;    AND i15.PRMT15 = '#PPR'&#xD;&#xA;LEFT JOIN Extract_INP15DEPT_S21 AS i15dept&#xD;&#xA;&#x9;ON i20.CONO20 = i15dept.CONO15&#xD;&#xA;    AND i20.DEPC20 = i15dept.PSAR15&#xD;&#xA;    AND i15.PRMT15 = 'DEPT'&#xD;&#xA;WHERE BINARY i20.CONO20 IN ('LO','TI')&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -175,6 +175,8 @@
       <elementValue elementRef="SCHEMA_COLUMN" value="STRN20"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="DOCG20"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="DEPC20"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="GRPN13"/>
       <elementValue elementRef="TRIM" value="false"/>
@@ -208,16 +210,19 @@
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="PRMD15"/>
       <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="PRMD151"/>
+      <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="SourceSystemShortName"/>
       <elementValue elementRef="TRIM" value="false"/>
     </elementParameter>
     <elementParameter field="TEXT" name="LABEL" value="InputStockroom"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tMysqlInput_1">
-      <column comment="" key="true" length="2" name="CONO20" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="true" length="2" name="STRC20" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="2" name="CONO20" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="2" name="STRC20" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="25" name="STRN20" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="10" name="DOCG20" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="3" name="DEPC20" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="35" name="GRPN13" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="1" name="ACTVLA" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="12" name="LOC1LA" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
@@ -234,7 +239,8 @@
       <column comment="" key="false" length="30" name="PRMD91" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="3" name="VATC15" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="30" name="PRMD15" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="10" name="SourceSystemShortName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="10" usefulColumn="true"/>
+      <column comment="" key="false" length="30" name="PRMD151" nullable="true" originalDbColumnName="PRMD15" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="3" name="SourceSystemShortName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="480" posY="288">
@@ -277,10 +283,12 @@
       <column comment="" defaultValue="'Unknown'" key="false" length="20" name="FacilityType" nullable="false" pattern="" precision="-1" sourceType="" type="id_String" originalLength="20" usefulColumn="true"/>
       <column comment="" defaultValue="'1900-01-01 00:00:00'" key="false" length="19" name="ValidFrom" nullable="false" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;" precision="0" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
       <column comment="" key="false" length="10" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="DepartmentCode" nullable="false" pattern="" precision="-1" sourceType="" type="id_String" originalLength="7" usefulColumn="true"/>
+      <column comment="" key="false" length="30" name="DepartmentName" nullable="false" pattern="" precision="-1" sourceType="" type="id_String" originalLength="30" usefulColumn="true"/>
       <additionalProperties key="Comment" value=""/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="StaginDimStockroom">
         <mapperTableEntries name="BK_Stockroom_CONO20_S21" expression="InputDimStockroom.CONO20 " type="id_String"/>
@@ -309,12 +317,15 @@
         <mapperTableEntries name="FacilityType" expression="&quot;N/A&quot;" type="id_String"/>
         <mapperTableEntries name="ValidFrom" expression="MetaNow.Now " type="id_Date"/>
         <mapperTableEntries name="SK_SourceSystem" expression="InputMetaSourceSystemDimension.SK_SourceSystem " type="id_Integer"/>
+        <mapperTableEntries name="DepartmentCode" expression="CustomStringHandling.replaceNullAndBlank(InputDimStockroom.DEPC20) " type="id_String"/>
+        <mapperTableEntries name="DepartmentName" expression="CustomStringHandling.replaceNullAndBlank( InputDimStockroom.PRMD151 )" type="id_String"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="InputDimStockroom" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="CONO20" type="id_String"/>
         <mapperTableEntries name="STRC20" type="id_String"/>
         <mapperTableEntries name="STRN20" type="id_String"/>
         <mapperTableEntries name="DOCG20" type="id_String"/>
+        <mapperTableEntries name="DEPC20" type="id_String"/>
         <mapperTableEntries name="GRPN13" type="id_String" nullable="true"/>
         <mapperTableEntries name="ACTVLA" type="id_String" nullable="true"/>
         <mapperTableEntries name="LOC1LA" type="id_String" nullable="true"/>
@@ -331,6 +342,7 @@
         <mapperTableEntries name="PRMD91" type="id_String" nullable="true"/>
         <mapperTableEntries name="VATC15" type="id_String" nullable="true"/>
         <mapperTableEntries name="PRMD15" type="id_String" nullable="true"/>
+        <mapperTableEntries name="PRMD151" type="id_String" nullable="true"/>
         <mapperTableEntries name="SourceSystemShortName" type="id_String"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="InputMetaSourceSystemDimension" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
@@ -582,6 +594,16 @@
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="DepartmentCode"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="DepartmentName"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
     </elementParameter>
     <elementParameter field="CHECK" name="USE_HINT_OPTIONS" value="false"/>
     <elementParameter field="TABLE" name="HINT_OPTIONS" show="false"/>
@@ -618,6 +640,8 @@
       <column comment="" defaultValue="'Unknown'" key="false" length="20" name="FacilityType" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="20" usefulColumn="true"/>
       <column comment="" defaultValue="'1900-01-01 00:00:00'" key="false" length="19" name="ValidFrom" nullable="false" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;" precision="0" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
       <column comment="" key="false" length="10" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="DepartmentCode" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
+      <column comment="" key="false" length="30" name="DepartmentName" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="30" usefulColumn="true"/>
       <additionalProperties key="Comment" value=""/>
     </metadata>
     <metadata connector="REJECT" label="Staging_Dim_Stockroom" name="REJECT">
@@ -647,6 +671,8 @@
       <column comment="" defaultValue="'Unknown'" key="false" length="20" name="FacilityType" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="20" usefulColumn="true"/>
       <column comment="" defaultValue="'1900-01-01 00:00:00'" key="false" length="19" name="ValidFrom" nullable="false" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;" precision="0" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
       <column comment="" key="false" length="10" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="DepartmentCode" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
+      <column comment="" key="false" length="30" name="DepartmentName" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="30" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <additionalProperties key="Comment" value=""/>
@@ -812,6 +838,12 @@
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
       <elementValue elementRef="TRACE_COLUMN" value="ThorPlantCode"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="DepartmentCode"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="DepartmentName"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
