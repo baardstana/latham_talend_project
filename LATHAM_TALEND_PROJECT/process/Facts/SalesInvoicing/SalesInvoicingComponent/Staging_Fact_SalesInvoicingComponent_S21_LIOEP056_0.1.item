@@ -303,7 +303,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT OEP70.CONO70&#xD;&#xA;&#x9;, OEP70.INVN70&#xD;&#xA;    , OEP70.ORDL70&#xD;&#xA;    , LIOEP056.PCAL56&#xD;&#xA;FROM Extract_OEP65_S21 AS OEP65&#xD;&#xA;INNER JOIN Extract_OEP70_S21 AS OEP70&#xD;&#xA;&#x9;ON OEP65.CONO65 = OEP70.CONO70&#xD;&#xA;&#x9;AND OEP65.INVN65 = OEP70.INVN70&#xD;&#xA;LEFT JOIN Extract_LIOEP056_S21 AS LIOEP056&#xD;&#xA;&#x9;ON OEP70.CONO70 = LIOEP056.CONO56&#xD;&#xA;    AND OEP70.ORDN70 = LIOEP056.ORDN56&#xD;&#xA;    AND OEP70.ORDL70 = LIOEP056.ORDL56&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT OEP70.CONO70&#xD;&#xA;&#x9;, OEP70.INVN70&#xD;&#xA;    , OEP70.ORDL70&#xD;&#xA;    , LIOEP056.PCAL56&#xD;&#xA;FROM Extract_OEP65_S21 AS OEP65&#xD;&#xA;INNER JOIN Extract_OEP70_S21 AS OEP70&#xD;&#xA;&#x9;ON OEP65.CONO65 = OEP70.CONO70&#xD;&#xA;&#x9;AND OEP65.INVN65 = OEP70.INVN70&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_S21_InvoiceList AS I&#xD;&#xA;&#x9;ON OEP70.CONO70 = I.CONO70&#xD;&#xA;&#x9;AND OEP70.INVN70 = I.INVN70&#xD;&#xA;    AND OEP70.ORDL70 = I.ORDL70&#xD;&#xA;LEFT JOIN Extract_LIOEP056_S21 AS LIOEP056&#xD;&#xA;&#x9;ON OEP70.CONO70 = LIOEP056.CONO56&#xD;&#xA;    AND OEP70.ORDN70 = LIOEP056.ORDN56&#xD;&#xA;    AND OEP70.ORDL70 = LIOEP056.ORDL56&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -394,7 +394,7 @@
       <column comment="" defaultValue="" key="false" length="15" name="InvoiceLineExtendedPromotionValueTransactionCurrency" nullable="true" pattern="" precision="5" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="RenamedLIOEP56">
         <mapperTableEntries name="CONO70" expression="UniqueRows.CONO70 " type="id_String"/>
