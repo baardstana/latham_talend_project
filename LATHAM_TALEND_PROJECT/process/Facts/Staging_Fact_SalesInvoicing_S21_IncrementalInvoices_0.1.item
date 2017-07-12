@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<talendfile:ProcessType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.talend.org/mapper" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" defaultContext="Default" jobType="Standard">
+<talendfile:ProcessType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" defaultContext="Default" jobType="Standard">
   <context confirmationNeeded="false" name="Default">
     <contextParameter comment="" name="SK_Batch_Parent" prompt="SK_Batch_Parent?" promptNeeded="false" type="id_Integer" value="-1"/>
     <contextParameter comment="" name="parameter_LDW_DWH_environment" prompt="parameter_LDW_DWH_environment?" promptNeeded="false" repositoryContextId="_8iMKUDDGEee86NR65JQFlA" type="id_String" value="dev"/>
@@ -33,7 +33,7 @@
     <contextParameter comment="" name="parameter_LDW_Staging_Server" prompt="parameter_LDW_Staging_Server?" promptNeeded="false" repositoryContextId="_mmqXEC5pEeeaXuPQxSDjCQ" type="id_String" value="RAC-LIFERAYDBPROD02"/>
   </context>
   <parameters>
-    <elementParameter field="TEXT" name="SCREEN_OFFSET_X" value="0" show="false"/>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_X" value="32" show="false"/>
     <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" value="128" show="false"/>
     <elementParameter field="TEXT" name="REPOSITORY_CONNECTION_ID" value="" show="false"/>
     <elementParameter field="TEXT" name="OOZIE_PROPERTY_TYPENAME" value="" show="false"/>
@@ -239,7 +239,7 @@
     <elementParameter field="TEXT" name="LABEL" value="OpenConnectionLDW"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
   </node>
-  <node componentName="tSetGlobalVar" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="64" posY="320">
+  <node componentName="tSetGlobalVar" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="64" posY="192">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tSetGlobalVar_1" show="false"/>
     <elementParameter field="TABLE" name="VARIABLES">
       <elementValue elementRef="KEY" value="&quot;loadOutcome&quot;"/>
@@ -251,12 +251,12 @@
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tSetGlobalVar_1"/>
   </node>
-  <node componentName="tPostjob" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="64" posY="448">
+  <node componentName="tPostjob" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="64" posY="320">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPostjob_1" show="false"/>
     <elementParameter field="TEXT" name="LABEL" value="PostJob"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
   </node>
-  <node componentName="tRunJob" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="320" posY="448">
+  <node componentName="tRunJob" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="320" posY="320">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRunJob_2" show="false"/>
     <elementParameter field="CHECK" name="USE_DYNAMIC_JOB" value="false"/>
     <elementParameter field="TEXT" name="CONTEXT_JOB" value="" show="false"/>
@@ -287,7 +287,7 @@
       </column>
     </metadata>
   </node>
-  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="64" posY="192">
+  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="64" posY="64">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_8" show="false"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
@@ -298,12 +298,12 @@
     <elementParameter field="TEXT" name="TYPE" value="MySQL" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
     <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Extract_LIP05U_S21&quot;"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;IncrementalUpdates_Invoices_S21&quot;"/>
     <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT OEP65.CONO65&#xD;&#xA;&#x9;,OEP65.INVN65&#xD;&#xA;&#x9;,LIP05U.QUON05&#xD;&#xA;&#x9;,OEP65.ORDN65&#xD;&#xA;FROM Extract_OEP65_S21 AS OEP65&#xD;&#xA;LEFT JOIN Extract_LIP05U_S21 AS LIP05U&#xD;&#xA;&#x9;ON OEP65.CONO65 = LIP05U.CONO05&#xD;&#xA;&#x9;AND OEP65.ORDN65 = LIP05U.ORDN05&#xD;&#xA;&#x9;AND LIP05U.CUSN05 &lt;> 'STOCK'&#xD;&#xA;WHERE OEP65.ORDN65 &lt;> ''&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT * FROM IncrementalUpdates_Invoices_S21&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -314,64 +314,28 @@
     <elementParameter field="CHECK" name="ENABLE_STREAM" value="false"/>
     <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="true"/>
     <elementParameter field="TABLE" name="TRIM_COLUMN" show="false">
+      <elementValue elementRef="SCHEMA_COLUMN" value="CONO70"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="INVN70"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ORDL70"/>
+      <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="CONO65"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="INVN65"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="QUON05"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ORDN65"/>
-      <elementValue elementRef="TRIM" value="false"/>
     </elementParameter>
-    <elementParameter field="TEXT" name="LABEL" value="LIP05U"/>
+    <elementParameter field="TEXT" name="LABEL" value="IncrementalUpdates_Invoices_S21"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tMysqlInput_8">
-      <column comment="" key="true" length="2" name="CONO65" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="true" length="7" name="INVN65" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="10" name="QUON05" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="7" name="ORDN65" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="2" name="CONO70" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="INVN70" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="4" name="ORDL70" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="2" name="CONO65" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="INVN65" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="352" posY="192">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMap_8" show="false"/>
-    <elementParameter field="EXTERNAL" name="MAP" value=""/>
-    <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
-    <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="_ap61kECvEeeRoenzfjJKUQ-tMap_8-PREVIEW.bmp"/>
-    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
-    <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
-    <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
-    <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
-    <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="false"/>
-    <elementParameter field="TEXT" name="LABEL" value="GetQuoteNumber"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="QuoteNumber">
-      <column comment="" key="true" length="2" name="CONO65" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="true" length="7" name="INVN65" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="10" name="DD_QuoteNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-    </metadata>
-    <nodeData xsi:type="MapperData">
-      <uiProperties/>
-      <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
-      <outputTables sizeState="INTERMEDIATE" name="QuoteNumber">
-        <mapperTableEntries name="CONO65" expression="LIP05U.CONO65 " type="id_String"/>
-        <mapperTableEntries name="INVN65" expression="LIP05U.INVN65 " type="id_String"/>
-        <mapperTableEntries name="DD_QuoteNumber" expression="Relational.ISNULL(LIP05U.QUON05) ?&#xD;&#xA;&#x9;Relational.ISNULL(TORDERS.QUOTENUMBER) ? &quot;N/A&quot; : CustomStringHandling.replaceNullAndBlank(TORDERS.QUOTENUMBER) &#xD;&#xA;: CustomStringHandling.replaceNullAndBlank(LIP05U.QUON05) " type="id_String"/>
-      </outputTables>
-      <inputTables sizeState="INTERMEDIATE" name="LIP05U" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
-        <mapperTableEntries name="CONO65" type="id_String"/>
-        <mapperTableEntries name="INVN65" type="id_String"/>
-        <mapperTableEntries name="QUON05" type="id_String" nullable="true"/>
-        <mapperTableEntries name="ORDN65" type="id_String"/>
-      </inputTables>
-      <inputTables sizeState="INTERMEDIATE" name="TORDERS" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
-        <mapperTableEntries name="COMPANYNUMBER" expression="LIP05U.CONO65 " type="id_String"/>
-        <mapperTableEntries name="SALESORDERNUMBER" expression="LIP05U.ORDN65 " type="id_String" nullable="true" operator="="/>
-        <mapperTableEntries name="QUOTENUMBER" type="id_String"/>
-      </inputTables>
-    </nodeData>
-  </node>
-  <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="672" posY="192">
+  <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="480" posY="64">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlOutput_8" show="false"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
@@ -382,7 +346,7 @@
     <elementParameter field="TEXT" name="DBNAME" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
     <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
-    <elementParameter field="DBTABLE" name="TABLE" value="(String) globalMap.get(&quot;tableName&quot;)"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="Staging_Fact_SalesInvoicing_S21_InvoiceList"/>
     <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="DROP_IF_EXISTS_AND_CREATE"/>
     <elementParameter field="CLOSED_LIST" name="DATA_ACTION" value="INSERT"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
@@ -402,17 +366,27 @@
     <elementParameter field="TABLE" name="ADD_COLS"/>
     <elementParameter field="CHECK" name="USE_FIELD_OPTIONS" value="false"/>
     <elementParameter field="TABLE" name="FIELD_OPTIONS" show="false">
+      <elementValue elementRef="SCHEMA_COLUMN" value="CONO70"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="INVN70"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ORDL70"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="CONO65"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="INVN65"/>
-      <elementValue elementRef="UPDATE_KEY" value="false"/>
-      <elementValue elementRef="DELETE_KEY" value="false"/>
-      <elementValue elementRef="UPDATABLE" value="true"/>
-      <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="DD_QuoteNumber"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
@@ -427,58 +401,20 @@
     <elementParameter field="TEXT" name="LABEL" value="Staging"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tMysqlOutput_8">
-      <column comment="" key="true" length="2" name="CONO65" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="true" length="7" name="INVN65" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="10" name="DD_QuoteNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="2" name="CONO70" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="INVN70" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="4" name="ORDL70" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="2" name="CONO65" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="INVN65" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <metadata connector="REJECT" name="REJECT">
-      <column comment="" key="true" length="2" name="CONO65" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="true" length="7" name="INVN65" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="10" name="DD_QuoteNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="2" name="CONO70" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="INVN70" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="4" name="ORDL70" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="2" name="CONO65" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="INVN65" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-    </metadata>
-  </node>
-  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="352" posY="64">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_9" show="false"/>
-    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
-    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
-    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_1"/>
-    <elementParameter field="TEXT" name="HOST" value="&quot;&quot;" show="false"/>
-    <elementParameter field="TEXT" name="PORT" value="&quot;3306&quot;" show="false"/>
-    <elementParameter field="TEXT" name="DBNAME" value="&quot;&quot;" show="false"/>
-    <elementParameter field="TEXT" name="TYPE" value="MySQL" show="false"/>
-    <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Extract_TORDERS_S21&quot;"/>
-    <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
-    <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
-    <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
-    <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT COMPANYNUMBER&#xD;&#xA;&#x9;, SALESORDERNUMBER&#xD;&#xA;&#x9;, QUOTENUMBER&#xD;&#xA;FROM Extract_TORDERS_S21&#xD;&#xA;WHERE SALESORDERNUMBER &lt;> '';&#xD;&#xA;&quot;"/>
-    <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
-    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
-    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
-    <elementParameter field="MAPPING_TYPE" name="MAPPING" value="mysql_id" show="false"/>
-    <elementParameter field="TEXT" name="PROPERTIES" value="&quot;noDatetimeStringSync=true&quot;" show="false"/>
-    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
-    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
-    <elementParameter field="CHECK" name="ENABLE_STREAM" value="false"/>
-    <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="true"/>
-    <elementParameter field="TABLE" name="TRIM_COLUMN" show="false">
-      <elementValue elementRef="SCHEMA_COLUMN" value="COMPANYNUMBER"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SALESORDERNUMBER"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="QUOTENUMBER"/>
-      <elementValue elementRef="TRIM" value="false"/>
-    </elementParameter>
-    <elementParameter field="TEXT" name="LABEL" value="TORDERS"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tMysqlInput_9">
-      <column comment="" key="false" length="2" name="COMPANYNUMBER" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="7" name="SALESORDERNUMBER" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="10" name="QUOTENUMBER" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
   <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tPrejob_1" offsetLabelX="0" offsetLabelY="0" source="tPrejob_1" target="tRunJob_1">
@@ -497,112 +433,12 @@
   <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tPostjob_1" offsetLabelX="0" offsetLabelY="0" source="tPostjob_1" target="tRunJob_2">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnComponentOk2" show="false"/>
   </connection>
-  <connection connectorName="FLOW" label="LIP05U" lineStyle="0" metaname="tMysqlInput_8" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_8" target="tMap_8">
+  <connection connectorName="FLOW" label="Invoices" lineStyle="0" metaname="tMysqlInput_8" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_8" target="tMysqlOutput_8">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="LIP05U" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="Invoices" show="false"/>
   </connection>
   <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlInput_8" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_8" target="tSetGlobalVar_1">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk1" show="false"/>
-  </connection>
-  <connection connectorName="FLOW" label="QuoteNumber" lineStyle="0" metaname="QuoteNumber" offsetLabelX="0" offsetLabelY="0" source="tMap_8" target="tMysqlOutput_8">
-    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
-      <elementValue elementRef="TRACE_COLUMN" value="SK_Date_SystemEntered"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="DD_OrderNumber"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="InvoiceTransactionTypeCode"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="INVN65"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="CustomProductHoldCode"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="SK_Date_Invoiced"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="InvoiceReasonCode"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="CustomProductHoldDescription"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="CONO65"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="ORDN65"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="DD_InvoiceNumber"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="INVV65"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="BIVT65"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="MapCurrencyCURN83"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="OrderLineTypeCode"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="ORDN70"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="DD_OrderLineNumber"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="MapStockroomCONO20"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="MapStockroomSTRC20"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="MapGeographyPostalCode"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="SH_TO_CAD5"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="MapGeographyCompanyCode"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="OrderStatusCode"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="OrderSuspenseCode"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="INVN70"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="CONO70"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="SK_Date_CurrentPromisedShip"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="ORDL70"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="OrderCancellationReasonCode"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="DD_CustomerTagName"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-    </elementParameter>
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="QuoteNumber" show="false"/>
-  </connection>
-  <connection connectorName="FLOW" label="TORDERS" lineStyle="8" metaname="tMysqlInput_9" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_9" target="tMap_8">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="TORDERS" show="false"/>
   </connection>
   <subjob>
     <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" value="true" show="false"/>
