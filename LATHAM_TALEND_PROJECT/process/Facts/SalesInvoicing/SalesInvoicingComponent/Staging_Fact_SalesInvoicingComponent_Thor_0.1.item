@@ -518,7 +518,7 @@
       <column comment="" key="false" length="11" name="ModelID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="11" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="RenamedColumns">
         <mapperTableEntries name="SK_Customer" expression="JoinedValues.SK_Customer " type="id_Integer"/>
@@ -558,9 +558,9 @@
         <mapperTableEntries name="InvoiceLineExtendedListValueUSD" expression="CustomStringHandling.multiplyValues(JoinedValues.listPrice , JoinedValues.InvoiceLineQuantity)" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedListValueFunctionalCurrency" expression="CustomStringHandling.multiplyValues(JoinedValues.listPrice , JoinedValues.InvoiceLineQuantity)" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedListValueTransactionCurrency" expression="CustomStringHandling.multiplyValues(JoinedValues.listPrice , JoinedValues.InvoiceLineQuantity)" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineAllocatedFreightRevenueUSD" expression="CustomStringHandling.allocateValue(JoinedValues.shippingSubtotal, JoinedValues.itemSubTotal, JoinedValues.AllocationBasis) " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineAllocatedFreightRevenueFunctionalCurrency" expression="CustomStringHandling.allocateValue(JoinedValues.shippingSubtotal, JoinedValues.itemSubTotal, JoinedValues.AllocationBasis)" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="InvoiceLineAllocatedFreightRevenueTransactionCurrency" expression="CustomStringHandling.allocateValue(JoinedValues.shippingSubtotal, JoinedValues.itemSubTotal, JoinedValues.AllocationBasis)" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineAllocatedFreightRevenueUSD" expression="Relational.ISNULL(JoinedValues.AllocationBasis) || JoinedValues.AllocationBasis == 0 ? JoinedValues.shippingSubtotal : &#xD;&#xA;CustomStringHandling.allocateValue(JoinedValues.shippingSubtotal, JoinedValues.itemSubTotal, JoinedValues.AllocationBasis) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineAllocatedFreightRevenueFunctionalCurrency" expression="Relational.ISNULL(JoinedValues.AllocationBasis) || JoinedValues.AllocationBasis == 0 ? JoinedValues.shippingSubtotal : CustomStringHandling.allocateValue(JoinedValues.shippingSubtotal, JoinedValues.itemSubTotal, JoinedValues.AllocationBasis) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="InvoiceLineAllocatedFreightRevenueTransactionCurrency" expression="Relational.ISNULL(JoinedValues.AllocationBasis) || JoinedValues.AllocationBasis == 0 ? JoinedValues.shippingSubtotal : &#xD;&#xA;CustomStringHandling.allocateValue(JoinedValues.shippingSubtotal, JoinedValues.itemSubTotal, JoinedValues.AllocationBasis) " type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedAdderValueUSD" expression="null" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedAdderValueFunctionalCurrency" expression="null" type="id_Float" nullable="true"/>
         <mapperTableEntries name="InvoiceLineExtendedAdderValueTransactionCurrency" expression="null" type="id_Float" nullable="true"/>
