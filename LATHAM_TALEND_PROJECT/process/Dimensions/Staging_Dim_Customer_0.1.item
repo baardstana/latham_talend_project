@@ -1606,9 +1606,11 @@
       <column comment="" key="false" length="19" name="ValidFrom" nullable="false" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;" precision="0" sourceType="DATETIME" type="id_Date" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="2" name="Map_Geography_CompanyCode" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="5" usefulColumn="true"/>
       <column comment="" key="false" length="5" name="Map_Geography_PostalCode" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="2" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="CustomerDefaultFreightTermCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="30" name="CustomerDefaultFreightTermName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="DimCustomerMapped">
         <mapperTableEntries name="BK_Customer_CONO05_S21" expression="StagedDimCustomer.BK_Customer_CONO05_S21 " type="id_String"/>
@@ -1656,6 +1658,8 @@
         <mapperTableEntries name="ValidFrom" expression="StagedDimCustomer.ValidFrom " type="id_Date"/>
         <mapperTableEntries name="Map_Geography_CompanyCode" expression="StagedDimCustomer.BK_Customer_CONO05_S21 " type="id_String" nullable="true"/>
         <mapperTableEntries name="Map_Geography_PostalCode" expression="&quot;Canada&quot;.equals(CustomStringHandling.replaceNullAndBlankCoalesce(StagedDimCustomer.CustomerShipToCountry,  StagedDimCustomer.CustomerShipToCountry2) ) ? &#xD;&#xA;StringHandling.LEFT(CustomStringHandling.replaceNullAndBlankCoalesce(StagedDimCustomer.CustomerShipToPostalCode5,  StagedDimCustomer.CustomerShipToPostalCode2) ,3) :&#xD;&#xA;CustomStringHandling.replaceNullAndBlankCoalesce(StagedDimCustomer.CustomerShipToPostalCode5,  StagedDimCustomer.CustomerShipToPostalCode2) " type="id_String" nullable="true"/>
+        <mapperTableEntries name="CustomerDefaultFreightTermCode" expression="StagedDimCustomer.CustomerDefaultFreightTermCode " type="id_String"/>
+        <mapperTableEntries name="CustomerDefaultFreightTermName" expression="StagedDimCustomer.CustomerDefaultFreightTermName " type="id_String"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="StagedDimCustomer" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="BK_Customer_CONO05_S21" type="id_String"/>
@@ -1783,10 +1787,12 @@
       <column comment="" key="false" length="19" name="ValidFrom" nullable="false" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;" precision="0" sourceType="DATETIME" type="id_Date" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="2" name="Map_Geography_CompanyCode" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="5" usefulColumn="true"/>
       <column comment="" key="false" length="7" name="Map_Geography_PostalCode" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="2" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="CustomerDefaultFreightTermCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="30" name="CustomerDefaultFreightTermName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <additionalProperties key="Comment" value=""/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="StageDimCustomer">
         <mapperTableEntries name="BK_Customer_CONO05_S21" expression="DimCustomerMapped.BK_Customer_CONO05_S21 " type="id_String"/>
@@ -1838,6 +1844,8 @@
         <mapperTableEntries name="ValidFrom" expression="DimCustomerMapped.ValidFrom " type="id_Date"/>
         <mapperTableEntries name="Map_Geography_CompanyCode" expression="DimCustomerMapped.Map_Geography_CompanyCode " type="id_String" nullable="true"/>
         <mapperTableEntries name="Map_Geography_PostalCode" expression="DimCustomerMapped.Map_Geography_PostalCode " type="id_String" nullable="true"/>
+        <mapperTableEntries name="CustomerDefaultFreightTermCode" expression="DimCustomerMapped.CustomerDefaultFreightTermCode " type="id_String"/>
+        <mapperTableEntries name="CustomerDefaultFreightTermName" expression="DimCustomerMapped.CustomerDefaultFreightTermName " type="id_String"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="DimCustomerMapped" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="BK_Customer_CONO05_S21" type="id_String"/>
@@ -1885,6 +1893,8 @@
         <mapperTableEntries name="ValidFrom" type="id_Date"/>
         <mapperTableEntries name="Map_Geography_CompanyCode" type="id_String" nullable="true"/>
         <mapperTableEntries name="Map_Geography_PostalCode" type="id_String" nullable="true"/>
+        <mapperTableEntries name="CustomerDefaultFreightTermCode" type="id_String"/>
+        <mapperTableEntries name="CustomerDefaultFreightTermName" type="id_String"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="DimGeography" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Geography" expression="" type="id_Integer"/>
@@ -2002,9 +2012,11 @@
       <column comment="" key="false" length="50" name="CustomerInternalRegionalManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="50" name="CustomerInternalBranchManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="50" name="CustomerInternalDivision" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="CustomerDefaultFreightTermCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="30" name="CustomerDefaultFreightTermName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="WithInternalHierarchy">
         <mapperTableEntries name="BK_Customer_CONO05_S21" expression="StageDimCustomer.BK_Customer_CONO05_S21 " type="id_String"/>
@@ -2060,6 +2072,8 @@
         <mapperTableEntries name="CustomerInternalRegionalManager" expression="Relational.ISNULL(CustomerInternalHierarchy.CustomerInternalRegionalManager) ? &quot;N/A&quot; : CustomerInternalHierarchy.CustomerInternalRegionalManager " type="id_String"/>
         <mapperTableEntries name="CustomerInternalBranchManager" expression="Relational.ISNULL(CustomerInternalHierarchy.CustomerInternalBranchManager) ? &quot;N/A&quot; : CustomerInternalHierarchy.CustomerInternalBranchManager " type="id_String"/>
         <mapperTableEntries name="CustomerInternalDivision" expression="Relational.ISNULL(CustomerInternalHierarchy.CustomerInternalDivision) ? &quot;N/A&quot; : CustomerInternalHierarchy.CustomerInternalDivision " type="id_String"/>
+        <mapperTableEntries name="CustomerDefaultFreightTermCode" expression="StageDimCustomer.CustomerDefaultFreightTermCode " type="id_String"/>
+        <mapperTableEntries name="CustomerDefaultFreightTermName" expression="StageDimCustomer.CustomerDefaultFreightTermName " type="id_String"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="StageDimCustomer" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="BK_Customer_CONO05_S21" type="id_String"/>
@@ -2111,6 +2125,8 @@
         <mapperTableEntries name="ValidFrom" type="id_Date"/>
         <mapperTableEntries name="Map_Geography_CompanyCode" type="id_String" nullable="true"/>
         <mapperTableEntries name="Map_Geography_PostalCode" type="id_String" nullable="true"/>
+        <mapperTableEntries name="CustomerDefaultFreightTermCode" type="id_String"/>
+        <mapperTableEntries name="CustomerDefaultFreightTermName" type="id_String"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="CustomerInternalHierarchy" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="Company" expression="StageDimCustomer.BK_Customer_CONO05_S21 " type="id_String" nullable="true" operator="="/>
@@ -2485,6 +2501,16 @@
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CustomerDefaultFreightTermCode"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CustomerDefaultFreightTermName"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
     </elementParameter>
     <elementParameter field="CHECK" name="USE_HINT_OPTIONS" value="false"/>
     <elementParameter field="TABLE" name="HINT_OPTIONS" show="false"/>
@@ -2548,6 +2574,8 @@
       <column comment="" key="false" length="50" name="CustomerInternalRegionalManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="50" name="CustomerInternalBranchManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="50" name="CustomerInternalDivision" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="CustomerDefaultFreightTermCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="30" name="CustomerDefaultFreightTermName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <additionalProperties key="Comment" value=""/>
     </metadata>
     <metadata connector="REJECT" name="REJECT">
@@ -2604,6 +2632,8 @@
       <column comment="" key="false" length="50" name="CustomerInternalRegionalManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="50" name="CustomerInternalBranchManager" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="50" name="CustomerInternalDivision" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="CustomerDefaultFreightTermCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="30" name="CustomerDefaultFreightTermName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <additionalProperties key="Comment" value=""/>
@@ -3014,6 +3044,12 @@
       <elementValue elementRef="TRACE_COLUMN" value="CustomerCorporationName"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="CustomerDefaultFreightTermCode"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="CustomerDefaultFreightTermName"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="DimCustomerMapped" show="false"/>
@@ -3119,6 +3155,12 @@
       <elementValue elementRef="TRACE_COLUMN" value="Map_Geography_CompanyCode"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="CustomerDefaultFreightTermCode"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="CustomerDefaultFreightTermName"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="StageDimCustomer" show="false"/>
@@ -3128,6 +3170,14 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="DimGeography" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="WithInternalHierarchy" lineStyle="0" metaname="WithInternalHierarchy" offsetLabelX="0" offsetLabelY="0" source="tMap_2" target="tMysqlOutput_4">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="CustomerDefaultFreightTermCode"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="CustomerDefaultFreightTermName"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="WithInternalHierarchy" show="false"/>
   </connection>
