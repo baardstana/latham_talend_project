@@ -432,9 +432,9 @@
       <column comment="" key="false" length="7" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="60" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
@@ -460,9 +460,9 @@
         <mapperTableEntries name="CustomProductHoldCode" expression="Product.CustomProductHoldCode " type="id_String"/>
         <mapperTableEntries name="CustomProductHoldDescription" expression="Product.CustomProductHoldDescription " type="id_String"/>
         <mapperTableEntries name="SalesUnit" expression="Relational.ISNULL(Product.UnitOverrideFlag) ? null :&#xD;&#xA;&quot;Unit Override&quot;.equals(Product.UnitOverrideFlag) ? 1 : Product.SalesUnit " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OrderLineQuantityOrdered" expression="Relational.ISNULL(Product.UnitOverrideFlag) ? null :&#xD;&#xA;&quot;Unit Override&quot;.equals(Product.UnitOverrideFlag) ? 1 : Product.OrderLineQuantityOrdered " type="id_Float"/>
-        <mapperTableEntries name="OrderLineQuantityOutstanding" expression="Relational.ISNULL(Product.UnitOverrideFlag) || Relational.ISNULL(Product.OrderLineQuantityOutstanding ) ? null :&#xD;&#xA;Product.OrderLineQuantityOutstanding == 0 ? 0 :&#xD;&#xA;&quot;Unit Override&quot;.equals(Product.UnitOverrideFlag) ? 1 : Product.OrderLineQuantityOutstanding " type="id_Float"/>
-        <mapperTableEntries name="OrderLineQuantityShipped" expression="Relational.ISNULL(Product.UnitOverrideFlag) || Relational.ISNULL(Product.OrderLineQuantityShipped ) ? null :&#xD;&#xA;Product.OrderLineQuantityShipped == 0 ? 0 :&#xD;&#xA;&quot;Unit Override&quot;.equals(Product.UnitOverrideFlag) ? 1 : Product.OrderLineQuantityShipped " type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityOrdered" expression="Relational.ISNULL(Product.UnitOverrideFlag) || Relational.ISNULL(Product.OrderLineQuantityOrdered) ? null :&#xD;&#xA;&quot;Unit Override&quot;.equals(Product.UnitOverrideFlag) ? 1 : Product.OrderLineQuantityOrdered " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityOutstanding" expression="Relational.ISNULL(Product.UnitOverrideFlag) || Relational.ISNULL(Product.OrderLineQuantityOutstanding ) ? null :&#xD;&#xA;Product.OrderLineQuantityOutstanding == 0 ? 0 :&#xD;&#xA;&quot;Unit Override&quot;.equals(Product.UnitOverrideFlag) ? 1 : Product.OrderLineQuantityOutstanding " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityShipped" expression="Relational.ISNULL(Product.UnitOverrideFlag) || Relational.ISNULL(Product.OrderLineQuantityShipped ) ? null :&#xD;&#xA;Product.OrderLineQuantityShipped == 0 ? 0 :&#xD;&#xA;&quot;Unit Override&quot;.equals(Product.UnitOverrideFlag) ? 1 : Product.OrderLineQuantityShipped " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="Product" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="CONO55" type="id_String"/>
@@ -578,9 +578,9 @@
       <column comment="" key="false" length="7" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="60" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
@@ -605,9 +605,9 @@
         <mapperTableEntries name="CustomProductHoldCode" expression="WithCustomer.CustomProductHoldCode " type="id_String"/>
         <mapperTableEntries name="CustomProductHoldDescription" expression="WithCustomer.CustomProductHoldDescription " type="id_String"/>
         <mapperTableEntries name="SalesUnit" expression="WithCustomer.SalesUnit " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OrderLineQuantityOrdered" expression="WithCustomer.OrderLineQuantityOrdered " type="id_Float"/>
-        <mapperTableEntries name="OrderLineQuantityOutstanding" expression="WithCustomer.OrderLineQuantityOutstanding " type="id_Float"/>
-        <mapperTableEntries name="OrderLineQuantityShipped" expression="WithCustomer.OrderLineQuantityShipped " type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityOrdered" expression="WithCustomer.OrderLineQuantityOrdered " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityOutstanding" expression="WithCustomer.OrderLineQuantityOutstanding " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityShipped" expression="WithCustomer.OrderLineQuantityShipped " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="WithCustomer" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="CONO55" type="id_String"/>
@@ -630,9 +630,9 @@
         <mapperTableEntries name="CustomProductHoldCode" type="id_String"/>
         <mapperTableEntries name="CustomProductHoldDescription" type="id_String"/>
         <mapperTableEntries name="SalesUnit" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OrderLineQuantityOrdered" type="id_Float"/>
-        <mapperTableEntries name="OrderLineQuantityOutstanding" type="id_Float"/>
-        <mapperTableEntries name="OrderLineQuantityShipped" type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityOrdered" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityOutstanding" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityShipped" type="id_Float" nullable="true"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="DimStockroom" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Stockroom" type="id_Integer"/>
@@ -716,9 +716,9 @@
       <column comment="" key="false" length="7" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="60" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
@@ -743,9 +743,9 @@
         <mapperTableEntries name="CustomProductHoldCode" expression="Stockroom.CustomProductHoldCode " type="id_String"/>
         <mapperTableEntries name="CustomProductHoldDescription" expression="Stockroom.CustomProductHoldDescription " type="id_String"/>
         <mapperTableEntries name="SalesUnit" expression="Stockroom.SalesUnit " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OrderLineQuantityOrdered" expression="Stockroom.OrderLineQuantityOrdered " type="id_Float"/>
-        <mapperTableEntries name="OrderLineQuantityOutstanding" expression="Stockroom.OrderLineQuantityOutstanding " type="id_Float"/>
-        <mapperTableEntries name="OrderLineQuantityShipped" expression="Stockroom.OrderLineQuantityShipped " type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityOrdered" expression="Stockroom.OrderLineQuantityOrdered " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityOutstanding" expression="Stockroom.OrderLineQuantityOutstanding " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityShipped" expression="Stockroom.OrderLineQuantityShipped " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="Stockroom" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="CONO55" type="id_String"/>
@@ -767,9 +767,9 @@
         <mapperTableEntries name="CustomProductHoldCode" type="id_String"/>
         <mapperTableEntries name="CustomProductHoldDescription" type="id_String"/>
         <mapperTableEntries name="SalesUnit" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OrderLineQuantityOrdered" type="id_Float"/>
-        <mapperTableEntries name="OrderLineQuantityOutstanding" type="id_Float"/>
-        <mapperTableEntries name="OrderLineQuantityShipped" type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityOrdered" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityOutstanding" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityShipped" type="id_Float" nullable="true"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="Geography" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Geography" type="id_Integer"/>
@@ -853,9 +853,9 @@
       <column comment="" key="false" length="7" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="60" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
@@ -880,9 +880,9 @@
         <mapperTableEntries name="CustomProductHoldCode" expression="WithGeography.CustomProductHoldCode " type="id_String"/>
         <mapperTableEntries name="CustomProductHoldDescription" expression="WithGeography.CustomProductHoldDescription " type="id_String"/>
         <mapperTableEntries name="SalesUnit" expression="WithGeography.SalesUnit " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OrderLineQuantityOrdered" expression="WithGeography.OrderLineQuantityOrdered " type="id_Float"/>
-        <mapperTableEntries name="OrderLineQuantityOutstanding" expression="WithGeography.OrderLineQuantityOutstanding " type="id_Float"/>
-        <mapperTableEntries name="OrderLineQuantityShipped" expression="WithGeography.OrderLineQuantityShipped " type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityOrdered" expression="WithGeography.OrderLineQuantityOrdered " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityOutstanding" expression="WithGeography.OrderLineQuantityOutstanding " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityShipped" expression="WithGeography.OrderLineQuantityShipped " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="WithGeography" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="CONO55" type="id_String"/>
@@ -904,9 +904,9 @@
         <mapperTableEntries name="CustomProductHoldCode" type="id_String"/>
         <mapperTableEntries name="CustomProductHoldDescription" type="id_String"/>
         <mapperTableEntries name="SalesUnit" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OrderLineQuantityOrdered" type="id_Float"/>
-        <mapperTableEntries name="OrderLineQuantityOutstanding" type="id_Float"/>
-        <mapperTableEntries name="OrderLineQuantityShipped" type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityOrdered" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityOutstanding" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityShipped" type="id_Float" nullable="true"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="DimCurrencyTransaction" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Currency" type="id_Integer"/>
@@ -1030,9 +1030,9 @@
       <column comment="" key="false" length="7" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="60" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
@@ -1058,9 +1058,9 @@
         <mapperTableEntries name="CustomProductHoldCode" expression="Currency.CustomProductHoldCode " type="id_String"/>
         <mapperTableEntries name="CustomProductHoldDescription" expression="Currency.CustomProductHoldDescription " type="id_String"/>
         <mapperTableEntries name="SalesUnit" expression="Currency.SalesUnit " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OrderLineQuantityOrdered" expression="Currency.OrderLineQuantityOrdered " type="id_Float"/>
-        <mapperTableEntries name="OrderLineQuantityOutstanding" expression="Currency.OrderLineQuantityOutstanding " type="id_Float"/>
-        <mapperTableEntries name="OrderLineQuantityShipped" expression="Currency.OrderLineQuantityShipped " type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityOrdered" expression="Currency.OrderLineQuantityOrdered " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityOutstanding" expression="Currency.OrderLineQuantityOutstanding " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityShipped" expression="Currency.OrderLineQuantityShipped " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="Currency" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="CONO55" type="id_String"/>
@@ -1082,9 +1082,9 @@
         <mapperTableEntries name="CustomProductHoldCode" type="id_String"/>
         <mapperTableEntries name="CustomProductHoldDescription" type="id_String"/>
         <mapperTableEntries name="SalesUnit" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OrderLineQuantityOrdered" type="id_Float"/>
-        <mapperTableEntries name="OrderLineQuantityOutstanding" type="id_Float"/>
-        <mapperTableEntries name="OrderLineQuantityShipped" type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityOrdered" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityOutstanding" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityShipped" type="id_Float" nullable="true"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="DimCompany" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Company" type="id_Integer"/>
@@ -1162,9 +1162,9 @@
       <column comment="" defaultValue="" key="false" length="11" name="SK_Company" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_SalesOrderDetail" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
@@ -1183,9 +1183,9 @@
         <mapperTableEntries name="SK_Company" expression="Company.SK_Company " type="id_Integer"/>
         <mapperTableEntries name="SK_SalesOrderDetail" expression="DimSalesOrderDetail.SK_SalesOrderDetail " type="id_Integer"/>
         <mapperTableEntries name="SalesUnit" expression="Company.SalesUnit " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OrderLineQuantityOrdered" expression="Company.OrderLineQuantityOrdered " type="id_Float"/>
-        <mapperTableEntries name="OrderLineQuantityOutstanding" expression="Company.OrderLineQuantityOutstanding " type="id_Float"/>
-        <mapperTableEntries name="OrderLineQuantityShipped" expression="Company.OrderLineQuantityShipped " type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityOrdered" expression="Company.OrderLineQuantityOrdered " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityOutstanding" expression="Company.OrderLineQuantityOutstanding " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityShipped" expression="Company.OrderLineQuantityShipped " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="Company" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="CONO55" type="id_String"/>
@@ -1208,9 +1208,9 @@
         <mapperTableEntries name="CustomProductHoldCode" type="id_String"/>
         <mapperTableEntries name="CustomProductHoldDescription" type="id_String"/>
         <mapperTableEntries name="SalesUnit" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OrderLineQuantityOrdered" type="id_Float"/>
-        <mapperTableEntries name="OrderLineQuantityOutstanding" type="id_Float"/>
-        <mapperTableEntries name="OrderLineQuantityShipped" type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityOrdered" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityOutstanding" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityShipped" type="id_Float" nullable="true"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="DimSalesOrderDetail" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_SalesOrderDetail" type="id_Integer"/>
@@ -1317,9 +1317,9 @@
       <column comment="" defaultValue="" key="false" length="11" name="SK_SalesOrderDetail" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
@@ -1339,9 +1339,9 @@
         <mapperTableEntries name="SK_SalesOrderDetail" expression="WithSalesOrderDetail.SK_SalesOrderDetail " type="id_Integer"/>
         <mapperTableEntries name="SalesUnit" expression="WithSalesOrderDetail.SalesUnit " type="id_Float" nullable="true"/>
         <mapperTableEntries name="SK_SourceSystem" expression="SourceSystem.SK_SourceSystem " type="id_Integer"/>
-        <mapperTableEntries name="OrderLineQuantityOrdered" expression="WithSalesOrderDetail.OrderLineQuantityOrdered " type="id_Float"/>
-        <mapperTableEntries name="OrderLineQuantityOutstanding" expression="WithSalesOrderDetail.OrderLineQuantityOutstanding " type="id_Float"/>
-        <mapperTableEntries name="OrderLineQuantityShipped" expression="WithSalesOrderDetail.OrderLineQuantityShipped " type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityOrdered" expression="WithSalesOrderDetail.OrderLineQuantityOrdered " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityOutstanding" expression="WithSalesOrderDetail.OrderLineQuantityOutstanding " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityShipped" expression="WithSalesOrderDetail.OrderLineQuantityShipped " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="WithSalesOrderDetail" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="CONO55" type="id_String"/>
@@ -1357,9 +1357,9 @@
         <mapperTableEntries name="SK_Company" type="id_Integer"/>
         <mapperTableEntries name="SK_SalesOrderDetail" type="id_Integer"/>
         <mapperTableEntries name="SalesUnit" type="id_Float" nullable="true"/>
-        <mapperTableEntries name="OrderLineQuantityOrdered" type="id_Float"/>
-        <mapperTableEntries name="OrderLineQuantityOutstanding" type="id_Float"/>
-        <mapperTableEntries name="OrderLineQuantityShipped" type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityOrdered" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityOutstanding" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityShipped" type="id_Float" nullable="true"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="SourceSystem" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_SourceSystem" type="id_Integer"/>
@@ -1550,9 +1550,9 @@
       <column comment="" defaultValue="" key="false" length="11" name="SK_SalesOrderDetail" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <metadata connector="REJECT" name="REJECT">
       <column comment="" key="true" length="2" name="CONO55" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
@@ -1569,9 +1569,9 @@
       <column comment="" defaultValue="" key="false" length="11" name="SK_SalesOrderDetail" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
