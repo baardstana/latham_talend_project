@@ -303,7 +303,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT OEP55.CONO55&#xD;&#xA;&#x9;, OEP55.ORDN55&#xD;&#xA;    , OEP55.ORDL55&#xD;&#xA;&#x9;, DimProduct.SK_product&#xD;&#xA;&#x9;, OEP40.MapCustomerCONO05&#xD;&#xA;    , OEP40.MapCustomerCUSN05&#xD;&#xA;    , OEP40.MapCustomerDSEQ05&#xD;&#xA;    , OEP55.MapStockroomCONO20&#xD;&#xA;    , OEP55.MapStockroomSTRC20&#xD;&#xA;    , OEP40V02.MapGeographyCompanyCode&#xD;&#xA;    , OEP40V02.MapGeographyPostalCode&#xD;&#xA;    , OEP40.MapCurrencyCURN83_Transaction&#xD;&#xA;    , OEP40.MapCompanyCONO&#xD;&#xA;    , OEP40.OrderSourceCode&#xD;&#xA;&#x9;, OEP55.OrderLineTypeCode&#xD;&#xA;&#x9;, OEP40.OrderStatusCode&#xD;&#xA;&#x9;, OEP55.OrderCancellationReasonCode&#xD;&#xA;&#x9;, OEP40.OrderTypeCode&#xD;&#xA;&#x9;, OEP40.OrderSuspenseCode&#xD;&#xA;&#x9;, LIP05U.CustomProductHoldCode&#xD;&#xA;&#x9;, LIP05U.CustomProductHoldDescription&#xD;&#xA;    , DimProduct.SalesUnit&#xD;&#xA;&#x9;, DimProduct.UnitOverrideFlag    &#xD;&#xA;FROM Staging_Fact_SalesOrders_S21_OEP40 AS OEP40&#xD;&#xA;INNER JOIN Staging_Fact_SalesOrders_S21_OEP55 AS OEP55&#xD;&#xA;&#x9;ON OEP40.CONO40 = OEP55.CONO55&#xD;&#xA;&#x9;AND OEP40.ORDN40 = OEP55.ORDN55&#xD;&#xA;INNER JOIN Staging_Fact_SalesOrders_S21_LIP05U AS LIP05U&#xD;&#xA;&#x9;ON OEP40.CONO40 = LIP05U.CONO40 &#xD;&#xA;&#x9;AND OEP40.ORDN40 = LIP05U.ORDN40&#xD;&#xA;INNER JOIN Staging_Fact_SalesOrders_S21_OEP40V02 AS OEP40V02&#xD;&#xA;&#x9;ON OEP40.CONO40 = OEP40V02.CONO40 &#xD;&#xA;&#x9;AND OEP40.ORDN40 = OEP40V02.ORDN40&#xD;&#xA;LEFT JOIN LDW_&quot; + context.parameter_LDW_DWH_environment + &quot;.Dim_Product AS DimProduct&#xD;&#xA;&#x9;ON OEP55.MapProductCONO35 = DimProduct.BK_Product_CONO35_S21&#xD;&#xA;    AND OEP55.MapProductPNUM35 = DimProduct.BK_Product_PNUM35_S21&#xD;&#xA;&#x9;AND DimProduct.IsCurrent = 1   &#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT OEP55.CONO55&#xD;&#xA;&#x9;, OEP55.ORDN55&#xD;&#xA;    , OEP55.ORDL55&#xD;&#xA;&#x9;, DimProduct.SK_product&#xD;&#xA;&#x9;, OEP40.MapCustomerCONO05&#xD;&#xA;    , OEP40.MapCustomerCUSN05&#xD;&#xA;    , OEP40.MapCustomerDSEQ05&#xD;&#xA;    , OEP55.MapStockroomCONO20&#xD;&#xA;    , OEP55.MapStockroomSTRC20&#xD;&#xA;    , OEP40V02.MapGeographyCompanyCode&#xD;&#xA;    , OEP40V02.MapGeographyPostalCode&#xD;&#xA;    , OEP40.MapCurrencyCURN83_Transaction&#xD;&#xA;    , OEP40.MapCompanyCONO&#xD;&#xA;    , OEP40.OrderSourceCode&#xD;&#xA;&#x9;, OEP55.OrderLineTypeCode&#xD;&#xA;&#x9;, OEP40.OrderStatusCode&#xD;&#xA;&#x9;, OEP55.OrderCancellationReasonCode&#xD;&#xA;&#x9;, OEP40.OrderTypeCode&#xD;&#xA;&#x9;, OEP40.OrderSuspenseCode&#xD;&#xA;&#x9;, OEP55.OrderLineQuantityOrdered&#xD;&#xA;&#x9;, OEP55.OrderLineQuantityOutStanding&#xD;&#xA;&#x9;, OEP55.OrderLineQuantityShipped&#xD;&#xA;&#x9;, LIP05U.CustomProductHoldCode&#xD;&#xA;&#x9;, LIP05U.CustomProductHoldDescription&#xD;&#xA;    , DimProduct.SalesUnit&#xD;&#xA;&#x9;, DimProduct.UnitOverrideFlag    &#xD;&#xA;FROM Staging_Fact_SalesOrders_S21_OEP40 AS OEP40&#xD;&#xA;INNER JOIN Staging_Fact_SalesOrders_S21_OEP55 AS OEP55&#xD;&#xA;&#x9;ON OEP40.CONO40 = OEP55.CONO55&#xD;&#xA;&#x9;AND OEP40.ORDN40 = OEP55.ORDN55&#xD;&#xA;INNER JOIN Staging_Fact_SalesOrders_S21_LIP05U AS LIP05U&#xD;&#xA;&#x9;ON OEP40.CONO40 = LIP05U.CONO40 &#xD;&#xA;&#x9;AND OEP40.ORDN40 = LIP05U.ORDN40&#xD;&#xA;INNER JOIN Staging_Fact_SalesOrders_S21_OEP40V02 AS OEP40V02&#xD;&#xA;&#x9;ON OEP40.CONO40 = OEP40V02.CONO40 &#xD;&#xA;&#x9;AND OEP40.ORDN40 = OEP40V02.ORDN40&#xD;&#xA;LEFT JOIN LDW_&quot; + context.parameter_LDW_DWH_environment + &quot;.Dim_Product AS DimProduct&#xD;&#xA;&#x9;ON OEP55.MapProductCONO35 = DimProduct.BK_Product_CONO35_S21&#xD;&#xA;    AND OEP55.MapProductPNUM35 = DimProduct.BK_Product_PNUM35_S21&#xD;&#xA;&#x9;AND DimProduct.IsCurrent = 1   &#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -352,6 +352,12 @@
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="OrderSuspenseCode"/>
       <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="OrderLineQuantityOrdered"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="OrderLineQuantityOutstanding"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="OrderLineQuantityShipped"/>
+      <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="CustomProductHoldCode"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="CustomProductHoldDescription"/>
@@ -364,29 +370,32 @@
     <elementParameter field="TEXT" name="LABEL" value="GetProduct"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tMysqlInput_4">
-      <column comment="" key="true" length="2" name="CONO55" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="true" length="7" name="ORDN55" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="true" length="4" name="ORDL55" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="2" name="CONO55" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="ORDN55" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="4" name="ORDL55" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_Product" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="2" name="MapCustomerCONO05" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="8" name="MapCustomerCUSN05" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="3" name="MapCustomerDSEQ05" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="MapStockroomCONO20" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="MapStockroomSTRC20" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="MapGeographyCompanyCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="25" name="MapGeographyPostalCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="3" name="MapCurrencyCURN83_Transaction" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="MapCompanyCONO" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="OrderSourceCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="OrderLineTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="OrderStatusCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="OrderCancellationReasonCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="OrderTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="OrderSuspenseCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="7" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="60" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="2" name="MapStockroomCONO20" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="2" name="MapStockroomSTRC20" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="2" name="MapGeographyCompanyCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="25" name="MapGeographyPostalCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="3" name="MapCurrencyCURN83_Transaction" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="2" name="MapCompanyCONO" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="1" name="OrderSourceCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="1" name="OrderLineTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="1" name="OrderStatusCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="2" name="OrderCancellationReasonCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="1" name="OrderTypeCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="2" name="OrderSuspenseCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="7" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="60" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="25" name="UnitOverrideFlag" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="25" name="UnitOverrideFlag" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="288" posY="224">
@@ -423,9 +432,12 @@
       <column comment="" key="false" length="7" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="60" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="WithCustomer">
         <mapperTableEntries name="CONO55" expression="Product.CONO55 " type="id_String"/>
@@ -448,6 +460,9 @@
         <mapperTableEntries name="CustomProductHoldCode" expression="Product.CustomProductHoldCode " type="id_String"/>
         <mapperTableEntries name="CustomProductHoldDescription" expression="Product.CustomProductHoldDescription " type="id_String"/>
         <mapperTableEntries name="SalesUnit" expression="Relational.ISNULL(Product.UnitOverrideFlag) ? null :&#xD;&#xA;&quot;Unit Override&quot;.equals(Product.UnitOverrideFlag) ? 1 : Product.SalesUnit " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityOrdered" expression="Relational.ISNULL(Product.UnitOverrideFlag) ? null :&#xD;&#xA;&quot;Unit Override&quot;.equals(Product.UnitOverrideFlag) ? 1 : Product.OrderLineQuantityOrdered " type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityOutstanding" expression="Relational.ISNULL(Product.UnitOverrideFlag) || Relational.ISNULL(Product.OrderLineQuantityOutstanding ) ? null :&#xD;&#xA;Product.OrderLineQuantityOutstanding == 0 ? 0 :&#xD;&#xA;&quot;Unit Override&quot;.equals(Product.UnitOverrideFlag) ? 1 : Product.OrderLineQuantityOutstanding " type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityShipped" expression="Relational.ISNULL(Product.UnitOverrideFlag) || Relational.ISNULL(Product.OrderLineQuantityShipped ) ? null :&#xD;&#xA;Product.OrderLineQuantityShipped == 0 ? 0 :&#xD;&#xA;&quot;Unit Override&quot;.equals(Product.UnitOverrideFlag) ? 1 : Product.OrderLineQuantityShipped " type="id_Float"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="Product" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="CONO55" type="id_String"/>
@@ -469,6 +484,9 @@
         <mapperTableEntries name="OrderCancellationReasonCode" type="id_String"/>
         <mapperTableEntries name="OrderTypeCode" type="id_String"/>
         <mapperTableEntries name="OrderSuspenseCode" type="id_String"/>
+        <mapperTableEntries name="OrderLineQuantityOrdered" type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityOutstanding" type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityShipped" type="id_Float"/>
         <mapperTableEntries name="CustomProductHoldCode" type="id_String"/>
         <mapperTableEntries name="CustomProductHoldDescription" type="id_String"/>
         <mapperTableEntries name="SalesUnit" type="id_Float" nullable="true"/>
@@ -560,9 +578,12 @@
       <column comment="" key="false" length="7" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="60" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="Stockroom">
         <mapperTableEntries name="CONO55" expression="WithCustomer.CONO55 " type="id_String"/>
@@ -584,6 +605,9 @@
         <mapperTableEntries name="CustomProductHoldCode" expression="WithCustomer.CustomProductHoldCode " type="id_String"/>
         <mapperTableEntries name="CustomProductHoldDescription" expression="WithCustomer.CustomProductHoldDescription " type="id_String"/>
         <mapperTableEntries name="SalesUnit" expression="WithCustomer.SalesUnit " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityOrdered" expression="WithCustomer.OrderLineQuantityOrdered " type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityOutstanding" expression="WithCustomer.OrderLineQuantityOutstanding " type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityShipped" expression="WithCustomer.OrderLineQuantityShipped " type="id_Float"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="WithCustomer" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="CONO55" type="id_String"/>
@@ -606,6 +630,9 @@
         <mapperTableEntries name="CustomProductHoldCode" type="id_String"/>
         <mapperTableEntries name="CustomProductHoldDescription" type="id_String"/>
         <mapperTableEntries name="SalesUnit" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityOrdered" type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityOutstanding" type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityShipped" type="id_Float"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="DimStockroom" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Stockroom" type="id_Integer"/>
@@ -689,9 +716,12 @@
       <column comment="" key="false" length="7" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="60" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="WithGeography">
         <mapperTableEntries name="CONO55" expression="Stockroom.CONO55 " type="id_String"/>
@@ -713,6 +743,9 @@
         <mapperTableEntries name="CustomProductHoldCode" expression="Stockroom.CustomProductHoldCode " type="id_String"/>
         <mapperTableEntries name="CustomProductHoldDescription" expression="Stockroom.CustomProductHoldDescription " type="id_String"/>
         <mapperTableEntries name="SalesUnit" expression="Stockroom.SalesUnit " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityOrdered" expression="Stockroom.OrderLineQuantityOrdered " type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityOutstanding" expression="Stockroom.OrderLineQuantityOutstanding " type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityShipped" expression="Stockroom.OrderLineQuantityShipped " type="id_Float"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="Stockroom" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="CONO55" type="id_String"/>
@@ -734,6 +767,9 @@
         <mapperTableEntries name="CustomProductHoldCode" type="id_String"/>
         <mapperTableEntries name="CustomProductHoldDescription" type="id_String"/>
         <mapperTableEntries name="SalesUnit" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityOrdered" type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityOutstanding" type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityShipped" type="id_Float"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="Geography" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Geography" type="id_Integer"/>
@@ -817,9 +853,12 @@
       <column comment="" key="false" length="7" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="60" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="Currency">
         <mapperTableEntries name="CONO55" expression="WithGeography.CONO55 " type="id_String"/>
@@ -841,6 +880,9 @@
         <mapperTableEntries name="CustomProductHoldCode" expression="WithGeography.CustomProductHoldCode " type="id_String"/>
         <mapperTableEntries name="CustomProductHoldDescription" expression="WithGeography.CustomProductHoldDescription " type="id_String"/>
         <mapperTableEntries name="SalesUnit" expression="WithGeography.SalesUnit " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityOrdered" expression="WithGeography.OrderLineQuantityOrdered " type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityOutstanding" expression="WithGeography.OrderLineQuantityOutstanding " type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityShipped" expression="WithGeography.OrderLineQuantityShipped " type="id_Float"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="WithGeography" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="CONO55" type="id_String"/>
@@ -862,6 +904,9 @@
         <mapperTableEntries name="CustomProductHoldCode" type="id_String"/>
         <mapperTableEntries name="CustomProductHoldDescription" type="id_String"/>
         <mapperTableEntries name="SalesUnit" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityOrdered" type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityOutstanding" type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityShipped" type="id_Float"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="DimCurrencyTransaction" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Currency" type="id_Integer"/>
@@ -985,9 +1030,12 @@
       <column comment="" key="false" length="7" name="CustomProductHoldCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="60" name="CustomProductHoldDescription" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="Company">
         <mapperTableEntries name="CONO55" expression="Currency.CONO55 " type="id_String"/>
@@ -1010,6 +1058,9 @@
         <mapperTableEntries name="CustomProductHoldCode" expression="Currency.CustomProductHoldCode " type="id_String"/>
         <mapperTableEntries name="CustomProductHoldDescription" expression="Currency.CustomProductHoldDescription " type="id_String"/>
         <mapperTableEntries name="SalesUnit" expression="Currency.SalesUnit " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityOrdered" expression="Currency.OrderLineQuantityOrdered " type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityOutstanding" expression="Currency.OrderLineQuantityOutstanding " type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityShipped" expression="Currency.OrderLineQuantityShipped " type="id_Float"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="Currency" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="CONO55" type="id_String"/>
@@ -1031,6 +1082,9 @@
         <mapperTableEntries name="CustomProductHoldCode" type="id_String"/>
         <mapperTableEntries name="CustomProductHoldDescription" type="id_String"/>
         <mapperTableEntries name="SalesUnit" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityOrdered" type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityOutstanding" type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityShipped" type="id_Float"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="DimCompany" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Company" type="id_Integer"/>
@@ -1108,9 +1162,12 @@
       <column comment="" defaultValue="" key="false" length="11" name="SK_Company" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_SalesOrderDetail" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="WithSalesOrderDetail">
         <mapperTableEntries name="CONO55" expression="Company.CONO55 " type="id_String"/>
@@ -1126,6 +1183,9 @@
         <mapperTableEntries name="SK_Company" expression="Company.SK_Company " type="id_Integer"/>
         <mapperTableEntries name="SK_SalesOrderDetail" expression="DimSalesOrderDetail.SK_SalesOrderDetail " type="id_Integer"/>
         <mapperTableEntries name="SalesUnit" expression="Company.SalesUnit " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityOrdered" expression="Company.OrderLineQuantityOrdered " type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityOutstanding" expression="Company.OrderLineQuantityOutstanding " type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityShipped" expression="Company.OrderLineQuantityShipped " type="id_Float"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="Company" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="CONO55" type="id_String"/>
@@ -1148,6 +1208,9 @@
         <mapperTableEntries name="CustomProductHoldCode" type="id_String"/>
         <mapperTableEntries name="CustomProductHoldDescription" type="id_String"/>
         <mapperTableEntries name="SalesUnit" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityOrdered" type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityOutstanding" type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityShipped" type="id_Float"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="DimSalesOrderDetail" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_SalesOrderDetail" type="id_Integer"/>
@@ -1254,9 +1317,12 @@
       <column comment="" defaultValue="" key="false" length="11" name="SK_SalesOrderDetail" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="WithSourceSystem">
         <mapperTableEntries name="CONO55" expression="WithSalesOrderDetail.CONO55 " type="id_String"/>
@@ -1273,6 +1339,9 @@
         <mapperTableEntries name="SK_SalesOrderDetail" expression="WithSalesOrderDetail.SK_SalesOrderDetail " type="id_Integer"/>
         <mapperTableEntries name="SalesUnit" expression="WithSalesOrderDetail.SalesUnit " type="id_Float" nullable="true"/>
         <mapperTableEntries name="SK_SourceSystem" expression="SourceSystem.SK_SourceSystem " type="id_Integer"/>
+        <mapperTableEntries name="OrderLineQuantityOrdered" expression="WithSalesOrderDetail.OrderLineQuantityOrdered " type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityOutstanding" expression="WithSalesOrderDetail.OrderLineQuantityOutstanding " type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityShipped" expression="WithSalesOrderDetail.OrderLineQuantityShipped " type="id_Float"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="WithSalesOrderDetail" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="CONO55" type="id_String"/>
@@ -1288,6 +1357,9 @@
         <mapperTableEntries name="SK_Company" type="id_Integer"/>
         <mapperTableEntries name="SK_SalesOrderDetail" type="id_Integer"/>
         <mapperTableEntries name="SalesUnit" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OrderLineQuantityOrdered" type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityOutstanding" type="id_Float"/>
+        <mapperTableEntries name="OrderLineQuantityShipped" type="id_Float"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="SourceSystem" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_SourceSystem" type="id_Integer"/>
@@ -1439,6 +1511,21 @@
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="OrderLineQuantityOrdered"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="OrderLineQuantityOutstanding"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="OrderLineQuantityShipped"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
     </elementParameter>
     <elementParameter field="CHECK" name="USE_HINT_OPTIONS" value="false"/>
     <elementParameter field="TABLE" name="HINT_OPTIONS" show="false"/>
@@ -1463,6 +1550,9 @@
       <column comment="" defaultValue="" key="false" length="11" name="SK_SalesOrderDetail" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <metadata connector="REJECT" name="REJECT">
       <column comment="" key="true" length="2" name="CONO55" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
@@ -1479,6 +1569,9 @@
       <column comment="" defaultValue="" key="false" length="11" name="SK_SalesOrderDetail" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SalesUnit" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOrdered" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityOutstanding" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OrderLineQuantityShipped" nullable="false" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
@@ -1507,6 +1600,17 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk7" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="WithCustomer" lineStyle="0" metaname="WithCustomer" offsetLabelX="0" offsetLabelY="0" source="tMap_15" target="tMap_9">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="OrderLineQuantityOrdered"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="OrderLineQuantityShipped"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="OrderLineQuantityOutstanding"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="WithCustomer" show="false"/>
   </connection>
@@ -1515,6 +1619,17 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="Customer" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="Stockroom" lineStyle="0" metaname="Stockroom" offsetLabelX="0" offsetLabelY="0" source="tMap_9" target="tMap_14">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="OrderLineQuantityOrdered"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="OrderLineQuantityShipped"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="OrderLineQuantityOutstanding"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="Stockroom" show="false"/>
   </connection>
@@ -1523,6 +1638,17 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="DimStockroom" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="WithGeography" lineStyle="0" metaname="WithGeography" offsetLabelX="0" offsetLabelY="0" source="tMap_14" target="tMap_8">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="OrderLineQuantityOrdered"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="OrderLineQuantityShipped"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="OrderLineQuantityOutstanding"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="WithGeography" show="false"/>
   </connection>
@@ -1531,6 +1657,17 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="Geography" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="Currency" lineStyle="0" metaname="Currency" offsetLabelX="0" offsetLabelY="0" source="tMap_8" target="tMap_2">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="OrderLineQuantityOrdered"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="OrderLineQuantityShipped"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="OrderLineQuantityOutstanding"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="Currency" show="false"/>
   </connection>
@@ -1543,6 +1680,17 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="DimCurrencyUSD" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="Company" lineStyle="0" metaname="Company" offsetLabelX="0" offsetLabelY="0" source="tMap_2" target="tMap_16">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="OrderLineQuantityOrdered"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="OrderLineQuantityShipped"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="OrderLineQuantityOutstanding"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="Company" show="false"/>
   </connection>
@@ -1565,6 +1713,15 @@
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
       <elementValue elementRef="TRACE_COLUMN" value="ORDN55"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="OrderLineQuantityOrdered"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="OrderLineQuantityShipped"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="OrderLineQuantityOutstanding"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
@@ -1595,6 +1752,15 @@
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
       <elementValue elementRef="TRACE_COLUMN" value="ORDN55"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="OrderLineQuantityOrdered"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="OrderLineQuantityShipped"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="OrderLineQuantityOutstanding"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
