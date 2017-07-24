@@ -303,7 +303,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT f.SK_Customer,&#xD;&#xA;    f.SK_Product,&#xD;&#xA;    f.SK_Stockroom,&#xD;&#xA;    f.SK_Geography_ShipDestination,&#xD;&#xA;    f.SK_Currency_USD,&#xD;&#xA;    f.SK_Currency_Functional,&#xD;&#xA;    f.SK_Currency_Transaction,&#xD;&#xA;    f.SK_Company,&#xD;&#xA;    f.SK_SalesOrderDetail,&#xD;&#xA;    f.SK_Date_CustomerOrdered,&#xD;&#xA;    f.SK_Date_SystemEntered,&#xD;&#xA;    f.SK_Date_CurrentPromisedShip,&#xD;&#xA;    f.SK_Date_ScheduledBuild,&#xD;&#xA;    f.DD_OrderNumber,&#xD;&#xA;    f.DD_OrderLineNumber,&#xD;&#xA;    f.DD_QuoteNumber,&#xD;&#xA;    f.DD_SerialNumber,&#xD;&#xA;    f.DD_CustomerPurchaseOrderNumber,&#xD;&#xA;    f.DD_CustomerTagName,&#xD;&#xA;    f.OrderLineQuantityOutstanding,&#xD;&#xA;    f.OrderLineUnitsOutstanding,&#xD;&#xA;    f.OrderLineExtendedValueUSD,&#xD;&#xA;    f.OrderLineExtendedValueFunctionalCurrency,&#xD;&#xA;    f.OrderLineExtendedValueTransactionCurrency,&#xD;&#xA;    f.SK_SourceSystem,&#xD;&#xA;    da.FiscalYYYYMM,&#xD;&#xA;    c.CustomerDefaultFreightTermCode&#xD;&#xA;FROM Fact_SalesOrders AS f&#xD;&#xA;INNER JOIN Dim_SalesOrderDetail AS d&#xD;&#xA;&#x9;ON f.SK_SalesOrderDetail = d.SK_SalesOrderDetail&#xD;&#xA;    AND d.OrderStatusCode NOT IN ('C','X')&#xD;&#xA;INNER JOIN Dim_Date AS da&#xD;&#xA;&#x9;ON f.SK_Date_CurrentPromisedShip = da.SK_Date&#xD;&#xA;INNER JOIN Dim_Customer AS c&#xD;&#xA;&#x9;ON f.SK_Customer = c.SK_Customer&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT f.SK_Customer,&#xD;&#xA;    f.SK_Product,&#xD;&#xA;    f.SK_Stockroom,&#xD;&#xA;    f.SK_Geography_ShipDestination,&#xD;&#xA;    f.SK_Currency_USD,&#xD;&#xA;    f.SK_Currency_Functional,&#xD;&#xA;    f.SK_Currency_Transaction,&#xD;&#xA;    f.SK_Company,&#xD;&#xA;    f.SK_SalesOrderDetail,&#xD;&#xA;    f.SK_Date_CustomerOrdered,&#xD;&#xA;    f.SK_Date_SystemEntered,&#xD;&#xA;    f.SK_Date_CurrentPromisedShip,&#xD;&#xA;    f.SK_Date_ScheduledBuild,&#xD;&#xA;    f.DD_OrderNumber,&#xD;&#xA;    f.DD_OrderLineNumber,&#xD;&#xA;    f.DD_QuoteNumber,&#xD;&#xA;    f.DD_SerialNumber,&#xD;&#xA;    f.DD_CustomerPurchaseOrderNumber,&#xD;&#xA;    f.DD_CustomerTagName,&#xD;&#xA;    f.OrderLineQuantityOutstanding,&#xD;&#xA;    f.OrderLineUnitsOutstanding,&#xD;&#xA;    f.OrderLineExtendedValueUSD,&#xD;&#xA;    f.OrderLineExtendedValueFunctionalCurrency,&#xD;&#xA;    f.OrderLineExtendedValueTransactionCurrency,&#xD;&#xA;    f.SK_SourceSystem,&#xD;&#xA;    da.FiscalYYYYMM,&#xD;&#xA;    c.CustomerDefaultFreightTermCode,&#xD;&#xA;    d.OrderSuspenseCode&#xD;&#xA;FROM Fact_SalesOrders AS f&#xD;&#xA;INNER JOIN Dim_SalesOrderDetail AS d&#xD;&#xA;&#x9;ON f.SK_SalesOrderDetail = d.SK_SalesOrderDetail&#xD;&#xA;    AND d.OrderStatusCode NOT IN ('C','X')&#xD;&#xA;INNER JOIN Dim_Date AS da&#xD;&#xA;&#x9;ON f.SK_Date_CurrentPromisedShip = da.SK_Date&#xD;&#xA;INNER JOIN Dim_Customer AS c&#xD;&#xA;&#x9;ON f.SK_Customer = c.SK_Customer&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -368,6 +368,8 @@
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="CustomerDefaultFreightTermCode"/>
       <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="OrderSuspenseCode"/>
+      <elementValue elementRef="TRIM" value="false"/>
     </elementParameter>
     <elementParameter field="TEXT" name="LABEL" value="OpenOrders"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
@@ -399,6 +401,7 @@
       <column comment="" defaultValue="" key="false" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="6" name="FiscalYYYYMM" nullable="true" pattern="" precision="-1" sourceType="INT" type="id_Integer" originalLength="6" usefulColumn="true"/>
       <column comment="" key="false" length="7" name="CustomerDefaultFreightTermCode" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="OrderSuspenseCode" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="320" posY="192">
@@ -441,10 +444,19 @@
       <column comment="" defaultValue="" key="false" length="15" name="OpenOrderLineExtendedValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="OpenOrderLineExtendedValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="CustomerDefaultFreightTermCode" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="OrderSuspenseCode" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="CurrentMonthShipQuantityOutstanding" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="CurrentMonthShipUnitsOutstanding" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="CurrentMonthShipExtendedValueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="CurrentMonthShipExtendedValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="CurrentMonthShipExtendedValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
-      <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
+      <uiProperties shellMaximized="true"/>
+      <varTables sizeState="INTERMEDIATE" name="Var">
+        <mapperTableEntries name="CurrentMonthFlag" expression="Relational.ISNULL(OpenOrders.FiscalYYYYMM) ? 0 :&#xD;&#xA;OpenOrders.FiscalYYYYMM == Now.FiscalYYYYMM ? 1 : 0 " type="id_Integer"/>
+      </varTables>
       <outputTables sizeState="INTERMEDIATE" name="WithSnapshotDate">
         <mapperTableEntries name="SK_Customer" expression="OpenOrders.SK_Customer " type="id_Integer"/>
         <mapperTableEntries name="SK_Product" expression="OpenOrders.SK_Product " type="id_Integer"/>
@@ -472,6 +484,13 @@
         <mapperTableEntries name="OpenOrderLineExtendedValueFunctionalCurrency" expression="OpenOrders.OrderLineExtendedValueFunctionalCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="OpenOrderLineExtendedValueTransactionCurrency" expression="OpenOrders.OrderLineExtendedValueTransactionCurrency " type="id_Float" nullable="true"/>
         <mapperTableEntries name="SK_SourceSystem" expression="OpenOrders.SK_SourceSystem " type="id_Integer"/>
+        <mapperTableEntries name="CustomerDefaultFreightTermCode" expression="OpenOrders.CustomerDefaultFreightTermCode " type="id_String"/>
+        <mapperTableEntries name="OrderSuspenseCode" expression="OpenOrders.OrderSuspenseCode " type="id_String"/>
+        <mapperTableEntries name="CurrentMonthShipQuantityOutstanding" expression="Var.CurrentMonthFlag == 1 ? OpenOrders.OrderLineQuantityOutstanding : null " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="CurrentMonthShipUnitsOutstanding" expression="Var.CurrentMonthFlag == 1 ? OpenOrders.OrderLineUnitsOutstanding : null " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="CurrentMonthShipExtendedValueUSD" expression="Var.CurrentMonthFlag == 1 ? OpenOrders.OrderLineExtendedValueUSD : null " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="CurrentMonthShipExtendedValueFunctionalCurrency" expression="Var.CurrentMonthFlag == 1 ? OpenOrders.OrderLineExtendedValueFunctionalCurrency : null " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="CurrentMonthShipExtendedValueTransactionCurrency" expression="Var.CurrentMonthFlag == 1 ? OpenOrders.OrderLineExtendedValueTransactionCurrency : null " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="OpenOrders" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Customer" type="id_Integer"/>
@@ -501,6 +520,7 @@
         <mapperTableEntries name="SK_SourceSystem" type="id_Integer"/>
         <mapperTableEntries name="FiscalYYYYMM" type="id_Integer" nullable="true"/>
         <mapperTableEntries name="CustomerDefaultFreightTermCode" type="id_String"/>
+        <mapperTableEntries name="OrderSuspenseCode" type="id_String"/>
       </inputTables>
       <inputTables sizeState="INTERMEDIATE" name="Now" matchingMode="ALL_ROWS" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="Now" type="id_Date" nullable="true"/>
@@ -508,7 +528,178 @@
       </inputTables>
     </nodeData>
   </node>
-  <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="672" posY="192">
+  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="320" posY="64">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_2" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
+    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_2"/>
+    <elementParameter field="TEXT" name="HOST" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PORT" value="&quot;3306&quot;" show="false"/>
+    <elementParameter field="TEXT" name="DBNAME" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="TYPE" value="MySQL" show="false"/>
+    <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Meta_Now&quot;"/>
+    <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
+    <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT n.Now&#xD;&#xA;&#x9;,d.FiscalYYYYMM&#xD;&#xA;FROM Meta_Now AS n&#xD;&#xA;JOIN Dim_Date AS d&#xD;&#xA;&#x9;ON n.NowKey = d.SK_Date&#xD;&#xA;&quot;"/>
+    <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
+    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
+    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
+    <elementParameter field="MAPPING_TYPE" name="MAPPING" value="mysql_id" show="false"/>
+    <elementParameter field="TEXT" name="PROPERTIES" value="&quot;noDatetimeStringSync=true&quot;" show="false"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter field="CHECK" name="ENABLE_STREAM" value="false"/>
+    <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="true"/>
+    <elementParameter field="TABLE" name="TRIM_COLUMN" show="false">
+      <elementValue elementRef="SCHEMA_COLUMN" value="Now"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="FiscalYYYYMM"/>
+      <elementValue elementRef="TRIM" value="false"/>
+    </elementParameter>
+    <elementParameter field="TEXT" name="LABEL" value="Meta_Now"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tMysqlInput_2">
+      <column comment="" key="false" length="19" name="Now" nullable="true" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;" precision="0" sourceType="DATETIME" type="id_Date" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="6" name="FiscalYYYYMM" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="608" posY="192">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMap_2" show="false"/>
+    <elementParameter field="EXTERNAL" name="MAP" value=""/>
+    <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
+    <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_gSfYIExWEeedmaYu-yXBlQ-tMap_2-PREVIEW.bmp"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
+    <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
+    <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
+    <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
+    <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="GetPickupsAndHolds"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata name="WithPickupsAndHolds">
+      <column comment="" defaultValue="" key="false" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="SK_Product" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="SK_Stockroom" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="SK_Geography_ShipDestination" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_USD" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_Functional" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="SK_Currency_Transaction" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="SK_Company" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="SK_SalesOrderDetail" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="SK_Date_CustomerOrdered" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="SK_Date_SystemEntered" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="SK_Date_CurrentPromisedShip" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="SK_Date_ScheduledBuild" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="true" length="11" name="SK_Date_Snapshot" nullable="false" pattern="" precision="0" sourceType="" type="id_Integer" originalLength="11" usefulColumn="true"/>
+      <column comment="" key="true" length="50" name="DD_OrderNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="true" length="11" name="DD_OrderLineNumber" nullable="false" pattern="" precision="0" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="12" name="DD_QuoteNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="50" name="DD_SerialNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="50" name="DD_CustomerPurchaseOrderNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="40" name="DD_CustomerTagName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OpenOrderLineQuantityOutstanding" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OpenOrderLineUnitsOutstanding" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="OpenOrderLineExtendedValueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="OpenOrderLineExtendedValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="OpenOrderLineExtendedValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="CurrentMonthShipQuantityOutstanding" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="CurrentMonthShipUnitsOutstanding" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="CurrentMonthShipExtendedValueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="CurrentMonthShipExtendedValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="CurrentMonthShipExtendedValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OnHoldQuantityOutstanding" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="OnHoldUnitsOutstanding" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="OnHoldExtendedValueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="OnHoldExtendedValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="OnHoldExtendedValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+    <nodeData xsi:type="MapperData">
+      <uiProperties shellMaximized="true"/>
+      <varTables sizeState="INTERMEDIATE" name="Var">
+        <mapperTableEntries name="HoldFlag" expression="&quot;#W&quot;.equals(WithSnapshotDate.OrderSuspenseCode) ? 0 : &#xD;&#xA;&quot;N/A&quot;.equals(WithSnapshotDate.OrderSuspenseCode) ? 0 : &#xD;&#xA;&quot;&quot;.equals(WithSnapshotDate.OrderSuspenseCode) ? 0 : 1 " type="id_Integer"/>
+        <mapperTableEntries name="PickupFlag" expression="Var.HoldFlag == 1 ? 0 : &#xD;&#xA;&quot;#W&quot;.equals(WithSnapshotDate.OrderSuspenseCode) ? 1 :&#xD;&#xD;&#xA;&quot;PU&quot;.equals(WithSnapshotDate.CustomerDefaultFreightTermCode) ? 1 :&#xD;&#xD;&#xA;&quot;P/U&quot;.equals(WithSnapshotDate.CustomerDefaultFreightTermCode) ? 1 :&#xD;&#xD;&#xA;&quot;PU&quot;.equals(WithSnapshotDate.CustomerDefaultFreightTermCode) ? 1 : 0 " type="id_Integer"/>
+      </varTables>
+      <outputTables sizeState="INTERMEDIATE" name="WithPickupsAndHolds">
+        <mapperTableEntries name="SK_Customer" expression="WithSnapshotDate.SK_Customer " type="id_Integer"/>
+        <mapperTableEntries name="SK_Product" expression="WithSnapshotDate.SK_Product " type="id_Integer"/>
+        <mapperTableEntries name="SK_Stockroom" expression="WithSnapshotDate.SK_Stockroom " type="id_Integer"/>
+        <mapperTableEntries name="SK_Geography_ShipDestination" expression="WithSnapshotDate.SK_Geography_ShipDestination " type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_USD" expression="WithSnapshotDate.SK_Currency_USD " type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_Functional" expression="WithSnapshotDate.SK_Currency_Functional " type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_Transaction" expression="WithSnapshotDate.SK_Currency_Transaction " type="id_Integer"/>
+        <mapperTableEntries name="SK_Company" expression="WithSnapshotDate.SK_Company " type="id_Integer"/>
+        <mapperTableEntries name="SK_SalesOrderDetail" expression="WithSnapshotDate.SK_SalesOrderDetail " type="id_Integer"/>
+        <mapperTableEntries name="SK_Date_CustomerOrdered" expression="WithSnapshotDate.SK_Date_CustomerOrdered " type="id_Integer"/>
+        <mapperTableEntries name="SK_Date_SystemEntered" expression="WithSnapshotDate.SK_Date_SystemEntered " type="id_Integer"/>
+        <mapperTableEntries name="SK_Date_CurrentPromisedShip" expression="WithSnapshotDate.SK_Date_CurrentPromisedShip " type="id_Integer"/>
+        <mapperTableEntries name="SK_Date_ScheduledBuild" expression="WithSnapshotDate.SK_Date_ScheduledBuild " type="id_Integer"/>
+        <mapperTableEntries name="SK_Date_Snapshot" expression="WithSnapshotDate.SK_Date_Snapshot " type="id_Integer"/>
+        <mapperTableEntries name="DD_OrderNumber" expression="WithSnapshotDate.DD_OrderNumber " type="id_String"/>
+        <mapperTableEntries name="DD_OrderLineNumber" expression="WithSnapshotDate.DD_OrderLineNumber " type="id_Float"/>
+        <mapperTableEntries name="DD_QuoteNumber" expression="WithSnapshotDate.DD_QuoteNumber " type="id_String"/>
+        <mapperTableEntries name="DD_SerialNumber" expression="WithSnapshotDate.DD_SerialNumber " type="id_String"/>
+        <mapperTableEntries name="DD_CustomerPurchaseOrderNumber" expression="WithSnapshotDate.DD_CustomerPurchaseOrderNumber " type="id_String"/>
+        <mapperTableEntries name="DD_CustomerTagName" expression="WithSnapshotDate.DD_CustomerTagName " type="id_String"/>
+        <mapperTableEntries name="OpenOrderLineQuantityOutstanding" expression="WithSnapshotDate.OpenOrderLineQuantityOutstanding " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OpenOrderLineUnitsOutstanding" expression="WithSnapshotDate.OpenOrderLineUnitsOutstanding " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OpenOrderLineExtendedValueUSD" expression="WithSnapshotDate.OpenOrderLineExtendedValueUSD " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OpenOrderLineExtendedValueFunctionalCurrency" expression="WithSnapshotDate.OpenOrderLineExtendedValueFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OpenOrderLineExtendedValueTransactionCurrency" expression="WithSnapshotDate.OpenOrderLineExtendedValueTransactionCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="SK_SourceSystem" expression="WithSnapshotDate.SK_SourceSystem " type="id_Integer"/>
+        <mapperTableEntries name="CurrentMonthShipQuantityOutstanding" expression="WithSnapshotDate.CurrentMonthShipQuantityOutstanding " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="CurrentMonthShipUnitsOutstanding" expression="WithSnapshotDate.CurrentMonthShipUnitsOutstanding " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="CurrentMonthShipExtendedValueUSD" expression="WithSnapshotDate.CurrentMonthShipExtendedValueUSD " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="CurrentMonthShipExtendedValueFunctionalCurrency" expression="WithSnapshotDate.CurrentMonthShipExtendedValueFunctionalCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="CurrentMonthShipExtendedValueTransactionCurrency" expression="WithSnapshotDate.CurrentMonthShipExtendedValueTransactionCurrency " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OnHoldQuantityOutstanding" expression="Var.HoldFlag == 1 ? WithSnapshotDate.CurrentMonthShipQuantityOutstanding : null " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OnHoldUnitsOutstanding" expression="Var.HoldFlag == 1 ? WithSnapshotDate.CurrentMonthShipUnitsOutstanding  : null " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OnHoldExtendedValueUSD" expression="Var.HoldFlag == 1 ? WithSnapshotDate.CurrentMonthShipExtendedValueUSD  : null " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OnHoldExtendedValueFunctionalCurrency" expression="Var.HoldFlag == 1 ? WithSnapshotDate.CurrentMonthShipExtendedValueFunctionalCurrency  : null " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OnHoldExtendedValueTransactionCurrency" expression="Var.HoldFlag == 1 ? WithSnapshotDate.CurrentMonthShipExtendedValueTransactionCurrency  : null " type="id_Float" nullable="true"/>
+      </outputTables>
+      <inputTables sizeState="INTERMEDIATE" name="WithSnapshotDate" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
+        <mapperTableEntries name="SK_Customer" type="id_Integer"/>
+        <mapperTableEntries name="SK_Product" type="id_Integer"/>
+        <mapperTableEntries name="SK_Stockroom" type="id_Integer"/>
+        <mapperTableEntries name="SK_Geography_ShipDestination" type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_USD" type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_Functional" type="id_Integer"/>
+        <mapperTableEntries name="SK_Currency_Transaction" type="id_Integer"/>
+        <mapperTableEntries name="SK_Company" type="id_Integer"/>
+        <mapperTableEntries name="SK_SalesOrderDetail" type="id_Integer"/>
+        <mapperTableEntries name="SK_Date_CustomerOrdered" type="id_Integer"/>
+        <mapperTableEntries name="SK_Date_SystemEntered" type="id_Integer"/>
+        <mapperTableEntries name="SK_Date_CurrentPromisedShip" type="id_Integer"/>
+        <mapperTableEntries name="SK_Date_ScheduledBuild" type="id_Integer"/>
+        <mapperTableEntries name="SK_Date_Snapshot" type="id_Integer"/>
+        <mapperTableEntries name="DD_OrderNumber" type="id_String"/>
+        <mapperTableEntries name="DD_OrderLineNumber" type="id_Float"/>
+        <mapperTableEntries name="DD_QuoteNumber" type="id_String"/>
+        <mapperTableEntries name="DD_SerialNumber" type="id_String"/>
+        <mapperTableEntries name="DD_CustomerPurchaseOrderNumber" type="id_String"/>
+        <mapperTableEntries name="DD_CustomerTagName" type="id_String"/>
+        <mapperTableEntries name="OpenOrderLineQuantityOutstanding" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OpenOrderLineUnitsOutstanding" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OpenOrderLineExtendedValueUSD" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OpenOrderLineExtendedValueFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="OpenOrderLineExtendedValueTransactionCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="SK_SourceSystem" type="id_Integer"/>
+        <mapperTableEntries name="CustomerDefaultFreightTermCode" type="id_String"/>
+        <mapperTableEntries name="OrderSuspenseCode" type="id_String"/>
+        <mapperTableEntries name="CurrentMonthShipQuantityOutstanding" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="CurrentMonthShipUnitsOutstanding" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="CurrentMonthShipExtendedValueUSD" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="CurrentMonthShipExtendedValueFunctionalCurrency" type="id_Float" nullable="true"/>
+        <mapperTableEntries name="CurrentMonthShipExtendedValueTransactionCurrency" type="id_Float" nullable="true"/>
+      </inputTables>
+    </nodeData>
+  </node>
+  <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1024" posY="192">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlOutput_1" show="false"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
@@ -669,6 +860,41 @@
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CustomerDefaultFreightTermCode"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="OrderSuspenseCode"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CurrentMonthShipQuantityOutstanding"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CurrentMonthShipUnitsOutstanding"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CurrentMonthShipExtendedValueUSD"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CurrentMonthShipExtendedValueFunctionalCurrency"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CurrentMonthShipExtendedValueTransactionCurrency"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
     </elementParameter>
     <elementParameter field="CHECK" name="USE_HINT_OPTIONS" value="false"/>
     <elementParameter field="TABLE" name="HINT_OPTIONS" show="false"/>
@@ -705,6 +931,13 @@
       <column comment="" defaultValue="" key="false" length="15" name="OpenOrderLineExtendedValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="OpenOrderLineExtendedValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="CustomerDefaultFreightTermCode" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="OrderSuspenseCode" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="CurrentMonthShipQuantityOutstanding" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="CurrentMonthShipUnitsOutstanding" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="CurrentMonthShipExtendedValueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="CurrentMonthShipExtendedValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="CurrentMonthShipExtendedValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <metadata connector="REJECT" label="ConformedValues" name="REJECT">
       <column comment="" defaultValue="" key="false" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
@@ -733,47 +966,15 @@
       <column comment="" defaultValue="" key="false" length="15" name="OpenOrderLineExtendedValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="OpenOrderLineExtendedValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="11" name="SK_SourceSystem" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="CustomerDefaultFreightTermCode" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
+      <column comment="" key="false" length="7" name="OrderSuspenseCode" nullable="false" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="7" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="CurrentMonthShipQuantityOutstanding" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="11" name="CurrentMonthShipUnitsOutstanding" nullable="true" pattern="" precision="3" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="CurrentMonthShipExtendedValueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="CurrentMonthShipExtendedValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="15" name="CurrentMonthShipExtendedValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-    </metadata>
-  </node>
-  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="320" posY="64">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_2" show="false"/>
-    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
-    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
-    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_2"/>
-    <elementParameter field="TEXT" name="HOST" value="&quot;&quot;" show="false"/>
-    <elementParameter field="TEXT" name="PORT" value="&quot;3306&quot;" show="false"/>
-    <elementParameter field="TEXT" name="DBNAME" value="&quot;&quot;" show="false"/>
-    <elementParameter field="TEXT" name="TYPE" value="MySQL" show="false"/>
-    <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Meta_Now&quot;"/>
-    <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
-    <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
-    <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
-    <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT n.Now&#xD;&#xA;&#x9;,d.FiscalYYYYMM&#xD;&#xA;FROM Meta_Now AS n&#xD;&#xA;JOIN Dim_Date AS d&#xD;&#xA;&#x9;ON n.NowKey = d.SK_Date&#xD;&#xA;&quot;"/>
-    <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
-    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
-    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
-    <elementParameter field="MAPPING_TYPE" name="MAPPING" value="mysql_id" show="false"/>
-    <elementParameter field="TEXT" name="PROPERTIES" value="&quot;noDatetimeStringSync=true&quot;" show="false"/>
-    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
-    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
-    <elementParameter field="CHECK" name="ENABLE_STREAM" value="false"/>
-    <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="true"/>
-    <elementParameter field="TABLE" name="TRIM_COLUMN" show="false">
-      <elementValue elementRef="SCHEMA_COLUMN" value="Now"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="FiscalYYYYMM"/>
-      <elementValue elementRef="TRIM" value="false"/>
-    </elementParameter>
-    <elementParameter field="TEXT" name="LABEL" value="Meta_Now"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tMysqlInput_2">
-      <column comment="" key="false" length="19" name="Now" nullable="true" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;" precision="0" sourceType="DATETIME" type="id_Date" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="6" name="FiscalYYYYMM" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
   <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tPrejob_1" offsetLabelX="0" offsetLabelY="0" source="tPrejob_1" target="tRunJob_1">
@@ -803,6 +1004,9 @@
       <elementValue elementRef="TRACE_COLUMN" value="FiscalYYYYMM"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="OrderSuspenseCode"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OpenOrders" show="false"/>
@@ -810,7 +1014,7 @@
   <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlInput_1" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_1" target="tSetGlobalVar_1">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk9" show="false"/>
   </connection>
-  <connection connectorName="FLOW" label="WithSnapshotDate" lineStyle="0" metaname="WithSnapshotDate" offsetLabelX="0" offsetLabelY="0" source="tMap_1" target="tMysqlOutput_1">
+  <connection connectorName="FLOW" label="WithSnapshotDate" lineStyle="0" metaname="WithSnapshotDate" offsetLabelX="0" offsetLabelY="0" source="tMap_1" target="tMap_2">
     <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
       <elementValue elementRef="TRACE_COLUMN" value="OrderLineNetUnitPriceUSD"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
@@ -837,6 +1041,27 @@
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
       <elementValue elementRef="TRACE_COLUMN" value="OpenOrderLineExtendedValueFunctionalCurrency"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="CustomerDefaultFreightTermCode"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="CurrentMonthShipExtendedValueUSD"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="CurrentMonthShipUnitsOutstanding"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="CurrentMonthShipExtendedValueTransactionCurrency"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="OrderSuspenseCode"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="CurrentMonthShipQuantityOutstanding"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="CurrentMonthShipExtendedValueFunctionalCurrency"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
@@ -886,6 +1111,11 @@
   </subjob>
   <subjob>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_1" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlOutput_1" show="false"/>
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
