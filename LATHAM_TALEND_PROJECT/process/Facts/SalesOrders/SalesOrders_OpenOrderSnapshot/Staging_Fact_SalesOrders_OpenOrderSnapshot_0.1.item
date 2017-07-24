@@ -451,9 +451,9 @@
       <column comment="" defaultValue="" key="false" length="15" name="CurrentMonthShipExtendedValueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="CurrentMonthShipExtendedValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="CurrentMonthShipExtendedValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="1" name="CurrentMonthFlag" nullable="false" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="1" usefulColumn="true"/>
-      <column comment="" key="false" length="6" name="FiscalYYYYMM" nullable="true" pattern="" precision="-1" sourceType="INT" type="id_Integer" originalLength="6" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="6" name="FiscalYYYYMM_1" nullable="true" originalDbColumnName="FiscalYYYYMM" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="1" name="CurrentMonthFlag" nullable="false" pattern="" precision="0" sourceType="" type="id_Integer" originalLength="1" usefulColumn="true"/>
+      <column comment="" key="false" length="6" name="FiscalYYYYMM" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="6" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="6" name="FiscalYYYYMM_Now" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
@@ -496,7 +496,7 @@
         <mapperTableEntries name="CurrentMonthShipExtendedValueTransactionCurrency" expression="Var.CurrentMonthFlag == 1 ? OpenOrders.OrderLineExtendedValueTransactionCurrency : null " type="id_Float" nullable="true"/>
         <mapperTableEntries name="CurrentMonthFlag" expression="Var.CurrentMonthFlag " type="id_Integer"/>
         <mapperTableEntries name="FiscalYYYYMM" expression="OpenOrders.FiscalYYYYMM " type="id_Integer" nullable="true"/>
-        <mapperTableEntries name="FiscalYYYYMM_1" expression="Now.FiscalYYYYMM " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="FiscalYYYYMM_Now" expression="Now.FiscalYYYYMM " type="id_Integer" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="OpenOrders" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="SK_Customer" type="id_Integer"/>
@@ -779,7 +779,7 @@
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="FiscalYYYYMM_1"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="FiscalYYYYMM_Now"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
@@ -827,9 +827,9 @@
       <column comment="" defaultValue="" key="false" length="15" name="CurrentMonthShipExtendedValueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="CurrentMonthShipExtendedValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="CurrentMonthShipExtendedValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="1" name="CurrentMonthFlag" nullable="false" pattern="" precision="-1" sourceType="INT" type="id_Integer" originalLength="1" usefulColumn="true"/>
-      <column comment="" key="false" length="6" name="FiscalYYYYMM" nullable="true" pattern="" precision="-1" sourceType="INT" type="id_Integer" originalLength="6" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="6" name="FiscalYYYYMM_1" nullable="true" originalDbColumnName="FiscalYYYYMM" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="1" name="CurrentMonthFlag" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="1" usefulColumn="true"/>
+      <column comment="" key="false" length="6" name="FiscalYYYYMM" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="6" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="6" name="FiscalYYYYMM_Now" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <metadata connector="REJECT" label="ConformedValues" name="REJECT">
       <column comment="" defaultValue="" key="false" length="11" name="SK_Customer" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
@@ -865,9 +865,9 @@
       <column comment="" defaultValue="" key="false" length="15" name="CurrentMonthShipExtendedValueUSD" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="CurrentMonthShipExtendedValueFunctionalCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="15" name="CurrentMonthShipExtendedValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="1" name="CurrentMonthFlag" nullable="false" pattern="" precision="-1" sourceType="INT" type="id_Integer" originalLength="1" usefulColumn="true"/>
-      <column comment="" key="false" length="6" name="FiscalYYYYMM" nullable="true" pattern="" precision="-1" sourceType="INT" type="id_Integer" originalLength="6" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="6" name="FiscalYYYYMM_1" nullable="true" originalDbColumnName="FiscalYYYYMM" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="1" name="CurrentMonthFlag" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="1" usefulColumn="true"/>
+      <column comment="" key="false" length="6" name="FiscalYYYYMM" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="6" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="6" name="FiscalYYYYMM_Now" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
@@ -1080,7 +1080,7 @@
       <elementValue elementRef="TRACE_COLUMN" value="CurrentMonthFlag"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="FiscalYYYYMM_1"/>
+      <elementValue elementRef="TRACE_COLUMN" value="FiscalYYYYMM_Now"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
       <elementValue elementRef="TRACE_COLUMN" value="FiscalYYYYMM"/>
