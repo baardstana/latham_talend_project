@@ -241,7 +241,6 @@
   </node>
   <node componentName="tSetGlobalVar" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="64" posY="960">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tSetGlobalVar_1" show="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="TABLE" name="VARIABLES">
       <elementValue elementRef="KEY" value="&quot;loadOutcome&quot;"/>
       <elementValue elementRef="VALUE" value="&quot;Succeeded&quot;"/>
@@ -304,7 +303,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT SalesInvoicing.SK_Customer&#xD;&#xA;&#x9;, SalesInvoicing.SK_Product&#xD;&#xA;    , Product.SK_Product AS SK_Product_Component&#xD;&#xA;&#x9;, SalesInvoicing.SK_Stockroom_ShippedFrom&#xD;&#xA;&#x9;, SalesInvoicing.SK_Geography_ShippedTo&#xD;&#xA;&#x9;, SalesInvoicing.SK_Currency_USD&#xD;&#xA;&#x9;, SalesInvoicing.SK_Currency_Functional&#xD;&#xA;&#x9;, SalesInvoicing.SK_Currency_Transaction&#xD;&#xA;&#x9;, SalesInvoicing.SK_Company&#xD;&#xA;&#x9;, SalesInvoicing.SK_SalesOrderDetail&#xD;&#xA;&#x9;, SalesInvoicing.SK_SalesInvoicingDetail&#xD;&#xA;&#x9;, SalesInvoicing.SK_Date_CustomerOrdered&#xD;&#xA;&#x9;, SalesInvoicing.SK_Date_SystemEntered&#xD;&#xA;&#x9;, SalesInvoicing.SK_Date_CurrentPromisedShip&#xD;&#xA;&#x9;, SalesInvoicing.SK_Date_Invoiced&#xD;&#xA;    , MSP40.SK_Date_ActualBuild&#xD;&#xA;&#x9;, SalesInvoicing.DD_OrderNumber&#xD;&#xA;&#x9;, SalesInvoicing.DD_OrderLineNumber&#xD;&#xA;&#x9;, SalesInvoicing.DD_InvoiceNumber&#xD;&#xA;    , TORDERBOMS.DD_QuoteNumber&#xD;&#xA;    , SalesInvoicing.DD_CustomerPurchaseOrderNumber&#xD;&#xA;    , TORDERBOMS.DD_CustomerTagName&#xD;&#xA;    , TORDERBOMS.DD_ComponentIdentifier&#xD;&#xA;    , TORDERBOMS.QUANTITY&#xD;&#xA;    , Product.SalesUnit&#xD;&#xA;    , Product.UnitOverrideFlag&#xD;&#xA;    , TORDERBOMS.LISTPRICE&#xD;&#xA;    , TORDERBOMS.DISCOUNTAMOUNT&#xD;&#xA;    , OEP50.FreightRevenueFunctionalCurrency&#xD;&#xA;    , OEP50.FreightRevenueTransactionCurrency&#xD;&#xA;    , OEP70.CVAL70&#xD;&#xA;    , INP95.MOVC95&#xD;&#xA;    , PCP59.AssemblyCost&#xD;&#xA;    , AllocationRev.BasisInvoice&#xD;&#xA;    , AllocationRev.BasisInvoiceLine&#xD;&#xA;    , AllocationCost.BasisInvoiceLineCost&#xD;&#xA;    , Product.CurrentStandardTotalCostFunctionalCurrency&#xD;&#xA;    , Product.CurrentStandardTotalMaterialCostFunctionalCurrency&#xD;&#xA;    , Product.CurrentStandardTotalLaborCostFunctionalCurrency&#xD;&#xA;    , Product.CurrentStandardTotalOverheadCostFunctionalCurrency&#xD;&#xA;    , LIOEP056.InvoiceLineExtendedPromotionValueTransactionCurrency&#xD;&#xA;    , OEP65.BIVT65&#xD;&#xA;    , OEP50.FreightSalesTaxFunctionalCurrency&#xD;&#xA;    , OEP65.INVV65&#xD;&#xA;    , OEP50.FreightSalesTaxTransactionCurrency&#xD;&#xA;    , OEP70.BLIV70&#xD;&#xA;&#x9;, SalesInvoicing.InvoiceLineQuantity&#xD;&#xA;FROM Staging_Fact_SalesInvoicingComponent_S21_PoolKitList AS PoolKits&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_S21 AS SalesInvoicing&#xD;&#xA;&#x9;ON PoolKits.CONO70 = SalesInvoicing.CONO70&#xD;&#xA;&#x9;AND PoolKits.INVN70 = SalesInvoicing.INVN70&#xD;&#xA;    AND PoolKits.ORDL70 = SalesInvoicing.ORDL70&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_S21_OEP65 AS OEP65&#xD;&#xA;&#x9;ON PoolKits.CONO70 = OEP65.CONO65&#xD;&#xA;&#x9;AND PoolKits.INVN70 = OEP65.INVN65&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_S21_OEP70 AS OEP70&#xD;&#xA;&#x9;ON PoolKits.CONO70 = OEP70.CONO70&#xD;&#xA;&#x9;AND PoolKits.INVN70 = OEP70.INVN70&#xD;&#xA;    AND PoolKits.ORDL70 = OEP70.ORDL70&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_TORDERBOMS AS TORDERBOMS&#xD;&#xA;&#x9;ON PoolKits.CONO70 = TORDERBOMS.CONO70&#xD;&#xA;&#x9;AND PoolKits.INVN70 = TORDERBOMS.INVN70&#xD;&#xA;    AND PoolKits.ORDL70 = TORDERBOMS.ORDL70&#xD;&#xA;LEFT JOIN LDW_&quot; + context.parameter_LDW_DWH_environment + &quot;.Dim_Product AS Product&#xD;&#xA;&#x9;ON TORDERBOMS.MapProductComponentCONO35 = Product.BK_Product_CONO35_S21&#xD;&#xA;    AND TORDERBOMS.MapProductComponentPNUM35 = Product.BK_Product_PNUM35_S21&#xD;&#xA;    AND Product.BK_Product_CONO35_S21 IS NOT NULL&#xD;&#xA;    AND Product.BK_Product_PNUM35_S21 IS NOT NULL&#xD;&#xA;    AND Product.IsCurrent = 1&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_MSP40 AS MSP40&#xD;&#xA;&#x9;ON PoolKits.CONO70 = MSP40.CONO70&#xD;&#xA;&#x9;AND PoolKits.INVN70 = MSP40.INVN70&#xD;&#xA;    AND PoolKits.ORDL70 = MSP40.ORDL70&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_OEP50 AS OEP50&#xD;&#xA;&#x9;ON PoolKits.CONO70 = OEP50.CONO65&#xD;&#xA;&#x9;AND PoolKits.INVN70 = OEP50.INVN65    &#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_PCP59 AS PCP59 &#xD;&#xA; &#x9;ON PoolKits.CONO70 = PCP59.CONO70&#xD;&#xA;&#x9;AND PoolKits.INVN70 = PCP59.INVN70&#xD;&#xA;    AND PoolKits.ORDL70 = PCP59.ORDL70&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_INP95 AS INP95 &#xD;&#xA; &#x9;ON TORDERBOMS.CONO70 = INP95.CONO70&#xD;&#xA;&#x9;AND TORDERBOMS.INVN70 = INP95.INVN70&#xD;&#xA;    AND TORDERBOMS.ORDL70 = INP95.ORDL70&#xD;&#xA;    AND TORDERBOMS.BOMID = INP95.BOMID&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_PoolKitAllocationRev AS AllocationRev &#xD;&#xA; &#x9;ON PoolKits.CONO70 = AllocationRev.CONO70&#xD;&#xA;&#x9;AND PoolKits.INVN70 = AllocationRev.INVN70&#xD;&#xA;    AND PoolKits.ORDL70 = AllocationRev.ORDL70&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_PoolKitAllocationCost AS AllocationCost&#xD;&#xA; &#x9;ON PoolKits.CONO70 = AllocationCost.CONO70&#xD;&#xA;&#x9;AND PoolKits.INVN70 = AllocationCost.INVN70&#xD;&#xA;    AND PoolKits.ORDL70 = AllocationCost.ORDL70    &#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_LIOEP056 AS LIOEP056&#xD;&#xA;&#x9;ON PoolKits.CONO70 = LIOEP056.CONO70&#xD;&#xA;&#x9;AND PoolKits.INVN70 = LIOEP056.INVN70&#xD;&#xA;    AND PoolKits.ORDL70 = LIOEP056.ORDL70     &#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;where PoolKits.INVN70 =  '0881314' and PoolKits.ORDL70 = 10 and TORDERBOMS.DD_ComponentIdentifier = 'BOMID: 1176300'&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT SalesInvoicing.SK_Customer&#xD;&#xA;&#x9;, SalesInvoicing.SK_Product&#xD;&#xA;    , Product.SK_Product AS SK_Product_Component&#xD;&#xA;&#x9;, SalesInvoicing.SK_Stockroom_ShippedFrom&#xD;&#xA;&#x9;, SalesInvoicing.SK_Geography_ShippedTo&#xD;&#xA;&#x9;, SalesInvoicing.SK_Currency_USD&#xD;&#xA;&#x9;, SalesInvoicing.SK_Currency_Functional&#xD;&#xA;&#x9;, SalesInvoicing.SK_Currency_Transaction&#xD;&#xA;&#x9;, SalesInvoicing.SK_Company&#xD;&#xA;&#x9;, SalesInvoicing.SK_SalesOrderDetail&#xD;&#xA;&#x9;, SalesInvoicing.SK_SalesInvoicingDetail&#xD;&#xA;&#x9;, SalesInvoicing.SK_Date_CustomerOrdered&#xD;&#xA;&#x9;, SalesInvoicing.SK_Date_SystemEntered&#xD;&#xA;&#x9;, SalesInvoicing.SK_Date_CurrentPromisedShip&#xD;&#xA;&#x9;, SalesInvoicing.SK_Date_Invoiced&#xD;&#xA;    , MSP40.SK_Date_ActualBuild&#xD;&#xA;&#x9;, SalesInvoicing.DD_OrderNumber&#xD;&#xA;&#x9;, SalesInvoicing.DD_OrderLineNumber&#xD;&#xA;&#x9;, SalesInvoicing.DD_InvoiceNumber&#xD;&#xA;    , TORDERBOMS.DD_QuoteNumber&#xD;&#xA;    , SalesInvoicing.DD_CustomerPurchaseOrderNumber&#xD;&#xA;    , TORDERBOMS.DD_CustomerTagName&#xD;&#xA;    , TORDERBOMS.DD_ComponentIdentifier&#xD;&#xA;    , TORDERBOMS.QUANTITY&#xD;&#xA;    , Product.SalesUnit&#xD;&#xA;    , Product.UnitOverrideFlag&#xD;&#xA;    , TORDERBOMS.LISTPRICE&#xD;&#xA;    , TORDERBOMS.DISCOUNTAMOUNT&#xD;&#xA;    , OEP50.FreightRevenueFunctionalCurrency&#xD;&#xA;    , OEP50.FreightRevenueTransactionCurrency&#xD;&#xA;    , OEP70.CVAL70&#xD;&#xA;    , INP95.MOVC95&#xD;&#xA;    , PCP59.AssemblyCost&#xD;&#xA;    , AllocationRev.BasisInvoice&#xD;&#xA;    , AllocationRev.BasisInvoiceLine&#xD;&#xA;    , AllocationCost.BasisInvoiceLineCost&#xD;&#xA;    , Product.CurrentStandardTotalCostFunctionalCurrency&#xD;&#xA;    , Product.CurrentStandardTotalMaterialCostFunctionalCurrency&#xD;&#xA;    , Product.CurrentStandardTotalLaborCostFunctionalCurrency&#xD;&#xA;    , Product.CurrentStandardTotalOverheadCostFunctionalCurrency&#xD;&#xA;    , LIOEP056.InvoiceLineExtendedPromotionValueTransactionCurrency&#xD;&#xA;    , OEP65.BIVT65&#xD;&#xA;    , OEP50.FreightSalesTaxFunctionalCurrency&#xD;&#xA;    , OEP65.INVV65&#xD;&#xA;    , OEP50.FreightSalesTaxTransactionCurrency&#xD;&#xA;    , OEP70.BLIV70&#xD;&#xA;&#x9;, SalesInvoicing.InvoiceLineQuantity&#xD;&#xA;FROM Staging_Fact_SalesInvoicingComponent_S21_PoolKitList AS PoolKits&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_S21 AS SalesInvoicing&#xD;&#xA;&#x9;ON PoolKits.CONO70 = SalesInvoicing.CONO70&#xD;&#xA;&#x9;AND PoolKits.INVN70 = SalesInvoicing.INVN70&#xD;&#xA;    AND PoolKits.ORDL70 = SalesInvoicing.ORDL70&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_S21_OEP65 AS OEP65&#xD;&#xA;&#x9;ON PoolKits.CONO70 = OEP65.CONO65&#xD;&#xA;&#x9;AND PoolKits.INVN70 = OEP65.INVN65&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_S21_OEP70 AS OEP70&#xD;&#xA;&#x9;ON PoolKits.CONO70 = OEP70.CONO70&#xD;&#xA;&#x9;AND PoolKits.INVN70 = OEP70.INVN70&#xD;&#xA;    AND PoolKits.ORDL70 = OEP70.ORDL70&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_TORDERBOMS AS TORDERBOMS&#xD;&#xA;&#x9;ON PoolKits.CONO70 = TORDERBOMS.CONO70&#xD;&#xA;&#x9;AND PoolKits.INVN70 = TORDERBOMS.INVN70&#xD;&#xA;    AND PoolKits.ORDL70 = TORDERBOMS.ORDL70&#xD;&#xA;LEFT JOIN LDW_&quot; + context.parameter_LDW_DWH_environment + &quot;.Dim_Product AS Product&#xD;&#xA;&#x9;ON TORDERBOMS.MapProductComponentCONO35 = Product.BK_Product_CONO35_S21&#xD;&#xA;    AND TORDERBOMS.MapProductComponentPNUM35 = Product.BK_Product_PNUM35_S21&#xD;&#xA;    AND Product.BK_Product_CONO35_S21 IS NOT NULL&#xD;&#xA;    AND Product.BK_Product_PNUM35_S21 IS NOT NULL&#xD;&#xA;    AND Product.IsCurrent = 1&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_MSP40 AS MSP40&#xD;&#xA;&#x9;ON PoolKits.CONO70 = MSP40.CONO70&#xD;&#xA;&#x9;AND PoolKits.INVN70 = MSP40.INVN70&#xD;&#xA;    AND PoolKits.ORDL70 = MSP40.ORDL70&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_OEP50 AS OEP50&#xD;&#xA;&#x9;ON PoolKits.CONO70 = OEP50.CONO65&#xD;&#xA;&#x9;AND PoolKits.INVN70 = OEP50.INVN65    &#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_PCP59 AS PCP59 &#xD;&#xA; &#x9;ON PoolKits.CONO70 = PCP59.CONO70&#xD;&#xA;&#x9;AND PoolKits.INVN70 = PCP59.INVN70&#xD;&#xA;    AND PoolKits.ORDL70 = PCP59.ORDL70&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_INP95 AS INP95 &#xD;&#xA; &#x9;ON TORDERBOMS.CONO70 = INP95.CONO70&#xD;&#xA;&#x9;AND TORDERBOMS.INVN70 = INP95.INVN70&#xD;&#xA;    AND TORDERBOMS.ORDL70 = INP95.ORDL70&#xD;&#xA;    AND TORDERBOMS.BOMID = INP95.BOMID&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_PoolKitAllocationRev AS AllocationRev &#xD;&#xA; &#x9;ON PoolKits.CONO70 = AllocationRev.CONO70&#xD;&#xA;&#x9;AND PoolKits.INVN70 = AllocationRev.INVN70&#xD;&#xA;    AND PoolKits.ORDL70 = AllocationRev.ORDL70&#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_PoolKitAllocationCost AS AllocationCost&#xD;&#xA; &#x9;ON PoolKits.CONO70 = AllocationCost.CONO70&#xD;&#xA;&#x9;AND PoolKits.INVN70 = AllocationCost.INVN70&#xD;&#xA;    AND PoolKits.ORDL70 = AllocationCost.ORDL70    &#xD;&#xA;LEFT JOIN Staging_Fact_SalesInvoicingComponent_S21_LIOEP056 AS LIOEP056&#xD;&#xA;&#x9;ON PoolKits.CONO70 = LIOEP056.CONO70&#xD;&#xA;&#x9;AND PoolKits.INVN70 = LIOEP056.INVN70&#xD;&#xA;    AND PoolKits.ORDL70 = LIOEP056.ORDL70     &#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -2586,7 +2585,6 @@
   </node>
   <node componentName="tRunJob" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="256" posY="192">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRunJob_3" show="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="CHECK" name="USE_DYNAMIC_JOB" value="false"/>
     <elementParameter field="TEXT" name="CONTEXT_JOB" value="" show="false"/>
     <elementParameter field="PROCESS_TYPE" name="PROCESS" value="Staging_Fact_SalesInvoicingComponent_S21_PoolKitAllocationRev"/>
@@ -2613,7 +2611,6 @@
   </node>
   <node componentName="tRunJob" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="256" posY="320">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRunJob_4" show="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="CHECK" name="USE_DYNAMIC_JOB" value="false"/>
     <elementParameter field="TEXT" name="CONTEXT_JOB" value="" show="false"/>
     <elementParameter field="PROCESS_TYPE" name="PROCESS" value="Staging_Fact_SalesInvoicingComponent_S21_PoolKitAllocationCost"/>
@@ -2640,7 +2637,6 @@
   </node>
   <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="64" posY="832">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_7" show="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
     <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_1"/>
@@ -2749,7 +2745,6 @@
   </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="320" posY="832">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMap_7" show="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
@@ -2849,7 +2844,6 @@
   </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="544" posY="832">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMap_8" show="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
@@ -2965,7 +2959,6 @@
   </node>
   <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="544" posY="704">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_8" show="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
     <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_2"/>
@@ -3017,7 +3010,6 @@
   </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="928" posY="832">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMap_9" show="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
@@ -3142,7 +3134,6 @@
   </node>
   <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="928" posY="704">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_9" show="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
     <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_2"/>
@@ -3194,7 +3185,6 @@
   </node>
   <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1184" posY="704">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_10" show="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
     <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_2"/>
@@ -3237,7 +3227,6 @@
   </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="1184" posY="832">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMap_10" show="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
@@ -3362,7 +3351,6 @@
   </node>
   <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1536" posY="704">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_11" show="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
     <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_2"/>
@@ -3402,7 +3390,6 @@
   </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="1536" posY="832">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMap_11" show="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
@@ -3605,7 +3592,6 @@
   </node>
   <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1888" posY="832">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlOutput_1" show="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
     <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_1"/>
@@ -4150,7 +4136,6 @@
   </node>
   <node componentName="tRunJob" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="256" posY="64">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRunJob_5" show="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="CHECK" name="USE_DYNAMIC_JOB" value="false"/>
     <elementParameter field="TEXT" name="CONTEXT_JOB" value="" show="false"/>
     <elementParameter field="PROCESS_TYPE" name="PROCESS" value="Staging_Fact_SalesInvoicingComponent_S21_PoolKitList"/>
@@ -4204,7 +4189,6 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="PoolKits" show="false"/>
   </connection>
   <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlInput_4" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_4" target="tMysqlInput_7">
-    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk1" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="RenamedColumns" lineStyle="0" metaname="RenamedColumns" offsetLabelX="0" offsetLabelY="0" source="tMap_1" target="tMap_3">
@@ -4479,20 +4463,16 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="ComponentDetail" show="false"/>
   </connection>
   <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tRunJob_3" offsetLabelX="0" offsetLabelY="0" source="tRunJob_3" target="tRunJob_4">
-    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk2" show="false"/>
   </connection>
   <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tRunJob_4" offsetLabelX="0" offsetLabelY="0" source="tRunJob_4" target="tMysqlInput_4">
-    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk3" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="Assembly" lineStyle="0" metaname="tMysqlInput_7" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_7" target="tMap_7">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="Assembly" show="false"/>
   </connection>
   <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlInput_7" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_7" target="tSetGlobalVar_1">
-    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk4" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="RenamedAssembly" lineStyle="0" metaname="RenamedAssembly" offsetLabelX="0" offsetLabelY="0" source="tMap_7" target="tMap_8">
@@ -4505,7 +4485,6 @@
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="RenamedAssembly" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="TransactionAssembly" lineStyle="0" metaname="TransactionAssembly" offsetLabelX="0" offsetLabelY="0" source="tMap_8" target="tMap_9">
@@ -4539,12 +4518,10 @@
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="TransactionAssembly" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="TranRate" lineStyle="8" metaname="tMysqlInput_8" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_8" target="tMap_8">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="TranRate" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="USDAssembly" lineStyle="0" metaname="USDAssembly" offsetLabelX="0" offsetLabelY="0" source="tMap_9" target="tMap_10">
@@ -4662,17 +4639,14 @@
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="USDAssembly" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="USD_Rate" lineStyle="8" metaname="tMysqlInput_9" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_9" target="tMap_9">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="USD_Rate" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="Source_Assembly" lineStyle="8" metaname="tMysqlInput_10" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_10" target="tMap_10">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="Source_Assembly" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="SourceSystemAssembly" lineStyle="0" metaname="SourceSystemAssembly" offsetLabelX="0" offsetLabelY="0" source="tMap_10" target="tMap_11">
@@ -4748,21 +4722,17 @@
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="SourceSystemAssembly" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="SalesInvoicingComponentDetail_Assembly" lineStyle="8" metaname="tMysqlInput_11" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_11" target="tMap_11">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="SalesInvoicingComponentDetail_Assembly" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="ComponentDetailAssembly" lineStyle="0" metaname="ComponentDetailAssembly" offsetLabelX="0" offsetLabelY="0" source="tMap_11" target="tMysqlOutput_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="ComponentDetailAssembly" show="false"/>
   </connection>
   <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tRunJob_5" offsetLabelX="0" offsetLabelY="0" source="tRunJob_5" target="tRunJob_3">
-    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk5" show="false"/>
   </connection>
   <subjob>
