@@ -280,7 +280,7 @@
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var">
-        <mapperTableEntries name="NowDate" expression="TalendDate.getDate(&quot;CYYMMDD&quot;) " type="id_Integer"/>
+        <mapperTableEntries name="NowDate" expression="new BigDecimal(TalendDate.getDate(&quot;CYYMMDD&quot;) ) " type="id_Integer"/>
       </varTables>
       <outputTables sizeState="INTERMEDIATE" name="LIOEP030">
         <mapperTableEntries name="CONO30" expression="LathamR_CustomerInformation.customerCompany " type="id_String"/>
@@ -323,8 +323,6 @@
   </node>
   <node componentName="tAS400Output" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="864" posY="320">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tAS400Output_1" show="false"/>
-    <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
-    <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" value="" show="false"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="jt400_V6R1.jar" show="false"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
     <elementParameter field="AS400_CHECK" name="STANDARD_SYNTAX" value="true"/>
