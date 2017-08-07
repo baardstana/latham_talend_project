@@ -283,17 +283,17 @@
         <mapperTableEntries name="NowDate" expression="new BigDecimal(&#xD;&#xA;10000 * TalendDate.getPartOfDate(&quot;YEAR&quot;,TalendDate.parseDate(&quot;yyyy-MM-dd&quot;, TalendDate.getDate(&quot;yyyy-MM-dd&quot;))) + &#xD;&#xD;&#xA;100 * TalendDate.getPartOfDate(&quot;MONTH&quot;,TalendDate.parseDate(&quot;yyyy-MM-dd&quot;, TalendDate.getDate(&quot;yyyy-MM-dd&quot;))) + &#xD;&#xD;&#xA;TalendDate.getPartOfDate(&quot;DAY_OF_MONTH&quot;,TalendDate.parseDate(&quot;yyyy-MM-dd&quot;, TalendDate.getDate(&quot;yyyy-MM-dd&quot;))) - &#xD;&#xD;&#xA;19000000 &#xD;&#xA;) " type="id_BigDecimal"/>
       </varTables>
       <outputTables sizeState="INTERMEDIATE" name="LIOEP030">
-        <mapperTableEntries name="CONO30" expression="LathamR_CustomerInformation.customerCompany " type="id_String"/>
-        <mapperTableEntries name="DLID30" expression="LathamR_CustomerInformation.customerNumber " type="id_String"/>
-        <mapperTableEntries name="DDSQ30" expression="LathamR_CustomerInformation.customerBranch " type="id_String"/>
+        <mapperTableEntries name="CONO30" expression="StringHandling.LEFT(TalendString.talendTrim(LathamR_CustomerInformation.customerCompany,' ',0), 2) " type="id_String"/>
+        <mapperTableEntries name="DLID30" expression="StringHandling.LEFT(TalendString.talendTrim(LathamR_CustomerInformation.customerNumber ,' ',0), 8) " type="id_String"/>
+        <mapperTableEntries name="DDSQ30" expression="StringHandling.LEFT(TalendString.talendTrim(LathamR_CustomerInformation.customerBranch ,' ',0), 3) " type="id_String"/>
         <mapperTableEntries name="SUGR30" expression="&quot;&quot;" type="id_String"/>
-        <mapperTableEntries name="DNAM30" expression="LathamR_CustomerInformation.customerName " type="id_String"/>
-        <mapperTableEntries name="DAD130" expression="LathamR_CustomerInformation.shippingAddress " type="id_String"/>
+        <mapperTableEntries name="DNAM30" expression="StringHandling.LEFT(TalendString.talendTrim(LathamR_CustomerInformation.customerName ,' ',0), 35) " type="id_String"/>
+        <mapperTableEntries name="DAD130" expression="StringHandling.LEFT(TalendString.talendTrim(LathamR_CustomerInformation.shippingAddress ,' ',0), 35) " type="id_String"/>
         <mapperTableEntries name="DAD230" expression="&quot;&quot;" type="id_String"/>
         <mapperTableEntries name="DAD330" expression="&quot;&quot;" type="id_String"/>
-        <mapperTableEntries name="DAD430" expression="LathamR_CustomerInformation.shippingCity " type="id_String"/>
-        <mapperTableEntries name="DAD530" expression="LathamR_CustomerInformation.shippingState " type="id_String"/>
-        <mapperTableEntries name="PCD130" expression="LathamR_CustomerInformation.shippingZip " type="id_String"/>
+        <mapperTableEntries name="DAD430" expression="StringHandling.LEFT(TalendString.talendTrim(LathamR_CustomerInformation.shippingCity ,' ',0), 25) " type="id_String"/>
+        <mapperTableEntries name="DAD530" expression="StringHandling.LEFT(TalendString.talendTrim(LathamR_CustomerInformation.shippingState ,' ',0), 25) " type="id_String"/>
+        <mapperTableEntries name="PCD130" expression="StringHandling.LEFT(TalendString.talendTrim(LathamR_CustomerInformation.shippingZip ,' ',0), 5) " type="id_String"/>
         <mapperTableEntries name="PDC230" expression="&quot;&quot;" type="id_String"/>
         <mapperTableEntries name="PHO130" expression="&quot;&quot;" type="id_String"/>
         <mapperTableEntries name="PHO230" expression="&quot;&quot;" type="id_String"/>
