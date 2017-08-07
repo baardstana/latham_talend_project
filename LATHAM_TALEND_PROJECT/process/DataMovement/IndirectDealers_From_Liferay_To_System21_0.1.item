@@ -142,7 +142,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT &#xA;  `LathamR_CustomerInformation`.`customerBranch`, &#xA;  `LathamR_CustomerInformation`.`customerNumber`, &#xA;  `LathamR_CustomerInformation`.`customerCompany`, &#xA;  `LathamR_CustomerInformation`.`customerName`, &#xA;  `LathamR_CustomerInformation`.`shippingAddress`, &#xA;  `LathamR_CustomerInformation`.`shippingCity`, &#xA;  `LathamR_CustomerInformation`.`shippingState`, &#xA;  `LathamR_CustomerInformation`.`shippingZip`&#xA;FROM `LathamR_CustomerInformation`&#xD;&#xA;WHERE `LathamR_CustomerInformation`.`indirect` = 1&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT &#xA;  `LathamR_CustomerInformation`.`customerBranch`, &#xA;  `LathamR_CustomerInformation`.`customerNumber`, &#xA;  `LathamR_CustomerInformation`.`customerCompany`, &#xA;  `LathamR_CustomerInformation`.`customerName`, &#xA;  `LathamR_CustomerInformation`.`customerClass`, &#xA;  `LathamR_CustomerInformation`.`linerBrands`, &#xA;  `LathamR_CustomerInformation`.`coverBrands`, &#xA;  `LathamR_CustomerInformation`.`shippingAddress`, &#xA;  `LathamR_CustomerInformation`.`shippingCity`, &#xA;  `LathamR_CustomerInformation`.`shippingState`, &#xA;  `LathamR_CustomerInformation`.`shippingZip`, &#xA;  `LathamR_CustomerInformation`.`sequenceNumber`, &#xA;  `LathamR_CustomerInformation`.`indirect`&#xA;FROM `LathamR_CustomerInformation`&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -161,6 +161,12 @@
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="customerName"/>
       <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="customerClass"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="linerBrands"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="coverBrands"/>
+      <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="shippingAddress"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="shippingCity"/>
@@ -168,6 +174,10 @@
       <elementValue elementRef="SCHEMA_COLUMN" value="shippingState"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="shippingZip"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="sequenceNumber"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="indirect"/>
       <elementValue elementRef="TRIM" value="false"/>
     </elementParameter>
     <elementParameter field="TEXT" name="LABEL" value="SelectFromLiferay"/>
@@ -177,10 +187,15 @@
       <column comment="" key="false" length="75" name="customerNumber" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="75" name="customerCompany" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="75" name="customerName" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="75" name="shippingAddress" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="75" name="shippingCity" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="75" name="shippingState" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="75" name="shippingZip" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="75" name="customerClass" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="715827882" name="linerBrands" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="715827882" name="coverBrands" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="75" name="shippingAddress" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="75" name="shippingCity" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="75" name="shippingState" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="75" name="shippingZip" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="20" name="sequenceNumber" nullable="true" pattern="" precision="0" sourceType="BIGINT" type="id_Long" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="4" name="indirect" nullable="true" pattern="" precision="0" sourceType="TINYINT" type="id_Byte" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="544" posY="320">
@@ -278,11 +293,11 @@
       <additionalProperties key="SYSTEM_TABLE_SCHEMA" value="TSTZZF2OD3"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var">
         <mapperTableEntries name="NowDate" expression="new BigDecimal(&#xD;&#xA;10000 * TalendDate.getPartOfDate(&quot;YEAR&quot;,TalendDate.parseDate(&quot;yyyy-MM-dd&quot;, TalendDate.getDate(&quot;yyyy-MM-dd&quot;))) + &#xD;&#xD;&#xA;100 * TalendDate.getPartOfDate(&quot;MONTH&quot;,TalendDate.parseDate(&quot;yyyy-MM-dd&quot;, TalendDate.getDate(&quot;yyyy-MM-dd&quot;))) + &#xD;&#xD;&#xA;TalendDate.getPartOfDate(&quot;DAY_OF_MONTH&quot;,TalendDate.parseDate(&quot;yyyy-MM-dd&quot;, TalendDate.getDate(&quot;yyyy-MM-dd&quot;))) - &#xD;&#xD;&#xA;19000000 &#xD;&#xA;) " type="id_BigDecimal"/>
       </varTables>
-      <outputTables sizeState="INTERMEDIATE" name="LIOEP030">
+      <outputTables sizeState="INTERMEDIATE" name="LIOEP030" expressionFilter="LathamR_CustomerInformation.indirect == 1" activateExpressionFilter="true">
         <mapperTableEntries name="CONO30" expression="StringHandling.LEFT(TalendString.talendTrim(LathamR_CustomerInformation.customerCompany,' ',0), 2) " type="id_String"/>
         <mapperTableEntries name="DLID30" expression="StringHandling.LEFT(TalendString.talendTrim(LathamR_CustomerInformation.customerNumber ,' ',0), 8) " type="id_String"/>
         <mapperTableEntries name="DDSQ30" expression="StringHandling.LEFT(TalendString.talendTrim(LathamR_CustomerInformation.customerBranch ,' ',0), 3) " type="id_String"/>
@@ -314,10 +329,15 @@
         <mapperTableEntries name="customerNumber" type="id_String"/>
         <mapperTableEntries name="customerCompany" type="id_String"/>
         <mapperTableEntries name="customerName" type="id_String" nullable="true"/>
+        <mapperTableEntries name="customerClass" type="id_String" nullable="true"/>
+        <mapperTableEntries name="linerBrands" type="id_String" nullable="true"/>
+        <mapperTableEntries name="coverBrands" type="id_String" nullable="true"/>
         <mapperTableEntries name="shippingAddress" type="id_String" nullable="true"/>
         <mapperTableEntries name="shippingCity" type="id_String" nullable="true"/>
         <mapperTableEntries name="shippingState" type="id_String" nullable="true"/>
         <mapperTableEntries name="shippingZip" type="id_String" nullable="true"/>
+        <mapperTableEntries name="sequenceNumber" type="id_Long" nullable="true"/>
+        <mapperTableEntries name="indirect" type="id_Byte" nullable="true"/>
       </inputTables>
     </nodeData>
   </node>
@@ -733,7 +753,7 @@
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
   <subjob>
-    <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" value="true"/>
+    <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" value="true" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPrejob_1" show="false"/>
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="230;100;0"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="255;220;180"/>
@@ -749,7 +769,7 @@
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
   <subjob>
-    <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" value="true"/>
+    <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" value="true" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPostjob_1" show="false"/>
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="230;100;0"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="255;220;180"/>
