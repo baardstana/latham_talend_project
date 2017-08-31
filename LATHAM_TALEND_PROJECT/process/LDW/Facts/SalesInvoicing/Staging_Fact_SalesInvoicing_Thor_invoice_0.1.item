@@ -437,7 +437,7 @@
         <mapperTableEntries name="OrderSuspenseCode" expression="&quot;N/A&quot;" type="id_String"/>
         <mapperTableEntries name="CustomProductHoldCode" expression="&quot;N/A&quot;" type="id_String"/>
         <mapperTableEntries name="CustomProductHoldDescription" expression="&quot;N/A&quot;" type="id_String"/>
-        <mapperTableEntries name="InvoiceReasonCode" expression="Relational.ISNULL(invoice.creditReasonID) ? 0 : invoice.creditReasonID.toString() + &quot;_Thor&quot; " type="id_String"/>
+        <mapperTableEntries name="InvoiceReasonCode" expression="Relational.ISNULL(invoice.creditReasonID) ? &quot;0&quot; : invoice.creditReasonID.toString() + &quot;_Thor&quot; " type="id_String"/>
         <mapperTableEntries name="InvoiceTransactionTypeCode" expression="Relational.ISNULL(invoice.invoiceType) ? &quot;Unknown&quot; : &#xD;&#xA;&quot;CREDIT&quot;.equals(invoice.invoiceType) ? &quot;CR&quot; : &#xD;&#xA;&quot;DEBIT&quot;.equals(invoice.invoiceType) ? &quot;IN&quot; : &quot;Unknown&quot; " type="id_String"/>
         <mapperTableEntries name="SK_Date_Invoiced" expression="CustomStringHandling.transformDateToKey(invoice.modifiedOn) " type="id_Integer"/>
         <mapperTableEntries name="SK_Date_ActualBuild" expression="Relational.ISNULL(shell.productionEndDate) ? CustomStringHandling.transformDateToKey(shell.productionBeginDate) : CustomStringHandling.transformDateToKey(shell.productionEndDate) " type="id_Integer"/>
