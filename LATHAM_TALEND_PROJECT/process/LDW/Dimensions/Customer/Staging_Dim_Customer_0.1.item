@@ -317,7 +317,7 @@
       <additionalProperties key="Comment" value=""/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="DimCustomer">
         <mapperTableEntries name="BK_Customer_CONO05_S21" expression="InputDimCustomer.CONO05 " type="id_String"/>
@@ -822,7 +822,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT DISTINCT do.dealerID, do.dealerOfficeID, do.dealerOfficeCode, do.latham_branchNumber&#xD;&#xA;&#x9;, d.dealerCode, d.dealerName, d.salesRep, d.dealerLevel, CAST(d.latham_customerNumber AS char(10)) AS latham_customerNumber&#xD;&#xA;    , Billing_da.addressLine1 AS Billing_addressLine1, Billing_da.addressLine2 AS Billing_addressLine2, Billing_da.zipcode AS Billing_zipcode&#xD;&#xA;    , Billing_da.city AS Billing_city, Billing_da.state AS Billing_state, Billing_da.country AS Billing_country&#xD;&#xA;    , Shipping_da.addressLine1 AS Shipping_addressline1, Shipping_da.addressLine2 AS Shipping_addressLine2, Shipping_da.zipcode AS Shipping_zipcode&#xD;&#xA;    , Shipping_da.city AS Shipping_city, Shipping_da.state AS Shipping_state, Shipping_da.country AS Shipping_country&#xD;&#xA;    , 'LO' AS CONO&#xD;&#xA;FROM Extract_dealeroffice_Thor AS do&#xD;&#xA;LEFT JOIN Extract_dealer_Thor AS d&#xD;&#xA;&#x9;ON do.dealerID = d.dealerID&#xD;&#xA;LEFT JOIN Extract_dealeroffice_Thor AS Primary_do&#xD;&#xA;&#x9;ON do.dealerID = Primary_do.dealerID&#xD;&#xA;    AND Primary_do.isPrimary = 1&#xD;&#xA;LEFT JOIN Extract_dealeraddress_Thor AS Billing_da&#xD;&#xA;&#x9;ON Primary_do.dealerOfficeID = Billing_da.dealerOfficeID&#xD;&#xA;    AND Billing_da.addressType = 'BILLING'&#xD;&#xA;    AND Billing_da.isPrimary = 1&#xD;&#xA;LEFT JOIN Extract_dealeraddress_Thor AS Shipping_da&#xD;&#xA;&#x9;ON do.dealerOfficeID = Shipping_da.dealerOfficeID&#xD;&#xA;    AND Shipping_da.addressType = 'SHIPPING'&#xD;&#xA;    AND Shipping_da.isPrimary = 1&#xD;&#xA;WHERE do.latham_branchNumber IS NOT NULL&#xD;&#xA;&#x9;AND d.latham_customerNumber IS NOT NULL&#xD;&#xA;ORDER BY 'LO', CAST(d.latham_customerNumber AS char(10)), do.latham_branchNumber&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT DISTINCT do.dealerID, do.dealerOfficeID, do.dealerOfficeCode, do.latham_branchNumber&#xD;&#xA;&#x9;, d.dealerCode, d.dealerName, d.salesRep, d.dealerLevel, CAST(d.latham_customerNumber AS char(10)) AS latham_customerNumber&#xD;&#xA;    , Billing_da.addressLine1 AS Billing_addressLine1, Billing_da.addressLine2 AS Billing_addressLine2, Billing_da.zipcode AS Billing_zipcode&#xD;&#xA;    , Billing_da.city AS Billing_city, Billing_da.state AS Billing_state, Billing_da.country AS Billing_country&#xD;&#xA;    , Shipping_da.addressLine1 AS Shipping_addressline1, Shipping_da.addressLine2 AS Shipping_addressLine2, Shipping_da.zipcode AS Shipping_zipcode&#xD;&#xA;    , Shipping_da.city AS Shipping_city, Shipping_da.state AS Shipping_state, Shipping_da.country AS Shipping_country&#xD;&#xA;    , 'LO' AS CONO&#xD;&#xA;FROM Archive_dealeroffice_Thor AS do&#xD;&#xA;LEFT JOIN Archive_dealer_Thor AS d&#xD;&#xA;&#x9;ON do.dealerID = d.dealerID&#xD;&#xA;&#x9;AND d.IsCurrent = 1&#xD;&#xA;LEFT JOIN Archive_dealeroffice_Thor AS Primary_do&#xD;&#xA;&#x9;ON do.dealerID = Primary_do.dealerID&#xD;&#xA;    AND Primary_do.isPrimary = 1&#xD;&#xA;&#x9;AND Primary_do.IsCurrent = 1&#xD;&#xA;LEFT JOIN Archive_dealeraddress_Thor AS Billing_da&#xD;&#xA;&#x9;ON Primary_do.dealerOfficeID = Billing_da.dealerOfficeID&#xD;&#xA;    AND Billing_da.addressType = 'BILLING'&#xD;&#xA;    AND Billing_da.isPrimary = 1&#xD;&#xA;&#x9;AND Billing_da.IsCurrent = 1&#xD;&#xA;LEFT JOIN Archive_dealeraddress_Thor AS Shipping_da&#xD;&#xA;&#x9;ON do.dealerOfficeID = Shipping_da.dealerOfficeID&#xD;&#xA;    AND Shipping_da.addressType = 'SHIPPING'&#xD;&#xA;    AND Shipping_da.isPrimary = 1&#xD;&#xA;&#x9;AND Shipping_da.IsCurrent = 1&#xD;&#xA;WHERE do.latham_branchNumber IS NOT NULL&#xD;&#xA;&#x9;AND d.latham_customerNumber IS NOT NULL&#xD;&#xA;&#x9;AND do.IsCurrent = 1&#xD;&#xA;ORDER BY 'LO', CAST(d.latham_customerNumber AS char(10)), do.latham_branchNumber&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -1610,7 +1610,7 @@
       <column comment="" key="false" length="30" name="CustomerDefaultFreightTermName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="DimCustomerMapped">
         <mapperTableEntries name="BK_Customer_CONO05_S21" expression="StagedDimCustomer.BK_Customer_CONO05_S21 " type="id_String"/>
@@ -1792,7 +1792,7 @@
       <additionalProperties key="Comment" value=""/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="StageDimCustomer">
         <mapperTableEntries name="BK_Customer_CONO05_S21" expression="DimCustomerMapped.BK_Customer_CONO05_S21 " type="id_String"/>
@@ -2016,7 +2016,7 @@
       <column comment="" key="false" length="30" name="CustomerDefaultFreightTermName" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="WithInternalHierarchy">
         <mapperTableEntries name="BK_Customer_CONO05_S21" expression="StageDimCustomer.BK_Customer_CONO05_S21 " type="id_String"/>
