@@ -175,7 +175,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT \&quot;&quot;+context.Thor_Schema+&quot;\&quot;.orderitem.orderItemID,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.orderitem.productOrderID,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.orderitem.catalogID,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.orderitem.categoryID,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.orderitem.description,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.orderitem.baseProductID,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.orderitem.itemListPrice,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.orderitem.qty,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.orderitem.pricePerUnit,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.orderitem.itemSubTotal,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.orderitem.itemStatus,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.orderitem.installDate,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.orderitem.itemNotes,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.orderitem.attribute,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.orderitem.isRequired,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.orderitem.isKit,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.orderitem.discountAmount,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.orderitem.discountType,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.orderitem.customPrice,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.orderitem.kitid,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.orderitem.attid,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.orderitem.attitemid,&#xA;&#x9;&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.orderitem.salescode&quot;&#xA;+&quot;&#xA;FROM&#x9;\&quot;&quot;+context.Thor_Schema+&quot;\&quot;.orderitem&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT oi.orderItemID,&#xD;&#xA;&#x9;oi.productOrderID,&#xD;&#xA;&#x9;oi.catalogID,&#xD;&#xA;&#x9;oi.categoryID,&#xD;&#xA;&#x9;oi.description,&#xD;&#xA;&#x9;oi.baseProductID,&#xD;&#xA;&#x9;oi.itemListPrice,&#xD;&#xA;&#x9;oi.qty,&#xD;&#xA;&#x9;oi.pricePerUnit,&#xD;&#xA;&#x9;oi.itemSubTotal,&#xD;&#xA;&#x9;oi.itemStatus,&#xD;&#xA;&#x9;oi.installDate,&#xD;&#xA;&#x9;oi.itemNotes,&#xD;&#xA;&#x9;oi.attribute,&#xD;&#xA;&#x9;oi.isRequired,&#xD;&#xA;&#x9;oi.isKit,&#xD;&#xA;&#x9;oi.discountAmount,&#xD;&#xA;&#x9;oi.discountType,&#xD;&#xA;&#x9;oi.customPrice,&#xD;&#xA;&#x9;oi.kitid,&#xD;&#xA;&#x9;oi.attid,&#xD;&#xA;&#x9;oi.attitemid,&#xD;&#xA;&#x9;oi.salescode&#xD;&#xA;FROM orderitem oi&#xD;&#xA;JOIN productorder po&#xD;&#xA;&#x9;ON oi.productOrderID = po.productOrderID&#xD;&#xA;&#x9;AND po.modifiedOn >= '&quot; + globalMap.get(&quot;IncrementalStartDate&quot;) + &quot;'&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -506,6 +506,8 @@
     <metadata connector="FLOW" name="tRunJob_1">
       <column comment="" key="false" length="-1" name="SK_Batch" nullable="false" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="tableName" nullable="false" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="IncrementalStartDate" nullable="false" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;" precision="-1" sourceType="" type="id_Date" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="IncrementalStartKey" nullable="false" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tSetGlobalVar" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="416" posY="64">
@@ -517,12 +519,16 @@
       <elementValue elementRef="VALUE" value="BatchId.tableName"/>
       <elementValue elementRef="KEY" value="&quot;loadOutcome&quot;"/>
       <elementValue elementRef="VALUE" value="&quot;Failed&quot;"/>
+      <elementValue elementRef="KEY" value="&quot;IncrementalStartDate&quot;"/>
+      <elementValue elementRef="VALUE" value="TalendDate.formatDate(&quot;yyyy-MM-dd HH:mm:ss&quot;, BatchId.IncrementalStartDate)"/>
     </elementParameter>
     <elementParameter field="TEXT" name="LABEL" value="AddBatchIdToVariables"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tSetGlobalVar_2">
       <column comment="" key="false" length="-1" name="SK_Batch" nullable="false" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="tableName" nullable="false" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="IncrementalStartDate" nullable="false" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;" precision="-1" sourceType="" type="id_Date" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="IncrementalStartKey" nullable="false" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tRunJob" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="288" posY="448">
@@ -579,44 +585,6 @@
     <elementParameter field="TEXT" name="LABEL" value="OpenConnectionStaging"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
   </node>
-  <node componentName="tMysqlRow" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="96" posY="320">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlRow_1" show="false"/>
-    <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
-    <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" value="_Sh-WMC5oEeeaXuPQxSDjCQ" show="false"/>
-    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5"/>
-    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="false"/>
-    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_2" show="false"/>
-    <elementParameter field="TEXT" name="HOST" value="context.parameter_LDW_Staging_Server"/>
-    <elementParameter field="TEXT" name="PORT" value="context.parameter_LDW_Staging_Port"/>
-    <elementParameter field="TEXT" name="DBNAME" value="context.parameter_LDW_Staging_Database"/>
-    <elementParameter field="TEXT" name="TYPE" value="MYSQL" show="false"/>
-    <elementParameter field="TEXT" name="USER" value="context.parameter_LDW_Staging_Login"/>
-    <elementParameter field="PASSWORD" name="PASS" value="8pW6Nmy2kuf2zP4MbD5/0oCVaBwfVu61TuupIrbnzuhz/Ea8ZgbryA=="/>
-    <elementParameter field="DBTABLE" name="TABLE" value="(String) globalMap.get(&quot;tableName&quot;)"/>
-    <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
-    <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
-    <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;ALTER TABLE &quot; + (String) globalMap.get(&quot;tableName&quot;) + &quot; ADD KEY (productOrderID, salesCode);&#xD;&#xA;&#xD;&#xA;ANALYZE TABLE &quot;&#xD;&#xA; + (String) globalMap.get(&quot;tableName&quot;) +&#xD;&#xA; &quot;;&#xD;&#xA;&quot;"/>
-    <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime"/>
-    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false"/>
-    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
-    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true"/>
-    <elementParameter field="TEXT" name="PROPERTIES" value="context.parameter_LDW_Staging_AdditionalParams"/>
-    <elementParameter field="CHECK" name="PROPAGATE_RECORD_SET" value="false"/>
-    <elementParameter field="COLUMN_LIST" name="RECORD_SET_COLUMN" value="" show="false"/>
-    <elementParameter field="CHECK" name="USE_PREPAREDSTATEMENT" value="false"/>
-    <elementParameter field="TABLE" name="SET_PREPAREDSTATEMENT_PARAMETERS" show="false"/>
-    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
-    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
-    <elementParameter field="TEXT" name="COMMIT_EVERY" value="10000"/>
-    <elementParameter field="TEXT" name="LABEL" value="CreateIndexes"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tMysqlRow_1"/>
-    <metadata connector="REJECT" name="REJECT">
-      <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
-    </metadata>
-  </node>
   <node componentName="tMysqlRow" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="256" posY="320">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlRow_2" show="false"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
@@ -632,7 +600,7 @@
     <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;CALL UpdateArchiveTable('&quot; &#xD;&#xA;+ (String) globalMap.get(&quot;tableName&quot;) &#xD;&#xA;+ &quot;', '&quot; &#xD;&#xA;+ context.parameter_LDW_DWH_environment &#xD;&#xA;+ &quot;',\'Full\');&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;CALL UpdateArchiveTable('&quot; &#xD;&#xA;+ (String) globalMap.get(&quot;tableName&quot;) &#xD;&#xA;+ &quot;', '&quot; &#xD;&#xA;+ context.parameter_LDW_DWH_environment &#xD;&#xA;+ &quot;',\'Incremental\');&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -669,7 +637,7 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="SourceDate" show="false"/>
   </connection>
-  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMSSqlInput_1" offsetLabelX="0" offsetLabelY="0" source="tMSSqlInput_1" target="tMysqlRow_1">
+  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMSSqlInput_1" offsetLabelX="0" offsetLabelY="0" source="tMSSqlInput_1" target="tMysqlRow_2">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk1" show="false"/>
   </connection>
   <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tPrejob_1" offsetLabelX="0" offsetLabelY="0" source="tPrejob_1" target="tRunJob_1">
@@ -684,9 +652,6 @@
   </connection>
   <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tSetGlobalVar_2" offsetLabelX="0" offsetLabelY="0" source="tSetGlobalVar_2" target="tMysqlConnection_1">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnComponentOk3" show="false"/>
-  </connection>
-  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlRow_1" offsetLabelX="0" offsetLabelY="0" source="tMysqlRow_1" target="tMysqlRow_2">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk3" show="false"/>
   </connection>
   <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlRow_2" offsetLabelX="0" offsetLabelY="0" source="tMysqlRow_2" target="tSetGlobalVar_1">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk2" show="false"/>
@@ -720,11 +685,6 @@
   </subjob>
   <subjob>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlConnection_1" show="false"/>
-    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>
-    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
-  </subjob>
-  <subjob>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlRow_1" show="false"/>
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
