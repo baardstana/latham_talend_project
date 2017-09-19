@@ -175,7 +175,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT oi.orderItemID,&#xD;&#xA;&#x9;oi.productOrderID,&#xD;&#xA;&#x9;oi.catalogID,&#xD;&#xA;&#x9;oi.categoryID,&#xD;&#xA;&#x9;oi.description,&#xD;&#xA;&#x9;oi.baseProductID,&#xD;&#xA;&#x9;oi.itemListPrice,&#xD;&#xA;&#x9;oi.qty,&#xD;&#xA;&#x9;oi.pricePerUnit,&#xD;&#xA;&#x9;oi.itemSubTotal,&#xD;&#xA;&#x9;oi.itemStatus,&#xD;&#xA;&#x9;oi.installDate,&#xD;&#xA;&#x9;oi.itemNotes,&#xD;&#xA;&#x9;oi.attribute,&#xD;&#xA;&#x9;oi.isRequired,&#xD;&#xA;&#x9;oi.isKit,&#xD;&#xA;&#x9;oi.discountAmount,&#xD;&#xA;&#x9;oi.discountType,&#xD;&#xA;&#x9;oi.customPrice,&#xD;&#xA;&#x9;oi.kitid,&#xD;&#xA;&#x9;oi.attid,&#xD;&#xA;&#x9;oi.attitemid,&#xD;&#xA;&#x9;oi.salescode&#xD;&#xA;FROM orderitem oi&#xD;&#xA;JOIN productorder po&#xD;&#xA;&#x9;ON oi.productOrderID = po.productOrderID&#xD;&#xA;&#x9;AND po.modifiedOn >= '&quot; + globalMap.get(&quot;IncrementalStartDate&quot;) + &quot;'&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT oi.orderItemID,&#xD;&#xA;&#x9;oi.productOrderID,&#xD;&#xA;&#x9;oi.catalogID,&#xD;&#xA;&#x9;oi.categoryID,&#xD;&#xA;&#x9;oi.description,&#xD;&#xA;&#x9;oi.baseProductID,&#xD;&#xA;&#x9;oi.itemListPrice,&#xD;&#xA;&#x9;oi.qty,&#xD;&#xA;&#x9;oi.pricePerUnit,&#xD;&#xA;&#x9;oi.itemSubTotal,&#xD;&#xA;&#x9;oi.itemStatus,&#xD;&#xA;&#x9;oi.installDate,&#xD;&#xA;&#x9;oi.itemNotes,&#xD;&#xA;&#x9;oi.attribute,&#xD;&#xA;&#x9;oi.isRequired,&#xD;&#xA;&#x9;oi.isKit,&#xD;&#xA;&#x9;oi.discountAmount,&#xD;&#xA;&#x9;oi.discountType,&#xD;&#xA;&#x9;oi.customPrice,&#xD;&#xA;&#x9;oi.kitid,&#xD;&#xA;&#x9;oi.attid,&#xD;&#xA;&#x9;oi.attitemid,&#xD;&#xA;&#x9;oi.salescode&#xD;&#xA;FROM orderitem oi&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -519,8 +519,6 @@
       <elementValue elementRef="VALUE" value="BatchId.tableName"/>
       <elementValue elementRef="KEY" value="&quot;loadOutcome&quot;"/>
       <elementValue elementRef="VALUE" value="&quot;Failed&quot;"/>
-      <elementValue elementRef="KEY" value="&quot;IncrementalStartDate&quot;"/>
-      <elementValue elementRef="VALUE" value="TalendDate.formatDate(&quot;yyyy-MM-dd HH:mm:ss&quot;, BatchId.IncrementalStartDate)"/>
     </elementParameter>
     <elementParameter field="TEXT" name="LABEL" value="AddBatchIdToVariables"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
