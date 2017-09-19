@@ -152,12 +152,12 @@
     <elementParameter field="TEXT" name="TYPE" value="MySQL" show="false"/>
     <elementParameter field="TEXT" name="USER" value="context.parameter_LDW_DWH_Login" show="false"/>
     <elementParameter field="PASSWORD" name="PASS" value="8pW6Nmy2kuf2zP4MbD5/0os7knIXEVZEbQQasHH/NUPKchYuj/ytpg==" show="false"/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Extract_plant_Thor&quot;"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Archive_plant_Thor&quot;"/>
     <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT p1.plantID&#xD;&#xA;&#x9;,p1.plantCode&#xD;&#xA;&#x9;,p1.plantName&#xD;&#xA;&#x9;,p1.parent&#xD;&#xA;&#x9;,p1.addressLine1&#xD;&#xA;&#x9;,p1.addressLine2&#xD;&#xA;&#x9;,p1.zipCode&#xD;&#xA;&#x9;,p1.city&#xD;&#xA;&#x9;,p1.state&#xD;&#xA;&#x9;,p1.primaryPhone&#xD;&#xA;&#x9;,p1.plantType&#xD;&#xA;    ,'Thor' AS SourceSystemShortName&#xD;&#xA;FROM Extract_plant_Thor AS p1&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT p1.plantID&#xD;&#xA;&#x9;,p1.plantCode&#xD;&#xA;&#x9;,p1.plantName&#xD;&#xA;&#x9;,p1.parent&#xD;&#xA;&#x9;,p1.addressLine1&#xD;&#xA;&#x9;,p1.addressLine2&#xD;&#xA;&#x9;,p1.zipCode&#xD;&#xA;&#x9;,p1.city&#xD;&#xA;&#x9;,p1.state&#xD;&#xA;&#x9;,p1.primaryPhone&#xD;&#xA;&#x9;,p1.plantType&#xD;&#xA;    ,'Thor' AS SourceSystemShortName&#xD;&#xA;FROM Archive_plant_Thor AS p1&#xD;&#xA;WHERE p1.IsCurrent = 1&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -266,7 +266,7 @@
         <mapperTableEntries name="ThorPlantCode" expression="CustomStringHandling.replaceNullAndBlank(InputDimStockroom.plantCode) " type="id_String"/>
         <mapperTableEntries name="StockroomName" expression="CustomStringHandling.replaceNullAndBlank(InputDimStockroom.plantName )" type="id_String"/>
         <mapperTableEntries name="ShippingSiteCode" expression="CustomStringHandling.replaceNullAndBlank(InputDimStockroom.parent )" type="id_String"/>
-        <mapperTableEntries name="ShippingSiteName" expression="CustomStringHandling.replaceNullAndBlank(Extract_plant_Thor.plantName )" type="id_String"/>
+        <mapperTableEntries name="ShippingSiteName" expression="CustomStringHandling.replaceNullAndBlank(Archive_plant_Thor.plantName )" type="id_String"/>
         <mapperTableEntries name="LocationControlFlag" expression="&quot;N/A&quot;" type="id_String"/>
         <mapperTableEntries name="DefaultBinLocation" expression="&quot;N/A&quot;" type="id_String"/>
         <mapperTableEntries name="DepotName" expression="CustomStringHandling.replaceNullAndBlank(InputDimStockroom.plantName )" type="id_String"/>
@@ -278,7 +278,7 @@
         <mapperTableEntries name="DepotCountry" expression="&quot;United States of America&quot;" type="id_String"/>
         <mapperTableEntries name="DepotPhoneNumber" expression="CustomStringHandling.replaceNullAndBlank(InputDimStockroom.primaryPhone )" type="id_String"/>
         <mapperTableEntries name="FacilityCode" expression="CustomStringHandling.replaceNullAndBlank(InputDimStockroom.parent )" type="id_String"/>
-        <mapperTableEntries name="FacilityName" expression="CustomStringHandling.replaceNullAndBlank(Extract_plant_Thor.plantName )" type="id_String"/>
+        <mapperTableEntries name="FacilityName" expression="CustomStringHandling.replaceNullAndBlank(Archive_plant_Thor.plantName )" type="id_String"/>
         <mapperTableEntries name="ManufacturingFacilityRouteCode" expression="&quot;N/A&quot;" type="id_String"/>
         <mapperTableEntries name="ManufacturingFacilityRouteName" expression="&quot;N/A&quot;" type="id_String"/>
         <mapperTableEntries name="FacilityType" expression="CustomStringHandling.replaceNullAndBlank(InputDimStockroom.plantType )" type="id_String"/>
@@ -309,7 +309,7 @@
       <inputTables sizeState="INTERMEDIATE" name="MetaNow" matchingMode="ALL_ROWS" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="Now" type="id_Date"/>
       </inputTables>
-      <inputTables sizeState="INTERMEDIATE" name="Extract_plant_Thor" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
+      <inputTables sizeState="INTERMEDIATE" name="Archive_plant_Thor" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="plantID" type="id_Integer"/>
         <mapperTableEntries name="plantName" type="id_String"/>
         <mapperTableEntries name="addressLine1" type="id_String" nullable="true"/>
@@ -660,12 +660,12 @@
     <elementParameter field="TEXT" name="TYPE" value="MySQL" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
     <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Extract_plant_Thor&quot;"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Archive_plant_Thor&quot;"/>
     <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT * FROM Extract_plant_Thor&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT plantID, &#xD;&#xA;&#x9;plantName, &#xD;&#xA;&#x9;addressLine1, &#xD;&#xA;&#x9;addressLine2, &#xD;&#xA;&#x9;city, &#xD;&#xA;&#x9;state, &#xD;&#xA;&#x9;zipcode, &#xD;&#xA;&#x9;primaryPhone, &#xD;&#xA;&#x9;primaryFax, &#xD;&#xA;&#x9;plantNumber, &#xD;&#xA;&#x9;plantType, &#xD;&#xA;&#x9;parent, &#xD;&#xA;&#x9;plantCode&#xD;&#xA;FROM Archive_plant_Thor&#xD;&#xA;WHERE IsCurrent = 1&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -901,9 +901,9 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="MetaNow" show="false"/>
   </connection>
-  <connection connectorName="FLOW" label="Extract_plant_Thor" lineStyle="8" metaname="tMysqlInput_3" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_3" target="tMap_1">
+  <connection connectorName="FLOW" label="Archive_plant_Thor" lineStyle="8" metaname="tMysqlInput_3" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_3" target="tMap_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="Extract_plant_Thor" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="Archive_plant_Thor" show="false"/>
   </connection>
   <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tPrejob_1" offsetLabelX="0" offsetLabelY="0" source="tPrejob_1" target="tRunJob_1">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnComponentOk1" show="false"/>
