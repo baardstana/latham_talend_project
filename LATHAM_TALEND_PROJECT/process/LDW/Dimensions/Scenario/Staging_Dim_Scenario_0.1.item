@@ -152,12 +152,12 @@
     <elementParameter field="TEXT" name="TYPE" value="MySQL" show="false"/>
     <elementParameter field="TEXT" name="USER" value="context.parameter_LDW_DWH_Login" show="false"/>
     <elementParameter field="PASSWORD" name="PASS" value="8pW6Nmy2kuf2zP4MbD5/0os7knIXEVZEbQQasHH/NUPKchYuj/ytpg==" show="false"/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Extract_DimScenario_FlatFiles&quot;"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Archive_DimScenario_FlatFiles&quot;"/>
     <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT &#xA;  `Extract_DimScenario_FlatFiles`.`ScenarioName`, &#xA;  `Extract_DimScenario_FlatFiles`.`ScenarioYear`, &#xA;  `Extract_DimScenario_FlatFiles`.`ScenarioType`, &#xA;  `Extract_DimScenario_FlatFiles`.`NumberMonthsActual`&#xA;FROM `Extract_DimScenario_FlatFiles`&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT &#xA;  `Archive_DimScenario_FlatFiles`.`ScenarioName`, &#xA;  `Archive_DimScenario_FlatFiles`.`ScenarioYear`, &#xA;  `Archive_DimScenario_FlatFiles`.`ScenarioType`, &#xA;  `Archive_DimScenario_FlatFiles`.`NumberMonthsActual`&#xA;FROM `Archive_DimScenario_FlatFiles`&#xD;&#xA;WHERE IsCurrent = 1&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -211,7 +211,7 @@
       <additionalProperties key="Comment" value=""/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="StageDimScenario">
         <mapperTableEntries name="BK_Scenario_ScenarioName_FlatFiles" expression="InputDimScenario.ScenarioName " type="id_String"/>
@@ -250,7 +250,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT * FROM Meta_SourceSystemDimension&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT &#xA;  `Meta_SourceSystemDimension`.`SK_SourceSystem`, &#xA;  `Meta_SourceSystemDimension`.`SourceSystemName`, &#xA;  `Meta_SourceSystemDimension`.`SourceSystemShortName`&#xA;FROM `Meta_SourceSystemDimension`&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
