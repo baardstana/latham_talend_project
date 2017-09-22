@@ -290,7 +290,7 @@
       <elementValue elementRef="SCHEMA_COLUMN" value="SK_Batch"/>
       <elementValue elementRef="VALUE" value="context.SK_Batch"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="SK_Batch_Initiated"/>
-      <elementValue elementRef="VALUE" value="(int) globalMap.get(&quot;SK_Batch_Parent&quot;) == -1 ? context.SK_Batch : null"/>
+      <elementValue elementRef="VALUE" value="(int) globalMap.get(&quot;SK_Batch_Parent&quot;) == -1 ? context.SK_Batch : (Integer) globalMap.get(&quot;SK_Batch_Parent&quot;)"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="ErrorTime"/>
       <elementValue elementRef="VALUE" value="new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(TalendDate.getCurrentDate())"/>
     </elementParameter>
@@ -502,7 +502,7 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="NoChildErrors" show="false"/>
   </connection>
   <connection connectorName="RUN_IF" label="ParentWithChildErrors" lineStyle="6" metaname="tMysqlInput_3" offsetLabelX="0" offsetLabelY="0" outputId="2" source="tMysqlInput_3" target="tMysqlRow_2">
-    <elementParameter field="MEMO_JAVA" name="CONDITION" value="(Integer) globalMap.get(&quot;tMysqlInput_3_NB_LINE&quot;) > 0"/>
+    <elementParameter field="MEMO_JAVA" name="CONDITION" value="(Integer) globalMap.get(&quot;tMysqlInput_2_NB_LINE&quot;) > 0"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="ParentWithChildErrors" show="false"/>
   </connection>
   <subjob>
