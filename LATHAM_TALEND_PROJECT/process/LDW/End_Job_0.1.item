@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <talendfile:ProcessType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" defaultContext="Default" jobType="Standard">
   <context confirmationNeeded="false" name="Default">
-    <contextParameter comment="" name="SK_Batch" prompt="SK_Batch?" promptNeeded="false" type="id_Integer" value="19272"/>
+    <contextParameter comment="" name="SK_Batch" prompt="SK_Batch?" promptNeeded="false" type="id_Integer" value="19273"/>
     <contextParameter comment="" name="parameter_LDW_DWH_Port" prompt="parameter_LDW_DWH_Port?" promptNeeded="false" repositoryContextId="_x1RkkC5pEeeaXuPQxSDjCQ" type="id_String" value="3306"/>
     <contextParameter comment="" name="parameter_LDW_DWH_Database" prompt="parameter_LDW_DWH_Database?" promptNeeded="false" repositoryContextId="_x1RkkC5pEeeaXuPQxSDjCQ" type="id_String" value="LDW_dev"/>
     <contextParameter comment="" name="parameter_LDW_DWH_Password" prompt="parameter_LDW_DWH_Password?" promptNeeded="false" repositoryContextId="_x1RkkC5pEeeaXuPQxSDjCQ" type="id_Password" value="BQEu6ZHxH+23TQMgNOYhoButKOtQz8N9"/>
@@ -498,11 +498,11 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="SK_Batch_Parent" show="false"/>
   </connection>
   <connection connectorName="RUN_IF" label="NoChildErrors" lineStyle="6" metaname="tMysqlInput_3" offsetLabelX="0" offsetLabelY="0" outputId="1" source="tMysqlInput_3" target="tFixedFlowInput_1">
-    <elementParameter field="MEMO_JAVA" name="CONDITION" value="(Integer) globalMap.get(&quot;tMysqlInput_2_NB_LINE&quot;) == 0"/>
+    <elementParameter field="MEMO_JAVA" name="CONDITION" value="(Integer) globalMap.get(&quot;tMysqlInput_3_NB_LINE&quot;) == 0"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="NoChildErrors" show="false"/>
   </connection>
   <connection connectorName="RUN_IF" label="ParentWithChildErrors" lineStyle="6" metaname="tMysqlInput_3" offsetLabelX="0" offsetLabelY="0" outputId="2" source="tMysqlInput_3" target="tMysqlRow_2">
-    <elementParameter field="MEMO_JAVA" name="CONDITION" value="(Integer) globalMap.get(&quot;tMysqlInput_2_NB_LINE&quot;) > 0"/>
+    <elementParameter field="MEMO_JAVA" name="CONDITION" value="(Integer) globalMap.get(&quot;tMysqlInput_3_NB_LINE&quot;) > 0"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="ParentWithChildErrors" show="false"/>
   </connection>
   <subjob>
