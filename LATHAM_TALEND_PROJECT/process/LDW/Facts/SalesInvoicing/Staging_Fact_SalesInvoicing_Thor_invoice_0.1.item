@@ -298,12 +298,12 @@
     <elementParameter field="TEXT" name="TYPE" value="MySQL" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
     <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Extract_invoice_Thor&quot;"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Archive_invoice_Thor&quot;"/>
     <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT invoiceID&#xD;&#xA;&#x9;, dealerID&#xD;&#xA;&#x9;, plantCode&#xD;&#xA;&#x9;, shippingZipCode&#xD;&#xA;&#x9;, shippingCountry&#xD;&#xA;&#x9;, creditReasonID&#xD;&#xA;&#x9;, invoiceType&#xD;&#xA;&#x9;, modifiedOn&#xD;&#xA;&#x9;, orderNumber&#xD;&#xA;&#x9;, invoiceNumber&#xD;&#xA;&#x9;, serialNumber&#xD;&#xA;&#x9;, parentInvoiceNumber&#xD;&#xA;&#x9;, shippingSubTotal&#xD;&#xA;&#x9;, taxSubTotal&#xD;&#xA;&#x9;, fuelSurcharge&#xD;&#xA;FROM Extract_invoice_Thor&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT invoiceID&#xD;&#xA;&#x9;, dealerID&#xD;&#xA;&#x9;, plantCode&#xD;&#xA;&#x9;, shippingZipCode&#xD;&#xA;&#x9;, shippingCountry&#xD;&#xA;&#x9;, creditReasonID&#xD;&#xA;&#x9;, invoiceType&#xD;&#xA;&#x9;, modifiedOn&#xD;&#xA;&#x9;, orderNumber&#xD;&#xA;&#x9;, invoiceNumber&#xD;&#xA;&#x9;, serialNumber&#xD;&#xA;&#x9;, parentInvoiceNumber&#xD;&#xA;&#x9;, shippingSubTotal&#xD;&#xA;&#x9;, taxSubTotal&#xD;&#xA;&#x9;, fuelSurcharge&#xD;&#xA;FROM Archive_invoice_Thor&#xD;&#xA;WHERE IsCurrent = 1&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -415,7 +415,7 @@
       <column comment="" key="false" length="18" name="fuelSurcharge" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="18" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="renamedInvoice">
         <mapperTableEntries name="invoiceID" expression="invoice.invoiceID " type="id_Integer"/>
@@ -774,12 +774,12 @@
     <elementParameter field="TEXT" name="TYPE" value="MySQL" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
     <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Extract_shell_Thor&quot;"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Archive_shell_Thor&quot;"/>
     <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT serialNumber&#xD;&#xA;&#x9;, prodPlantCode&#xD;&#xA;&#x9;, productionEndDate&#xD;&#xA;&#x9;, productionBeginDate&#xD;&#xA;FROM Extract_shell_Thor&#xD;&#xA;WHERE serialNumber IS NOT NULL&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT serialNumber&#xD;&#xA;&#x9;, prodPlantCode&#xD;&#xA;&#x9;, productionEndDate&#xD;&#xA;&#x9;, productionBeginDate&#xD;&#xA;FROM Archive_shell_Thor&#xD;&#xA;WHERE serialNumber IS NOT NULL&#xD;&#xA;&#x9;AND IsCurrent = 1&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
