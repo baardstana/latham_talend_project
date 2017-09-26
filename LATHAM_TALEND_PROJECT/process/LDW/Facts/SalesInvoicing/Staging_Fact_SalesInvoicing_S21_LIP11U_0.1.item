@@ -303,7 +303,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT OEP70.CONO70&#xD;&#xA;&#x9;, OEP70.INVN70&#xD;&#xA;&#x9;, OEP70.ORDL70&#xD;&#xA;&#x9;, LIP11U.MKB111&#xD;&#xA;&#x9;, OEP70.ORDN70&#x9;&#xD;&#xA;&#x9;, LIP11U.DISA11&#xD;&#xA;&#x9;, LIP11U.LSTP11&#xD;&#xA;&#x9;, LIP11U.QTOR11&#xD;&#xA;FROM Extract_OEP70_S21 AS OEP70&#xD;&#xA;LEFT JOIN Extract_LIP11U_S21 AS LIP11U&#xD;&#xA;&#x9;ON OEP70.CONO70 = LIP11U.CONO11&#xD;&#xA;&#x9;AND OEP70.ORDN70 = LIP11U.ORDN11&#xD;&#xA;&#x9;AND OEP70.ORDL70 = LIP11U.ORDL11&#xD;&#xA;&#x9;AND OEP70.CATN70 = LIP11U.CATN11&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_S21_InvoiceRowList AS I&#xD;&#xA;&#x9;ON OEP70.CONO70 = I.CONO70&#xD;&#xA;&#x9;AND OEP70.INVN70 = I.INVN70&#xD;&#xA;    AND OEP70.ORDL70 = I.ORDL70&#xD;&#xA;WHERE OEP70.ORDN70 &lt;> ''&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT OEP70.CONO70&#xD;&#xA;&#x9;, OEP70.INVN70&#xD;&#xA;&#x9;, OEP70.ORDL70&#xD;&#xA;&#x9;, LIP11U.MKB111&#xD;&#xA;&#x9;, OEP70.ORDN70&#x9;&#xD;&#xA;&#x9;, LIP11U.DISA11&#xD;&#xA;&#x9;, LIP11U.LSTP11&#xD;&#xA;&#x9;, LIP11U.QTOR11&#xD;&#xA;FROM Archive_OEP70_S21 AS OEP70&#xD;&#xA;LEFT JOIN Archive_LIP11U_S21 AS LIP11U&#xD;&#xA;&#x9;ON OEP70.CONO70 = LIP11U.CONO11&#xD;&#xA;&#x9;AND OEP70.ORDN70 = LIP11U.ORDN11&#xD;&#xA;&#x9;AND OEP70.ORDL70 = LIP11U.ORDL11&#xD;&#xA;&#x9;AND OEP70.CATN70 = LIP11U.CATN11&#xD;&#xA;&#x9;AND LIP11U.IsCurrent = 1&#xD;&#xA;INNER JOIN Staging_Fact_SalesInvoicing_S21_InvoiceRowList AS I&#xD;&#xA;&#x9;ON OEP70.CONO70 = I.CONO70&#xD;&#xA;&#x9;AND OEP70.INVN70 = I.INVN70&#xD;&#xA;    AND OEP70.ORDL70 = I.ORDL70&#xD;&#xA;WHERE OEP70.ORDN70 &lt;> ''&#xD;&#xA;&#x9;AND OEP70.IsCurrent = 1&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -360,7 +360,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT COMPANYNUMBER&#xD;&#xA;&#x9;, SALESORDERNUMBER&#xD;&#xA;&#x9;, TAGNAME&#xD;&#xA;FROM Extract_TORDERS_S21&#xD;&#xA;WHERE SALESORDERNUMBER &lt;> '';&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT COMPANYNUMBER&#xD;&#xA;&#x9;, SALESORDERNUMBER&#xD;&#xA;&#x9;, TAGNAME&#xD;&#xA;FROM Archive_TORDERS_S21&#xD;&#xA;WHERE SALESORDERNUMBER &lt;> ''&#xD;&#xA;&#x9;AND IsCurrent = 1&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
