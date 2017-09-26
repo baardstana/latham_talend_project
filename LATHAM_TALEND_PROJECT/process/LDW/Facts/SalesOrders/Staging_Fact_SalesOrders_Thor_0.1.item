@@ -296,12 +296,12 @@
     <elementParameter field="TEXT" name="TYPE" value="MySQL" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
     <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Extract_productorder_Thor&quot;"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Archive_productorder_Thor&quot;"/>
     <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT productOrderID&#xD;&#xA;&#x9;,shellID&#xD;&#xA;&#x9;,dealerID&#xD;&#xA;&#x9;,dealerOfficeID&#xD;&#xA;&#x9;,plantCode&#xD;&#xA;&#x9;,orderStatus&#xD;&#xA;&#x9;,orderDate&#xD;&#xA;&#x9;,createdOn&#xD;&#xA;&#x9;,vikingShipDate&#xD;&#xA;&#x9;,estproductionDate&#xD;&#xA;&#x9;,dateShipped&#xD;&#xA;&#x9;,orderNumber&#xD;&#xA;&#x9;,purchaseOrder&#xD;&#xA;FROM Extract_productorder_Thor&#xD;&#xA;WHERE orderTarget &lt;> 'INVENTORY'&#xD;&#xA;&#x9;AND orderDate >= '2016-01-01';&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT productOrderID&#xD;&#xA;&#x9;,shellID&#xD;&#xA;&#x9;,dealerID&#xD;&#xA;&#x9;,dealerOfficeID&#xD;&#xA;&#x9;,plantCode&#xD;&#xA;&#x9;,orderStatus&#xD;&#xA;&#x9;,orderDate&#xD;&#xA;&#x9;,createdOn&#xD;&#xA;&#x9;,vikingShipDate&#xD;&#xA;&#x9;,estproductionDate&#xD;&#xA;&#x9;,dateShipped&#xD;&#xA;&#x9;,orderNumber&#xD;&#xA;&#x9;,purchaseOrder&#xD;&#xA;FROM Archive_productorder_Thor&#xD;&#xA;WHERE orderTarget &lt;> 'INVENTORY'&#xD;&#xA;&#x9;AND orderDate >= '2016-01-01'&#xD;&#xA;&#x9;AND IsCurrent = 1&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -476,12 +476,12 @@
     <elementParameter field="TEXT" name="TYPE" value="MySQL" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
     <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Extract_shell_Thor&quot;"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Archive_shell_Thor&quot;"/>
     <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT *&#xD;&#xA;FROM Extract_shell_Thor;&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT &#xD;&#xA;  `Archive_shell_Thor`.`shellID`, &#xD;&#xA;  `Archive_shell_Thor`.`serialNumber`, &#xD;&#xA;  `Archive_shell_Thor`.`recordStatus`, &#xD;&#xA;  `Archive_shell_Thor`.`createdOn`, &#xD;&#xA;  `Archive_shell_Thor`.`createdBy`, &#xD;&#xA;  `Archive_shell_Thor`.`modifiedBy`, &#xD;&#xA;  `Archive_shell_Thor`.`modifiedOn`, &#xD;&#xA;  `Archive_shell_Thor`.`invPlantCode`, &#xD;&#xA;  `Archive_shell_Thor`.`prodPlantCode`, &#xD;&#xA;  `Archive_shell_Thor`.`modelID`, &#xD;&#xA;  `Archive_shell_Thor`.`poolColor`, &#xD;&#xA;  `Archive_shell_Thor`.`poolColorAttributeID`, &#xD;&#xA;  `Archive_shell_Thor`.`shellCondition`, &#xD;&#xA;  `Archive_shell_Thor`.`shellConditionCause`, &#xD;&#xA;  `Archive_shell_Thor`.`inventoryStatus`, &#xD;&#xA;  `Archive_shell_Thor`.`productionStatus`, &#xD;&#xA;  `Archive_shell_Thor`.`productOrderID`, &#xD;&#xA;  `Archive_shell_Thor`.`qaStatus`, &#xD;&#xA;  `Archive_shell_Thor`.`destination`, &#xD;&#xA;  `Archive_shell_Thor`.`shellConditionReason`, &#xD;&#xA;  `Archive_shell_Thor`.`productionBeginDate`, &#xD;&#xA;  `Archive_shell_Thor`.`productionEndDate`, &#xD;&#xA;  `Archive_shell_Thor`.`hc`, &#xD;&#xA;  `Archive_shell_Thor`.`outfittingStatus`, &#xD;&#xA;  `Archive_shell_Thor`.`poolValue`&#xD;&#xA;FROM `Archive_shell_Thor`&#xD;&#xA;WHERE IsCurrent = 1&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -691,12 +691,12 @@
     <elementParameter field="TEXT" name="TYPE" value="MySQL" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
     <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Extract_orderAddress_Thor&quot;"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Archive_orderAddress_Thor&quot;"/>
     <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT *&#xD;&#xA;FROM Extract_orderAddress_Thor&#xD;&#xA;WHERE addressType = 'Shipping';&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT &#xD;&#xA;  `Archive_orderAddress_Thor`.`orderAddressID`, &#xD;&#xA;  `Archive_orderAddress_Thor`.`productOrderID`, &#xD;&#xA;  `Archive_orderAddress_Thor`.`dealerAddressID`, &#xD;&#xA;  `Archive_orderAddress_Thor`.`addressLine1`, &#xD;&#xA;  `Archive_orderAddress_Thor`.`addressLine2`, &#xD;&#xA;  `Archive_orderAddress_Thor`.`city`, &#xD;&#xA;  `Archive_orderAddress_Thor`.`state`, &#xD;&#xA;  `Archive_orderAddress_Thor`.`zipcode`, &#xD;&#xA;  `Archive_orderAddress_Thor`.`provinceTerritory`, &#xD;&#xA;  `Archive_orderAddress_Thor`.`country`, &#xD;&#xA;  `Archive_orderAddress_Thor`.`addressType`&#xD;&#xA;FROM `Archive_orderAddress_Thor`&#xD;&#xA;WHERE addressType = 'Shipping'&#xD;&#xA;&#x9;AND IsCurrent = 1&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -972,12 +972,12 @@
     <elementParameter field="TEXT" name="TYPE" value="MySQL" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
     <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Extract_orderitem_Thor&quot;"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Archive_orderitem_Thor&quot;"/>
     <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT po.orderNumber&#xD;&#xA;&#x9;,oi.orderItemID&#xD;&#xA;&#x9;,oi.salesCode&#xD;&#xA;&#x9;,oi.qty&#xD;&#xA;&#x9;,oi.itemSubTotal&#xD;&#xA;&#x9;,oi.pricePerUnit&#xD;&#xA;&#x9;,oi.discountAmount&#xD;&#xA;&#x9;,po.orderStatus&#xD;&#xA;FROM Extract_productorder_Thor AS po&#xD;&#xA;INNER JOIN Extract_orderitem_Thor AS oi&#xD;&#xA;&#x9;ON po.productOrderID = oi.productOrderID&#xD;&#xA;WHERE po.orderTarget &lt;> 'INVENTORY';&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT po.orderNumber&#xD;&#xA;&#x9;,oi.orderItemID&#xD;&#xA;&#x9;,oi.salesCode&#xD;&#xA;&#x9;,oi.qty&#xD;&#xA;&#x9;,oi.itemSubTotal&#xD;&#xA;&#x9;,oi.pricePerUnit&#xD;&#xA;&#x9;,oi.discountAmount&#xD;&#xA;&#x9;,po.orderStatus&#xD;&#xA;FROM Archive_productorder_Thor AS po&#xD;&#xA;INNER JOIN Archive_orderitem_Thor AS oi&#xD;&#xA;&#x9;ON po.productOrderID = oi.productOrderID&#xD;&#xA;&#x9;AND oi.IsCurrent = 1&#xD;&#xA;WHERE po.orderTarget &lt;> 'INVENTORY'&#xD;&#xA;&#x9;AND po.IsCurrent = 1&#xD;&#xA;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -1102,12 +1102,12 @@
     <elementParameter field="TEXT" name="TYPE" value="MySQL" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
     <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Extract_product_Thor&quot;"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;Archive_product_Thor&quot;"/>
     <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#xD;&#xA;SELECT *&#xD;&#xA;FROM Extract_product_Thor;&#xD;&#xA;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT &#xD;&#xA;  `Archive_product_Thor`.`productID`, &#xD;&#xA;  `Archive_product_Thor`.`productName`, &#xD;&#xA;  `Archive_product_Thor`.`isKit`, &#xD;&#xA;  `Archive_product_Thor`.`kitid`, &#xD;&#xA;  `Archive_product_Thor`.`categoryID`, &#xD;&#xA;  `Archive_product_Thor`.`modelID`, &#xD;&#xA;  `Archive_product_Thor`.`brandID`, &#xD;&#xA;  `Archive_product_Thor`.`salesCode`, &#xD;&#xA;  `Archive_product_Thor`.`vendorCode`&#xD;&#xA;FROM `Archive_product_Thor`&#xD;&#xA;WHERE IsCurrent = 1&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -1799,7 +1799,7 @@
       <column comment="" defaultValue="" key="false" length="18" name="OrderLineExtendedDiscountValueTransactionCurrency" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="WithCompany">
         <mapperTableEntries name="SK_Company" expression="CustomStringHandling.dimensionKeyHandling(Company.SK_Company) " type="id_Integer"/>
@@ -1984,7 +1984,7 @@
       <column comment="" key="false" length="11" name="SK_Currency_Transaction" nullable="false" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="11" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="WithCurrency">
         <mapperTableEntries name="SK_Company" expression="WithCompany.SK_Company " type="id_Integer"/>
@@ -2170,7 +2170,7 @@
       <column comment="" key="false" length="11" name="SK_Currency_Transaction" nullable="false" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="11" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="WithCustomer">
         <mapperTableEntries name="SK_Company" expression="WithCurrency.SK_Company " type="id_Integer"/>
@@ -2361,7 +2361,7 @@
       <column comment="" key="false" length="11" name="SK_Currency_Transaction" nullable="false" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="11" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="WithGeography">
         <mapperTableEntries name="SK_Company" expression="WithCustomer.SK_Company " type="id_Integer"/>
@@ -2551,7 +2551,7 @@
       <column comment="" key="false" length="11" name="SK_Currency_Transaction" nullable="false" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="11" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="WithProduct">
         <mapperTableEntries name="SK_Company" expression="WithGeography.SK_Company " type="id_Integer"/>
@@ -2743,7 +2743,7 @@
       <column comment="" key="false" length="11" name="SK_Currency_Transaction" nullable="false" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="11" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="WithStockroom">
         <mapperTableEntries name="SK_Company" expression="WithProduct.SK_Company " type="id_Integer"/>
@@ -2927,7 +2927,7 @@
       <column comment="" key="false" length="11" name="SK_Currency_Transaction" nullable="false" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="11" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="WithSalesOrderDetail">
         <mapperTableEntries name="SK_Company" expression="WithStockroom.SK_Company " type="id_Integer"/>
