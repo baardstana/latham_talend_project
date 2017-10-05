@@ -619,6 +619,8 @@
     <metadata connector="FLOW" name="tRunJob_1">
       <column comment="" key="false" length="-1" name="SK_Batch" nullable="false" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="tableName" nullable="false" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="IncrementalStartDate" nullable="false" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;" precision="-1" sourceType="" type="id_Date" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="IncrementalStartKey" nullable="false" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tSetGlobalVar" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="416" posY="64">
@@ -630,12 +632,18 @@
       <elementValue elementRef="VALUE" value="BatchId.tableName"/>
       <elementValue elementRef="KEY" value="&quot;loadOutcome&quot;"/>
       <elementValue elementRef="VALUE" value="&quot;Failed&quot;"/>
+      <elementValue elementRef="KEY" value="&quot;IncrementalStartDate&quot;"/>
+      <elementValue elementRef="VALUE" value="BatchId.IncrementalStartDate"/>
+      <elementValue elementRef="KEY" value="&quot;IncrementalStartKey&quot;"/>
+      <elementValue elementRef="VALUE" value="BatchId.IncrementalStartKey"/>
     </elementParameter>
     <elementParameter field="TEXT" name="LABEL" value="AddBatchIdToVariables"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tSetGlobalVar_1">
       <column comment="" key="false" length="-1" name="SK_Batch" nullable="false" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="tableName" nullable="false" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="IncrementalStartDate" nullable="false" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;" precision="-1" sourceType="" type="id_Date" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="IncrementalStartKey" nullable="false" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tRunJob" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="288" posY="448">
