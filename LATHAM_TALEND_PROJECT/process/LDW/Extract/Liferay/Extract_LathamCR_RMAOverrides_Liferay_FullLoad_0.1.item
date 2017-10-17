@@ -265,6 +265,7 @@
   </node>
   <node componentName="tMysqlRow" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="256" posY="320">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlRow_1" show="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5" show="false"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
     <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tMysqlConnection_1"/>
@@ -301,6 +302,7 @@
   </node>
   <node componentName="tSetGlobalVar" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="448" posY="320">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tSetGlobalVar_2" show="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="TABLE" name="VARIABLES">
       <elementValue elementRef="KEY" value="&quot;loadOutcome&quot;"/>
       <elementValue elementRef="VALUE" value="&quot;Succeeded&quot;"/>
@@ -324,12 +326,12 @@
     <elementParameter field="TEXT" name="TYPE" value="MYSQL" show="false"/>
     <elementParameter field="TEXT" name="USER" value="context.Rackspace_Slave_Login"/>
     <elementParameter field="PASSWORD" name="PASS" value="8pW6Nmy2kucfrE+Kizjf+yqjR2cimA9wjTZHahA1W6ShnezJSKcU6A=="/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;LathamCR_RMALines&quot;"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;LathamCR_RMAOverrides&quot;"/>
     <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT &#xA;  `LathamCR_RMALines`.`requestId`, &#xA;  `LathamCR_RMALines`.`lineNumber`, &#xA;  `LathamCR_RMALines`.`originalOrderNumber`, &#xA;  `LathamCR_RMALines`.`originalOrderInvoice`, &#xA;  `LathamCR_RMALines`.`partNumber`, &#xA;  `LathamCR_RMALines`.`quantity`, &#xA;  `LathamCR_RMALines`.`serialNumber`, &#xA;  `LathamCR_RMALines`.`productType`, &#xA;  `LathamCR_RMALines`.`unitPrice`&#xA;FROM `LathamCR_RMALines`&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT &#xA;  `LathamCR_RMAOverrides`.`requestId`, &#xA;  `LathamCR_RMAOverrides`.`DefectCode`, &#xA;  `LathamCR_RMAOverrides`.`AreaAtFault`, &#xA;  `LathamCR_RMAOverrides`.`Shift`, &#xA;  `LathamCR_RMAOverrides`.`Machine`, &#xA;  `LathamCR_RMAOverrides`.`Operator`, &#xA;  `LathamCR_RMAOverrides`.`InspectorLeft`, &#xA;  `LathamCR_RMAOverrides`.`InspectorRight`, &#xA;  `LathamCR_RMAOverrides`.`InspectionResult`&#xA;FROM `LathamCR_RMAOverrides`&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -342,35 +344,35 @@
     <elementParameter field="TABLE" name="TRIM_COLUMN">
       <elementValue elementRef="SCHEMA_COLUMN" value="requestId"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="lineNumber"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="DefectCode"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="originalOrderNumber"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="AreaAtFault"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="originalOrderInvoice"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Shift"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="partNumber"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Machine"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="quantity"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Operator"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="serialNumber"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="InspectorLeft"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="productType"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="InspectorRight"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="unitPrice"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="InspectionResult"/>
       <elementValue elementRef="TRIM" value="false"/>
     </elementParameter>
     <elementParameter field="TEXT" name="LABEL" value="ReadDataFromSource"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tMysqlInput_1">
       <column comment="" key="true" length="75" name="requestId" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="true" length="11" name="lineNumber" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="75" name="originalOrderNumber" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="75" name="originalOrderInvoice" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="75" name="partNumber" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="75" name="quantity" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="75" name="serialNumber" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="75" name="productType" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="22" name="unitPrice" nullable="true" pattern="" precision="8" sourceType="DOUBLE" type="id_Double" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="75" name="DefectCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="75" name="AreaAtFault" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="75" name="Shift" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="75" name="Machine" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="75" name="Operator" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="75" name="InspectorLeft" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="75" name="InspectorRight" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="715827882" name="InspectionResult" nullable="true" pattern="" precision="0" sourceType="TEXT" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="320" posY="192">
@@ -411,42 +413,42 @@
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="lineNumber"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="DefectCode"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="originalOrderNumber"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="AreaAtFault"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="originalOrderInvoice"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Shift"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="partNumber"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Machine"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="quantity"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Operator"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="serialNumber"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="InspectorLeft"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="productType"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="InspectorRight"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="unitPrice"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="InspectionResult"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
@@ -462,25 +464,25 @@
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tMysqlOutput_1">
       <column comment="" key="true" length="75" name="requestId" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="true" length="11" name="lineNumber" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="75" name="originalOrderNumber" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="75" name="originalOrderInvoice" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="75" name="partNumber" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="75" name="quantity" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="75" name="serialNumber" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="75" name="productType" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="22" name="unitPrice" nullable="true" pattern="" precision="8" sourceType="DOUBLE" type="id_Double" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="75" name="DefectCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="75" name="AreaAtFault" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="75" name="Shift" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="75" name="Machine" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="75" name="Operator" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="75" name="InspectorLeft" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="75" name="InspectorRight" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="715827882" name="InspectionResult" nullable="true" pattern="" precision="0" sourceType="TEXT" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <metadata connector="REJECT" name="REJECT">
       <column comment="" key="true" length="75" name="requestId" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="true" length="11" name="lineNumber" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="75" name="originalOrderNumber" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="75" name="originalOrderInvoice" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="75" name="partNumber" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="75" name="quantity" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="75" name="serialNumber" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="75" name="productType" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="22" name="unitPrice" nullable="true" pattern="" precision="8" sourceType="DOUBLE" type="id_Double" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="75" name="DefectCode" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="75" name="AreaAtFault" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="75" name="Shift" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="75" name="Machine" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="75" name="Operator" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="75" name="InspectorLeft" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="75" name="InspectorRight" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="715827882" name="InspectionResult" nullable="true" pattern="" precision="0" sourceType="TEXT" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
@@ -499,6 +501,7 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnComponentOk3" show="false"/>
   </connection>
   <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlRow_1" offsetLabelX="0" offsetLabelY="0" source="tMysqlRow_1" target="tSetGlobalVar_2">
+    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk1" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="SourceData" lineStyle="0" metaname="tMysqlInput_1" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_1" target="tMysqlOutput_1">
@@ -506,6 +509,7 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="SourceData" show="false"/>
   </connection>
   <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tMysqlInput_1" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_1" target="tMysqlRow_1">
+    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk2" show="false"/>
   </connection>
   <subjob>
